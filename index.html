@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Alpaca Test</title>
+		<meta charset="utf-8" />
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+	<body>
+		<script>
+			$(function) {
+				console.log(document.cookie);
+				document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+				console.log(document.cookie);
+			}
+		</script>
+	</body>
+</html>
