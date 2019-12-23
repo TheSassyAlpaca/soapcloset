@@ -5,7 +5,7 @@ function updateCookie(c,a,v,l) {
 	//console.log(getCookieValue(c));
 	//expiry=new Date()+l;
 	
-	document.cookie = c+"="+getCookieValue(c,a,v)+" expires="+new Date(new Date().getTime()+l)+"; path=/; Domain=thesassyalpaca.com";
+	document.cookie = c+"="+getCookieValue(c,a,v)+"; expires="+new Date(new Date().getTime()+l)+"; path=/; Domain=thesassyalpaca.com";
 }
 
 function getCookieValue(c,a,v) {
