@@ -39,6 +39,7 @@ function getCookieValue(c,a,v) {
 				}
 				if(a=="Subtract") {
 					newSet=item+"+"+(Number(vSet[1])-qty);
+					console.log("I am subtracting "+qty+" from "+vSet[1]+".");
 				}
 				if(a=="Remove"||a=="Delete") {
 					newSet='';
@@ -46,7 +47,7 @@ function getCookieValue(c,a,v) {
 				vList.splice(index,1);
 			}
 		}
-		if(index==''&&a=="Add") {
+		if(index==''&&(a=="Add"||a=="Replace") {
 			//if there is no matching item in value...
 			newSet=item+"+"+qty;
 		}
