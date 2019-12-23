@@ -16,7 +16,7 @@ function getCookieValue(c,a,v) {
 	value='';
 	newSet='';
 	newValue='';
-	index='';
+	index='x';
 	item=v.substring(0,v.indexOf("+"));
 	qty=Number(v.substring(v.indexOf("+"),v.length));
 	for(i=0;i<cList.length;i++) {
@@ -48,7 +48,7 @@ function getCookieValue(c,a,v) {
 				vList.splice(index,1);
 			}
 		}
-		if(index==''&&(a=="Add"||a=="Replace")) {
+		if(index=='x'&&(a=="Add"||a=="Replace")) {
 			//if there is no matching item in value...
 			newSet=item+"+"+qty;
 		}
