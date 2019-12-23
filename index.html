@@ -8,11 +8,12 @@
 	</head>
 	<body>
 		<script>
-			$(function) {
+			$(function() {
 				console.log(document.cookie);
-				document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
-				console.log(document.cookie);
-			}
+				document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/; SameSite=none; Secure";
+				x=document.cookie;
+				console.log(x);
+			})
 		</script>
 	</body>
 </html>
