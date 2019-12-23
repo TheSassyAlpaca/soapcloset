@@ -28,10 +28,9 @@
 				console.log(cList);
 				cPair='';
 				value='';
-				for(i=0;cList.length;i++) {
+				for(i=0;i<cList.length;i++) {
 					console.log(cList[i]);
-					thisPair=cList[i];
-					if(thisPair.substring(0,c.length-1)==c) {
+					if(cList[i].substring(0,c.length)==c) {
 						console.log("Found "+cList[i]);
 						cPair=cList[i].split("=");
 						value=cList[1];
