@@ -13,7 +13,29 @@
 				document.cookie = "products=soapXCD|lotionRDe; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/; Domain=thesassyalpaca.com";
 				x=document.cookie;
 				console.log(x);
+				updateCookie("products");
 			})
+			
+			//c=COOKIE NAME
+			function updateCookie(c) {
+				//document.cookie=c+"="+getCookieValue(c)+"";
+				console.log(getCookieValue(c);
+			}
+			getCookieValue(c) {
+				//get value from specific function based on 'c'
+				cList=document.cookie.split("; ");
+				cPair;
+				value;
+				for(i=0;cList.length;i++) {
+					if(cList[i].substring(c)==0) {
+						console.log("Found "+cList[i]);
+						cPair=cList[i].split("=");
+						value=cList[1];
+					}
+				}
+				//for(i=0;window[c+'List')
+				return value
+			}
 		</script>
 	</body>
 </html>
