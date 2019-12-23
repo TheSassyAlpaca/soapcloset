@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<script>
-			cookieMonster=["products|Add|lotion+2","products|Subtract|lotion+1","products|Replace|lotion+10","products|Add|soap+1"];
+			cookieMonster=["products|Add|lotion+2|84000000","products|Subtract|lotion+1|84000000","products|Replace|lotion+10|84000000","products|Add|soap+1|84000000"];
 			cookieIndexer=0;
 			
 			$(function() {
@@ -28,7 +28,7 @@
 						console.log(document.cookie);
 						console.log(cookieMonster[cookieIndexer]);
 						cookieCrumbles=cookieMonster[cookieIndexer].split("|");
-						updateCookie(cookieCrumbles[0],cookieCrumbles[1],cookieCrumbles[2]);
+						updateCookie(cookieCrumbles[0],cookieCrumbles[1],cookieCrumbles[2],cookieCrumbles[3]);
 						cookieIndexer++;
 						runCookieTest(x)
 					}, 3000);
