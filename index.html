@@ -8,12 +8,42 @@
 	</head>
 	<body>
 		<script>
+			function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/; SameSite=none; Secure";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+function eraseCookie(name) {   
+    document.cookie = name+'=; Max-Age=-99999999;';  
+}
+
+setCookie('ppkcookie','testcookie',7);
+
+var x = getCookie('ppkcookie');
+if (x) {
+    console.log(x);
+}
+/*
 			$(function() {
 				console.log(document.cookie);
 				document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/; SameSite=none; Secure";
 				x=document.cookie;
 				console.log(x);
-			})
+			})*/
 		</script>
 	</body>
 </html>
