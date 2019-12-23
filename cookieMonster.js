@@ -47,7 +47,7 @@ function getCookieValue(c,a,v) {
 				vList.splice(index,1);
 			}
 		}
-		if(index==''&&(a=="Add"||a=="Replace") {
+		if(index==''&&(a=="Add"||a=="Replace")) {
 			//if there is no matching item in value...
 			newSet=item+"+"+qty;
 		}
