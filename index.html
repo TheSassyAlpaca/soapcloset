@@ -25,8 +25,8 @@
 			function getCookieValue(c) {
 				//get value from specific function based on 'c'
 				cList=document.cookie.split("; ");
-				cPair;
-				value;
+				cPair='';
+				value='';
 				for(i=0;cList.length;i++) {
 					if(cList[i].substring(c)==0) {
 						console.log("Found "+cList[i]);
