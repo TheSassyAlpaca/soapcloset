@@ -16,7 +16,7 @@
         expires = "; expires=" + date.toUTCString();
     }
 	console.log("Trying");
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/; SameSite=none; Secure";
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/;";
 }
 function getCookie(name) {
     var nameEQ = name + "=";
