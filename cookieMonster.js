@@ -36,6 +36,7 @@ function getCookieValue(c,a,v) {
 				}
 				if(a=="Add") {
 					newSet=item+"+"+(Number(vSet[1])+qty);
+					console.log("I am adding "+qty+" to "+vSet[1]+".");
 				}
 				if(a=="Subtract") {
 					newSet=item+"+"+(Number(vSet[1])-qty);
