@@ -30,13 +30,13 @@ function getCookieValue(c,a,v) {
 			if(vSet[0]==item) {
 				index=i;
 				if(a=="Replace") {
-					newSet=item+"+"+vSet[1];
+					newSet=item+"+"+qty;
 				}
 				if(a=="Add") {
-					newSet=item+"+"+(qty+Number(vSet[1]));
+					newSet=item+"+"+(Number(vSet[1])+qty);
 				}
 				if(a=="Subtract") {
-					newSet=item+"+"+(qty-Number(vSet[1]));
+					newSet=item+"+"+(Number(vSet[1])-qty);
 				}
 				if(a=="Remove"||a=="Delete") {
 					newSet='';
