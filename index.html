@@ -17,11 +17,12 @@
 			})
 			
 			//c=COOKIE NAME
+			//determine how to add or remove or replace cookie value
 			function updateCookie(c) {
 				//document.cookie=c+"="+getCookieValue(c)+"";
 				console.log(getCookieValue(c));
 			}
-			getCookieValue(c) {
+			function getCookieValue(c) {
 				//get value from specific function based on 'c'
 				cList=document.cookie.split("; ");
 				cPair;
