@@ -34,9 +34,9 @@
 						console.log(cookieMonster[cookieIndexer]);
 						cookieCrumbles=cookieMonster[cookieIndexer].split("|");
 						updateCookie(cookieCrumbles[0],cookieCrumbles[1],cookieCrumbles[2]);
+						cookieIndexer++;
+						runCookieTest(x)
 					}, 10000);
-					cookieIndexer++;
-					runCookieTest(x)
 				}
 			}
 			//c=COOKIE NAME
