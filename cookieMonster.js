@@ -6,6 +6,8 @@ function updateCookie(c,a,v,l) {
 	//expiry=new Date()+l;
 	
 	document.cookie = c+"="+getCookieValue(c,a,v)+"; expires="+new Date(new Date().getTime()+l)+"; path=/; Domain=thesassyalpaca.com";
+	
+	console.log(document.cookie);
 }
 
 function getCookieValue(c,a,v) {
@@ -48,15 +50,10 @@ function getCookieValue(c,a,v) {
 			//if there is no matching item in value...
 			newSet=item+"+"+qty;
 		}
-		vList.push(newSet)
+		if(a!="Remove"||a!="Delete") {
+			vList.push(newSet);
+		}
 		newValue=vList.join("|");
 	}
-	/* else {
-		if(a=="Add") {
-			newValue=item+"+"+qty+"|";//THIS IS ALL WRONG!!!
-		}
-	}*/
-	
-	
 	return newValue
 }
