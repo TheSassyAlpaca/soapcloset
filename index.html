@@ -57,15 +57,10 @@
 				fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
 			
-			
-			FB.getLoginStatus(function(response) {
-				statusChangeCallback(response);
-				console.log(response);
-			});
-			
 			function checkLoginState() {
 				FB.getLoginStatus(function(response) {
 					statusChangeCallback(response);
+					console.log(response);
 				});
 			}
 		</script>
