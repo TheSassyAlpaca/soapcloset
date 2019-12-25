@@ -28,7 +28,7 @@
 		<meta content='website' property='og:url'/>
 		<meta content='Hand-made soaps with all-natural, certified organic, locally sourced ingredients with a touch of folk medicine.' property='og:description'/>
 		<meta content='https://soapcloset.thesassyalpaca.com/images/alpaca%20bisque.png' property='og:image'/>
-		<meta content='2042085629206751' property='fb:app_id'/>
+		<meta content='584847252330296' property='fb:app_id'/>
 		<meta name='twitter:card' content='summary_large_image' />
 		<meta name='twitter:site' content='@SassyAlpaca1' />
 		<meta name='twitter:creator' content='@SassyAlpaca1' />
@@ -38,6 +38,42 @@
 		<meta name='twitter:image:alt' content='Bathing bisque-colored alpaca.' />
 	</head>
 	<body>
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId      : '584847252330296',
+					cookie     : true,
+					xfbml      : true,
+					version    : 'v5.0'
+				});
+				FB.AppEvents.logPageView();   
+			};
+
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "https://connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+			
+			
+			FB.getLoginStatus(function(response) {
+				statusChangeCallback(response);
+				console.log(response);
+			});
+			
+			function checkLoginState() {
+				FB.getLoginStatus(function(response) {
+					statusChangeCallback(response);
+				});
+			}
+		</script>
+		<fb:login-button 
+			scope="public_profile,email"
+			onlogin="checkLoginState();">
+		</fb:login-button>
+
 		<script>
 			cookieMonster=["products|Add|lotion+2|84000000","products|Subtract|lotion+1|84000000","products|Replace|lotion+10|84000000","products|Add|soap+1|84000000"];
 			cookieIndexer=0;
