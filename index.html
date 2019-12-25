@@ -60,8 +60,11 @@
 			function checkLoginState() {
 				FB.getLoginStatus(function(response) {
 					statusChangeCallback(response);
-					console.log(response);
 				});
+			}
+			
+			function statusChangeCallback(r) {
+				console.log(r);
 			}
 		</script>
 		<fb:login-button 
