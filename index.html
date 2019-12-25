@@ -65,7 +65,7 @@
 					if(response.status==='connected') {
 						console.log(response.authResponse.userID);
 						console.log('https://graph.facebook.com/'+response.authResponse.userID+'/picture?type=square');
-						$('fb:login-button').css('display','none');
+						$('#login-button').css('display','none');
 						$('#logout').css('display','block');
 					} else {
 						console.log("Error?");
@@ -91,7 +91,7 @@
 				$('#logout').click(endLoginStatus());
 			})
 		</script>
-		<fb:login-button 
+		<fb:login-button id='login-button'
 			scope="public_profile,email"
 			onlogin="checkLoginState();">
 		</fb:login-button>
