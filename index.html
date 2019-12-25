@@ -78,6 +78,10 @@
 			function endLoginStatus() {
 				FB.logout(function(response) {
 					console.log(response);
+					if(response.status!=='connected') {
+						$('#logout').css('display','none');
+						$('#login-button').css('display','block');
+					}
 					// Person is now logged out
 				});
 			}
