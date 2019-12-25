@@ -46,7 +46,8 @@
 					xfbml      : true,
 					version    : 'v5.0'
 				});
-				FB.AppEvents.logPageView();   
+				FB.AppEvents.logPageView();
+				checkLoginState();
 			};
 
 			(function(d, s, id){
@@ -66,6 +67,9 @@
 			function statusChangeCallback(r) {
 				console.log(r);
 			}
+			//HIDE LOGIN BUTTON ON LOGIN
+			//CHECK IF LOGGED IN ON PAGE LOAD
+			
 		</script>
 		<fb:login-button 
 			scope="public_profile,email"
