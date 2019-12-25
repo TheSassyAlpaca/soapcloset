@@ -88,7 +88,10 @@
 			}
 			*/
 			$(function() {
-				$('#logout').click(endLoginStatus());
+				$('#logout').click(function() {
+					console.log("Logout clicked");
+					endLoginStatus();
+				});
 			})
 		</script>
 		<fb:login-button id='login-button'
