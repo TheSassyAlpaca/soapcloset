@@ -60,15 +60,22 @@
 			
 			function checkLoginState() {
 				FB.getLoginStatus(function(response) {
-					statusChangeCallback(response);
+					//statusChangeCallback(response);
+					console.log(response);
+					if(response.status=='connected') {
+						console.log(response.authResponse.userID);
+					}
+					//this occurs if logged in... check 'r'
+					//HIDE LOGIN BUTTON ON LOGIN
+					//CREATE LOGOUT BUTTON..
 				});
 			}
 			
+			/*
 			function statusChangeCallback(r) {
-				console.log(r);
+				
 			}
-			//HIDE LOGIN BUTTON ON LOGIN
-			//CHECK IF LOGGED IN ON PAGE LOAD
+			*/
 			
 		</script>
 		<fb:login-button 
