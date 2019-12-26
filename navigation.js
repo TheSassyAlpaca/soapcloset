@@ -39,20 +39,28 @@ function stackTheSandwich(x) {
 		{item:'About Us',sandwich:'none',link:'/about-us.html'},
 		{item:'Gallery',sandwich:'none',link:'/gallery.html'}
 	]
+	products=[
+		{item:'Soap',sandwich:'none',link:'/soap.html'},
+		{item:'Lotion',sandwich:'none',link:'/lotion.html'},
+		{item:'Sprays',sandwich:'none',link:'/sprays.html'}
+	]
+	container='';
 	if(x==null) {
 		x=menu;
+		container=$('#blt-container');
 	} else {
 		console.log(x);
+		$(header).append('<div id="'+x+'-container" class="subMenuContainer"></div>');
+		container=$('#'+x+'-container');
 	}
 	//build X
-	bltc=$('#blt-container');
 	loc=location.href;
 	for(i=0;i<x.length;i++) {
 		item=x[i].item.replace(/[\s&]+/g,'');
 		console.log(item);
-		console.log(bltc.children('#'+item+'Menu').length);
-		if(!bltc.children('#'+item+'Menu').length) {
-			bltc.append('<div id="'+item+'Menu" class="menuItem">'+item+'</div>');
+		console.log(container.children('#'+item+'Menu').length);
+		if(!container.children('#'+item+'Menu').length) {
+			container.append('<div id="'+item+'Menu" class="menuItem">'+x[i].item+'</div>');
 			$('#'+item+'Menu').click(function() {
 				stackTheSandwich(x[i].sandwich);
 			})
