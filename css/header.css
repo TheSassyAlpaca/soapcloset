@@ -1,1 +1,3 @@
-test
+header {
+	background-color: rgb(var(--ocean));
+}
