@@ -1,4 +1,4 @@
-$('#blt').click(funciton() {
+$('#blt').click(function() {
 	resolved=0;
 	if(resolved===0&&!$(this).hasClass('open')&&!$(this).hasClass('deep')) {
 		$(this).addClass('open');
