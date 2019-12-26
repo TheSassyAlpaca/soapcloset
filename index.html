@@ -6,6 +6,7 @@
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<script src="/cookieMonster.js"></script>
+		<script src="/friendface.js"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154895765-1"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
@@ -14,6 +15,9 @@
 			gtag('set', {'user_id': 'USER_ID'});
 			gtag('config', 'UA-154895765-1');
 		</script>
+		<link href='/css/header.css' rel='stylesheet' type='text/css'/>
+		<link href='/css/footer.css' rel='stylesheet' type='text/css'/>
+		<link href='/css/root.css' rel='stylesheet' type='text/css'/>
 		<link href='/images/alpaca%20bisque.png' rel='apple-touch-icon'/>
 		<link href='/images/alpaca%20bisque.png' rel='apple-touch-icon' sizes='152x152'/>
 		<link href='/images/alpaca%20bisque.png' rel='apple-touch-icon' sizes='167x167'/>
@@ -38,67 +42,15 @@
 		<meta name='twitter:image:alt' content='Bathing bisque-colored alpaca.' />
 	</head>
 	<body>
-		<script>
-			window.fbAsyncInit = function() {
-				FB.init({
-					appId      : '584847252330296',
-					cookie     : true,
-					xfbml      : true,
-					version    : 'v5.0'
-				});
-				FB.AppEvents.logPageView();
-				checkLoginState();
-			};
+		<header>
+		
+		</header>
+		<footer>
+		
+		</footer>
 
-			(function(d, s, id){
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) {return;}
-				js = d.createElement(s); js.id = id;
-				js.src = "https://connect.facebook.net/en_US/sdk.js";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-			
-			function checkLoginState() {
-				FB.getLoginStatus(function(response) {
-					//statusChangeCallback(response);
-					console.log(response);
-					if(response.status==='connected') {
-						console.log(response.authResponse.userID);
-						console.log('https://graph.facebook.com/'+response.authResponse.userID+'/picture?type=square');
-						$('#login-button').css('display','none');
-						$('#logout').css('display','block');
-					} else {
-						console.log("Error?");
-					}
-					//HIDE LOGIN BUTTON ON LOGIN
-					//CREATE LOGOUT BUTTON..
-				});
-			}
-			
-			function endLoginStatus() {
-				FB.logout(function(response) {
-					console.log(response);
-					if(response.status!=='connected') {
-						console.log("Logout responded");
-						$('#logout').css('display','none');
-						$('#login-button').css('display','block');
-					}
-					// Person is now logged out
-				});
-			}
-			
-			/*
-			function statusChangeCallback(r) {
-				
-			}
-			*/
-			$(function() {
-				$('#logout').click(function() {
-					console.log("Logout clicked");
-					endLoginStatus();
-				});
-			})
-		</script>
+
+
 		<fb:login-button id='login-button'
 			scope="public_profile,email"
 			onlogin="checkLoginState();">
@@ -106,57 +58,6 @@
 		<button id="logout" style="display:none">
 			Logout
 		</button>
-		<script>
-			//cookieMonster=["products|Add|lotion+2|84000000","products|Subtract|lotion+1|84000000","products|Replace|lotion+10|84000000","products|Add|soap+1|84000000"];
-			//cookieIndexer=0;
-			/*
-			$(function() {
-				if(navigator.cookieEnabled) {
-					console.log(document.cookie);
-					document.cookie = "products=soap+1|lotion+1; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/; Domain=thesassyalpaca.com";
-					x=document.cookie;
-					console.log(x);
-					runCookieTest(cookieMonster);
-				}
-			})
-			
-			function runCookieTest(x) {
-				if(cookieIndexer>-1&&cookieIndexer<cookieMonster.length) {
-					setTimeout(function() {
-						console.log(document.cookie);
-						console.log(cookieMonster[cookieIndexer]);
-						cookieCrumbles=cookieMonster[cookieIndexer].split("|");
-						updateCookie(cookieCrumbles[0],cookieCrumbles[1],cookieCrumbles[2],cookieCrumbles[3]);
-						cookieIndexer++;
-						runCookieTest(x)
-					}, 3000);
-				}
-			}
-			*/
-			//c=COOKIE NAME
-			//determine how to add or remove or replace cookie value
-			/*function updateCookie(c) {
-				//document.cookie=c+"="+getCookieValue(c)+"";
-				console.log(getCookieValue(c));
-			}
-			function getCookieValue(c) {
-				//get value from specific function based on 'c'
-				cList=document.cookie.split("; ");
-				//console.log(cList);
-				cPair='';
-				value='';
-				for(i=0;i<cList.length;i++) {
-					//console.log(cList[i]);
-					if(cList[i].substring(0,c.length)==c) {
-						console.log("Found "+cList[i]);
-						cPair=cList[i].split("=");
-						value=cPair[1];
-						console.log("Values are:"+value);
-					}
-				}
-				//for(i=0;window[c+'List')
-				return value
-			}*/
-		</script>
+		
 	</body>
 </html>
