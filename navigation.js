@@ -48,14 +48,15 @@ function stackTheSandwich(x) {
 	bltc=$('#blt-container');
 	loc=location.href;
 	for(i=0;i<x.length;i++) {
-		if(!bltc.children('#'+x[i].item+'Menu')) {
-			bltc.append('<div id="'+x[i].item+'Menu" class="menuItem">'+x[i].item+'</div>');
-			$('#'+x[i].item+'Menu').click(function() {
+		item=x[i].item.replace(/[\s&]+/g,'');
+		if(!bltc.children('#'+item+'Menu')) {
+			bltc.append('<div id="'+item+'Menu" class="menuItem">'+item+'</div>');
+			$('#'+item+'Menu').click(function() {
 				stackTheSandwich(x[i].sandwich);
 			})
 		}
 		if(x[i].link!=='none'&&loc.indexOf(x[i].link)!=-1) {
-			$('#'+x[i].item+'Menu').addClass('active');
+			$('#'+item+'Menu').addClass('active');
 		}
 	}
 }
