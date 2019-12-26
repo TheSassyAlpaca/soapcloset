@@ -80,9 +80,14 @@ header {
 
 
 #shoppingTub {
-	
+	height: var(--thumb);
+	width: var(--thumb);
+	display: inline-block;
+	vertical-align: top;
+	float: right;
 }
 
 #blt-container {
-	
+	height: calc(100vh - var(--thumb));
+	background-color: rgb(var(--ocean));
 }
