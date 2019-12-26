@@ -1,5 +1,6 @@
 $('#blt').click(function() {
 	resolved=0;
+	console.log(resolved);
 	if(resolved===0&&!$(this).hasClass('open')&&!$(this).hasClass('deep')) {
 		$(this).addClass('open');
 		//open menu
@@ -14,4 +15,5 @@ $('#blt').click(function() {
 		$(this).addClass('open').removeClass('deep');
 		resolved++;
 	}
+	console.log(resolved);
 })
