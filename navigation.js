@@ -67,6 +67,7 @@ function stackTheSandwich(x) {
 			console.log(x[i]);
 		}
 		container.children('.menuItem').each(function() {
+			$(this).unbind('click');
 			$(this).click(function() {
 				if($(this).attr('name')!=='none') {
 					stackTheSandwich($(this).attr('name'));
