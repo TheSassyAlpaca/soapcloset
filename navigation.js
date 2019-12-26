@@ -50,8 +50,8 @@ function stackTheSandwich(x) {
 	for(i=0;i<x.length;i++) {
 		item=x[i].item.replace(/[\s&]+/g,'');
 		console.log(item);
-		console.log(bltc.children('#'+item+'Menu'));
-		if(!bltc.children('#'+item+'Menu')) {
+		console.log(bltc.children('#'+item+'Menu').length);
+		if(!bltc.children('#'+item+'Menu').length) {
 			bltc.append('<div id="'+item+'Menu" class="menuItem">'+item+'</div>');
 			$('#'+item+'Menu').click(function() {
 				stackTheSandwich(x[i].sandwich);
