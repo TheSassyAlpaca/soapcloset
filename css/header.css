@@ -88,10 +88,14 @@ header {
 }
 
 #blt-container {
+	position: fixed;
+	width: 100vw;
+	top: var(--thumb);
 	height: calc(100vh - var(--thumb));
 	max-height: 0px;
 	background-color: rgb(var(--ocean));
 	overflow: hidden;
+	z-index: 500;
 }
 
 #blt-container.open {
@@ -102,6 +106,9 @@ header {
 
 .menuItem {
 	width: 100%;
+	text-indent: 20px;
+	height: var(--thumb);
+	
 }
 
 .menuItem.active {
@@ -109,5 +116,11 @@ header {
 }
 
 .subMenuContainer {
-	
+	position: fixed;
+	width: 100vw;
+	top: var(--thumb);
+	height: calc(100vh - var(--thumb));
+	max-height: calc(100vh - var(--thumb));
+	overflow: auto;
+	z-index: 550;
 }
