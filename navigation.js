@@ -58,12 +58,12 @@ function stackTheSandwich(x) {
 	loc=location.href;
 	for(i=0;i<x.length;i++) {
 		item=x[i].item.replace(/[\s&]+/g,'');
+		itemSandwich=x[i].sandwich;
 		console.log(item);
 		console.log(container.children('#'+item+'Menu').length);
 		if(!container.children('#'+item+'Menu').length) {
 			container.append('<div id="'+item+'Menu" class="menuItem">'+x[i].item+'</div>');
 			console.log(x[i]);
-			itemSandwich=x[i].sandwich;
 			if(x[i].sandwich!='none') {
 				$('#'+item+'Menu').click(function() {
 					console.log(itemSandwich);
