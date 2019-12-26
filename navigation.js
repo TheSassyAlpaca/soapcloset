@@ -50,6 +50,7 @@ function stackTheSandwich(x) {
 		container=$('#blt-container');
 	} else {
 		console.log(x);
+		x=window[x];
 		$(header).append('<div id="'+x+'-container" class="subMenuContainer"></div>');
 		container=$('#'+x+'-container');
 	}
@@ -61,15 +62,24 @@ function stackTheSandwich(x) {
 		console.log(container.children('#'+item+'Menu').length);
 		if(!container.children('#'+item+'Menu').length) {
 			container.append('<div id="'+item+'Menu" class="menuItem">'+x[i].item+'</div>');
-			$('#'+item+'Menu').click(function() {
-				stackTheSandwich(x[i].sandwich);
-			})
+			if(x[i].sandwich!='none') {
+				$('#'+item+'Menu').click(function() {
+					console.log(x[i].sandwich);
+					stackTheSandwich(x[i].sandwich);
+				})
+			}
 		}
 		if(x[i].link!=='none'&&loc.indexOf(x[i].link)!=-1) {
 			$('#'+item+'Menu').addClass('active');
 		}
 	}
 }
+
+
+
+
+
+
 
 
 
