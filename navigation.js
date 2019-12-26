@@ -49,6 +49,7 @@ function stackTheSandwich(x) {
 		x=menu;
 		container=$('#blt-container');
 	} else {
+		$('#blt').addClass('deep');
 		console.log(x);
 		$('header').append('<div id="'+x+'-container" class="subMenuContainer"></div>');
 		container=$('#'+x+'-container');
@@ -67,6 +68,7 @@ function stackTheSandwich(x) {
 			if(x[i].sandwich!='none') {
 				$('#'+item+'Menu').click(function() {
 					console.log(itemSandwich);
+					console.log(item);
 					stackTheSandwich(itemSandwich);
 				})
 			}
