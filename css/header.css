@@ -1,10 +1,12 @@
 header {
 	background-color: rgb(var(--ocean));
 	height: var(--thumb);
+	width: 100vw;
 	font-family: var(--soapCloset);
 	line-height: var(--thumb);
 	font-size: xx-large;
 	color: rgb(var(--oats));
+	position: fixed;
 }
 
 #blt {
@@ -14,7 +16,7 @@ header {
 }
 
 #blt div {
-	
+	border: 1px solid white;
 }
 
 #blt div:nth-child(1) {
