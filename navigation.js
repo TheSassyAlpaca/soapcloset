@@ -49,6 +49,8 @@ function stackTheSandwich(x) {
 	loc=location.href;
 	for(i=0;i<x.length;i++) {
 		item=x[i].item.replace(/[\s&]+/g,'');
+		console.log(item);
+		console.log(bltc.children('#'+item+'Menu'));
 		if(!bltc.children('#'+item+'Menu')) {
 			bltc.append('<div id="'+item+'Menu" class="menuItem">'+item+'</div>');
 			$('#'+item+'Menu').click(function() {
