@@ -5,3 +5,24 @@
 	--ocean: 16,74,94;
 	--thumb: 40px;
 }
+
+body {
+	padding: 0px;
+	margin: 0px;
+	min-height: 100vh;
+}
+
+.ui-page.ui-page-theme-a.ui-page-active {
+	width: 100%;
+	height: 100%
+}
+
+.ui-loader.ui-corner-all.ui-body-a.ui-loader-default {
+	display: none;
+}
+
+#content {
+	padding: 0px;
+	padding-top: var(--thumb);
+	margin: 0px;
+}
