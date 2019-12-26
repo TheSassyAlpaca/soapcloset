@@ -121,6 +121,7 @@ header {
 	top: var(--thumb);
 	height: calc(100vh - var(--thumb));
 	max-height: calc(100vh - var(--thumb));
+	background-color: rgb(var(--ocean));
 	overflow: auto;
 	z-index: 550;
 }
