@@ -65,13 +65,14 @@ function stackTheSandwich(x) {
 		if(!container.children('#'+item+'Menu').length) {
 			container.append('<div id="'+item+'Menu" class="menuItem" name="'+x[i].sandwich+'">'+x[i].item+'</div>');
 			console.log(x[i]);
+			/*
 			if(itemSandwich!='none') {
 				$('#'+item+'Menu').click(function() {
 					console.log(itemSandwich);
 					console.log(item);
 					stackTheSandwich(itemSandwich);
 				})
-			}
+			}*/
 		}
 		container.children('.menuItem').each(function() {
 			$(this).click(function() {
