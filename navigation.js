@@ -49,7 +49,7 @@ function stackTheSandwich(x) {
 		x=menu;
 		container=$('#blt-container');
 	} else {
-		$('#blt').addClass('deep');
+		$('#blt').addClass('deep').removeClass('open');
 		console.log(x);
 		$('header').append('<div id="'+x+'-container" class="subMenuContainer"></div>');
 		container=$('#'+x+'-container');
@@ -65,22 +65,14 @@ function stackTheSandwich(x) {
 		if(!container.children('#'+item+'Menu').length) {
 			container.append('<div id="'+item+'Menu" class="menuItem" name="'+x[i].sandwich+'">'+x[i].item+'</div>');
 			console.log(x[i]);
-			/*
-			if(itemSandwich!='none') {
-				$('#'+item+'Menu').click(function() {
-					console.log(itemSandwich);
-					console.log(item);
-					stackTheSandwich(itemSandwich);
-				})
-			}*/
 		}
 		container.children('.menuItem').each(function() {
 			$(this).click(function() {
 				if($(this).attr('name')!=='none') {
 					stackTheSandwich($(this).attr('name'));
-				}/* else {
+				} else {
 					goToLink($(this).attr('addy'));
-				}*/
+				}
 			})
 		})
 		if(x[i].link!=='none'&&loc.indexOf(x[i].link)!=-1) {
@@ -89,6 +81,9 @@ function stackTheSandwich(x) {
 	}
 }
 
+function goToLink(x) {
+	location.href=x;
+}
 
 
 
