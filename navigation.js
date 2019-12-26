@@ -64,7 +64,7 @@ function stackTheSandwich(x) {
 			container.append('<div id="'+item+'Menu" class="menuItem">'+x[i].item+'</div>');
 			if(x[i].sandwich!='none') {
 				$('#'+item+'Menu').click(function() {
-					console.log(x[i].sandwich);
+					console.log(x[i]);
 					stackTheSandwich(x[i].sandwich);
 				})
 			}
