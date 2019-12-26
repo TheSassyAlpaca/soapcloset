@@ -50,7 +50,7 @@ function stackTheSandwich(x) {
 		container=$('#blt-container');
 	} else {
 		console.log(x);
-		$(header).append('<div id="'+x+'-container" class="subMenuContainer"></div>');
+		$('header').append('<div id="'+x+'-container" class="subMenuContainer"></div>');
 		container=$('#'+x+'-container');
 		x=window[x];
 	}
