@@ -2,4 +2,38 @@ header {
 	background-color: rgb(var(--ocean));
 	height: var(--thumb);
 	font-family: var(--soapCloset);
+	line-height: var(--thumb);
+	font-size: xx-large;
+	color: rgb(var(--oats));
+}
+
+#blt {
+	height: var(--thumb);
+	width: var(--thumb);
+	
+}
+
+#blt div {
+	
+}
+
+#blt div:nth-child(1) {
+	
+}
+
+#blt div:nth-child(2) {
+	
+}
+
+#blt div:nth-child(3) {
+	
+}
+
+
+#shoppingTub {
+	
+}
+
+#blt-container {
+	
 }
