@@ -17,18 +17,62 @@ header {
 
 #blt div {
 	border: 1px solid white;
+	position: absolute;
+	left: calc(var(--thumb) / 4);
+	width: calc(var(--thumb) / 2);
+	height: .5px;
 }
 
 #blt div:nth-child(1) {
-	
+	top: calc(((var(--thumb) / 4) * 1) - 0px);
+	left: calc(var(--thumb) / 4);
+	width: calc(var(--thumb) / 2);
 }
 
 #blt div:nth-child(2) {
-	
+	top: calc(((var(--thumb) / 4) * 2) - 1px);
+	left: calc(var(--thumb) / 4);
+	width: calc(var(--thumb) / 2);
 }
 
 #blt div:nth-child(3) {
-	
+	top: calc(((var(--thumb) / 4) * 3) - 2px);
+	left: calc(var(--thumb) / 4);
+	width: calc(var(--thumb) / 2);
+}
+
+#blt.open div:nth-child(1) {
+	transform: rotate(45deg);
+    transform-origin: center;
+    top: calc((var(--thumb) / 2) - 1px);
+}
+
+#blt.open div:nth-child(2) {
+	display: none;
+}
+
+#blt.open div:nth-child(3) {
+	transform: rotate(135deg);
+    transform-origin: center;
+    top: calc((var(--thumb) / 2) - 1px);
+}
+
+#blt.deep div:nth-child(1) {
+	transform-origin: left;
+	width: calc(var(--thumb) / 4);
+	transform: rotate(315deg);
+	top: calc(((var(--thumb) / 4) * 2) - 0px);
+}
+
+#blt.deep div:nth-child(2) {
+	top: calc(((var(--thumb) / 4) * 2) - 1px);
+}
+
+#blt.deep div:nth-child(3) {
+	transform-origin: left;
+	width: calc(var(--thumb) / 4);
+	transform: rotate(45deg);
+	top: calc(((var(--thumb) / 4) * 2) - 2px);
 }
 
 
