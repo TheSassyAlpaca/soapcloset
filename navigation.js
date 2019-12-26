@@ -12,7 +12,7 @@ $(document).ready(function() {
 		if(resolved===0&&$(this).hasClass('open')) {
 			$(this).removeClass('open');
 			$('#blt-container').removeClass('open');
-			$('.blt-submenu').each(function() {
+			$('.subMenuContainer').each(function() {
 				$(this).remove();
 			})
 			//menu closes
@@ -23,7 +23,7 @@ $(document).ready(function() {
 			if(!$('#blt-container').hasClass('open')) {
 				$('#blt-container').addClass('open');
 			}
-			$('.blt-submenu').each(function() {
+			$('.subMenuContainer').each(function() {
 				$(this).remove();
 			})
 			resolved++;
@@ -65,7 +65,7 @@ function stackTheSandwich(x) {
 		if(!container.children('#'+item+'Menu').length) {
 			container.append('<div id="'+item+'Menu" class="menuItem">'+x[i].item+'</div>');
 			console.log(x[i]);
-			if(x[i].sandwich!='none') {
+			if(itemSandwich!='none') {
 				$('#'+item+'Menu').click(function() {
 					console.log(itemSandwich);
 					console.log(item);
