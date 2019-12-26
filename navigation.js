@@ -63,7 +63,7 @@ function stackTheSandwich(x) {
 		console.log(item);
 		console.log(container.children('#'+item+'Menu').length);
 		if(!container.children('#'+item+'Menu').length) {
-			container.append('<div id="'+item+'Menu" class="menuItem">'+x[i].item+'</div>');
+			container.append('<div id="'+item+'Menu" class="menuItem" name="'+x[i].sandwich+'">'+x[i].item+'</div>');
 			console.log(x[i]);
 			if(itemSandwich!='none') {
 				$('#'+item+'Menu').click(function() {
@@ -73,6 +73,15 @@ function stackTheSandwich(x) {
 				})
 			}
 		}
+		container.children('.menuItem').each(function() {
+			$(this).click(function() {
+				if($(this).attr('name')!=='none') {
+					stackTheSandwich($(this).attr('name'));
+				}/* else {
+					goToLink($(this).attr('addy'));
+				}*/
+			})
+		})
 		if(x[i].link!=='none'&&loc.indexOf(x[i].link)!=-1) {
 			$('#'+item+'Menu').addClass('active');
 		}
