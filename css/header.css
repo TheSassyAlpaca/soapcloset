@@ -12,11 +12,14 @@ header {
 #blt {
 	height: var(--thumb);
 	width: var(--thumb);
+	display: inline-block;
+	vertical-align: top;
 	
 }
 
 #blt div {
-	border: 1px solid white;
+	border: 1px solid rgb(var(--oats));
+	background-color: rgb(var(--oats));
 	position: absolute;
 	left: calc(var(--thumb) / 4);
 	width: calc(var(--thumb) / 2);
