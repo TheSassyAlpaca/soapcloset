@@ -46,6 +46,10 @@
 		<meta name='twitter:image:alt' content='Bathing bisque-colored alpaca.' />
 	</head>
 	<body>
+		<attic>
+			<fb:login-button id='login-button' scope="public_profile,email" onlogin="checkLoginState();">
+			</fb:login-button>
+		</attic>
 		<header>
 			<div id="blt">
 				<div></div>
@@ -66,10 +70,7 @@
 
 
 
-		<fb:login-button id='login-button'
-			scope="public_profile,email"
-			onlogin="checkLoginState();">
-		</fb:login-button>
+		
 		<button id="logout" style="display:none">
 			Logout
 		</button>
