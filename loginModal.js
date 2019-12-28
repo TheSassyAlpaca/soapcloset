@@ -15,4 +15,11 @@ modal=`
 
 $(function() {
 	$('body').append('<div id="modalShield">'+modal+'</div>');
+	$('.login-box').click(function() {
+		closeModal();
+	})
 })
+
+function closeModal() {
+	$('#modalShield').remove();
+}
