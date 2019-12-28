@@ -3,7 +3,8 @@ pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
 $(function() {
 	//get product name from url
 	//are there variables in url???
-	pName=location.href.substring(location.href.indexOf('/product/')+8,location.href.indexOf('?'))
+	end=
+	pName=location.href.substring(location.href.indexOf('/product/')+8,endURL(location.href))
 	console.log(pName);
 	
 	$(function() {
@@ -26,3 +27,11 @@ $(function() {
 		});
 	});
 })
+
+function endURL(x) {
+	end=x.length;
+	if(x.indexOf('?')!=-1) {
+		end=x.indexOf('?');
+	}
+	return end
+}
