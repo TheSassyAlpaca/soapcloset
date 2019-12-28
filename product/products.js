@@ -1,3 +1,37 @@
+
+
+function end(x,y) {
+	end=x.length;
+	if(x.indexOf(y)!=-1) {
+		end=x.indexOf(y);
+	}
+	return end
+}
+
+function buildSlide(x) {
+	
+}
+
+function presentBulk(x) {
+	x=x.split(',');
+	bulk
+	for(i=1;i<x.length;i++) {
+		set=x[i].split('/');
+		price=set[0];
+		qty=set[1];
+		bulk=bulk+'<span>'+qty+' for $'+price+'</span>';
+		if(i<x.length-1) {
+			bulk=bulk+'<br>';
+		}
+	}
+	return bulk
+}
+
+function buildIngredients(x) {
+	
+}
+
+
 $(function() {
 	//are there variables in url???
 	pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
@@ -47,38 +81,6 @@ function buildPage(x) {
 	
 	
 	//articles - list of hosted articles related to this product
-	
-}
-
-
-function end(x,y) {
-	end=x.length;
-	if(x.indexOf(y)!=-1) {
-		end=x.indexOf(y);
-	}
-	return end
-}
-
-function buildSlide(x) {
-	
-}
-
-function presentBulk(x) {
-	x=x.split(',');
-	bulk
-	for(i=1;i<x.length;i++) {
-		set=x[i].split('/');
-		price=set[0];
-		qty=set[1];
-		bulk=bulk+'<span>'+qty+' for $'+price+'</span>';
-		if(i<x.length-1) {
-			bulk=bulk+'<br>';
-		}
-	}
-	return bulk
-}
-
-function buildIngredients(x) {
 	
 }
 
