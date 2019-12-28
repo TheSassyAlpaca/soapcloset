@@ -11,7 +11,7 @@ modal {
 	min-height: 300px;
 	max-height: 80vh;
 	background-color: whitesmoke;
-	margin: auto;
+	margin: calc(50vh - 170px) auto;
 	display: block;
 	padding: 20px;
 	border-radius: 3px;
@@ -39,7 +39,8 @@ modal div {
 }
 
 modal div > div {
-	
+	margin: 5px auto;
+	display: block;
 }
 
 modal .login-box {
