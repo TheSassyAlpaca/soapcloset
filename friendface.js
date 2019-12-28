@@ -24,8 +24,9 @@ function checkLoginState() {
 		if(response.status==='connected') {
 			console.log(response.authResponse.userID);
 			console.log('https://graph.facebook.com/'+response.authResponse.userID+'/picture?type=square');
-			$('#login-button').css('display','none');
-			$('#logout').css('display','block');
+			//$('#login-button').css('display','none');
+			//$('#logout').css('display','block');
+			createOrFindUser(response.authResponse.userID,'facebook');
 		} else {
 			console.log("Error?");
 		}
@@ -37,8 +38,9 @@ function endLoginStatus() {
 		console.log(response);
 		if(response.status!=='connected') {
 			console.log("Logout responded");
-			$('#logout').css('display','none');
-			$('#login-button').css('display','block');
+			//$('#logout').css('display','none');
+			//$('#login-button').css('display','block');
+			endUser('facebook');
 		}
 	});
 }
