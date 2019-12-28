@@ -51,8 +51,9 @@
 		<div id="fb-root"></div>
 		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=584847252330296&autoLogAppEvents=1"></script>
 		<attic>
-			<fb:login-button id='login-button' scope="public_profile,email" onlogin="checkLoginState();">
-			</fb:login-button>
+			<button id="logout" style="display:none">
+				Logout
+			</button>
 		</attic>
 		<header>
 			<div id="blt">
@@ -74,9 +75,7 @@
 		
 
 		
-		<button id="logout" style="display:none">
-			Logout
-		</button>
+		
 		
 	</body>
 </html>
