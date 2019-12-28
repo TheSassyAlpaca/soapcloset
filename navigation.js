@@ -30,6 +30,7 @@ $(document).ready(function() {
 		}
 		console.log(resolved);
 	})
+	$('#content').css('min-height',$(document).height()-$('header').height()-$('footer').height());
 })
 
 function stackTheSandwich(x) {
