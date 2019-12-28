@@ -40,7 +40,7 @@ modal div {
 
 modal div > div {
 	margin: 5px auto;
-	display: block;
+	display: block !important;
 }
 
 modal .login-box {
