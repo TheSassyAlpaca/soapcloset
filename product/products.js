@@ -76,7 +76,7 @@ function buildSlide(x) {
 
 function presentBulk(x) {
 	x=x.split(',');
-	bulk
+	bulk='';
 	for(i=1;i<x.length;i++) {
 		set=x[i].split('/');
 		price=set[0];
@@ -90,7 +90,15 @@ function presentBulk(x) {
 }
 
 function buildIngredients(x) {
-	
+	x=x.split(', ');
+	ing='';
+	for(i=0;i<x.length;i++) {
+		ing=ing+'<div class="ingredient">'+x[i]+'</div>';
+	}
+	$('.ingredient').click(function() {
+		ingredientName=$(this).text().replace(/[\s()%]+/g,'');
+		console.log(ingredientName);
+	}
 }
 
 function mechanizeSlide(x) {
