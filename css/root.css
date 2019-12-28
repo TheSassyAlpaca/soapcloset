@@ -28,7 +28,6 @@ attic {
 }
 
 #content {
-	padding: 0px;
-	padding-top: var(--thumb);
+	padding: var(--thumb) 10px 10px 10px;
 	margin: 0px;
 }
