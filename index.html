@@ -67,12 +67,12 @@
 		<footer>
 		
 		</footer>
-		<button id="logtest" style="display:block">
+		<button id="logtest" style="display:block" scope="public_profile,email" onlogin="checkLoginState();">
 			Logout
 		</button>
 		<script>
 			$('#logtest').click(function() {
-				$('#login-button').find('iframe').click();
+				$('#login-button').click();
 			})
 		</script>
 
