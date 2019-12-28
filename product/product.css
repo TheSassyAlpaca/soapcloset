@@ -24,25 +24,48 @@ h2 + span {
 }
 
 #slideContainer {
-	
+	height: 75vw;
+	width: calc(100vw - 20px);
+	position: relative;
 }
 
 #slideGuide {
-	
+	position: relative;
+	top: calc(75vw - var(--thumb) - 8px);
+	z-index: 50;
+	display: block;
+	margin-top: 0px !important;
+	margin: auto;
+	text-align: center;
 }
 
 .slide {
-	
+	height: 75vw;
+	width: calc(100vw - 20px);
+	background-size: cover;
+	display: inline-block;
+	margin-top: 0px !important;
+	vertical-align: top;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
 }
 
 .slide.active {
-	
+	z-index: 10;
 }
 
 .thumb {
-	
+	height: var(--thumb);
+	width: var(--thumb);
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: inline-block;
+	margin-top: 0px !important;
+	border: 4px solid transparent;
 }
 
 .thumb.active {
-	
+	border: 4px solid rgb(var(--oats));
 }
