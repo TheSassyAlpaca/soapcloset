@@ -1,8 +1,6 @@
 pKey="2PACX-1vR80HM2qiXn6CLcIpPrIbLFd_4YZ2g9dLRR9Xo54pa8iQG6S7AW-1LjuHvdVGqdzDHBJift-I30Jnzv";
 
-$(function() {
-  getProducts(pKey,1);
-})
+
 
 function getProduct(x,y) {
 	$(function() {
@@ -25,3 +23,7 @@ function getProduct(x,y) {
 		});
 	});
 }
+
+$(function() {
+  getProduct(pKey,1);
+})
