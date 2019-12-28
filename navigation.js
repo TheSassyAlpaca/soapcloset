@@ -35,7 +35,7 @@ $(document).ready(function() {
 function stackTheSandwich(x) {
 	menu=[
 		{item:'Products',sandwich:'products',link:'none'},
-		{item:'Stores & Markets',sandwich:'s_and_m',link:'none'},
+		{item:'Shops & Markets',sandwich:'s_and_m',link:'none'},
 		{item:'About Us',sandwich:'none',link:'/about-us.html'},
 		{item:'Gallery',sandwich:'none',link:'/gallery.html'}
 	]
@@ -44,6 +44,7 @@ function stackTheSandwich(x) {
 		{item:'Lotion',sandwich:'none',link:'/lotion.html'},
 		{item:'Sprays',sandwich:'none',link:'/sprays.html'}
 	]
+	s_and_m=[];
 	container='';
 	if(x==null) {
 		x=menu;
