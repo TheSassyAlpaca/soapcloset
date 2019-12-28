@@ -1,0 +1,24 @@
+h1 {
+	margin: 0px;
+	margin-top: 10px;
+	font-family: var(--soapCloset);
+}
+
+h1 + span {
+	font-family: var(--econ);
+}
+
+h2 {
+	margin: 0px;
+	font-family: var(--soapCloset);
+}
+
+h2 + span {
+	font-family: var(--econ);
+}
+
+#content div {
+	font-family: var(--econ);
+    font-size: 120%;
+    margin-top: 10px;
+}
