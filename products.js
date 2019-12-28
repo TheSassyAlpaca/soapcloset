@@ -8,7 +8,7 @@ function getProduct(x,y) {
 		function (data) {
 			$.each(data.feed.entry, function(i,entry) {
 				console.log(entry);
-				console.log(entry.gsx$pro_name.$t);
+				console.log(entry.gsx$proname.$t);
 				//thisEntry=JSON.parse(entry.gsx$data.$t.replace(/'/g,"\""));
 				
 				/*
