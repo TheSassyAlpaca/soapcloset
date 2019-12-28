@@ -24,6 +24,7 @@ function buildPage(x) {
 	c.append('<h1>'+x.gsx$productname.$t+'</h1>');
 	c.append('<span>'+x.gsx$traits.$t+'</span>');
 	c.append(buildSlide(x.gsx$photos.$t));
+	mechanizeSlide(x.gsx$photos.$t);
 	c.append('<h2>$'+x.gsx$price.$t.substring(0,endString(x.gsx$price.$t,','))+' per '+x.gsx$size.$t+'</h2><br>');
 	if(x.gsx$size.$t.indexOf(',')!=-1) {
 		c.append('<h2>Bulk Rates:</h2><br>'+presentBulk(x.gsx$size.$t));
@@ -60,7 +61,17 @@ function endString(x,y) {
 }
 
 function buildSlide(x) {
-	
+	iURL='/images/products/';
+	x=x.split(',');
+	container='<div id="slideContainer">';
+	guide='<div id="slideGuide">';
+	for(i=0;i<x.length;i++) {
+		container=container+'<div id="slide'+i+'" class="slide" style="background-image:url('+iURL+x[i]+')"></div>';
+		guide=guide+'<div id="guide'+i+'"  class="thumb" style="background-image:url('+iURL+x[i]+')"></div>';
+	}
+	guide=guide+'</div>';
+	slide=container+guide+'</div>';
+	return slide
 }
 
 function presentBulk(x) {
@@ -80,5 +91,22 @@ function presentBulk(x) {
 
 function buildIngredients(x) {
 	
+}
+
+function mechanizeSlide(x) {
+	//x=x.split(',');
+	guide='guide';
+	//slide='slide';
+	$('.thumb').click(function() {
+		$('.thumb').each(function() {
+			$(this).removeClass('active');
+		})
+		$(this).addClass('active');
+		thisSlide=$('#slide'+$(this).attr('id').substring(guide.length,$(this).attr('id').length));
+		$('.slide').each(function() {
+			$(this).removeClass('active');
+		})
+		thisSlide.addClass('active');
+	})
 }
 
