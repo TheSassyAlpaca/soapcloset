@@ -30,7 +30,7 @@ $(document).ready(function() {
 		}
 		console.log(resolved);
 	})
-	$('#content').css('min-height',$(document).height()-$('header').outerHeight()-$('footer').outerHeight());
+	$('#content').css('min-height',$(document).height()-$('header').outerHeight()-$('footer').outerHeight()-10);
 })
 
 function stackTheSandwich(x) {
