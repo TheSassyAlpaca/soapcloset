@@ -1,1 +1,8 @@
-test
+footer {
+	background-color: rgb(var(--sage));
+	padding: 20px;
+	color: rgb(var(--oats));
+	font-family: var(--econ);
+	font-size: medium;
+	text-align: left;
+}
