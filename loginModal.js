@@ -15,7 +15,7 @@ modal=`
 
 $(function() {
 	$('body').append('<div id="modalShield">'+modal+'</div>');
-	$('.login-box').click(function() {
+	$('.login-box, #modalShield').click(function() {
 		closeModal();
 	})
 })
