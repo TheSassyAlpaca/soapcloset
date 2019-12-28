@@ -51,6 +51,8 @@
 		<div id="fb-root"></div>
 		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=584847252330296&autoLogAppEvents=1"></script>
 		<attic>
+			<fb:login-button id='login-button' scope="public_profile,email" onlogin="checkLoginState();">
+			</fb:login-button>
 			<button id="logout" style="display:none">
 				Logout
 			</button>
@@ -62,6 +64,8 @@
 				<div></div>
 			</div>The Soap Closet
 			<div id="shoppingTub">
+				<div id="userLog">Sign In</div>
+				<div id="userCart"><img src="/images/shopping%20tub.png"></div>
 			</div>
 			<div id="blt-container">
 			</div>
