@@ -46,6 +46,8 @@
 		<meta name='twitter:image:alt' content='Bathing bisque-colored alpaca.' />
 	</head>
 	<body>
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=584847252330296&autoLogAppEvents=1"></script>
 		<attic>
 			<fb:login-button id='login-button' scope="public_profile,email" onlogin="checkLoginState();">
 			</fb:login-button>
@@ -67,14 +69,7 @@
 		<footer>
 		
 		</footer>
-		<button id="logtest" style="display:block" scope="public_profile,email" onlogin="checkLoginState();">
-			Logout
-		</button>
-		<script>
-			$('#logtest').click(function() {
-				$('#login-button').click();
-			})
-		</script>
+		
 
 		
 		<button id="logout" style="display:none">
