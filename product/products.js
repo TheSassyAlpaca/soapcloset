@@ -98,7 +98,7 @@ function buildIngredients(x) {
 	$('.ingredient').click(function() {
 		ingredientName=$(this).text().replace(/[\s()%]+/g,'');
 		console.log(ingredientName);
-	}
+	})
 }
 
 function mechanizeSlide(x) {
