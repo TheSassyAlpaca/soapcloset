@@ -33,6 +33,15 @@ modal span {
     font-size: medium;
 }
 
+modal div {
+	margin: 10px auto;
+	text-align: center;
+}
+
+modal div > div {
+	
+}
+
 modal .login-box {
 	margin: 10px auto;
 	display: block;
@@ -40,8 +49,8 @@ modal .login-box {
 
 modal a {
 	text-align: center;
-	display: inline;
-	width: 50%;
+	display: inline-block;
+	width: 49%;
 	color: grey;
 	text-decoration: none;
 	font-family: var(--econ);
