@@ -27,21 +27,21 @@ header {
 }
 
 #blt div:nth-child(1) {
-	top: calc(((var(--thumb) / 4) * 1) - 0px);
-	left: calc(var(--thumb) / 4);
-	width: calc(var(--thumb) / 2);
+	top: calc(((var(--thumb) / 5) * 1.5) - 0px);
+	left: calc((var(--thumb) / 5) * 1.5);
+	width: calc((var(--thumb) / 5) * 2);
 }
 
 #blt div:nth-child(2) {
-	top: calc(((var(--thumb) / 4) * 2) - 1px);
-	left: calc(var(--thumb) / 4);
-	width: calc(var(--thumb) / 2);
+	top: calc(((var(--thumb) / 5) * 2.5) - 0px);
+	left: calc((var(--thumb) / 5) * 1.5);
+	width: calc((var(--thumb) / 5) * 2);
 }
 
 #blt div:nth-child(3) {
-	top: calc(((var(--thumb) / 4) * 3) - 2px);
-	left: calc(var(--thumb) / 4);
-	width: calc(var(--thumb) / 2);
+	top: calc(((var(--thumb) / 5) * 3.5) - 0px);
+	left: calc((var(--thumb) / 5) * 1.5);
+	width: calc((var(--thumb) / 5) * 2);
 }
 
 #blt.open div:nth-child(1) {
@@ -93,7 +93,9 @@ header {
 	top: var(--thumb);
 	height: calc(100vh - var(--thumb));
 	max-height: 0px;
-	background-color: rgb(var(--ocean));
+	background-color: rgb(var(--oats));
+	color: rgb(var(--ocean));
+	font-family: var(--econ);
 	overflow: hidden;
 	z-index: 500;
 }
@@ -121,7 +123,9 @@ header {
 	top: var(--thumb);
 	height: calc(100vh - var(--thumb));
 	max-height: calc(100vh - var(--thumb));
-	background-color: rgb(var(--ocean));
+	background-color: rgb(var(--oats));
+	color: rgb(var(--ocean));
+	font-family: var(--econ);
 	overflow: auto;
 	z-index: 550;
 }
