@@ -18,14 +18,6 @@ $(function() {
 	});
 })
 
-function end(x,y) {
-	end=x.length;
-	if(x.indexOf(y)!=-1) {
-		end=x.indexOf(y);
-	}
-	return end
-}
-
 function buildPage(x) {
 	console.log(end(x.gsx$price.$t,','));
 	c=$('#content');
@@ -56,6 +48,15 @@ function buildPage(x) {
 	
 	//articles - list of hosted articles related to this product
 	
+}
+
+
+function end(x,y) {
+	end=x.length;
+	if(x.indexOf(y)!=-1) {
+		end=x.indexOf(y);
+	}
+	return end
 }
 
 function buildSlide(x) {
