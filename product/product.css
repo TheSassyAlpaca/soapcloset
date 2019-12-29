@@ -74,10 +74,10 @@ h2 + span {
 }
 
 #priceBox {
-	font-size: 36px;
+	font-size: 36px !important;
 }
 
-#priceBox + div {
+#priceBox div {
 	display: inline-block;
 	margin-top: 3px;
 	vertical-align: top;
