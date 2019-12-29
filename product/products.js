@@ -143,13 +143,13 @@ function mechanizeSlide(x) {
 			$(this).addClass('active');
 		}
 		s++;
-	}
+	})
 	$('.thumb').each(function() {
 		if(g===0) {
 			$(this).addClass('active');
 		}
 		g++;
-	}
+	})
 	guide='guide';
 	$('.thumb').click(function() {
 		$('.thumb').each(function() {
