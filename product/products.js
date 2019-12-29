@@ -85,7 +85,8 @@ function buildVars(x) {
 					if(window[entry.gsx$var.$t].length===0) {
 						window[entry.gsx$var.$t].push(entry.gsx$varname.$t);
 					}
-					window[entry.gsx$var.$t].push(JSON.parse({"id"="'+entry.gsx$id.$t+'","name"="'+entry.gsx$name.$t+'","ingredients"="'+entry.gsx$ingredients.$t+'"}));
+					obj='{"id"="'+entry.gsx$id.$t+'","name"="'+entry.gsx$name.$t+'","ingredients"="'+entry.gsx$ingredients.$t+'"}';
+					window[entry.gsx$var.$t].push(JSON.parse(obj));
 				}
 			});
 			console.log(Oils[1].id);
