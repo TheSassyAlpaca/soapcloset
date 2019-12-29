@@ -25,7 +25,7 @@ function buildPage(x) {
 	c.append('<span>'+x.gsx$traits.$t+'</span>');
 	c.append(buildSlide(x.gsx$photos.$t));
 	mechanizeSlide(x.gsx$photos.$t);
-	c.append('<h2>$'+x.gsx$price.$t.substring(0,endString(x.gsx$price.$t,','))+' per '+x.gsx$size.$t+'</h2><br>');
+	c.append('<div id="priceBox">$'+x.gsx$price.$t.substring(0,endString(x.gsx$price.$t,','))+' <div><span>per </span><span>'+x.gsx$size.$t+'</span></div></div><br>');
 	if(x.gsx$size.$t.indexOf(',')!=-1) {
 		c.append('<h2>Bulk Rates:</h2><br>'+presentBulk(x.gsx$size.$t));
 	}
