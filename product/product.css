@@ -74,6 +74,17 @@ h2 + span {
 }
 
 #priceBox {
-	
+	font-size: 36px;
+}
+
+#priceBox + div {
+	display: inline-block;
+	margin-top: 3px;
+	vertical-align: top;
+}
+
+#priceBox span {
+	display: block;
+	font-size: small;
 }
 
