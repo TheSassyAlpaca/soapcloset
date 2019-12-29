@@ -25,7 +25,8 @@ h2 + div > span {
 
 #slideContainer {
 	height: 75vw;
-	width: calc(100vw - 20px);
+	width: calc(100vw - 0px);
+	margin-left: -10px;
 	position: relative;
 }
 
@@ -41,7 +42,7 @@ h2 + div > span {
 
 .slide {
 	height: 75vw;
-	width: calc(100vw - 20px);
+	width: calc(100vw - 0px);
 	background-size: cover;
 	display: inline-block;
 	margin-top: 0px !important;
