@@ -72,3 +72,8 @@ h2 + span {
 .thumb.active {
 	border: 4px solid rgb(var(--oats));
 }
+
+#priceBox {
+	
+}
+
