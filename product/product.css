@@ -13,7 +13,7 @@ h2 {
 	font-family: var(--soapCloset);
 }
 
-h2 + span {
+h2 + div > span {
 	font-family: var(--econ);
 }
 
