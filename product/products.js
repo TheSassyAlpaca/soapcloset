@@ -107,8 +107,14 @@ function buildVariableIngredients(y) {
 	console.log(window[y[0]][0]);
 	console.log(window[y[0]][y[1]]);
 	w=window[y[0]][y[1]];
+	o=window[y[0]]
 	x=w.ingredients.split(', ');
 	ingType='<h3 id="'+y[0]+'"><div></div>'+window[y[0]][0]+'</h3>';
+	ingOptions='<div>';
+	for(i=1;i<o.length;i++) {
+		ingOptions=ingOptions+'<div class="ingOptions" name="'+o[i]+'">'+o[i].name+'</div>';
+	}
+	ingOptions='</div>';
 	ing='<div>';
 	for(i=0;i<x.length;i++) {
 		ing=ing+'<span class="ingredient">'+x[i]+'</span>';
@@ -117,9 +123,10 @@ function buildVariableIngredients(y) {
 		}
 	}
 	if($('#'+y[0]).length) {
+		$('#'+y[0]).next().next().remove();
 		$('#ingredients').append(ing);
 	} else {
-		$('#ingredients').append(ingType+ing);
+		$('#ingredients').append(ingType+ingOptions+ing);
 	}
 	$('#'+y[0]).next('div').children('span.ingredient').click(function() {
 		ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
