@@ -126,11 +126,18 @@ function buildVariableIngredients(y) {
 	if($('#'+y[0]).length) {
 		$('#'+y[0]).next().next().replaceWith(ing);
 		//$('#ingredients').append(ing);
-	} else {
-		$('#ingredients').append(ingType+ingOptions+ing);
 		$('#'+y[0]).next().children('div.ingOptions').each(function() {
 			if($(this).attr('name')===y[1]) {
 				$(this).addClass('selected');
+			}
+		})
+	} else {
+		$('#ingredients').append(ingType+ingOptions+ing);
+		$('#'+y[0]).next().children('div.ingOptions').each(function() {
+			if($(this).attr('name')===y[1].toString()) {
+				$(this).addClass('selected');
+			} else {
+				$(this).removeClass('selected');
 			}
 		})
 		$('#'+y[0]+' > div').click(function() {
@@ -144,7 +151,7 @@ function buildVariableIngredients(y) {
 		$('#'+y[0]).next().children('div.ingOptions').click(function() {
 			replace=[y[0],Number($(this).attr('name'))];
 			console.log(replace);
-			$(this).parent().prev('h2').children('div').removeClass('engage');
+			$(this).parent().prev('h3').children('div').removeClass('engage');
 			$(this).parent().removeClass('expand');
 			buildVariableIngredients(replace);
 		})
