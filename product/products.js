@@ -127,6 +127,14 @@ function buildVariableIngredients(y) {
 		$('#ingredients').append(ing);
 	} else {
 		$('#ingredients').append(ingType+ingOptions+ing);
+		$('#'+y[0] > div').click(function() {
+			$(this).toggleClass('engage');
+			if($(this).hasClass('engage')) {
+				$(this).parent().next('div').addClass('expand');
+			} else {
+				$(this).parent().next('div').removeClass('expand');
+			}
+		})
 	}
 	$('#'+y[0]).next('div').children('span.ingredient').click(function() {
 		ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
