@@ -84,7 +84,7 @@ function buildVars(x,y) {
 				}
 			});
 			for(j=0;j<x.length;j++) {
-				buildIngredients(window[x[j]][0],,'var');
+				//remove this?
 			}
 			ySplit=y.split('=');
 			baseVariables=ySplit.split('|');
