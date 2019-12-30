@@ -108,7 +108,7 @@ function buildVariableIngredients(y) {
 	console.log(window[y[0]][y[1]]);
 	w=window[y[0]][y[1]];
 	x=w.ingredients.split(', ');
-	ingType='<h3 id="'+y[0]+'">'+window[y[0]][0]+'</h3>';
+	ingType='<h3 id="'+y[0]+'"><div></div>'+window[y[0]][0]+'</h3>';
 	ing='<div>';
 	for(i=0;i<x.length;i++) {
 		ing=ing+'<span class="ingredient">'+x[i]+'</span>';
