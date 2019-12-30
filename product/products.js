@@ -31,9 +31,9 @@ function buildPage(x) {
 		$('h2 > div').click(function() {
 			$(this).toggleClass('engage');
 			if($(this).hasClass('engage')) {
-				$(this).parent().children('div').addClass('expand');
+				$(this).parent().next('div').addClass('expand');
 			} else {
-				$(this).parent().children('div').removeClass('expand');
+				$(this).parent().next('div').removeClass('expand');
 			}
 		})
 	}
