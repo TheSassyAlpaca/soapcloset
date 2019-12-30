@@ -40,6 +40,10 @@ function buildPage(x) {
 	c.append('<div>'+x.gsx$description.$t+'</div>');
 	if(x.gsx$var.$t==='NA') {
 		c.append('<div id="ingredients"><h2>Ingredients</h2>'+buildIngredients('ingredients',x.gsx$ingredients.$t)+'</div>');
+		$('#'+w+' .ingredient').click(function() {
+			ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
+			console.log(ingredientName);
+		})
 	} else {
 		c.append('<div id="ingredients"><h2>Ingredients</h2></div>');
 		buildVars(x.gsx$var.$t,x.gsx$ingredients.$t);
@@ -172,10 +176,6 @@ function buildIngredients(w,x) {
 	ing=ing+'</div>';
 	//$('#ingredients').append(ing);
 	return ing
-	$('#'+w+' .ingredient').click(function() {
-		ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
-		console.log(ingredientName);
-	})
 }
 
 function presentBulk(x) {
