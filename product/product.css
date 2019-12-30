@@ -33,7 +33,7 @@ h2 + div > span {
 }
 
 h3 {
-	margin: 0px;
+	margin: 10px 0px 0px 0px;
 	font-family: var(--econ);
 }
 
@@ -48,6 +48,7 @@ h3 {
 #content div {
 	font-family: var(--econ);
     font-size: 120%;
+	margin-top: 10px;
 }
 
 #slideContainer {
