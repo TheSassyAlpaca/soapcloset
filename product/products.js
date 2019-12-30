@@ -124,8 +124,8 @@ function buildVariableIngredients(y) {
 		}
 	}
 	if($('#'+y[0]).length) {
-		$('#'+y[0]).next().next().remove();
-		$('#ingredients').append(ing);
+		$('#'+y[0]).next().next().replaceWith(ing);
+		//$('#ingredients').append(ing);
 	} else {
 		$('#ingredients').append(ingType+ingOptions+ing);
 		$('#'+y[0]+' > div').click(function() {
