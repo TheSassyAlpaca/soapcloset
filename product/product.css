@@ -69,6 +69,10 @@ h3 + div > span {
 	color: rgb(var(--oats));
 }
 
+.exception {
+	max-height: 99px;
+}
+
 #content div {
 	font-family: var(--econ);
     font-size: 120%;
