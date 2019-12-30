@@ -171,6 +171,9 @@ function buildIngredients(x) {
 	ing='<div class="exception">';
 	for(i=0;i<x.length;i++) {
 		ing=ing+'<span class="ingredient">'+x[i]+'</span>';
+		if(i!=x.length-1) {
+			ing=ing+', ';
+		}
 	}
 	ing=ing+'</div>';
 	return ing
