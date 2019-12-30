@@ -113,7 +113,7 @@ function buildVariableIngredients(y) {
 	ingOptions='<div>';
 	for(i=1;i<o.length;i++) {
 		ingOptions=ingOptions+'<div class="ingOptions" name="'+o[i].id+'">'+o[i].name+'</div>';
-		console.log(o[i]);
+		//console.log(o[i]);
 	}
 	ingOptions=ingOptions+'</div>';
 	ing='<div>';
@@ -133,8 +133,9 @@ function buildVariableIngredients(y) {
 		})
 	} else {
 		$('#ingredients').append(ingType+ingOptions+ing);
+		console.log(y[1].toString());
 		$('#'+y[0]).next().children('div.ingOptions').each(function() {
-			if($(this).attr('name')===y[1].toString()) {
+			if($(this).attr('name')==y[1].toString()) {
 				$(this).addClass('selected');
 			} else {
 				$(this).removeClass('selected');
