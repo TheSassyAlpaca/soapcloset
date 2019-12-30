@@ -127,7 +127,7 @@ function buildVariableIngredients(y) {
 		$('#ingredients').append(ing);
 	} else {
 		$('#ingredients').append(ingType+ingOptions+ing);
-		$('#'+y[0] > div').click(function() {
+		$('#'+y[0]+' > div').click(function() {
 			$(this).toggleClass('engage');
 			if($(this).hasClass('engage')) {
 				$(this).parent().next('div').addClass('expand');
