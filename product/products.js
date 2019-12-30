@@ -115,11 +115,13 @@ function buildVariableIngredients(y) {
 		$('#ingredients').append(ingType+ing);
 	}
 	console.log($('#'+y[0]));
-	$('#'+y[0]).children('div').children('span.ingredient').click(function() {
-		console.log($(this));
-		ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
-		console.log(ingredientName);
-	})
+	$('#'+y[0]).find('span.ingredient').each(function() {
+		$(this).click(function() {
+			console.log($(this));
+			ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
+			console.log(ingredientName);
+		})
+	}
 }
 
 function buildIngredients(w,x,y) {
