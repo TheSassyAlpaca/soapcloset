@@ -96,6 +96,13 @@ function buildVars(x,y) {
 	});
 }
 
+function showTooltip() {
+	//collect content
+	//layout content
+	//position content
+	//allow for content to be closed
+}
+
 function buildVariableIngredients(y) {
 	console.log(window[y[0]][0]);
 	console.log(window[y[0]][y[1]]);
@@ -115,10 +122,9 @@ function buildVariableIngredients(y) {
 		$('#ingredients').append(ingType+ing);
 	}
 	$('#'+y[0]).next('div').children('span.ingredient').click(function() {
-
-			ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
-			console.log(ingredientName);
-		})
+		ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
+		console.log(ingredientName);
+		showTooltip(ingredientName);
 	})
 }
 
