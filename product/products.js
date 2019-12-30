@@ -85,7 +85,7 @@ function buildVars(x,y) {
 			});
 			ySplit=y.split('=');
 			baseVariables=ySplit[1].split('|');
-			for(k=1;k<baseVariables.length;k++) {
+			for(k=0;k<baseVariables.length;k++) {
 				vSet=baseVariables[k].split('-');
 				buildVariableIngredients(vSet)
 			}
