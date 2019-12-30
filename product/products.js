@@ -39,11 +39,10 @@ function buildPage(x) {
 	}
 	c.append('<div>'+x.gsx$description.$t+'</div>');
 	if(x.gsx$var.$t==='NA') {
-		c.append('<div id="ingredients">'+buildIngredients('Ingredients',x.gsx$ingredients.$t)+'</div>');
+		c.append('<div id="ingredients"><h2>Ingredients</h2>'+buildIngredients('Ingredients',x.gsx$ingredients.$t)+'</div>');
 	} else {
-		c.append('<div id="ingredients"></div>');
+		c.append('<div id="ingredients"><h2>Ingredients</h2></div>');
 		buildVars(x.gsx$var.$t,x.gsx$ingredients.$t);
-		//
 	}
 	//bundles - this gets pulled from elsewhere
 	//frequently bought with - pulled from elsewhere
@@ -68,7 +67,7 @@ function buildVars(x,y) {
 		window[x[i]]=[];
 	}
 	pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
-	console.log(variables);
+	//console.log(variables);
 	$(function() {
 		$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/2/public/values?alt=json-in-script&callback=?",
 		function (data) {
@@ -126,7 +125,7 @@ function buildVariableIngredients(y) {
 	if($('#'+y[0]).length) {
 		$('#'+y[0]).next().next().replaceWith(ing);
 		//$('#ingredients').append(ing);
-		console.log(y[1].toString());
+		//console.log(y[1].toString());
 		$('#'+y[0]).next().children('div.ingOptions').each(function() {
 			if($(this).attr('name')==y[1].toString()) {
 				$(this).addClass('selected');
@@ -136,7 +135,7 @@ function buildVariableIngredients(y) {
 		})
 	} else {
 		$('#ingredients').append(ingType+ingOptions+ing);
-		console.log(y[1].toString());
+		//console.log(y[1].toString());
 		$('#'+y[0]).next().children('div.ingOptions').each(function() {
 			if($(this).attr('name')==y[1].toString()) {
 				$(this).addClass('selected');
@@ -169,7 +168,7 @@ function buildVariableIngredients(y) {
 
 function buildIngredients(w,x,y) {
 	x=x.split(', ');
-	ingType='<h3 id="'+w+'">'+w+'</h3>';
+	//ingType='<h3 id="'+w+'">'+w+'</h3>';
 	ing='<div>';
 	for(i=0;i<x.length;i++) {
 		ing=ing+'<span class="ingredient">'+x[i]+'</span>';
