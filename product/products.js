@@ -128,6 +128,11 @@ function buildVariableIngredients(y) {
 		//$('#ingredients').append(ing);
 	} else {
 		$('#ingredients').append(ingType+ingOptions+ing);
+		$('#'+y[0]).next().children('div.ingOptions').each(function() {
+			if($(this).attr('name')===y[1]) {
+				$(this).addClass('selected');
+			}
+		})
 		$('#'+y[0]+' > div').click(function() {
 			$(this).toggleClass('engage');
 			if($(this).hasClass('engage')) {
