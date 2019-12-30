@@ -39,7 +39,7 @@ function buildPage(x) {
 	}
 	c.append('<div>'+x.gsx$description.$t+'</div>');
 	if(x.gsx$var.$t==='NA') {
-		c.append('<div id="ingredients"><h2>Ingredients</h2>'+buildIngredients('ingredients',x.gsx$ingredients.$t)+'</div>');
+		c.append('<div id="ingredients"><h2>Ingredients</h2>'+buildIngredients(x.gsx$ingredients.$t)+'</div>');
 		$('#'+w+' .ingredient').click(function() {
 			ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
 			console.log(ingredientName);
@@ -166,15 +166,13 @@ function buildVariableIngredients(y) {
 	})
 }
 
-function buildIngredients(w,x) {
+function buildIngredients(x) {
 	x=x.split(', ');
-	//ingType='<h3 id="'+w+'">'+w+'</h3>';
-	ing='<div>';
+	ing='<div class="exception">';
 	for(i=0;i<x.length;i++) {
 		ing=ing+'<span class="ingredient">'+x[i]+'</span>';
 	}
 	ing=ing+'</div>';
-	//$('#ingredients').append(ing);
 	return ing
 }
 
