@@ -114,8 +114,8 @@ function buildVariableIngredients(y) {
 	} else {
 		$('#ingredients').append(ingType+ing);
 	}
-	console.log($('#'+y[0]).children());
-	$('#'+y[0]).find('span.ingredient').each(function() {
+	console.log($('#'+y[0]).siblings());
+	$('#'+y[0]).next('div').children('span.ingredient').each(function() {
 		$(this).click(function() {
 			console.log($(this));
 			ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
