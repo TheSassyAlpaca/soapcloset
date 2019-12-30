@@ -39,33 +39,17 @@ function buildPage(x) {
 	}
 	c.append('<div>'+x.gsx$description.$t+'</div><br>');
 	if(x.gsx$var.$t==='NA') {
-		c.append('<div id="ingredients">'+buildIngredients(x.gsx$ingredients.$t)+'</div><br>');
+		c.append('<div id="ingredients">'+buildIngredients('Ingredients',x.gsx$ingredients.$t)+'</div><br>');
 	} else {
 		c.append('<div id="ingredients"></div><br>');
-		buildVars(x.gsx$var.$t);
-		$('#ingredients').append();
+		buildVars(x.gsx$var.$t,x.gsx$ingredients.$t);
+		//
 	}
-	
-	
-	
-	//name - h1
-	//traits, listed
-	//images - parse and create no-time slide show
-	//price - size
-	//remaining prices
-	//description
-	//ingredients - parse list of ingredients and create tooltips for each ingredient
-	//THE ABOVE IS DONE
-	
-	
 	//bundles - this gets pulled from elsewhere
 	//frequently bought with - pulled from elsewhere
 	
-	
 	//articles - list of hosted articles related to this product
-	
 }
-
 
 function endString(x,y) {
 	end=x.length;
@@ -75,7 +59,9 @@ function endString(x,y) {
 	return end
 }
 
-function buildVars(x) {
+
+
+function buildVars(x,y) {
 	x=x.split(',');
 	variables=x;
 	for(i=0;i<x.length;i++) {
@@ -97,6 +83,15 @@ function buildVars(x) {
 					window[entry.gsx$var.$t].push(JSON.parse('{"id":"'+entry.gsx$id.$t+'","name":"'+entry.gsx$name.$t+'","ingredients":"'+entry.gsx$ingredients.$t+'"}'));
 				}
 			});
+			for(j=0;j<x.length;j++) {
+				buildIngredients(window[x[j]][0],,'var');
+			}
+			ySplit=y.split('=');
+			baseVariables=ySplit.split('|');
+			for(k=1;k<baseVariables.length;k++) {
+				vSet=baseVariables[k].split('-');
+				buildVariableIngredients(vSet)
+			}
 			//console.log(Oils[1].id);
 			//console.log(window[x[0]]);
 			//dataPulls("getSongs");
@@ -104,17 +99,30 @@ function buildVars(x) {
 	});
 }
 
-function buildSlide(x) {
-	iURL='/images/products/';
-	x=x.split(',');
-	container='';
-	guide='<div id="slideGuide">';
+function buildVariableIngredients(y) {
+	console.log(window[y[0]][0]);
+	console.log(window[y[0]].y[1]);
+	ingType='<h2 id="'+y[0]+'">'+window[y[0]][0]+'</h2>';
+	ing='<div>';
+	x=window[y[0]].y[1];
 	for(i=0;i<x.length;i++) {
-		container=container+'<div id="slide'+i+'" class="slide" style="background-image:url('+iURL+x[i]+')"></div>';
-		guide=guide+'<div id="guide'+i+'"  class="thumb" style="background-image:url('+iURL+x[i]+')"></div>';
+		ing=ing+'<span class="ingredient">'+x[i]+'</span>';
 	}
-	slide=container+guide+'</div>';
-	return slide
+}
+
+function buildIngredients(w,x,y) {
+	x=x.split(', ');
+	ingType='<h2 id="'+w+'">'+w+'</h2>';
+	ing='<div>';
+	for(i=0;i<x.length;i++) {
+		ing=ing+'<span class="ingredient">'+x[i]+'</span>';
+	}
+	ing=ing+'</div>';
+	$('#ingredients').append(ing);
+	$('#'+w+' .ingredient').click(function() {
+		ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
+		console.log(ingredientName);
+	})
 }
 
 function presentBulk(x) {
@@ -132,16 +140,17 @@ function presentBulk(x) {
 	return bulk
 }
 
-function buildIngredients(x) {
-	x=x.split(', ');
-	ing='';
+function buildSlide(x) {
+	iURL='/images/products/';
+	x=x.split(',');
+	container='';
+	guide='<div id="slideGuide">';
 	for(i=0;i<x.length;i++) {
-		ing=ing+'<div class="ingredient">'+x[i]+'</div>';
+		container=container+'<div id="slide'+i+'" class="slide" style="background-image:url('+iURL+x[i]+')"></div>';
+		guide=guide+'<div id="guide'+i+'"  class="thumb" style="background-image:url('+iURL+x[i]+')"></div>';
 	}
-	$('.ingredient').click(function() {
-		ingredientName=$(this).text().replace(/[\s()%]+/g,'');
-		console.log(ingredientName);
-	})
+	slide=container+guide+'</div>';
+	return slide
 }
 
 function mechanizeSlide(x) {
