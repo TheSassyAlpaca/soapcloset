@@ -83,11 +83,8 @@ function buildVars(x,y) {
 					window[entry.gsx$var.$t].push(JSON.parse('{"id":"'+entry.gsx$id.$t+'","name":"'+entry.gsx$name.$t+'","ingredients":"'+entry.gsx$ingredients.$t+'"}'));
 				}
 			});
-			for(j=0;j<x.length;j++) {
-				//remove this?
-			}
 			ySplit=y.split('=');
-			baseVariables=ySplit.split('|');
+			baseVariables=ySplit[1].split('|');
 			for(k=1;k<baseVariables.length;k++) {
 				vSet=baseVariables[k].split('-');
 				buildVariableIngredients(vSet)
