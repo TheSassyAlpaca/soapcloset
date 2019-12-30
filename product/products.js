@@ -121,7 +121,7 @@ function buildVariableIngredients(y) {
 			ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
 			console.log(ingredientName);
 		})
-	}
+	})
 }
 
 function buildIngredients(w,x,y) {
