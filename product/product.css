@@ -46,6 +46,16 @@ h3 > div {
 	transition: .25s ease-in-out;
 }
 
+h3 + div {
+	margin-top: 0px !important;
+	max-height: 0px;
+	overflow: hidden;
+}
+
+h3 + div > span {
+	font-family: var(--econ);
+}
+
 .engage {
 	transform: rotate(90deg);
 }
