@@ -37,11 +37,11 @@ function buildPage(x) {
 			}
 		})
 	}
-	c.append('<div>'+x.gsx$description.$t+'</div><br>');
+	c.append('<div>'+x.gsx$description.$t+'</div>');
 	if(x.gsx$var.$t==='NA') {
-		c.append('<div id="ingredients">'+buildIngredients('Ingredients',x.gsx$ingredients.$t)+'</div><br>');
+		c.append('<div id="ingredients">'+buildIngredients('Ingredients',x.gsx$ingredients.$t)+'</div>');
 	} else {
-		c.append('<div id="ingredients"></div><br>');
+		c.append('<div id="ingredients"></div>');
 		buildVars(x.gsx$var.$t,x.gsx$ingredients.$t);
 		//
 	}
@@ -104,7 +104,7 @@ function buildVariableIngredients(y) {
 	ingType='<h3 id="'+y[0]+'">'+window[y[0]][0]+'</h3>';
 	ing='<div>';
 	for(i=0;i<x.length;i++) {
-		ing=ing+'<span class="ingredient">'+x[i]+'</span>';
+		ing=ing+'<span class="ingredient">'+x[i]+'</span>, ';
 	}
 	if($('#'+y[0]).length) {
 		$('#ingredients').append(ing);
