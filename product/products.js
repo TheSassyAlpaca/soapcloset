@@ -39,14 +39,13 @@ function buildPage(x) {
 	}
 	c.append('<div>'+x.gsx$description.$t+'</div>');
 	if(x.gsx$var.$t==='NA') {
-		c.append('<div id="ingredients"><h2>Ingredients</h2>'+buildIngredients('Ingredients',x.gsx$ingredients.$t)+'</div>');
+		c.append('<div id="ingredients"><h2>Ingredients</h2>'+buildIngredients('ingredients',x.gsx$ingredients.$t)+'</div>');
 	} else {
 		c.append('<div id="ingredients"><h2>Ingredients</h2></div>');
 		buildVars(x.gsx$var.$t,x.gsx$ingredients.$t);
 	}
 	//bundles - this gets pulled from elsewhere
 	//frequently bought with - pulled from elsewhere
-	
 	//articles - list of hosted articles related to this product
 }
 
@@ -67,7 +66,6 @@ function buildVars(x,y) {
 		window[x[i]]=[];
 	}
 	pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
-	//console.log(variables);
 	$(function() {
 		$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/2/public/values?alt=json-in-script&callback=?",
 		function (data) {
@@ -89,8 +87,6 @@ function buildVars(x,y) {
 				buildVariableIngredients(vSet)
 			}
 			//console.log(Oils[1].id);
-			//console.log(window[x[0]]);
-			//dataPulls("getSongs");
 		});
 	});
 }
@@ -166,7 +162,7 @@ function buildVariableIngredients(y) {
 	})
 }
 
-function buildIngredients(w,x,y) {
+function buildIngredients(w,x) {
 	x=x.split(', ');
 	//ingType='<h3 id="'+w+'">'+w+'</h3>';
 	ing='<div>';
