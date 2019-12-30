@@ -10,11 +10,34 @@ h1 + span {
 
 h2 {
 	margin: 0px;
-	font-family: var(--soapCloset);
+	font-family: var(--econ);
+}
+
+h2 > div {
+	display: inline-block;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-left: 11px solid rgb(var(--ocean));
+	margin: 0px 0px 0px 10px;
+	transition: .25s ease-in-out;
+}
+
+h2 + div {
+	margin-top: 0px !important;
+	max-height: 0px;
+	overflow: hidden;
 }
 
 h2 + div > span {
 	font-family: var(--econ);
+}
+
+.engage {
+	transform: rotate(90deg);
+}
+
+.expand {
+	max-height: 999px;
 }
 
 #content div {
