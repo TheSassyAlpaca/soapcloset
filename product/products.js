@@ -139,6 +139,8 @@ function buildVariableIngredients(y) {
 		$('#'+y[0]).next().children('div.ingOptions').click(function() {
 			replace=[y[0],Number($(this).attr('name'))];
 			console.log(replace);
+			$(this).parent().prev('h2').children('div').removeClass('engage');
+			$(this).parent().removeClass('expand');
 			buildVariableIngredients(replace);
 		})
 	}
