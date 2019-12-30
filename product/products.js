@@ -136,7 +136,7 @@ function buildVariableIngredients(y) {
 				$(this).parent().next('div').removeClass('expand');
 			}
 		})
-		$('#'+y[0]+' div.ingOptions').click(function() {
+		$('#'+y[0]).children('div.ingOptions').click(function() {
 			replace=[y[0],$(this).attr('name')];
 			console.log(replace);
 			buildVariableIngredients(replace);
