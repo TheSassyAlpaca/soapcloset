@@ -99,12 +99,23 @@ function buildVars(x,y) {
 function buildVariableIngredients(y) {
 	console.log(window[y[0]][0]);
 	console.log(window[y[0]][y[1]]);
+	w=window[y[0]][y[1]];
+	x=w.ingredients.split(', ');
 	ingType='<h2 id="'+y[0]+'">'+window[y[0]][0]+'</h2>';
 	ing='<div>';
-	x=window[y[0]].y[1];
+	
 	for(i=0;i<x.length;i++) {
 		ing=ing+'<span class="ingredient">'+x[i]+'</span>';
 	}
+	if(!$('#'+y[0]).length) {
+		$('#ingredients').append(ing);
+	} else {
+		$('#ingredients').append(ingType+ing);
+	}
+	$('#'+y[0]+' .ingredient').click(function() {
+		ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
+		console.log(ingredientName);
+	})
 }
 
 function buildIngredients(w,x,y) {
