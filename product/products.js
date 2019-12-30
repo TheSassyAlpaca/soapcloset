@@ -27,7 +27,15 @@ function buildPage(x) {
 	mechanizeSlide(x.gsx$photos.$t);
 	c.append('<div id="priceBox">$'+x.gsx$price.$t.substring(0,endString(x.gsx$price.$t,','))+' <div><span>per </span><span>'+x.gsx$size.$t+'</span></div></div>');
 	if(x.gsx$price.$t.indexOf(',')!=-1) {
-		c.append('<h2>Bulk Rates:</h2><div>'+presentBulk(x.gsx$price.$t)+'</div>');
+		c.append('<h2><div></div>Bulk Rates</h2><div>'+presentBulk(x.gsx$price.$t)+'</div>');
+		$('h2 > div').click(function() {
+			$(this).toggleClass('engage');
+			if($(this).hasClass('engage')) {
+				$(this).parent().children('div').addClass('expand');
+			} else {
+				$(this).parent().children('div').removeClass('expand');
+			}
+		})
 	}
 	c.append('<div>'+x.gsx$description.$t+'</div><br>');
 	if(x.gsx$var.$t==='NA') {
@@ -89,8 +97,8 @@ function buildVars(x) {
 					window[entry.gsx$var.$t].push(JSON.parse('{"id":"'+entry.gsx$id.$t+'","name":"'+entry.gsx$name.$t+'","ingredients":"'+entry.gsx$ingredients.$t+'"}'));
 				}
 			});
-			console.log(Oils[1].id);
-			console.log(window[x[0]]);
+			//console.log(Oils[1].id);
+			//console.log(window[x[0]]);
 			//dataPulls("getSongs");
 		});
 	});
