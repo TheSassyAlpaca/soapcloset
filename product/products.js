@@ -40,7 +40,7 @@ function buildPage(x) {
 	c.append('<div>'+x.gsx$description.$t+'</div>');
 	if(x.gsx$var.$t==='NA') {
 		c.append('<div id="ingredients"><h2>Ingredients</h2>'+buildIngredients(x.gsx$ingredients.$t)+'</div>');
-		$('#'+w+' .ingredient').click(function() {
+		$('#ingredients .ingredient').click(function() {
 			ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
 			console.log(ingredientName);
 		})
