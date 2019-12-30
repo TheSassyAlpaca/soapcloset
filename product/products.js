@@ -170,7 +170,8 @@ function buildIngredients(w,x) {
 		ing=ing+'<span class="ingredient">'+x[i]+'</span>';
 	}
 	ing=ing+'</div>';
-	$('#ingredients').append(ing);
+	//$('#ingredients').append(ing);
+	return ing
 	$('#'+w+' .ingredient').click(function() {
 		ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
 		console.log(ingredientName);
