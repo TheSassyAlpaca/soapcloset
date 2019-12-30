@@ -61,7 +61,7 @@ h3 + div > span {
 }
 
 .expand {
-	max-height: 999px;
+	max-height: 9999px;
 }
 
 .selected {
