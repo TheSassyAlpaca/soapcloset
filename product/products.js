@@ -136,13 +136,13 @@ function buildVariableIngredients(y) {
 				$(this).parent().next('div').removeClass('expand');
 			}
 		})
-		$('#'+y[0]).children('div.ingOptions').click(function() {
+		$('#'+y[0]).next().children('div.ingOptions').click(function() {
 			replace=[y[0],$(this).attr('name')];
 			console.log(replace);
 			buildVariableIngredients(replace);
 		})
 	}
-	$('#'+y[0]).next('div').children('span.ingredient').click(function() {
+	$('#'+y[0]).next().next('div').children('span.ingredient').click(function() {
 		ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
 		console.log(ingredientName);
 		showTooltip(ingredientName);
