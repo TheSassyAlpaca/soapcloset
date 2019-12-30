@@ -112,10 +112,10 @@ function buildVariableIngredients(y) {
 	ingType='<h3 id="'+y[0]+'"><div></div>'+window[y[0]][0]+'</h3>';
 	ingOptions='<div>';
 	for(i=1;i<o.length;i++) {
-		ingOptions=ingOptions+'<div class="ingOptions" name="'+o[i]+'">'+o[i].name+'</div>';
+		ingOptions=ingOptions+'<div class="ingOptions" name="'+o[i].id+'">'+o[i].name+'</div>';
 		console.log(o[i]);
 	}
-	ingOptions='</div>';
+	ingOptions=ingOptions'</div>';
 	ing='<div>';
 	for(i=0;i<x.length;i++) {
 		ing=ing+'<span class="ingredient">'+x[i]+'</span>';
