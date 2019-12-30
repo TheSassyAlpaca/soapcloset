@@ -18,7 +18,7 @@ h2 > div {
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
 	border-left: 11px solid rgb(var(--ocean));
-	margin: 0px 0px 0px 10px;
+	margin: 0px 10px 0px 0px;
 	transition: .25s ease-in-out;
 }
 
@@ -29,6 +29,11 @@ h2 + div {
 }
 
 h2 + div > span {
+	font-family: var(--econ);
+}
+
+h3 {
+	margin: 0px;
 	font-family: var(--econ);
 }
 
@@ -43,7 +48,6 @@ h2 + div > span {
 #content div {
 	font-family: var(--econ);
     font-size: 120%;
-    margin-top: 10px;
 }
 
 #slideContainer {
