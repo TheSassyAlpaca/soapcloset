@@ -137,7 +137,7 @@ function buildVariableIngredients(y) {
 			}
 		})
 		$('#'+y[0]).next().children('div.ingOptions').click(function() {
-			replace=[y[0],$(this).attr('name')];
+			replace=[y[0],Number($(this).attr('name'))];
 			console.log(replace);
 			buildVariableIngredients(replace);
 		})
