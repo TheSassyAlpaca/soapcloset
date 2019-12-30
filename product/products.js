@@ -113,6 +113,7 @@ function buildVariableIngredients(y) {
 	ingOptions='<div>';
 	for(i=1;i<o.length;i++) {
 		ingOptions=ingOptions+'<div class="ingOptions" name="'+o[i]+'">'+o[i].name+'</div>';
+		console.log(o[i]);
 	}
 	ingOptions='</div>';
 	ing='<div>';
