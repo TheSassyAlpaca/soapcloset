@@ -98,7 +98,7 @@ function buildVars(x,y) {
 
 function buildVariableIngredients(y) {
 	console.log(window[y[0]][0]);
-	console.log(window[y[0]].y[1]);
+	console.log(window[y[0]][y[1]]);
 	ingType='<h2 id="'+y[0]+'">'+window[y[0]][0]+'</h2>';
 	ing='<div>';
 	x=window[y[0]].y[1];
