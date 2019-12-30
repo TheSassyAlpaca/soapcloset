@@ -103,11 +103,10 @@ function buildVariableIngredients(y) {
 	x=w.ingredients.split(', ');
 	ingType='<h2 id="'+y[0]+'">'+window[y[0]][0]+'</h2>';
 	ing='<div>';
-	
 	for(i=0;i<x.length;i++) {
 		ing=ing+'<span class="ingredient">'+x[i]+'</span>';
 	}
-	if(!$('#'+y[0]).length) {
+	if($('#'+y[0]).length) {
 		$('#ingredients').append(ing);
 	} else {
 		$('#ingredients').append(ingType+ing);
