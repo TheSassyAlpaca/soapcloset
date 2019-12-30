@@ -37,6 +37,15 @@ h3 {
 	font-family: var(--econ);
 }
 
+h3 > div {
+	display: inline-block;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-left: 11px solid rgb(var(--ocean));
+	margin: 0px 10px 0px 0px;
+	transition: .25s ease-in-out;
+}
+
 .engage {
 	transform: rotate(90deg);
 }
