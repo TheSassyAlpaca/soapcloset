@@ -11,10 +11,13 @@ footer hr {
 	border: 1px solid rgba(var(--oats),0.1);
 }
 
-footer div {
+footer > div {
+	margin: 3px 0px;
+}
+
+footer div:nth-child(8) {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	margin: 3px 0px;
 }
 
 footer div a {
@@ -41,7 +44,7 @@ footer hr + span + div {
 	background-color: rgb(var(--oats));
 }
 
-footer hr + span + div + div {
+footer .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset {
 	display: inline-block;
 	width: calc(100% - 100px);
 }
