@@ -63,6 +63,7 @@ footer #footerMenu .menuItem {
 	height: calc(var(--thumb) / 2);
 	font-size: x-large;
 	text-align: center;
+	text-indent: 0px;
 }
 
 footer #socialMediaBar {
