@@ -39,9 +39,9 @@ $(document).ready(function() {
 	})
 	$('#content').css('min-height',$(document).height()-$('header').outerHeight()-$('footer').outerHeight()-10);
 	//footerMenu
-	for(i=0;i<sm.length;i++) {
-		if(sm[i].link!=='none') {
-			$('#footerMenu').append('<div class="menuItem" addy="'+sm[i].link+'">'+sm[i].item+'</div>');
+	for(i=0;i<menu.length;i++) {
+		if(menu[i].link!=='none') {
+			$('#footerMenu').append('<div class="menuItem" addy="'+menu[i].link+'">'+menu[i].item+'</div>');
 		}
 		$('.menuItem').click(function() {
 			location.href=$(this).attr('addy');
