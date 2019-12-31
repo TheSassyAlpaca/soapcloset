@@ -6,3 +6,99 @@ footer {
 	font-size: medium;
 	text-align: left;
 }
+
+footer hr {
+	border: 1px solid rgba(var(--oats),0.1);
+}
+
+footer div {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	margin: 3px 0px;
+}
+
+footer div a {
+	text-align: center;
+	color: rgb(var(--oats));
+	text-decoration: none;
+	margin: 3px 0px;
+}
+
+footer hr + div  {
+	text-align: center;
+	font-size: smaller;
+}
+
+footer hr + span {
+	text-align: center;
+	display: block;
+	margin: 3px 0px;
+	font-size: x-large;
+}
+
+footer hr + span + div {
+	border-radius: 3px;
+	background-color: rgb(var(--oats));
+}
+
+footer hr + span + div + div {
+	display: inline-block;
+	width: calc(100% - 100px);
+}
+
+footer input {
+	outline: none;
+	border: none;
+	height: 30px;
+	padding: 0px;
+	text-indent: 10px;
+	background-color: transparent;
+	width: 100%;
+}
+
+footer #footerMenu .menuItem {
+	height: calc(var(--thumb) / 2);
+	font-size: x-large;
+	text-align: center;
+}
+
+footer #socialMediaBar {
+	text-align: center;
+}
+
+footer #socialMediaBar a {
+	width: calc(var(--thumb) / 3);
+	height: calc(var(--thumb) / 3);
+	display: inline-block;
+	margin: 0px 5px;
+}
+
+footer #socialMediaBar img {
+	width: calc(var(--thumb) / 3);
+	height: calc(var(--thumb) / 3);
+}
+
+footer #subscribe {
+	display: inline-block;
+	height: 30px;
+	width: 80px;
+	vertical-align: top;
+	color: black;
+	line-height: 30px;
+	font-weight: 600;
+	float: right;
+	padding: 0px 10px;
+	font-size: larger;
+	background-color: rgb(var(--bark));
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	text-align: center;
+	text-shadow: 0px 0px 1px rgb(var(--oats));
+}
+
+footer .finePrint {
+	font-size: x-small;
+	text-align: center;
+	display: block;
+	margin: 10px auto;
+}
