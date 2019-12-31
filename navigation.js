@@ -45,7 +45,7 @@ $(document).ready(function() {
 		}
 		$('.menuItem').click(function() {
 			location.href=$(this).attr('addy');
-		}
+		})
 	}
 	//socialMediaBar
 	sm=[
