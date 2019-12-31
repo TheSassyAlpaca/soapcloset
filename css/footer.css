@@ -79,6 +79,7 @@ footer #socialMediaBar a {
 footer #socialMediaBar img {
 	width: calc(var(--thumb) / 3);
 	height: calc(var(--thumb) / 3);
+	filter: brightness(0) invert(1);
 }
 
 footer #subscribe {
