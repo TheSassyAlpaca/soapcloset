@@ -1,6 +1,6 @@
 menu=[
-	{item:'Products',sandwich:'products',link:'none'},
-	{item:'Shops & Markets',sandwich:'s_and_m',link:'none'},
+	{item:'Products',sandwich:'products',link:'/product/product.html'},
+	{item:'Shops & Markets',sandwich:'s_and_m',link:'/shops_and_markets.html'},
 	{item:'About Us',sandwich:'none',link:'/about-us.html'},
 	{item:'Gallery',sandwich:'none',link:'/gallery.html'}
 ];
