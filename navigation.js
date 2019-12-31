@@ -1,3 +1,10 @@
+menu=[
+	{item:'Products',sandwich:'products',link:'none'},
+	{item:'Shops & Markets',sandwich:'s_and_m',link:'none'},
+	{item:'About Us',sandwich:'none',link:'/about-us.html'},
+	{item:'Gallery',sandwich:'none',link:'/gallery.html'}
+];
+
 $(document).ready(function() {
 	$('#blt').click(function() {
 		resolved=0;
@@ -31,15 +38,28 @@ $(document).ready(function() {
 		console.log(resolved);
 	})
 	$('#content').css('min-height',$(document).height()-$('header').outerHeight()-$('footer').outerHeight()-10);
+	//footerMenu
+	for(i=0;i<sm.length;i++) {
+		if(sm[i].link!=='none') {
+			$('#footerMenu').append('<div class="menuItem" addy="'+sm[i].link+'">'+sm[i].item+'</div>');
+		}
+		$('.menuItem').click(function() {
+			location.href=$(this).attr('addy');
+		}
+	}
+	//socialMediaBar
+	sm=[
+		{id:'Facebook',link:'https://www.facebook.com/sassyalpaca',icon:'/images/facebook.png'},
+		{id:'Instagram',link:'https://www.instagram.com/alpacasassy/',icon:'/images/instagram.png'},
+		{id:'Twitter',link:'https://twitter.com/SassyAlpaca1',icon:'/images/twitter.png'},
+		{id:'Etsy',link:'https://www.etsy.com/shop/TheSassyAlpacaLLC',icon:'/images/etsy.png'}
+	];
+	for(i=0;i<sm.length;i++) {
+		$('#socialMediaBar').append('<a href="'+sm[i].link+'" target="_blank"><img src="'+sm[i].icon+'"></a>');
+	}
 })
 
 function stackTheSandwich(x) {
-	menu=[
-		{item:'Products',sandwich:'products',link:'none'},
-		{item:'Shops & Markets',sandwich:'s_and_m',link:'none'},
-		{item:'About Us',sandwich:'none',link:'/about-us.html'},
-		{item:'Gallery',sandwich:'none',link:'/gallery.html'}
-	]
 	products=[
 		{item:'Soap',sandwich:'none',link:'/soap.html'},
 		{item:'Lotion',sandwich:'none',link:'/lotion.html'},
@@ -61,11 +81,11 @@ function stackTheSandwich(x) {
 	loc=location.href;
 	for(i=0;i<x.length;i++) {
 		item=x[i].item.replace(/[\s&]+/g,'');
-		itemSandwich=x[i].sandwich;
+		//itemSandwich=x[i].sandwich;
 		console.log(item);
 		console.log(container.children('#'+item+'Menu').length);
 		if(!container.children('#'+item+'Menu').length) {
-			container.append('<div id="'+item+'Menu" class="menuItem" name="'+x[i].sandwich+'">'+x[i].item+'</div>');
+			container.append('<div id="'+item+'Menu" class="menuItem" name="'+x[i].sandwich+'" addy="'+x[i].link+'">'+x[i].item+'</div>');
 			console.log(x[i]);
 		}
 		container.children('.menuItem').each(function() {
