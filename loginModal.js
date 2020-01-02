@@ -13,7 +13,7 @@ modal=`
 	<span class="finePrint">Copyright © 2019-2020 The Sassy Alpaca, LLC. All Rights Reserved</span>
 </modal>`
 
-$(function() {
+function openLoginModal() {
 	$('body').append('<div id="modalShield">'+modal+'</div>');
 	$('.login-box, #modalShield').click(function() {
 		closeModal();
