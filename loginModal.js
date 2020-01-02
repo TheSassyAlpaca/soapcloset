@@ -23,7 +23,7 @@ function openLoginModal() {
 			//login_with
 			modal=modalStart+modalMid+modalEnd;
 			$('body').append('<div id="modalShield">'+modal+'</div>');
-			$('.login-box').html($('.fb-login-button.fb_iframe_widget.fb_iframe_widget_fluid').clone());
+			$('.fb-login-button.fb_iframe_widget.fb_iframe_widget_fluid').appendTo($('.login-box'));
 		}
 	});
 	
