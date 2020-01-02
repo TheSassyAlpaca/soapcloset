@@ -13,7 +13,7 @@ function createOrFindUser(id,auth,type) {
 
 	}
 	*/
-	url='https://graph.facebook.com/'+id+'?fields=email,first_name,last_name&access_token='+auth;
+	url='https://graph.facebook.com/'+id+'?fields=email,first_name,last_name,picture&access_token='+auth;
 	FB.api(url, function(response) {
 		if(response.error){
 			console.log(response);
