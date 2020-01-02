@@ -7,10 +7,21 @@ function createOrFindUser(id,auth,type) {
 	//what is there to create?
 	$('#userLog').css('display','none');
 	$('#userCart').css('display','block');
+	/*
 	if(type=='facebook') {
 		console.log(curl -X GET 'https://graph.facebook.com/'+id+'?fields=first_name,last_name,profile_pic,email&access_token='+auth);
 
 	}
+	*/
+	facebook.api(url, function(err, data){
+		if(err){
+			console.error(err);
+			res.sendStatus(502);
+			res.end();
+		} else{
+			console.log(data);//Do some stuff with the data object
+		}
+	});
 }
 
 function endUser(type) {
