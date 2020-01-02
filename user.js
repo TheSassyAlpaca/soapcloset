@@ -24,6 +24,7 @@ function createOrFindUser(id,auth,type) {
 		} else{
 			console.log(response);//Do some stuff with the data object
 		}
+		console.log(response.error);
 	});
 }
 
