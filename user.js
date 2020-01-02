@@ -17,8 +17,6 @@ function createOrFindUser(id,auth,type) {
 	FB.api(url, function(err, data){
 		if(err){
 			console.error(err);
-			res.sendStatus(502);
-			res.end();
 		} else{
 			console.log(data);//Do some stuff with the data object
 		}
