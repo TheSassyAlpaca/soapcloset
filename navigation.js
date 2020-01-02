@@ -37,8 +37,6 @@ $(document).ready(function() {
 		}
 		console.log(resolved);
 	})
-	$('#content').css('min-height',$(document).height()-$('header').outerHeight()-$('footer').outerHeight()-10);
-	//footerMenu
 	for(i=0;i<menu.length;i++) {
 		if(menu[i].link!=='none') {
 			$('#footerMenu').append('<div class="menuItem" addy="'+menu[i].link+'">'+menu[i].item+'</div>');
@@ -47,7 +45,6 @@ $(document).ready(function() {
 			location.href=$(this).attr('addy');
 		})
 	}
-	//socialMediaBar
 	sm=[
 		{id:'Facebook',link:'https://www.facebook.com/sassyalpaca',icon:'/images/facebook.png'},
 		{id:'Instagram',link:'https://www.instagram.com/alpacasassy/',icon:'/images/instagram.png'},
@@ -57,6 +54,9 @@ $(document).ready(function() {
 	for(i=0;i<sm.length;i++) {
 		$('#socialMediaBar').append('<a href="'+sm[i].link+'" target="_blank"><img src="'+sm[i].icon+'"></a>');
 	}
+	
+	//always last!!
+	$('#content').css('min-height',$(document).height()-$('header').outerHeight()-$('footer').outerHeight()-10);
 })
 
 function stackTheSandwich(x) {
