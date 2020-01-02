@@ -17,9 +17,9 @@ function createOrFindUser(id,auth,type) {
 	FB.api(url, function(response){
 		if(err){
 			console.log(response);
-			console.error(err);
+			//console.error(err);
 		} else{
-			console.log(data);//Do some stuff with the data object
+			console.log(response);//Do some stuff with the data object
 		}
 	});
 }
