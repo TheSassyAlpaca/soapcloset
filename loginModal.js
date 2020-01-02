@@ -16,7 +16,7 @@ function openLoginModal() {
 	});
 	
 	$('.login-box, #modalShield').click(function() {
-		$('.fb-login-button.fb_iframe_widget.fb_iframe_widget_fluid').appendTo($('attic'));
+		$('.fb-login-button.fb_iframe_widget.fb_iframe_widget_fluid').appendTo($('#attic'));
 		closeModal();
 	})
 }
