@@ -51,8 +51,9 @@
 	<body>
 		<div id="fb-root"></div>
 		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=584847252330296&autoLogAppEvents=1"></script>
-		<attic>
-			<div class="fb-login-button" data-width="260px" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState(),closeModal();"></div>
+		<attic id="attic">
+			
+			<div class="fb-login-button" data-width="260px" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState(),closeModal();"></div>
 			<button id="logout" style="display:none">
 				Logout
 			</button>
