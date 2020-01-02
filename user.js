@@ -14,9 +14,9 @@ function createOrFindUser(id,auth,type) {
 	}
 	*/
 	url='https://graph.facebook.com/'+id+'?fields=email&access_token='+auth;
-	FB.api(url, function(data, err){
+	FB.api(url, function(response){
 		if(err){
-			console.log(data);
+			console.log(response);
 			console.error(err);
 		} else{
 			console.log(data);//Do some stuff with the data object
