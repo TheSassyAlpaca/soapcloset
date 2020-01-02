@@ -16,13 +16,17 @@ function openLoginModal() {
 	FB.getLoginStatus(function(response) {
 		if(response.status==='connected') {
 			modalMid=`<div class="fb-login-button" data-width="260px" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState(),closeModal();"></div>`;
+			modal=modalStart+modalMid+modalEnd;
+			$('body').append('<div id="modalShield">'+modal+'</div>');
 		} else {
-			modalMid=`<fb:login-button scope="public_profile,email" onlogin="checkLoginState(),closeModal();"></fb:login-button>`;
+			modalMid=;
 			//login_with
+			modal=modalStart+modalMid+modalEnd;
+			$('body').append('<div id="modalShield">'+modal+'</div>');
+			$('.login-box').html($('.fb-login-button.fb_iframe_widget.fb_iframe_widget_fluid').clone());
 		}
 	});
-	modal=modalStart+modalMid+modalEnd;
-	$('body').append('<div id="modalShield">'+modal+'</div>');
+	
 	$('.login-box, #modalShield').click(function() {
 		closeModal();
 	})
