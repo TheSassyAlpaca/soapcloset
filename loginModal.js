@@ -18,7 +18,7 @@ function openLoginModal() {
 	$('.login-box, #modalShield').click(function() {
 		closeModal();
 	})
-})
+}
 
 function closeModal() {
 	$('#modalShield').remove();
