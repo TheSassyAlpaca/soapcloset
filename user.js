@@ -13,7 +13,7 @@ function createOrFindUser(id,auth,type) {
 
 	}
 	*/
-	facebook.api(url, function(err, data){
+	FB.api(url, function(err, data){
 		if(err){
 			console.error(err);
 			res.sendStatus(502);
