@@ -17,10 +17,10 @@ function createOrFindUser(id,auth,type) {
 	FB.api(url, function(response) {
 		if(response.error){
 			console.err(response);
-			console.err(response.email);
-			console.err(response.picture.data.url);
 		} else {
 			console.log(response);//Do some stuff with the data object
+			console.err(response.email);
+			console.err(response.picture.data.url);
 		}
 	});
 }
