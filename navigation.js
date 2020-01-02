@@ -56,7 +56,7 @@ $(document).ready(function() {
 	}
 	
 	//always last!!
-	$('#content').css('min-height',$(document).height()-$('header').outerHeight()-$('footer').outerHeight()-10);
+	$('#content').css('min-height',$(document).height()-$('header').outerHeight()-$('footer').outerHeight()-10+33.0);
 })
 
 function stackTheSandwich(x) {
