@@ -15,9 +15,9 @@ function openLoginModal() {
 	modalMid='';
 	FB.getLoginStatus(function(response) {
 		if(response.status==='connected') {
-			modalMid='<div class="fb-login-button" data-width="260px" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState(),closeModal();"></div>';
+			modalMid=`<div class="fb-login-button" data-width="260px" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState(),closeModal();"></div>`;
 		} else {
-			modalMid='<div class="fb-login-button" data-width="260px" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState(),closeModal();"></div>';
+			modalMid=`<div class="fb-login-button" data-width="260px" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState(),closeModal();"></div>`;
 			//login_with
 		}
 	});
