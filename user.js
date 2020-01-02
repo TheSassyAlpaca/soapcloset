@@ -16,11 +16,11 @@ function createOrFindUser(id,auth,type) {
 	url='https://graph.facebook.com/'+id+'?fields=email,first_name,last_name,picture&access_token='+auth;
 	FB.api(url, function(response) {
 		if(response.error){
-			console.err(response);
+			console.error(response);
 		} else {
 			console.log(response);//Do some stuff with the data object
-			console.err(response.email);
-			console.err(response.picture.data.url);
+			console.log(response.email);
+			console.log(response.picture.data.url);
 		}
 	});
 }
