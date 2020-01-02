@@ -19,7 +19,7 @@ function openLoginModal() {
 			modal=modalStart+modalMid+modalEnd;
 			$('body').append('<div id="modalShield">'+modal+'</div>');
 		} else {
-			modalMid=;
+			modalMid='';
 			//login_with
 			modal=modalStart+modalMid+modalEnd;
 			$('body').append('<div id="modalShield">'+modal+'</div>');
