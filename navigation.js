@@ -54,9 +54,15 @@ $(document).ready(function() {
 	for(i=0;i<sm.length;i++) {
 		$('#socialMediaBar').append('<a href="'+sm[i].link+'" target="_blank"><img src="'+sm[i].icon+'"></a>');
 	}
+	$('#userLog').click(function() {
+		openLoginModal();
+	})
+	$('#userCart').click(function() {
+		openCart();
+	})
 	
 	//always last!!
-	$('#content').css('min-height',$(document).height()-$('header').outerHeight()-$('footer').outerHeight()-10+33.0);
+	$('#content').css('min-height',$(document).height()-$('header').outerHeight()-$('footer').outerHeight()-10+33.4);
 })
 
 function stackTheSandwich(x) {
