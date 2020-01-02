@@ -24,9 +24,7 @@ function checkLoginState() {
 		if(response.status==='connected') {
 			console.log(response.authResponse.userID);
 			console.log('https://graph.facebook.com/'+response.authResponse.userID+'/picture?type=square');
-			//$('#login-button').css('display','none');
-			//$('#logout').css('display','block');
-			createOrFindUser(response.authResponse.userID,'facebook');
+			createOrFindUser(response.authResponse.userID,response.authResponse.accessToken,'facebook');
 		} else {
 			console.log("Error?");
 		}
