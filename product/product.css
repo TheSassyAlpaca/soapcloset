@@ -172,7 +172,7 @@ h3 + div > span {
     vertical-align: top;
     margin: 0px !important;
     text-align: center;
-    font-size: var(--thumb);
+    font-size: var(--thumb) !important;
     line-height: var(--thumb);
 }
 
@@ -189,4 +189,12 @@ h3 + div > span {
 	color: darkgrey;
 	padding: 0px;
 	background-color: whitesmoke;
+}
+
+#purchase {
+	height: var(--thumb);
+    width: var(--thumb);
+	text-align: center;
+    font-size: var(--thumb) !important;
+	line-height: var(--thumb);
 }
