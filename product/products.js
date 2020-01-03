@@ -75,12 +75,12 @@ function updateHash() {
 		variable=$(this).attr('data-content');
 		for(i=1;i<array.length;i++) {
 			if(array[i].name==variable) {
-				hash=hash+'_'+$(this).text()+'-'+array[i].id+'|';
+				hash=hash+'_'+$(this).attr('id')+'-'+array[i].id+'|';
 			}
 		}
 		console.log(hash);
 	})
-	
+	console.log(hash);
 }
 
 function endString(x,y) {
