@@ -104,9 +104,9 @@ function showTooltip() {
 
 function buildVariableIngredients(y) {
 	console.log(window[y[0]][0]);
-	console.log(window[y[0]][y[1]]);
+	console.log(window[y[0]][y[1]].name);
 	w=window[y[0]][y[1]];
-	o=window[y[0]]
+	o=window[y[0]];
 	x=w.ingredients.split(', ');
 	ingType='<h3 id="'+y[0]+'"><div></div>'+window[y[0]][0]+'</h3>';
 	ingOptions='<div>';
@@ -123,6 +123,7 @@ function buildVariableIngredients(y) {
 		}
 	}
 	if($('#'+y[0]).length) {
+		$('#'+y[0]).attr('data-content',window[y[0]][y[1]].name);
 		$('#'+y[0]).next().next().replaceWith(ing);
 		//$('#ingredients').append(ing);
 		//console.log(y[1].toString());
@@ -135,6 +136,7 @@ function buildVariableIngredients(y) {
 		})
 	} else {
 		$('#ingredients').append(ingType+ingOptions+ing);
+		$('#'+y[0]).attr('data-content',window[y[0]][y[1]].name);
 		//console.log(y[1].toString());
 		$('#'+y[0]).next().children('div.ingOptions').each(function() {
 			if($(this).attr('name')==y[1].toString()) {
