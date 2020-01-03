@@ -39,6 +39,8 @@ function checkSubscriber(id,type,email) {
 			}
 			if(checker!==0) {
 				//change subscription field
+				$('#subscribe').parent().prev('span').text('Thank You for Subscribing!');
+				$('#subscribe').parent().remove();
 			}
 			//console.log(Oils[1].id);
 		});
