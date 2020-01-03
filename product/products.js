@@ -59,10 +59,26 @@ function buildPage(x) {
 	})
 	
 	
-	
 	//bundles - this gets pulled from elsewhere
 	//frequently bought with - pulled from elsewhere
 	//articles - list of hosted articles related to this product
+}
+
+function updateHash() {
+	pName=location.href.substring(location.href.indexOf('/product/')+9,endString(location.href,'?'));
+	hash=pName+'_';
+	$('#ingredients').children('h3').each(function() {
+		console.log($(this).text());
+		array=window[$(this).text()];
+		variable=$(this).attr('data-content');
+		for(i=1;i<array.length;i++) {
+			if(array[i].name==variable) {
+				hash=hash+'_'+$(this).text()+'-'+arry[i].id+'|';
+			}
+		}
+		console.log(hash);
+	})
+	
 }
 
 function endString(x,y) {
@@ -72,8 +88,6 @@ function endString(x,y) {
 	}
 	return end
 }
-
-
 
 function buildVars(x,y) {
 	x=x.split(',');
@@ -178,6 +192,7 @@ function buildVariableIngredients(y) {
 		console.log(ingredientName);
 		showTooltip(ingredientName);
 	})
+	updateHash();
 }
 
 function buildIngredients(x) {
