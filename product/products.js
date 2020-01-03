@@ -58,7 +58,7 @@ function buildPage(x) {
 	$('#purchase').click(function() {
 		//$('#'+x.gsx$proname.$t).children('input').val();
 		console.log('product','replace',window.location.hash.substring(1,window.location.hash.length)+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000);
-		//updateCookie('product','replace',window.location.hash+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000)
+		updateCookie('product','replace',window.location.hash+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000)
 	})
 	
 	
