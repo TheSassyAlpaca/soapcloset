@@ -1,7 +1,7 @@
 menu=[
 	{item:'Products',sandwich:'products',link:'/product/product.html'},
 	{item:'Shops & Markets',sandwich:'s_and_m',link:'/shops_and_markets.html'},
-	{item:'About Us',sandwich:'none',link:'/about-us.html'},
+	{item:'About Us',sandwich:'none',link:'/about_us.html'},
 	{item:'Contact Us',sandwich:'none',link:'/contact.html'},
 	{item:'Gallery',sandwich:'none',link:'/gallery.html'}
 ];
