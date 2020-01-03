@@ -54,6 +54,15 @@ $(document).ready(function() {
 	for(i=0;i<sm.length;i++) {
 		$('#socialMediaBar').append('<a href="'+sm[i].link+'" target="_blank"><img src="'+sm[i].icon+'"></a>');
 	}
+	$('#subscribe').click(function() {
+		email=$(this).prev().children('input').val();
+		id='NA';
+		if($(this).prev().children('input').attr('name').lenght!==0) {
+			id=$(this).prev().children('input').attr('name',id);
+		}
+		$('#basement').append('https://docs.google.com/forms/d/e/1FAIpQLSeOQKOaVn7oDYXnIktlJnx2IMLc1mgKtrcJp19HM-QQt1iTFQ/formResponse?usp=pp_url&entry.148047722='+id+'&entry.1353804064='+email;
+	}
+	
 	$('#userLog').click(function() {
 		openLoginModal();
 	})
