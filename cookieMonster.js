@@ -58,6 +58,8 @@ function getCookieValue(c,a,v) {
 			vList.push(newSet);
 		}
 		newValue=vList.join("|");
+	} else {
+		newValue=item+"+"+qty;
 	}
 	return newValue
 }
