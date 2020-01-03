@@ -2,13 +2,10 @@ $(function() {
 	//are there variables in url???
 	pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
 	pName=location.href.substring(location.href.indexOf('/product/')+9,endString(location.href,'#'));
-	console.log(pName);
 	$(function() {
 		$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/1/public/values?alt=json-in-script&callback=?",
 		function (data) {
 			$.each(data.feed.entry, function(i,entry) {
-				console.log(entry);
-				console.log(entry.gsx$proname.$t);
 				if(entry.gsx$proname.$t===pName) {
 					buildPage(entry);
 				}
@@ -19,7 +16,6 @@ $(function() {
 })
 
 function buildPage(x) {
-	console.log(endString(x.gsx$price.$t,','));
 	c=$('#content');
 	c.append('<h1>'+x.gsx$productname.$t+'</h1>');
 	c.append('<span>'+x.gsx$traits.$t+'</span>');
@@ -42,7 +38,6 @@ function buildPage(x) {
 		c.append('<div id="ingredients"><h2>Ingredients</h2>'+buildIngredients(x.gsx$ingredients.$t)+'</div>');
 		$('#ingredients .ingredient').click(function() {
 			ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
-			console.log(ingredientName);
 		})
 	} else {
 		c.append('<div id="ingredients"><h2>Ingredients</h2></div>');
@@ -70,18 +65,14 @@ function updateHash() {
 	pName=location.href.substring(location.href.indexOf('/product/')+9,endString(location.href,'#'));
 	hash=pName;
 	$('#ingredients').children('h3').each(function() {
-		console.log($(this).attr('id'));
 		array=window[$(this).attr('id')];
 		variable=$(this).attr('data-content').substring(3,$(this).attr('data-content').length);
-		console.log(variable);
 		for(i=1;i<array.length;i++) {
 			if(array[i].name==variable) {
 				hash=hash+'_'+$(this).attr('id')+'-'+array[i].id+'|';
 			}
 		}
-		console.log(hash);
 	})
-	console.log(hash);
 	window.location.hash=hash;
 }
 
@@ -104,8 +95,6 @@ function buildVars(x,y) {
 		$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/2/public/values?alt=json-in-script&callback=?",
 		function (data) {
 			$.each(data.feed.entry, function(i,entry) {
-				console.log(entry);
-				console.log(entry.gsx$var.$t);
 				if(x.indexOf(entry.gsx$var.$t)!==-1) {
 					if(window[entry.gsx$var.$t].length===0) {
 						window[entry.gsx$var.$t].push(entry.gsx$varname.$t);
@@ -133,8 +122,6 @@ function showTooltip() {
 }
 
 function buildVariableIngredients(y) {
-	console.log(window[y[0]][0]);
-	console.log(window[y[0]][y[1]].name);
 	w=window[y[0]][y[1]];
 	o=window[y[0]];
 	x=w.ingredients.split(', ');
@@ -142,7 +129,6 @@ function buildVariableIngredients(y) {
 	ingOptions='<div>';
 	for(i=1;i<o.length;i++) {
 		ingOptions=ingOptions+'<div class="ingOptions" name="'+o[i].id+'">'+o[i].name+'</div>';
-		//console.log(o[i]);
 	}
 	ingOptions=ingOptions+'</div>';
 	ing='<div>';
@@ -155,8 +141,6 @@ function buildVariableIngredients(y) {
 	if($('#'+y[0]).length) {
 		$('#'+y[0]).attr('data-content',' - '+window[y[0]][y[1]].name);
 		$('#'+y[0]).next().next().replaceWith(ing);
-		//$('#ingredients').append(ing);
-		//console.log(y[1].toString());
 		$('#'+y[0]).next().children('div.ingOptions').each(function() {
 			if($(this).attr('name')==y[1].toString()) {
 				$(this).addClass('selected');
@@ -167,7 +151,6 @@ function buildVariableIngredients(y) {
 	} else {
 		$('#ingredients').append(ingType+ingOptions+ing);
 		$('#'+y[0]).attr('data-content',' - '+window[y[0]][y[1]].name);
-		//console.log(y[1].toString());
 		$('#'+y[0]).next().children('div.ingOptions').each(function() {
 			if($(this).attr('name')==y[1].toString()) {
 				$(this).addClass('selected');
@@ -185,7 +168,6 @@ function buildVariableIngredients(y) {
 		})
 		$('#'+y[0]).next().children('div.ingOptions').click(function() {
 			replace=[y[0],Number($(this).attr('name'))];
-			console.log(replace);
 			$(this).parent().prev('h3').children('div').removeClass('engage');
 			$(this).parent().removeClass('expand');
 			buildVariableIngredients(replace);
@@ -193,7 +175,6 @@ function buildVariableIngredients(y) {
 	}
 	$('#'+y[0]).next().next('div').children('span.ingredient').click(function() {
 		ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
-		console.log(ingredientName);
 		showTooltip(ingredientName);
 	})
 	updateHash();
