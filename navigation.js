@@ -72,6 +72,9 @@ $(document).ready(function() {
 	$('#userCart').click(function() {
 		openCart();
 	})
+	$('#legals div').click(function() {
+		location.href=$(this).attr('name');
+	})
 	
 	//always last!!
 	$('#content').css('min-height',$(document).height()-$('header').outerHeight()-$('footer').outerHeight()-10+33.4);
