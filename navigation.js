@@ -61,7 +61,7 @@ $(document).ready(function() {
 			id=$(this).prev().children('input').attr('name',id);
 		}
 		$('#basement').append('https://docs.google.com/forms/d/e/1FAIpQLSeOQKOaVn7oDYXnIktlJnx2IMLc1mgKtrcJp19HM-QQt1iTFQ/formResponse?usp=pp_url&entry.148047722='+id+'&entry.1353804064='+email;
-	}
+	})
 	
 	$('#userLog').click(function() {
 		openLoginModal();
