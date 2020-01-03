@@ -37,6 +37,10 @@ h3 {
 	font-family: var(--econ);
 }
 
+h3::after {
+	content: attr(data-content);
+}
+
 h3 > div {
 	display: inline-block;
 	border-top: 8px solid transparent;
