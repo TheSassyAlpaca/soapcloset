@@ -51,7 +51,9 @@ function buildPage(x) {
 	c.append('<div id="'+x.gsx$proname.$t+'" class="counter"><div class="down">-</div><input type="number" value="1" min="0"><div class="up">+</div></div>');
 	$('#'+x.gsx$proname.$t).children('div').click(function() {
 		if($(this).hasClass('down')) {
-			$('#'+x.gsx$proname.$t).children('input').val(Number($('#'+x.gsx$proname.$t).children('input').val())-1);
+			if($('#'+x.gsx$proname.$t).children('input').val()>0) {
+				$('#'+x.gsx$proname.$t).children('input').val(Number($('#'+x.gsx$proname.$t).children('input').val())-1);
+			}
 		}
 		if($(this).hasClass('up')) {
 			$('#'+x.gsx$proname.$t).children('input').val(Number($('#'+x.gsx$proname.$t).children('input').val())+1);
