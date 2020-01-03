@@ -57,7 +57,7 @@ function buildPage(x) {
 	c.append('<div id="purchase">Add to Cart</div>');
 	$('#purchase').click(function() {
 		//$('#'+x.gsx$proname.$t).children('input').val();
-		console.log('product','replace',window.location.hash+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000);
+		console.log('product','replace',window.location.hash.substring(1,window.location.hash.length)+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000);
 		//updateCookie('product','replace',window.location.hash+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000)
 	})
 	
@@ -71,13 +71,13 @@ function buildPage(x) {
 
 function updateHash() {
 	pName=location.href.substring(location.href.indexOf('/product/')+9,endString(location.href,'#'));
-	hash=pName;
+	hash=pName+'_';
 	$('#ingredients').children('h3').each(function() {
 		array=window[$(this).attr('id')];
 		variable=$(this).attr('data-content').substring(3,$(this).attr('data-content').length);
 		for(i=1;i<array.length;i++) {
 			if(array[i].name==variable) {
-				hash=hash+'_'+$(this).attr('id')+'-'+array[i].id+'|';
+				hash=hash+$(this).attr('id')+'-'+array[i].id+'|';
 			}
 		}
 	})
