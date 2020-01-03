@@ -72,7 +72,7 @@ function updateHash() {
 	$('#ingredients').children('h3').each(function() {
 		console.log($(this).attr('id'));
 		array=window[$(this).attr('id')];
-		variable=$(this).attr('data-content');
+		variable=$(this).attr('data-content').substring(3,$(this).attr('data-content').length);
 		console.log(variable);
 		for(i=1;i<array.length;i++) {
 			if(array[i].name==variable) {
