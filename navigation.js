@@ -2,7 +2,7 @@ menu=[
 	{item:'Products',sandwich:'products',link:'/product/product.html'},
 	{item:'Shops & Markets',sandwich:'s_and_m',link:'/shops_and_markets.html'},
 	{item:'About Us',sandwich:'none',link:'/about_us.html'},
-	{item:'Contact Us',sandwich:'none',link:'/contact.html'},
+	{item:'Contact Us',sandwich:'none',link:'/contact_us.html'},
 	{item:'Gallery',sandwich:'none',link:'/gallery.html'}
 ];
 
@@ -79,11 +79,11 @@ $(document).ready(function() {
 
 function stackTheSandwich(x) {
 	products=[
-		{item:'Soap',sandwich:'none',link:'/soap.html'},
-		{item:'Lotion',sandwich:'none',link:'/lotion.html'},
-		{item:'Face Creams',sandwich:'none',link:'/face_creams.html'},
-		{item:'Sprays',sandwich:'none',link:'/sprays.html'},
-		{item:'Salts',sandwich:'none',link:'/salts.html'}
+		{item:'Soap',sandwich:'none',link:'/product/soap.html'},
+		{item:'Lotion',sandwich:'none',link:'/product/lotion.html'},
+		{item:'Face Creams',sandwich:'none',link:'/product/face_creams.html'},
+		{item:'Sprays',sandwich:'none',link:'/product/sprays.html'},
+		{item:'Salts',sandwich:'none',link:'/product/salts.html'}
 	]
 	s_and_m=[];
 	container='';
