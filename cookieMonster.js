@@ -4,14 +4,13 @@ function updateCookie(c,a,v,l) {
 	//document.cookie=c+"="+getCookieValue(c)+"";
 	//console.log(getCookieValue(c));
 	//expiry=new Date()+l;
-	
 	document.cookie = c+"="+getCookieValue(c,a,v)+"; expires="+new Date(new Date().getTime()+l)+"; path=/; Domain=thesassyalpaca.com";
-	
 	console.log(document.cookie);
 }
 
 function getCookieValue(c,a,v) {
 	cList=document.cookie.split("; ");
+	console.log(cList);
 	cPair='';
 	value='';
 	newSet='';
