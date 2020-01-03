@@ -24,6 +24,7 @@ function getCookieValue(c,a,v) {
 		if(cList[i].substring(0,c.length)==c) {
 			cPair=cList[i].split("=");
 			value=cPair[1];
+			console.log(cPair);
 		}
 	}
 	if(value!=null&&value!='') {
