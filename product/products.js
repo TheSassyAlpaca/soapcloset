@@ -1,7 +1,7 @@
 $(function() {
 	//are there variables in url???
 	pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
-	pName=location.href.substring(location.href.indexOf('/product/')+9,endString(location.href,'?'));
+	pName=location.href.substring(location.href.indexOf('/product/')+9,endString(location.href,'#'));
 	console.log(pName);
 	$(function() {
 		$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/1/public/values?alt=json-in-script&callback=?",
@@ -67,8 +67,8 @@ function buildPage(x) {
 }
 
 function updateHash() {
-	pName=location.href.substring(location.href.indexOf('/product/')+9,endString(location.href,'?'));
-	hash=pName+'_';
+	pName=location.href.substring(location.href.indexOf('/product/')+9,endString(location.href,'#'));
+	hash=pName;
 	$('#ingredients').children('h3').each(function() {
 		console.log($(this).attr('id'));
 		array=window[$(this).attr('id')];
