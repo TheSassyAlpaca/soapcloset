@@ -9,6 +9,7 @@ function updateCookie(c,a,v,l) {
 }
 
 function getCookieValue(c,a,v) {
+	console.log(c,a,v);
 	cList=document.cookie.split("; ");
 	console.log(cList);
 	cPair='';
