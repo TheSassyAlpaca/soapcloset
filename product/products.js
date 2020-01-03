@@ -123,7 +123,7 @@ function buildVariableIngredients(y) {
 		}
 	}
 	if($('#'+y[0]).length) {
-		$('#'+y[0]).attr('data-content',window[y[0]][y[1]].name);
+		$('#'+y[0]).attr('data-content',' - '+window[y[0]][y[1]].name);
 		$('#'+y[0]).next().next().replaceWith(ing);
 		//$('#ingredients').append(ing);
 		//console.log(y[1].toString());
@@ -136,7 +136,7 @@ function buildVariableIngredients(y) {
 		})
 	} else {
 		$('#ingredients').append(ingType+ingOptions+ing);
-		$('#'+y[0]).attr('data-content',window[y[0]][y[1]].name);
+		$('#'+y[0]).attr('data-content',' - '+window[y[0]][y[1]].name);
 		//console.log(y[1].toString());
 		$('#'+y[0]).next().children('div.ingOptions').each(function() {
 			if($(this).attr('name')==y[1].toString()) {
