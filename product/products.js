@@ -57,12 +57,9 @@ function buildPage(x) {
 	c.append('<div id="purchase">Add to Cart</div>');
 	$('#purchase').click(function() {
 		//$('#'+x.gsx$proname.$t).children('input').val();
-		console.log('product','replace',window.location.hash.substring(1,window.location.hash.length)+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000);
-		updateCookie('product','replace',window.location.hash+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000)
+		console.log('product','Replace',window.location.hash.substring(1,window.location.hash.length)+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000);
+		updateCookie('product','Replace',window.location.hash+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000)
 	})
-	
-	
-	//updateCookie(c,a,v,l)
 	
 	//bundles - this gets pulled from elsewhere
 	//frequently bought with - pulled from elsewhere
