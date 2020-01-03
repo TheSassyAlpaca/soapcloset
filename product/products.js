@@ -73,6 +73,7 @@ function updateHash() {
 		console.log($(this).attr('id'));
 		array=window[$(this).attr('id')];
 		variable=$(this).attr('data-content');
+		console.log(variable);
 		for(i=1;i<array.length;i++) {
 			if(array[i].name==variable) {
 				hash=hash+'_'+$(this).attr('id')+'-'+array[i].id+'|';
