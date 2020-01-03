@@ -20,7 +20,7 @@ footer #legals {
 	grid-template-columns: 1fr 1fr 1fr;
 }
 
-footer div a {
+footer #legals div {
 	text-align: center;
 	color: rgb(var(--oats));
 	text-decoration: none;
