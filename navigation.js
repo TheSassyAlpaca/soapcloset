@@ -81,7 +81,7 @@ function stackTheSandwich(x) {
 	products=[
 		{item:'Soap',sandwich:'none',link:'/soap.html'},
 		{item:'Lotion',sandwich:'none',link:'/lotion.html'},
-		{item:'Face Creams',sandwich:'none',link:'/face_creams.html'}
+		{item:'Face Creams',sandwich:'none',link:'/face_creams.html'},
 		{item:'Sprays',sandwich:'none',link:'/sprays.html'},
 		{item:'Salts',sandwich:'none',link:'/salts.html'}
 	]
