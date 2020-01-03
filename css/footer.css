@@ -15,7 +15,7 @@ footer > div {
 	margin: 3px 0px;
 }
 
-footer div:nth-child(8) {
+footer #legals {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 }
@@ -27,7 +27,7 @@ footer div a {
 	margin: 3px 0px;
 }
 
-footer hr + div  {
+footer #contacts  {
 	text-align: center;
 	font-size: smaller;
 }
