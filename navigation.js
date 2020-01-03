@@ -82,11 +82,11 @@ $(document).ready(function() {
 
 function stackTheSandwich(x) {
 	products=[
-		{item:'Soap',sandwich:'none',link:'/product/soap.html'},
-		{item:'Lotion',sandwich:'none',link:'/product/lotion.html'},
-		{item:'Face Creams',sandwich:'none',link:'/product/face_creams.html'},
-		{item:'Sprays',sandwich:'none',link:'/product/sprays.html'},
-		{item:'Salts',sandwich:'none',link:'/product/salts.html'}
+		{item:'Soap',sandwich:'none',link:'/product/soap'},
+		{item:'Lotion',sandwich:'none',link:'/product/lotion'},
+		{item:'Face Creams',sandwich:'none',link:'/product/face_creams'},
+		{item:'Sprays',sandwich:'none',link:'/product/sprays'},
+		{item:'Salts',sandwich:'none',link:'/product/salts'}
 	]
 	s_and_m=[];
 	container='';
