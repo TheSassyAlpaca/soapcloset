@@ -165,23 +165,12 @@ h3 + div > span {
 	overflow: hidden;
 }
 
-.counter .down {
+.counter .down, .counter .up {
     display: inline-block;
     height: var(--thumb);
     width: var(--thumb);
     vertical-align: top;
-    margin: 0px;
-    text-align: center;
-    font-size: var(--thumb);
-    line-height: var(--thumb);
-}
-
-.counter .up {
-    display: inline-block;
-    height: var(--thumb);
-    width: var(--thumb);
-    vertical-align: top;
-    margin: 0px;
+    margin: 0px !important;
     text-align: center;
     font-size: var(--thumb);
     line-height: var(--thumb);
