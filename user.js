@@ -33,6 +33,7 @@ function checkSubscriber(id,type,email) {
 					checker++;
 				}
 			});
+			console.log(checker);
 			if(checker===0) {
 				$('#subscribe').prev().children('input').val(email).attr('name',id);
 			}
