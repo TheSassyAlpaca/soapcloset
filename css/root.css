@@ -23,7 +23,7 @@ body {
 	display: none;
 }
 
-attic {
+#attic, #basement {
 	display: none;
 }
 
