@@ -68,12 +68,12 @@ function updateHash() {
 	pName=location.href.substring(location.href.indexOf('/product/')+9,endString(location.href,'?'));
 	hash=pName+'_';
 	$('#ingredients').children('h3').each(function() {
-		console.log($(this).text());
-		array=window[$(this).text()];
+		console.log($(this).attr('id'));
+		array=window[$(this).attr('id')];
 		variable=$(this).attr('data-content');
 		for(i=1;i<array.length;i++) {
 			if(array[i].name==variable) {
-				hash=hash+'_'+$(this).text()+'-'+arry[i].id+'|';
+				hash=hash+'_'+$(this).text()+'-'+array[i].id+'|';
 			}
 		}
 		console.log(hash);
