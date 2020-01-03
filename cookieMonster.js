@@ -19,6 +19,7 @@ function getCookieValue(c,a,v) {
 	index='x';
 	item=v.substring(0,v.indexOf("+"));
 	qty=Number(v.substring(v.indexOf("+"),v.length));
+	console.log(item,qty);
 	for(i=0;i<cList.length;i++) {
 		if(cList[i].substring(0,c.length)==c) {
 			cPair=cList[i].split("=");
