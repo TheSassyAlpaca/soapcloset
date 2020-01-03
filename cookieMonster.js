@@ -28,7 +28,7 @@ function getCookieValue(c,a,v) {
 		}
 	}
 	if(value!=null&&value!='') {
-		vList=value.split("|");
+		vList=value.split(",");
 		for(i=0;i<vList.length;i++) {
 			if(vList[i].length>0) {
 				vSet=vList[i].split("+");
@@ -59,7 +59,7 @@ function getCookieValue(c,a,v) {
 		if(a!="Remove"||a!="Delete") {
 			vList.push(newSet);
 		}
-		newValue=vList.join("|");
+		newValue=vList.join(",");
 	} else {
 		newValue=item+"+"+qty;
 	}
