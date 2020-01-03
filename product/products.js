@@ -82,6 +82,7 @@ function updateHash() {
 		console.log(hash);
 	})
 	console.log(hash);
+	window.location.hash=hash;
 }
 
 function endString(x,y) {
