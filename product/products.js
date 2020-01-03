@@ -59,7 +59,7 @@ function buildPage(x) {
 		//$('#'+x.gsx$proname.$t).children('input').val();
 		console.log('product','replace',window.location.hash+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000);
 		//updateCookie('product','replace',window.location.hash+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000)
-	}
+	})
 	
 	
 	//updateCookie(c,a,v,l)
