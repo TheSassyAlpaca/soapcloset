@@ -39,6 +39,7 @@ function buildPage(x) {
 		$('#ingredients .ingredient').click(function() {
 			ingredientName=$(this).text().replace(/[\s()%]+/g,'').toLowerCase();
 		})
+		updateHash();
 	} else {
 		c.append('<div id="ingredients"><h2>Ingredients</h2></div>');
 		buildVars(x.gsx$var.$t,x.gsx$ingredients.$t);
