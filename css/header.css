@@ -81,6 +81,11 @@ header {
 	top: calc(((var(--thumb) / 4) * 2) - 2px);
 }
 
+#homer {
+	display: inline-block;
+	max-width: calc(100vw - (var(--thumb) * 2) - 8px);
+}
+
 #shoppingTub {
 	height: var(--thumb);
 	width: var(--thumb);
