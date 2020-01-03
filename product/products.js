@@ -56,7 +56,7 @@ function buildPage(x) {
 		if($(this).hasClass('up')) {
 			$('#'+x.gsx$proname.$t).children('input').val($('#'+x.gsx$proname.$t).children('input').val()+1);
 		}
-	}
+	})
 	
 	
 	
