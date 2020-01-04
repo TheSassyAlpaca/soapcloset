@@ -72,7 +72,7 @@ function getCookieValue(c,a,v) {
 				}
 			}
 		}
-		if(checker==0) {
+		if(checker==0&&Number(qty)>0) {
 			newvList.push(item+'+'+qty);
 		}
 		
