@@ -65,9 +65,12 @@ function getCookieValue(c,a,v) {
 					*/
 					//vList.splice(index,1);
 				}
+				if(vSet[0]==item&&vSet[1]>0) {
+					newvList.push(item+'+'+qty);
+				}
 			}
 		}
-		newvList.push(item+'+'+qty);
+		
 		/*
 		if(index=='x'&&(value==''||value==null)&&(a=="Add"||a=="Replace")) {
 			//if there is no matching item in value...
