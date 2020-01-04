@@ -45,7 +45,7 @@ function getCookieValue(c,a,v) {
 				//split pairs into product and qty
 				vSet=vList[i].split("+");
 				//check if product matches relevant product
-				if(vSet[0]!=item) {
+				if(vSet[0]!=item&&vSet[1]!='') {
 					newvList.push(vSet[0]+'+'+vSet[1]);
 					/*
 					if(a=="Replace") {
