@@ -39,6 +39,7 @@ function getCookieValue(c,a,v) {
 		//create new list
 		newvList=[];
 		//search through list of pairs to find pair relevant to action being taken
+		checker=0;
 		for(i=0;i<vList.length;i++) {
 			//only bother with pairs that exist...
 			if(vList[i].length>0) {
@@ -67,8 +68,12 @@ function getCookieValue(c,a,v) {
 				}
 				if(vSet[0]==item&&Number(vSet[1])>0) {
 					newvList.push(item+'+'+qty);
+					checker++;
 				}
 			}
+		}
+		if(checker==0) {
+			newvList.push(item+'+'+qty);
 		}
 		
 		/*
