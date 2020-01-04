@@ -80,10 +80,8 @@ function getCookieValue(c,a,v) {
 		//newValue=vList.join(",");
 		*/
 		newValue=newvList.join(",");
-	}
-	/*	else {
+	} else {
 		newValue=item+"+"+qty;
 	}
-	*/
 	return newValue
 }
