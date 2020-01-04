@@ -12,11 +12,11 @@ modal=`<modal id="loginModal">
 function openLoginModal() {
 	FB.getLoginStatus(function(response) {
 		$('body').append('<div id="modalShield">'+modal+'</div>');
-		$('.fb-login-button.fb_iframe_widget.fb_iframe_widget_fluid').appendTo($('.login-box'));
+		$('.fb-login-button').appendTo($('.login-box'));
 	});
 	
 	$('.login-box, #modalShield').click(function() {
-		$('.fb-login-button.fb_iframe_widget.fb_iframe_widget_fluid').appendTo($('#attic'));
+		//$('.fb-login-button.fb_iframe_widget.fb_iframe_widget_fluid').appendTo($('#attic'));
 		closeModal();
 	})
 }
