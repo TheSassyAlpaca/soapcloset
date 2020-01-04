@@ -68,7 +68,7 @@ function getCookieValue(c,a,v) {
 				}
 				if(vSet[0]==item) {
 					checker++;
-					if(Number(vSet[1])>0) {
+					if(Number(qty)>0) {
 						newvList.push(item+'+'+qty);
 					}
 				}
