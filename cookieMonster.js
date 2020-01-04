@@ -10,6 +10,7 @@ function updateCookie(c,a,v,l) {
 
 function getCookieValue(c,a,v) {
 	console.log(c,a,v);
+	//get cookie name=value pairs
 	cList=document.cookie.split("; ");
 	console.log(cList);
 	cPair='';
@@ -17,9 +18,12 @@ function getCookieValue(c,a,v) {
 	newSet='';
 	newValue='';
 	index='x';
+	//split 'v' into product and qty
 	item=v.substring(0,v.indexOf("+"));
 	qty=Number(v.substring(v.indexOf("+"),v.length));
 	console.log(item,qty);
+	//cycle through cookie pairs to find pair with matching name 'c'
+		//result 'value' could be blank?
 	for(i=0;i<cList.length;i++) {
 		if(cList[i].substring(0,c.length)==c) {
 			cPair=cList[i].split("=");
@@ -27,14 +31,23 @@ function getCookieValue(c,a,v) {
 			console.log(cPair);
 		}
 	}
+	//use cookie's value to determine if this stage is needed... why?
+		//value could be multiple name value pairs
 	if(value!=null&&value!='') {
+		//create list of cookie's value as name=value pairs
 		vList=value.split(",");
+		//create new list
 		newvList=[];
+		//search through list of pairs to find pair relevant to action being taken
 		for(i=0;i<vList.length;i++) {
+			//only bother with pairs that exist...
 			if(vList[i].length>0) {
+				//split pairs into product and qty
 				vSet=vList[i].split("+");
-				if(vSet[0]==item) {
-					index=i;
+				//check if product matches relevant product
+				if(vSet[0]!=item) {
+					newvList.push(vSet[0]+'+'+vSet[1]);
+					/*
 					if(a=="Replace") {
 						newSet=item+"+"+qty;
 					}
@@ -49,11 +62,13 @@ function getCookieValue(c,a,v) {
 					if(a=="Remove"||a=="Delete") {
 						newSet='';
 					}
+					*/
 					//vList.splice(index,1);
-					newvList.push(index,1);
 				}
 			}
 		}
+		newvList.push(item+'+'+qty);
+		/*
 		if(index=='x'&&(value==''||value==null)&&(a=="Add"||a=="Replace")) {
 			//if there is no matching item in value...
 			newSet=item+"+"+qty;
@@ -63,9 +78,12 @@ function getCookieValue(c,a,v) {
 			newvList.push(newSet);
 		}
 		//newValue=vList.join(",");
+		*/
 		newValue=newvList.join(",");
-	} else {
+	}
+	/*	else {
 		newValue=item+"+"+qty;
 	}
+	*/
 	return newValue
 }
