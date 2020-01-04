@@ -66,9 +66,11 @@ function getCookieValue(c,a,v) {
 					*/
 					//vList.splice(index,1);
 				}
-				if(vSet[0]==item&&Number(vSet[1])>0) {
-					newvList.push(item+'+'+qty);
+				if(vSet[0]==item) {
 					checker++;
+					if(Number(vSet[1])>0) {
+						newvList.push(item+'+'+qty);
+					}
 				}
 			}
 		}
