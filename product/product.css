@@ -139,12 +139,19 @@ h3 + div > span {
 	top: 10px;
 	left: calc(100% - 35px);
 	z-index: 100;
-	max-height: 30px;
+	width: 300px;
+	max-height: calc(var(--thumb) / 2);
 	overflow: hidden;
-	padding-left: 35px;
 	margin-top: 0px !important;
 	transform-origin: left;
 	transition: .25s ease-in-out;
+}
+
+#shareBox + p {
+	width: calc(var(--thumb) / 2);
+	height: calc(var(--thumb) / 2);
+	filter: brightness(0) invert(1);
+	vertical-align: top;
 }
 
 .shareButton {
