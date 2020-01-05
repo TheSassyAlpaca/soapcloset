@@ -83,7 +83,7 @@ function buildShare() {
 	})
 	s.children('.shareButton').click(function() {
 		//do stuff
-		location.href=$(this).attr('data-content')+encodeURIComponent(location.href);
+		window.open($(this).attr('data-content')+encodeURIComponent(location.href));
 	})
 }
 
