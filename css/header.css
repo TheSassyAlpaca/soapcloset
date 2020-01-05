@@ -115,6 +115,16 @@ header {
 
 #userCart::after {
 	content: attr(data-content);
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	background-color: rgb(var(--bark));
+	border-radius: 50%;
+	line-height: 22px;
+	font-size: large;
+	width: 22px;
+	height: 22px;
+	text-align: center;
 }
 
 #blt-container {
