@@ -48,9 +48,9 @@ $(document).ready(function() {
 		})
 	}
 	sm=[
-		{id:'Facebook',link:'https://www.facebook.com/sassyalpaca',icon:'/images/facebook.png'},
+		{id:'Facebook',link:'https://www.facebook.com/sassyalpaca',icon:'/images/facebook.png',share:'https://www.facebook.com/sharer/sharer.php?u='},
 		{id:'Instagram',link:'https://www.instagram.com/alpacasassy/',icon:'/images/instagram.png'},
-		{id:'Twitter',link:'https://twitter.com/SassyAlpaca1',icon:'/images/twitter.png'},
+		{id:'Twitter',link:'https://twitter.com/SassyAlpaca1',icon:'/images/twitter.png',share:'https://twitter.com/intent/tweet'},
 		{id:'Etsy',link:'https://www.etsy.com/shop/TheSassyAlpacaLLC',icon:'/images/etsy.png'}
 	];
 	for(i=0;i<sm.length;i++) {
