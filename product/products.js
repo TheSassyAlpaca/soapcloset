@@ -21,6 +21,8 @@ function buildPage(x) {
 	c.append('<span>'+x.gsx$traits.$t+'</span>');
 	c.append('<div id="slideContainer">'+buildSlide(x.gsx$photos.$t)+'</div>');
 	mechanizeSlide(x.gsx$photos.$t);
+	$('#slideContainer').append('<div id="shareBox"></div>');
+	buildShare();
 	c.append('<div id="priceBox">$'+x.gsx$price.$t.substring(0,endString(x.gsx$price.$t,','))+' <div><span>per </span><span>'+x.gsx$size.$t+'</span></div></div>');
 	if(x.gsx$price.$t.indexOf(',')!=-1) {
 		c.append('<h2><div></div>Bulk Rates</h2><div>'+presentBulk(x.gsx$price.$t)+'</div>');
@@ -55,7 +57,7 @@ function buildPage(x) {
 			$('#'+x.gsx$proname.$t).children('input').val(Number($('#'+x.gsx$proname.$t).children('input').val())+1);
 		}
 	})
-	c.append('<div id="purchase">Add to Cart</div>');
+	c.append('<div id="purchase">Update Cart</div>');
 	$('#purchase').click(function() {
 		//$('#'+x.gsx$proname.$t).children('input').val();
 		console.log('product','Replace',window.location.hash.substring(1,window.location.hash.length)+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000);
@@ -65,6 +67,23 @@ function buildPage(x) {
 	//bundles - this gets pulled from elsewhere
 	//frequently bought with - pulled from elsewhere
 	//articles - list of hosted articles related to this product
+}
+
+function buildShare() {
+	s=$('#shareBox');
+	//sm=.id/.link.icon
+	for(i=0;i<sm.length;i++) {
+		if(sm[i].share.length>0) {
+			s.append('<div class="shareButton" data-content="'+sm[i].share+'"><img src="'+sm[i].icon+'"></div>')
+		}
+	}
+	s.click(function() {
+		$(this).toggleClass('engage');
+	})
+	s.children('.shareButton').click(function() {
+		//do stuff
+		location.href=$(this).attr('data-content')+encodeURIComponent(location.href);
+	})
 }
 
 function updateHash() {
