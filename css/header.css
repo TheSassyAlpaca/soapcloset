@@ -113,6 +113,10 @@ header {
 	filter: invert(1);
 }
 
+#userCart::after {
+	content: attr(data-content);
+}
+
 #blt-container {
 	position: fixed;
 	width: 100vw;
