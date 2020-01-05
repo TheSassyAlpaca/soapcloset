@@ -88,6 +88,7 @@ h3 + div > span {
 	width: calc(100vw - 0px);
 	margin-left: -10px;
 	position: relative;
+	overflow: hidden;
 }
 
 #slideGuide {
