@@ -136,5 +136,13 @@ function userAlert(x) {
 	$('body').append('<div id="userAlert">'+x+'</div>');
 	setTimeout(function() {
 		$('#userAlert').remove();
-	},500000)
+	},5000)
 }
+
+
+
+
+
+
+
+
