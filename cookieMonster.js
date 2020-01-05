@@ -6,6 +6,9 @@ function updateCookie(c,a,v,l) {
 	//expiry=new Date()+l;
 	document.cookie = c+"="+getCookieValue(c,a,v)+"; expires="+new Date(new Date().getTime()+l)+"; path=/; Domain=thesassyalpaca.com";
 	console.log(document.cookie);
+	if(c=='product') {
+		updateCart();
+	}
 }
 
 function getCookieValue(c,a,v) {
