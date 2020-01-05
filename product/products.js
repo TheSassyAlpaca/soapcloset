@@ -73,7 +73,7 @@ function buildShare() {
 	s=$('#shareBox');
 	//sm=.id/.link.icon
 	for(i=0;i<sm.length;i++) {
-		if(sm[i].share.length>0) {
+		if(sm[i].share) {
 			s.append('<div class="shareButton" data-content="'+sm[i].share+'"><img src="'+sm[i].icon+'"></div>')
 		}
 	}
