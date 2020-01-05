@@ -7,6 +7,7 @@ menu=[
 ];
 
 $(document).ready(function() {
+	updateCart();
 	$('#blt').click(function() {
 		resolved=0;
 		console.log(resolved);
