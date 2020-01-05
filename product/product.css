@@ -147,7 +147,7 @@ h3 + div > span {
 	transition: .25s ease-in-out;
 }
 
-#shareBox + img {
+#shareBox > img {
 	width: calc(var(--thumb) / 2);
 	height: calc(var(--thumb) / 2);
 	filter: brightness(0) invert(1);
