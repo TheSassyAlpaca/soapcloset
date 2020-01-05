@@ -70,7 +70,7 @@ $(document).ready(function() {
 		openLoginModal();
 	})
 	$('#userCart').click(function() {
-		openCart();
+		location.href='/shopping_tub';
 	})
 	$('#legals div').click(function() {
 		location.href=$(this).attr('name');
