@@ -138,11 +138,3 @@ function userAlert(x) {
 		$('#userAlert').remove();
 	},5000)
 }
-
-
-
-
-
-
-
-
