@@ -62,7 +62,7 @@ function buildPage(x) {
 		//$('#'+x.gsx$proname.$t).children('input').val();
 		console.log('product','Replace',window.location.hash.substring(1,window.location.hash.length)+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000);
 		updateCookie('product','Replace',window.location.hash.substring(1,window.location.hash.length)+'+'+$('#'+x.gsx$proname.$t).children('input').val(),2592000000);
-		userAlert('Updated cart: '+c.find('h1').text()+' '+$('#'+x.gsx$proname.$t).children('input').val()+'.');
+		userAlert("Updated cart: "+c.find('h1').text()+" "+$('#'+x.gsx$proname.$t).children('input').val()+".");
 	})
 	
 	//bundles - this gets pulled from elsewhere
