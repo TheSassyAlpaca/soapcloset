@@ -46,6 +46,7 @@ body {
 
 #content .band:last-child {
 	margin-bottom: -10px;
+	border-bottom: 10px solid rgb(var(--sage));
 }
 
 #handmadeNaturalLocal {
@@ -62,6 +63,7 @@ body {
 	height: calc(100vh - var(--thumb));
 	width: 100vw;
 	margin-left: -10px;
+	position: relative;
 }
 
 .band .text {
