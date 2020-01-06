@@ -57,7 +57,7 @@ body {
 }
 
 #localPartners {
-	background-image: url('/images/general/fruit_pigments.jpg');
+	background-image: url('/images/general/fruit%20pigments.jpg');
 }
 .band {
 	background-position: center center;
@@ -121,6 +121,21 @@ body {
 }
 
 .band .text.jumble span:nth-child(3) {
+	line-height: 100%;
+	font-size: 80%;
+}
+
+.band .text.partners span:nth-child(1) {
+	line-height: 50%;
+	font-size: 75%;
+}
+
+.band .text.partners span:nth-child(2) {
+	line-height: 80%;
+	font-size: 140%;
+}
+
+.band .text.partners span:nth-child(3) {
 	line-height: 100%;
 	font-size: 80%;
 }
