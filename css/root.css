@@ -45,6 +45,7 @@ body {
 }
 
 .band {
+	background-image: url('/images/general/Papaya.jpg');
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -78,4 +79,18 @@ body {
 	font-family: var(--econ);
 	line-height: var(--thumb);
 	color: rgb(var(--oats));
+}
+
+.band span {
+	display: block;
+}
+
+.band span:nth-child(2) {
+	font-size: 125%;
+	line-height: 55%;
+}
+
+.band span:nth-child(2) {
+	font-size: 185%;
+	line-height: 120%;
 }
