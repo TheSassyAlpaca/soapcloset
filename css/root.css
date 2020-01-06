@@ -46,7 +46,7 @@ body {
 
 #content .band:last-child {
 	margin-bottom: -10px;
-	border-bottom: 10px solid rgb(var(--sage));
+	//border-bottom: 10px solid rgb(var(--sage));
 }
 
 #handmadeNaturalLocal {
@@ -56,6 +56,9 @@ body {
 	background-image: url('/images/general/Papaya.jpg');
 }
 
+#localPartners {
+	background-image: url('/images/general/fruit_pigments.jpg');
+}
 .band {
 	background-position: center center;
 	background-size: cover;
@@ -118,5 +121,6 @@ body {
 }
 
 .band .text.jumble span:nth-child(3) {
-	
+	line-height: 100%;
+	font-size: 80%;
 }
