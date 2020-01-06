@@ -27,11 +27,6 @@ body {
 	display: none;
 }
 
-#content {
-	padding: var(--thumb) 10px 10px 10px;
-	margin: 0px;
-}
-
 #userAlert {
 	position: fixed;
 	margin: calc(50vw - 150px);
@@ -42,4 +37,23 @@ body {
 	padding: 10px 0px;
 	color: rgb(var(--oats));
 	box-shadow: -20px 0px 25px 0px rgba(0,0,0,0.75), 20px 0px 25px 0px rgba(0,0,0,0.75);
+}
+
+#content {
+	padding: var(--thumb) 10px 10px 10px;
+	margin: 0px;
+}
+
+.band {
+	background-size: cover;
+	background-repeat: no-repeat;
+	
+}
+
+.band .text {
+	
+}
+
+.band .button {
+	
 }
