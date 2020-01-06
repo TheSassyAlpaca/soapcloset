@@ -44,6 +44,10 @@ body {
 	margin: 0px;
 }
 
+#content .band:last-child {
+	margin-bottom: -10px;
+}
+
 #handmadeNaturalLocal {
 	background-image: url('/images/general/Papaya.jpg');
 }
