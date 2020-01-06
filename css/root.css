@@ -44,8 +44,14 @@ body {
 	margin: 0px;
 }
 
-.band {
+#handmadeNaturalLocal {
 	background-image: url('/images/general/Papaya.jpg');
+}
+#comeMeetUs {
+	background-image: url('/images/general/Papaya.jpg');
+}
+
+.band {
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -85,12 +91,12 @@ body {
 	display: block;
 }
 
-.band .text span:nth-child(2) {
+.band .text.matchWidth span:nth-child(2) {
 	font-size: 125%;
 	line-height: 55%;
 }
 
-.band .text span:nth-child(3) {
+.band .text.matchWidth span:nth-child(3) {
 	font-size: 185%;
 	line-height: 120%;
 }
