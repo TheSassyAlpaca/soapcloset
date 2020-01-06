@@ -146,6 +146,7 @@ h3 + div > span {
 	margin-top: 0px !important;
 	transform-origin: left;
 	transition: .25s ease-in-out;
+	cursor: pointer;
 }
 
 #shareBox > img {
@@ -240,4 +241,15 @@ h3 + div > span {
 	overflow: hidden;
 	background-color: rgb(var(--bark));
 	color: rgb(var(--oats));
+}
+
+@media only screen and (min-width:360px) {
+	#purchase, .counter {
+		max-width: 300px;
+		margin-left: calc(50vw - 150px);
+	}
+	
+	.band .text {
+		font-size: 8vw;
+	}
 }
