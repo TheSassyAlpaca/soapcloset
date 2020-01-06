@@ -99,6 +99,7 @@ body {
 	font-family: var(--econ);
 	line-height: var(--thumb);
 	color: rgb(var(--oats));
+	cursor: pointer;
 }
 
 .band .text span {
@@ -137,10 +138,21 @@ body {
 
 .band .text.partners span:nth-child(2) {
 	line-height: 80%;
-	font-size: 90%;
+	font-size: 60%;
 }
 
 .band .text.partners span:nth-child(3) {
 	line-height: 90%;
 	font-size: 160%;
+}
+
+@media only screen and (min-width:360px) {
+	.band .button {
+		max-width: 300px;
+		margin-left: calc(50vw - 150px);
+	}
+	
+	.band .text {
+		font-size: 8vw;
+	}
 }
