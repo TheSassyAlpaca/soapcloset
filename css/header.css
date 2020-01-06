@@ -84,6 +84,7 @@ header {
 #homer {
 	display: inline-block;
 	max-width: calc(100vw - (var(--thumb) * 2) - 8px);
+	cursor: pointer;
 }
 
 #shoppingTub {
@@ -98,12 +99,14 @@ header {
 	font-family: var(--econ);
 	font-size: large;
 	text-align: center;
+	cursor: pointer;
 }
 
 #userCart {
 	display: none;
 	height: 60%;
 	padding: 20%;
+	cursor: pointer;
 }
 
 #userCart img {
