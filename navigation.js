@@ -78,9 +78,9 @@ $(document).ready(function() {
 	})
 	
 	//always last!!
-	contentHeight=$(document).height()-$('header').outerHeight()-$('footer').outerHeight();
-	if(contentHeight>($(document).height()-60)) {
-		contentHeight=$(document).height()-60;
+	contentHeight=$(window).height()-$('header').outerHeight()-$('footer').outerHeight();
+	if(contentHeight>($(window).height()-60)) {
+		contentHeight=$(window).height()-60;
 	}
 	$('#content').css('min-height',contentHeight);
 })
