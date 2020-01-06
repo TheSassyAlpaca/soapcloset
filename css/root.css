@@ -87,8 +87,8 @@ body {
 	margin-left: calc(var(--thumb) / 2);
 	position: absolute;
 	bottom: 10vh;
-	border-radius: 3px;
-	box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.75), inset 2px 2px 3px 0px rgba(var(--oats),0.25), inset -2px -1px 3px 0px rgba(0,0,0,0.25);
+	border-radius: 0px;
+	box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75), inset 1px 1px 1px 0px rgba(var(--oats),0.25), inset -1px -1px 1px 0px rgba(0,0,0,0.25);
 	text-align: center;
 	font-size: calc(var(--thumb) / 2) !important;
 	font-family: var(--econ);
@@ -132,10 +132,10 @@ body {
 
 .band .text.partners span:nth-child(2) {
 	line-height: 80%;
-	font-size: 140%;
+	font-size: 90%;
 }
 
 .band .text.partners span:nth-child(3) {
-	line-height: 100%;
-	font-size: 80%;
+	line-height: 90%;
+	font-size: 160%;
 }
