@@ -8,6 +8,10 @@
 	--econ: 'Economica', sans-serif;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
 	padding: 0px;
 	margin: 0px;
@@ -16,7 +20,8 @@ body {
 
 .ui-page.ui-page-theme-a.ui-page-active {
 	width: 100%;
-	height: 100%
+	height: 100%;
+	overflow: hidden;
 }
 
 .ui-loader.ui-corner-all.ui-body-a.ui-loader-default {
