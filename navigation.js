@@ -78,7 +78,11 @@ $(document).ready(function() {
 	})
 	
 	//always last!!
-	$('#content').css('min-height',$(document).height()-$('header').outerHeight()-$('footer').outerHeight()-10+33.4);
+	contentHeight=$(document).height()-$('header').outerHeight()-$('footer').outerHeight();
+	if(contentHeight>$(document).height()-60px) {
+		contentHeight=$(document).height()-60px;
+	}
+	$('#content').css('min-height',contentHeight);
 })
 
 function stackTheSandwich(x) {
