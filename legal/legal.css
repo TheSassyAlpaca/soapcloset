@@ -1,11 +1,13 @@
 #content h1 {
-	
+	font-family: var(--econ);
 }
 
 #content h2 {
-	
+	margin-top: 10px;
+	font-family: var(--econ);
 }
 
 #content span {
-	
+	margin-top: 10px;
+	display: block;
 }
