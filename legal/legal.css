@@ -10,4 +10,6 @@
 #content span {
 	margin-top: 10px;
 	display: block;
+	font-family: var(--econ);
+	font-size: large;
 }
