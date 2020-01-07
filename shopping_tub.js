@@ -76,6 +76,7 @@ function buildCart(x,y) {
 					}
 				}
 			});
+			console.log(pVars);
 			$(function() {
 				$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/2/public/values?alt=json-in-script&callback=?",
 				function (data) {
