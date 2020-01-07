@@ -68,6 +68,7 @@
 		</header>
 		<div id="content">
 			<div id="contactMe">
+				<h1>Contact Me</h1>
 				<input id="cMEmail" type="text" placeholder="email address">
 				<input id="cMSubject" type="text" placeholder="subject">
 				<textarea id="cMMessage" rows="6" placeholder="Message"></textarea>
@@ -80,7 +81,7 @@
 					subject=$('#cMSubject').val();
 					message=$('#cMMessage').val();
 					console.log(email,subject,message);
-					//$('#basement').append('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSddHLUf9rqzOySeP880cjLrQ8fTDiDLmUVTrvlsCZaPtFOx2Q/formResponse?usp=pp_url&entry.1416147002='+email+'&entry.825572789='+subject+'&entry.912336635='+message+'">;
+					$('#basement').append('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSddHLUf9rqzOySeP880cjLrQ8fTDiDLmUVTrvlsCZaPtFOx2Q/formResponse?usp=pp_url&entry.1416147002='+email+'&entry.825572789='+subject+'&entry.912336635='+message+'">;
 				})
 			</script>
 		</div>
