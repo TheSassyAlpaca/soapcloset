@@ -54,7 +54,7 @@ function openCart() {
 }
 
 function buildCart(x,y) {
-	console.log(x,y,z);
+	console.log(x,y);
 	products=[];
 	pVars=[];
 	variables=[];
