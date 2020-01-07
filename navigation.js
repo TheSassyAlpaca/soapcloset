@@ -1,8 +1,8 @@
 menu=[
 	{item:'Products',sandwich:'products',link:'/product'},
 	{item:'Shops & Markets',sandwich:'s_and_m',link:'/shops_and_markets'},
-	{item:'About Us',sandwich:'none',link:'/about_me.html'},
-	{item:'Contact Us',sandwich:'none',link:'/contact_me.html'},
+	{item:'About Me',sandwich:'none',link:'/about_me'},
+	{item:'Contact Me',sandwich:'none',link:'/contact_me'},
 	//{item:'Gallery',sandwich:'none',link:'/gallery.html'}
 ];
 
