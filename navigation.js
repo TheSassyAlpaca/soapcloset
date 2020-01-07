@@ -74,7 +74,7 @@ $(document).ready(function() {
 		location.href='/shopping_tub';
 	})
 	$('#legals div').click(function() {
-		window.open($(this).attr('name'));
+		location.href=$(this).attr('name');
 	})
 	
 	//always last!!
