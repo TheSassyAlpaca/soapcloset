@@ -13,3 +13,16 @@
 	font-family: var(--econ);
 	font-size: large;
 }
+
+.submit {
+	height: var(--thumb);
+	text-align: center;
+	font-size: calc(var(--thumb) / 2) !important;
+	line-height: var(--thumb);
+	width: calc(100vw - 20px);
+	box-shadow: 0px 0px 3px 3px rgba(var(--bark),0.25);
+	border-radius: 3px;
+	overflow: hidden;
+	background-color: rgb(var(--bark));
+	color: rgb(var(--oats));
+}
