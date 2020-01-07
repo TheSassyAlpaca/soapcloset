@@ -23,7 +23,7 @@ function openCart() {
 			vSet=vList[i].split('+');
 			if(vSet[1]>0) {
 				//counter++;
-				pList.push('{product:"'+vSet[0]+'",qty:"'+vSet[1]+'"}');
+				pList.push('{"product":"'+vSet[0]+'","qty":"'+vSet[1]+'"}');
 			}
 		}
 		if(counter>0) {
