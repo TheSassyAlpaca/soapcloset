@@ -146,6 +146,22 @@ body {
 	font-size: 160%;
 }
 
+#contactMe {
+	
+}
+
+#cMEmail, #cMSubject {
+	height: calc(var(--thumb) / 2);
+	text-indent: 5px;
+}
+
+#cMMessage {
+	height: calc(var(--thumb) * 2);
+	text-indent: 5px;
+	width: calc(100% - 6px);
+	margin-top: 10px;
+}
+
 @media only screen and (min-width:360px) {
 	.band .button {
 		max-width: 300px;
