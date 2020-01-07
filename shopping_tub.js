@@ -26,6 +26,7 @@ function openCart() {
 			if(vSet[1]>0) {
 				//counter++;
 				pNames.push(vSet[0].substring(0,vSet[0].indexOf("_")));
+				/*
 				vars=vSet[0].substring(vSet[0].indexOf("_"),vSet[0].length);
 				varsList=vars.split('|');
 				for(i=0;i<varsList.length;i++) {
@@ -34,13 +35,15 @@ function openCart() {
 						pVars.push(varName[0]);
 					}
 				}
-				pList.push(JSON.parse('{"product":"'+vSet[0]+'","vars":"'+varsList+'","qty":"'+vSet[1]+'"}'));
+				*/
+				//,"vars":"'+varsList+'"
+				pList.push(JSON.parse('{"product":"'+vSet[0]+'","qty":"'+vSet[1]+'"}'));
 			}
 		}
 		if(counter>0) {
 			//Looks like there are some items in the cart, lets do something with that...
 			console.log(pList);
-			buildCart(pNames,pVars,pList);
+			buildCart(pNames,pList);
 		} else {
 			//Nothing in your cart. Don't feel bad, we've all been there...
 		}
@@ -49,9 +52,10 @@ function openCart() {
 	}
 }
 
-function buildCart(x,y,z) {
+function buildCart(x,y) {
 	console.log(x,y,z);
 	products=[];
+	pVars=[];
 	variables=[];
 	pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
 	$(function() {
@@ -60,13 +64,22 @@ function buildCart(x,y,z) {
 			$.each(data.feed.entry, function(i,entry) {
 				if(x.indexOf(entry.gsx$proname.$t)!=-1) {
 					products.push(entry);
+					if(entry.gsx$var.$t!='NA') {
+						thisVars=entry.gsx$var.$t.split(",");
+						for(j=0;j<thisVars.length;j++) {
+							if(pVars.indexOf(thisVars[j])!=-1) {
+								pVars.push(thisVars[j]);
+							}
+						}
+						
+					}
 				}
 			});
 			$(function() {
 				$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/2/public/values?alt=json-in-script&callback=?",
 				function (data) {
 					$.each(data.feed.entry, function(i,entry) {
-						if(y.indexOf(entry.gsx$var.$t)!=-1) {
+						if(pVars.indexOf(entry.gsx$var.$t)!=-1) {
 							variables.push(entry);
 						}
 					});
