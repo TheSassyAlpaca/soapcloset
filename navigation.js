@@ -3,7 +3,7 @@ menu=[
 	{item:'Shops & Markets',sandwich:'s_and_m',link:'/shops_and_markets'},
 	{item:'About Us',sandwich:'none',link:'/about_us.html'},
 	{item:'Contact Us',sandwich:'none',link:'/contact_us.html'},
-	{item:'Gallery',sandwich:'none',link:'/gallery.html'}
+	//{item:'Gallery',sandwich:'none',link:'/gallery.html'}
 ];
 
 $(document).ready(function() {
