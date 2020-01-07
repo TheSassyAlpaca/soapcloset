@@ -25,6 +25,7 @@ function openCart() {
 			vSet=vList[i].split('+');
 			if(vSet[1]>0) {
 				//counter++;
+				console.log(vSet[0],vSet[0].indexOf("_"));
 				pNames.push(vSet[0].substring(0,vSet[0].indexOf("_")));
 				/*
 				vars=vSet[0].substring(vSet[0].indexOf("_"),vSet[0].length);
