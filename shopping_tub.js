@@ -68,7 +68,7 @@ function buildCart(x,y) {
 					if(entry.gsx$var.$t!='NA') {
 						thisVars=entry.gsx$var.$t.split(",");
 						for(j=0;j<thisVars.length;j++) {
-							if(pVars.indexOf(thisVars[j])!=-1) {
+							if(pVars.indexOf(thisVars[j])==-1) {
 								pVars.push(thisVars[j]);
 							}
 						}
