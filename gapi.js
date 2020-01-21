@@ -23,7 +23,7 @@ function initClient() {
 		updateSigninStatus(gapi.auth2.getAuthInstance());
 		serviceAuth();
 		listMajors();
-		jwtClient=google.auth.JWT('the-soap-closet@the-soap-closet.iam.gserviceaccount.com', null, 'dfadce156b09ccaaad518eb8bca5592f00d724b8', [
+		jwtClient=gapi.auth.JWT('the-soap-closet@the-soap-closet.iam.gserviceaccount.com', null, 'dfadce156b09ccaaad518eb8bca5592f00d724b8', [
             "https://www.googleapis.com/auth/spreadsheets",
         ]);
 		jwtClient.authorize(function(err, tokens) {
