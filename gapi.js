@@ -20,8 +20,8 @@ function initClient() {
 	scope: SCOPES
 	}).then(function () {
 		gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-		let google = require('googleapis');
-		jwtClient= new google.auth.JWT('the-soap-closet@the-soap-closet.iam.gserviceaccount.com', null, 'dfadce156b09ccaaad518eb8bca5592f00d724b8', [
+		//let google = require('googleapis');
+		jwtClient= new googleapis.auth.JWT('the-soap-closet@the-soap-closet.iam.gserviceaccount.com', null, 'dfadce156b09ccaaad518eb8bca5592f00d724b8', [
             "https://www.googleapis.com/auth/spreadsheets",
         ]);
 		jwtClient.authorize(function(err, tokens) {
