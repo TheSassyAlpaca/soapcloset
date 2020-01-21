@@ -93,14 +93,25 @@ function buildCart(x,y) {
 							variableList.push(entry);
 						}
 					});
-					//dataPulls("getSongs");
-					
+					//
 					console.log(products);
 					console.log(variableList);
+					showCart(y);
 				});
 			});
 		});
 	});
+}
+
+function showCart(x,y) {
+	$('#content').append('<div id="cart"></div>');
+	for(i=0;i<y.length;i++) {
+		for(j=0;j<products.length;j++) {
+			if(products[j].gsx$proname.$t==x[i]) {
+				console.log(products[j].gsx$productname.$t);
+			}
+		//$('#cart').append();
+	}
 }
 
 function updateCart() {
