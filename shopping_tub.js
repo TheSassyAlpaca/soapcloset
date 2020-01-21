@@ -57,7 +57,7 @@ function buildCart(x,y) {
 	console.log(x,y);
 	products=[];
 	pVars=[];
-	variables=[];
+	variableList=[];
 	pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
 	$(function() {
 		$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/1/public/values?alt=json-in-script&callback=?",
@@ -82,13 +82,13 @@ function buildCart(x,y) {
 				function (data) {
 					$.each(data.feed.entry, function(i,entry) {
 						if(pVars.indexOf(entry.gsx$var.$t)!=-1) {
-							variables.push(entry);
+							variableList.push(entry);
 						}
 					});
 					//dataPulls("getSongs");
 					
 					console.log(products);
-					console.log(variables);
+					console.log(variableList);
 				});
 			});
 		});
