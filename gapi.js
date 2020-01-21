@@ -20,7 +20,7 @@ function initClient() {
 	scope: SCOPES
 	}).then(function () {
 		gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-		var google = require('googleapis');
+		var {google} = require('googleapis');
 		var serviceAccount = require("/servant.json");
 		console.log(serviceAccount.client_email);
 		jwtClient= new google.auth.JWT(serviceAccount.client_email, null, serviceAccount.client_email, [
