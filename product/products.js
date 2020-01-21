@@ -91,16 +91,19 @@ function buildShare() {
 
 function updateHash() {
 	pName=location.href.substring(location.href.indexOf('/product/')+9,endString(location.href,'#'));
-	hash=pName+'_';
-	$('#ingredients').children('h3').each(function() {
-		array=window[$(this).attr('id')];
-		variable=$(this).attr('data-content').substring(3,$(this).attr('data-content').length);
-		for(i=1;i<array.length;i++) {
-			if(array[i].name==variable) {
-				hash=hash+$(this).attr('id')+'-'+array[i].id+'|';
+	hash=pName;
+	if(!$('#ingredients').hasClass('set')) {
+		hash=hash+'_';
+		$('#ingredients').children('h3').each(function() {
+			array=window[$(this).attr('id')];
+			variable=$(this).attr('data-content').substring(3,$(this).attr('data-content').length);
+			for(i=1;i<array.length;i++) {
+				if(array[i].name==variable) {
+					hash=hash+$(this).attr('id')+'-'+array[i].id+'|';
+				}
 			}
-		}
-	})
+		})
+	}
 	window.location.hash=hash;
 }
 
