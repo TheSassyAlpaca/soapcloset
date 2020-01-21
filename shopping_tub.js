@@ -96,7 +96,7 @@ function buildCart(x,y) {
 					//
 					console.log(products);
 					console.log(variableList);
-					showCart(y);
+					showCart(x,y);
 				});
 			});
 		});
@@ -109,8 +109,17 @@ function showCart(x,y) {
 		for(j=0;j<products.length;j++) {
 			if(products[j].gsx$proname.$t==x[i]) {
 				console.log(products[j].gsx$productname.$t);
+				vList=[];
+				vTraits='';
+				if(x[i].length==y[i].product.length) {
+					vTraits=products[j].gsx$traits.$t;
+				} else {
+					vS=x[i].substring(x[i].indexOf('_'),x[i].length);
+					console.log(vS);
+				}
+				$('#cart').append('<div><img src="'+products[j].gsx$photos.$t.substring(0,products[j].gsx$photos.$t.indexOf(','))+'"><div><h3></h3><span>'+vTraits+'</span></div></div>');
 			}
-		//$('#cart').append();
+		}
 	}
 }
 
