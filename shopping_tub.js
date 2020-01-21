@@ -114,10 +114,10 @@ function showCart(x,y) {
 				if(x[i].length==y[i].product.length) {
 					vTraits=products[j].gsx$traits.$t;
 				} else {
-					vS=y[i].substring(y[i].indexOf('_'),y[i].length);
+					vS=y[i].product.substring(y[i].product.indexOf('_'),y[i].product.length);
 					console.log(vS);
 				}
-				$('#cart').append('<div class="product"><img src="https://soapcloset.thesassyalpaca.com/images/products/'+products[j].gsx$photos.$t.substring(0,products[j].gsx$photos.$t.indexOf(','))+'"><div><h3>'+products[j].gsx$productname.$t+'</h3><span>'+vTraits+'</span></div></div>');
+				$('#cart').append('<div class="product"><img src="https://soapcloset.thesassyalpaca.com/images/products/'+products[j].gsx$photos.$t.substring(0,products[j].gsx$photos.$t.indexOf(','))+'"><div data-content=""><h3>'+products[j].gsx$productname.$t+'</h3><span>'+vTraits+'</span></div></div>');
 			}
 		}
 	}
