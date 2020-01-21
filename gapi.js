@@ -31,7 +31,7 @@ function initClient() {
 	});
 }
 
-fucntion serviceAuth() {
+function serviceAuth() {
 	
 }
 
