@@ -15,7 +15,14 @@
 .product img+div {
 	display: inline-block;
 	vertical-align: top;
-	margin: 0px 0px 0px 10px;
+	margin: 0px 0px 0px 10px !important;
+	width: calc(100% - (var(--thumb) * 2) - 40px);
+}
+
+.product img+div::after {
+	content: attr(data-content);
+	width: var(--thumb);
+	height: var(--thumb);
 }
 
 .product h3 {
@@ -23,5 +30,5 @@
 }
 
 .product h3+span {
-	
+	font-size: 16px !important;
 }
