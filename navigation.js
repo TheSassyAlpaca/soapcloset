@@ -88,6 +88,7 @@ $(document).ready(function() {
 function stackTheSandwich(x) {
 	products=[
 		{item:'Soap',sandwich:'none',link:'/product/soap'},
+		{item:'Blueberry Hill',sandwich:'none',link:'/product/Blueberry_Hill'},
 		{item:'Lotion',sandwich:'none',link:'/product/lotion'},
 		{item:'Face Creams',sandwich:'none',link:'/product/face_creams'},
 		{item:'Sprays',sandwich:'none',link:'/product/sprays'},
