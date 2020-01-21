@@ -118,9 +118,25 @@ function showCart(x,y) {
 					console.log(vS);
 				}
 				$('#cart').append('<div id="'+y[i]+'" class="product"><img src="https://soapcloset.thesassyalpaca.com/images/products/'+products[j].gsx$photos.$t.substring(0,products[j].gsx$photos.$t.indexOf(','))+'"><div data-price="'+products[j].gsx$price.$t.substring(0,products[j].gsx$price.$t.indexOf(','))+'" data-content="'+y[i].qty*products[j].gsx$price.$t.substring(0,products[j].gsx$price.$t.indexOf(','))+'"><h3>'+products[j].gsx$productname.$t+'</h3><span>'+vTraits+'</span><div class="counter"><div class="down">-</div><input type="number" value="'+y[i].qty+'" min="0"><div class="up">+</div></div></div></div>');
+				updateCartItem(y[i],$('#'+y[i]).find('input').val);
+				$('#'+y[i]+' .counter').children('div').click(function() {
+					if($(this).hasClass('down')) {
+						if($('#'+y[i]+' .counter').children('input').val()>0) {
+							$('#'+y[i]+' .counter').children('input').val(Number($('#'+y[i]+' .counter').children('input').val())-1);
+						}
+					}
+					if($(this).hasClass('up')) {
+						$('#'+y[i]+' .counter').children('input').val(Number($('#'+y[i]+' .counter').children('input').val())+1);
+					}
+				})
 			}
 		}
 	}
+	
+}
+
+function updateCartItem(x,y) {
+	updateCookie('product','Replace',x+'+'+y,2592000000);
 }
 
 function updateCart() {
