@@ -36,7 +36,7 @@ function serviceAuth() {
 }
 
 
-let jwtClient = new google.auth.JWT('the-soap-closet@the-soap-closet.iam.gserviceaccount.com', null, 'dfadce156b09ccaaad518eb8bca5592f00d724b8', [
+let jwtClient = new gapi.auth.JWT('the-soap-closet@the-soap-closet.iam.gserviceaccount.com', null, 'dfadce156b09ccaaad518eb8bca5592f00d724b8', [
             "https://www.googleapis.com/auth/spreadsheets",
         ]);
 //authenticate request
