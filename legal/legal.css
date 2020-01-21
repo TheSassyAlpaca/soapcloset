@@ -18,7 +18,7 @@
 #content ul {
 	padding-left: 0px;
 	list-style: none;
-	font-size: calc(var(--thumb) / 3);
+	font-size: calc(var(--thumb) / 2);
 	font-family: var(--econ);
 }
 
@@ -27,7 +27,7 @@
 }
 
 #content li + ul {
-	
+	margin-left: 15px;
 }
 
 .submit {
