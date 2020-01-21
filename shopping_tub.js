@@ -42,7 +42,7 @@ function openCart() {
 				//,"vars":"'+varsList+'"
 				pList.push(JSON.parse('{"product":"'+vSet[0]+'","qty":"'+vSet[1]+'"}'));
 				checkCase=vSet[0].substring(0,1);
-				if(case==case.toLowerCase()) {
+				if(checkCase==checkCase.toLowerCase()) {
 					pNames.push(vSet[0].substring(0,vSet[0].indexOf("_")));
 				} else {
 					pNames.push(vSet[0]);
