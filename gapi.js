@@ -23,6 +23,14 @@ function initClient() {
 		updateSigninStatus(gapi.auth2.getAuthInstance());
 		serviceAuth();
 		listMajors();
+		jwtClient=google.auth.JWT('the-soap-closet@the-soap-closet.iam.gserviceaccount.com', null, 'dfadce156b09ccaaad518eb8bca5592f00d724b8', [
+            "https://www.googleapis.com/auth/spreadsheets",
+        ]);
+		jwtClient.authorize(function(err, tokens) {
+			// at this point the authentication is done you can now use `jwtClient` 
+			// to read or write to the spreadsheet
+			console.log("I GOT HERE!");
+		});
 		//--   .isSignedIn.get()
 		//authorizeButton.onclick = handleAuthClick;
 		//signoutButton.onclick = handleSignoutClick;
@@ -36,7 +44,7 @@ function serviceAuth() {
 }
 
 
-let jwtClient = new gapi.auth.JWT('the-soap-closet@the-soap-closet.iam.gserviceaccount.com', null, 'dfadce156b09ccaaad518eb8bca5592f00d724b8', [
+/**let jwtClient = new google.auth.JWT('the-soap-closet@the-soap-closet.iam.gserviceaccount.com', null, 'dfadce156b09ccaaad518eb8bca5592f00d724b8', [
             "https://www.googleapis.com/auth/spreadsheets",
         ]);
 //authenticate request
@@ -45,6 +53,7 @@ jwtClient.authorize(function(err, tokens) {
      // to read or write to the spreadsheet
 	 console.log("I GOT HERE!");
 });
+**/
 
 function updateSigninStatus(isSignedIn) {
 	if (isSignedIn) {
