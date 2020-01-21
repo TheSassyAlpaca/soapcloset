@@ -132,6 +132,9 @@ function buildVars(x,y) {
 				}
 			});
 			ySplit=y.split('=');
+			if(ySplit[0]=='SET') {
+				$('#ingredients').addClass('set');
+			}
 			baseVariables=ySplit[1].split('|');
 			for(k=0;k<baseVariables.length;k++) {
 				vSet=baseVariables[k].split('-');
