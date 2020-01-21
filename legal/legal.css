@@ -26,6 +26,10 @@
 	
 }
 
+#content li + ul {
+	
+}
+
 .submit {
 	height: var(--thumb);
 	text-align: center;
