@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "the-soap-closet",
+  "private_key_id": "dfadce156b09ccaaad518eb8bca5592f00d724b8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC75qmcYTWgrrtR\n3hjxFxu5itxLtqPeeRo6oyZzhbCgPZ2aOrfJ1bPEXzsYgKBavAQqada7J/KewsNm\nM0zJpEgjuY1vsufsk80EGGLaUT8UTCZFgHaAAoMmrhUMzsQoenY8bfMleBj1u0nT\nt2UwJkVQklEL14Jspp4IRvOiWJ0GvrVd1I8Spdaw9/0ivVslpOW0BkSCd7hty/fD\n5wzlvt0jNxtPs4hAUQkWpVAkhh/04txQS1JTkTcdtX8cWXNPGvxHl8o6V8MpnMOn\n2oQdoPM9lJ8CIxxZeMBrSm5v5qPlWWYkKiQPMW6TnC88xivm4erf2tEyMpQ1rwdj\n/u0QG/wVAgMBAAECgf8ccQ27XfuAFvLDsZqU46qOqzYtP7gONMaDma54TgQuPSVd\n8wVex7ouPzvyuYWMNmlrAho+ug0/eruY/Kri2rsQrUV7Ytk4NicSN56+7Q1fRSeF\n3awSNE8ly7Pj/Gg0uFStUPc89LDSgUbrhRcL8r8LMxqRcE2NpKrHFfZK3J7oJjNb\nuHBFe7ELsEGQsDENVdEg0cB8WJZka7By8duK7ugCU/1+SI+L+zq6oMvZITtHe6X8\ninFCgadsKDHoVHPyLrFRDWa18Z7yX1Dc0kA0v7t9P96NvuRPEHtG+dXg+K56fGby\n0luyqfWk6zCKls0ZKNN9ZTG3vnLAQr8Jvg1KpDECgYEA4+RPBP9f0zgccGnPMGMH\nJBcdgWOQ/HkMmoZ/eOu1dMPLxm+Px7Ghyf6flOp3Hn+bKgfAIC78Gw/rBlux1X7f\nWfUQTEpS53q6jVxu+H7aR9gWznXsVAuLVh3Uj50r/BMz35l4D1AfyShyFTIlVesO\n6Wf+6JaBEwPtvnztjTY3W0UCgYEA0xOknEvyBpW6LOeLBn0SPBLs24f1HXp5dTk3\nTrEYm/Qq7Foz6VFL+fzi4V7h4q2rRXp+c9+Na8z5l7Tt5/b6ThjBgs5b2sEYob/H\nSWAEL5p2fZ2fMaXAjghfp6DOE4HDN7KBzz+/rUrvvdCh4E6qNvwtRgDZssar1Peo\nuncrwpECgYEAwlmL9lQgEc8xmcDy/G4HwgSgmh8in95QHFyFy8chKiJs3592/DQG\nKXEoAWTwD6d92Ztgg1HumNm7cuGySMP5kQtJSfa8u0LUZAgnb28nksu7r3msAYUS\n4G9yPsQopcJuo8uLM2v+n5wJpv/sDVj4j5+sKglorKHWGHUMVjidfw0CgYEAmHWi\nu4YbjegOLqsb/xbN2fhtfvAH+z/ghOxL55oBRXwqmMdaoZcoAqxHkDPBgsKgaDHf\nLoD1nDzUt2BnStpY15oIBBxbunko+oQURQqGW3/9QCRevTSVDcI8nU6IKwzaXdug\n6XqJT3lGC1ur4OHRDqA9b0fj9r6LlOtBw1WalRECgYAsB4uLrFQOFYiltcmCTZBr\narI9d+VHNTVa3gxAP8lAJ3ltLZqN17Szy6etcJywTN/PgItX7mbVYmSO1Tw5DMan\nUffjLglYX7/1H1k9wwBWkeemMa9qUegkHQ/CCSRogfZ4yLHedOIgkny5PuziXhcU\no/hNtn8Ykeghuy/nnNV0TQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "the-soap-closet@the-soap-closet.iam.gserviceaccount.com",
+  "client_id": "116009064491714082566",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/the-soap-closet%40the-soap-closet.iam.gserviceaccount.com"
+}
