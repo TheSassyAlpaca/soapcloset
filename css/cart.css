@@ -42,4 +42,6 @@
 
 .product .counter {
 	zoom: 0.5;
+	margin: 0px;
+	margin-left: calc((var(--thumb) * 2) + 20px);
 }
