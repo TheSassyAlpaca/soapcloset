@@ -19,7 +19,8 @@ function initClient() {
 	scope: SCOPES
 	}).then(function () {
 		gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-		updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+		updateSigninStatus(gapi.auth2.getAuthInstance());
+		//--   .isSignedIn.get()
 		//authorizeButton.onclick = handleAuthClick;
 		//signoutButton.onclick = handleSignoutClick;
 	}, function(error) {
