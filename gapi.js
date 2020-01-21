@@ -36,6 +36,7 @@ function updateSigninStatus(isSignedIn) {
 		//authorizeButton.style.display = 'block';
 		//signoutButton.style.display = 'none';
 	}
+	listMajors();
 }
 
 function handleAuthClick(event) {
