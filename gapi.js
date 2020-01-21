@@ -7,6 +7,16 @@ var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
 var authorizeButton = document.getElementById('authorize_button');
 var signoutButton = document.getElementById('signout_button');
 
+let jwtClient = new google.auth.JWT(client_email, null, private_key, [
+            "https://www.googleapis.com/auth/spreadsheets",
+        ]);
+//authenticate request
+jwtClient.authorize(function(err, tokens) {
+     // at this point the authentication is done you can now use `jwtClient` 
+     // to read or write to the spreadsheet
+	 console.log("I GOT HERE!");
+});
+
 function handleClientLoad() {
 	gapi.load('client:auth2', initClient);
 }
@@ -20,6 +30,7 @@ function initClient() {
 	}).then(function () {
 		gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 		updateSigninStatus(gapi.auth2.getAuthInstance());
+		serviceAuth();
 		listMajors();
 		//--   .isSignedIn.get()
 		//authorizeButton.onclick = handleAuthClick;
@@ -27,6 +38,10 @@ function initClient() {
 	}, function(error) {
 		appendPre(JSON.stringify(error, null, 2));
 	});
+}
+
+fucntion serviceAuth() {
+	
 }
 
 function updateSigninStatus(isSignedIn) {
