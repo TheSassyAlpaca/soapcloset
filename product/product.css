@@ -188,7 +188,7 @@ h3 + div > span {
 	font-size: small;
 }
 
-.set h3 + div {
+.set h3 div {
 	display: none;
 }
 
