@@ -1,5 +1,7 @@
 $(function() {
-	openCart();
+	if(location.href=='https://soapcloset.thesassyalpaca.com/shopping_tub') {
+		openCart();
+	}
 })
 
 function openCart() {
@@ -26,7 +28,7 @@ function openCart() {
 			if(vSet[1]>0) {
 				//counter++;
 				console.log(vSet[0],vSet[0].indexOf("_"));
-				pNames.push(vSet[0].substring(0,vSet[0].indexOf("_")));
+				
 				/*
 				vars=vSet[0].substring(vSet[0].indexOf("_"),vSet[0].length);
 				varsList=vars.split('|');
@@ -39,6 +41,12 @@ function openCart() {
 				*/
 				//,"vars":"'+varsList+'"
 				pList.push(JSON.parse('{"product":"'+vSet[0]+'","qty":"'+vSet[1]+'"}'));
+				case=vSet[0].substring(0,1);
+				if(case==case.toLowerCase()) {
+					pNames.push(vSet[0].substring(0,vSet[0].indexOf("_")));
+				} else {
+					pNames.push(vSet[0]);
+				}
 			}
 		}
 		if(counter>0) {
