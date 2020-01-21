@@ -2,6 +2,7 @@ $(function() {
 	//are there variables in url???
 	pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
 	pName=location.href.substring(location.href.indexOf('/product/')+9,endString(location.href,'#'));
+	console.log(pName);
 	$(function() {
 		$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/1/public/values?alt=json-in-script&callback=?",
 		function (data) {
