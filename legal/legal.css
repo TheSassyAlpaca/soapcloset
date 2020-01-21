@@ -26,6 +26,11 @@
 	
 }
 
+#content li + a {
+	text-decoration: none;
+	color: rgb(var(--ocean));
+}
+
 #content li + ul {
 	margin-left: 15px;
 }
