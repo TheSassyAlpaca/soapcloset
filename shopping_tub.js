@@ -128,8 +128,9 @@ function showCart(x,y) {
 					if($(this).hasClass('up')) {
 						$(this).parent().children('input').val(Number($(this).parent().children('input').val())+1);
 					}
+					updateCartItem(y[i].product,$('#'+y[i].product.replace(/[|]+/g,'')+'counter').children('input').val());
 				})
-				updateCartItem(y[i].product,$('#'+y[i].product.replace(/[|]+/g,'')+'counter').children('input').val());
+				
 			}
 		}
 	}
