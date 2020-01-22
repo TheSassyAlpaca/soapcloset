@@ -12,7 +12,7 @@ $(function() {
 })
 
 function getAddresses() {
-	$('#addresses').append('<div class="toggleButtons"><div name="orderType" value="Ship"><div name="orderType" value="Deliver"></div>');
+	$('#addresses').append('<div class="toggleButtons"><div name="orderType" value="Ship"></div><div name="orderType" value="Deliver" class="selected"></div></div>');
 	$('.toggleButtons div').click(function() {
 		$('.toggleButtons div').removeClass('selected');
 		$(this).addClass('selected');
