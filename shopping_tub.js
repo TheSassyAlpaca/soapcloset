@@ -1,5 +1,11 @@
 $(function() {
 	if(location.href=='https://soapcloset.thesassyalpaca.com/shopping_tub') {
+		$('#content').append('<div id="cartHeader"></div>');
+		$('#content').append('<div id="cart"></div>');
+		$('#content').append('<div id="cartSubTotal"></div>');
+		$('#content').append('<div id="addresses"></div>');
+		$('#content').append('<div id="info"></div>');
+		$('#content').append('<div id="coupon"></div>');
 		openCart();
 	}
 })
@@ -19,27 +25,13 @@ function openCart() {
 	}
 	if(value!=null||value!='undefined') {
 		vList=value.split(",");
-		//counter=0;
 		pList=[];
 		pNames=[];
 		pVars=[];
 		for(i=0;i<vList.length;i++) {
 			vSet=vList[i].split('+');
 			if(vSet[1]>0) {
-				//counter++;
 				console.log(vSet[0],vSet[0].indexOf("_"));
-				
-				/*
-				vars=vSet[0].substring(vSet[0].indexOf("_"),vSet[0].length);
-				varsList=vars.split('|');
-				for(i=0;i<varsList.length;i++) {
-					varName=varsList[i].split("-");
-					if(pVars.indexOf(varName[0])!=-1) {
-						pVars.push(varName[0]);
-					}
-				}
-				*/
-				//,"vars":"'+varsList+'"
 				pList.push(JSON.parse('{"product":"'+vSet[0]+'","qty":"'+vSet[1]+'"}'));
 				checkCase=vSet[0].substring(0,1);
 				if(checkCase==checkCase.toLowerCase()) {
@@ -55,9 +47,11 @@ function openCart() {
 			buildCart(pNames,pList);
 		} else {
 			//Nothing in your cart. Don't feel bad, we've all been there...
+			$('#cart').append('<h2>Nothing in your cart!</h2><span>Don\'t feel bad, we\'ve all been there...</span>');
 		}
 	} else {
 		//Nothing in your cart. Don't feel bad, we've all been there...
+		$('#cart').append('<h2>Nothing in your cart!</h2><span>Don\'t feel bad, we\'ve all been there...</span>');
 	}
 }
 
@@ -93,7 +87,6 @@ function buildCart(x,y) {
 							variableList.push(entry);
 						}
 					});
-					//
 					console.log(products);
 					console.log(variableList);
 					showCart(x,y);
@@ -104,7 +97,6 @@ function buildCart(x,y) {
 }
 
 function showCart(x,y) {
-	$('#content').append('<div id="cart"></div>');
 	for(i=0;i<y.length;i++) {
 		for(j=0;j<products.length;j++) {
 			if(products[j].gsx$proname.$t==x[i]) {
@@ -157,11 +149,20 @@ function showCart(x,y) {
 					}
 					updateCartItem($(this).parent().attr('data-content'),$(this).parent().children('input').val());
 				})
-				
+				updateSubTotal();
 			}
 		}
 	}
 	
+}
+
+function updateSubTotal() {
+	$('#cartSubTotal').empty();
+	subTotal=0;
+	$('.dataSource').each(function() {
+		subTotal=subTotal+$(this).attr('data-content');
+	})
+	$('#cartSubTotal').append(subTotal);
 }
 
 function updateCartItem(x,y) {
@@ -169,6 +170,7 @@ function updateCartItem(x,y) {
 	console.log('product','Replace',x+'+'+y,2592000000);
 	//$('#'+x.replace(/[|]+/g,'')+'counter').children('input').val(y);
 	$('#'+x.replace(/[|]+/g,'')).children('div.dataSource').attr('data-content',$('#'+x.replace(/[|]+/g,'')).children('div.dataSource').attr('data-price')*y);
+	updateSubTotal();
 }
 
 function updateCart() {
