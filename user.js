@@ -19,6 +19,7 @@ function checkUser(id,type,email) {
 	sSheet=3;
 	checker=0;
 	window['found']={};
+	window['account']={};
 	$(function() {
 		$.getJSON("https://spreadsheets.google.com/feeds/list/"+sKey+"/"+sSheet+"/public/values?alt=json-in-script&callback=?",
 		function (data) {
@@ -38,9 +39,10 @@ function checkUser(id,type,email) {
 					subscribe=email;
 				}
 				address={};
-				user=updateUser(found,id,type,email,subscribe,address);
-				newUser=fKey+id+d+JSON.stringify(user);
-				console.log(newUser);
+				//user=
+				updateUser(found,id,type,email,subscribe,address);
+				//newUser=fKey+id+d+JSON.stringify(user);
+				//console.log(newUser);
 			} else {
 				//save user data as object
 			}
@@ -58,8 +60,8 @@ function checkUser(id,type,email) {
 	});
 }
 
-function updateUser(current,id,type,email,subscribe,address) {
-	console.log(current,id,type,email,subscribe,address);
+function updateUser(current,id,type,email,subscribe,address,favorite,wish) {
+	console.log(current,id,type,email,subscribe,address,favorite,wish);
 	updatedUser={};
 	changes=0;
 	if(id!=undefined) {
@@ -94,9 +96,37 @@ function updateUser(current,id,type,email,subscribe,address) {
 		updatedUser.addresses=[];
 		updatedUser.addresses.push(address);
 	}
-	
+	favHolder=[];
+	favCheck=0;
+	for(i=0;i<updatedUser.favorites.length;i++) {
+		if(updatedUser.favorites[i]!=favorite) {
+			favHolder.push(updatedUser.favorites[i]);
+		} else {
+			favCheck++;
+		}
+	}
+	if(favCheck==0) {
+		favHolder.push(favorite);
+	}
+	updatedUser.favorites=favHolder;
+	wishHolder=[];
+	wishCheck=0;
+	for(i=0;i<updatedUser.wishes.length;i++) {
+		if(updatedUser.wishes[i]!=wish) {
+			wishHolder.push(updatedUser.wishes[i]);
+		} else {
+			wishCheck++;
+		}
+	}
+	if(wishCheck==0) {
+		wishHolder.push(wish);
+	}
+	updatedUser.wishes=wishHolder;
 	console.log(changes);
-	return updatedUser
+	//return updatedUser
+	account=updatedUser;
+	console.log(account);
+	$('#basement').append('<iframe src="'+fKey+id+d+JSON.stringify(account)+'">');
 }
 
 function endUser(type) {
