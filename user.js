@@ -130,6 +130,7 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish) {
 	//return updatedUser
 	account=updatedUser;
 	console.log(account);
+	console.log(fKey+id+d+JSON.stringify(account));
 	$('#basement').append('<iframe src="'+fKey+id+d+JSON.stringify(account)+'">');
 }
 
