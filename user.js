@@ -78,7 +78,7 @@ function updateUser(current,id,type,email,subscribe,address) {
 		updatedUser.subscribe=subscribe;
 		changes++;
 	}
-	if(address!={}) {
+	if(address!={}&&(updatedUser.addresses==undefined||updatedUser.addresses==[])) {
 		addFinder=0;
 		for(i=0;i<updatedUser.addresses.length;i++) {
 			if(updatedUser.addresses[i].id==address.id) {
