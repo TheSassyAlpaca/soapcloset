@@ -63,7 +63,11 @@
 	margin-left: calc((var(--thumb) * 2) + 20px);
 }
 
-.toggleButtons span {
+.toggleButtons {
+	position: relative;
+}
+
+.toggleButtons div {
 	width: 50%;
 	display: inline-block !important;
 	text-align: center;
@@ -71,12 +75,6 @@
 	margin-top: 0px !important;
 }
 
-.toggleButtons .slider {
-	width: 50%;
-	display: block;
-	text-align: center;
-	height: calc(var(--thumb) / 2);
-	margin-top: calc((var(--thumb) / 2) * -1) !important;
-	background-color: red;
-	transition: 1s ease-in-out;
+.toggleButtons div.selected {
+	background-color: rgb(var(--bark));
 }
