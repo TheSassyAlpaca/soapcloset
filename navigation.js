@@ -62,7 +62,8 @@ $(document).ready(function() {
 		if($(this).prev().children('input').attr('name').length!==0) {
 			id=$(this).prev().children('input').attr('name');
 		}
-		$('#basement').append('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeOQKOaVn7oDYXnIktlJnx2IMLc1mgKtrcJp19HM-QQt1iTFQ/formResponse?usp=pp_url&entry.148047722='+id+'&entry.1353804064='+email+'">');
+		//$('#basement').append('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeOQKOaVn7oDYXnIktlJnx2IMLc1mgKtrcJp19HM-QQt1iTFQ/formResponse?usp=pp_url&entry.148047722='+id+'&entry.1353804064='+email+'">');
+		updateUser(null,null,null,null,email,null,null,null);
 	})
 	$('#homer').click(function() {
 		location.href='/';
@@ -143,11 +144,3 @@ function userAlert(x) {
 		$('#userAlert').remove();
 	},5000)
 }
-
-
-
-
-
-
-
-
