@@ -112,11 +112,37 @@ function showCart(x,y) {
 				vList=[];
 				vTraits='';
 				if(x[i].length==y[i].product.length) {
-					vTraits=products[j].gsx$traits.$t;
+					if(products[j].gsx$ingredients.$t.substring(0,3)=='SET') {
+						sets=products[j].gsx$ingredients.$t.split('=');
+						sVars=sets[1].split('|');
+						for(s=0;s<sVars.length;s++) {
+							thisS=sVars[s].split('-');
+							for(v=0;v<variableList.length;v++) {
+								if(variableList[v].gsx$var.$t==thisS[0]&&variableList[v].gsx$id.$t==thisS[1]) {
+									vList.push(variableList[v].gsx$name.$t);
+								}
+							}
+						}
+					} else {
+						vTraits=products[j].gsx$ingredients.$t;
+					}
 				} else {
+					/*
 					vS=y[i].product.substring(y[i].product.indexOf('_')+1,y[i].product.length);
 					console.log(vS);
+					*/
+					sets=y[i].product.split('=');
+					sVars=sets[1].split('|');
+					for(s=0;s<sVars.length;s++) {
+						thisS=sVars[s].split('-');
+						for(v=0;v<variableList.length;v++) {
+							if(variableList[v].gsx$var.$t==thisS[0]&&variableList[v].gsx$id.$t==thisS[1]) {
+								vList.push(variableList[v].gsx$name.$t);
+							}
+						}
+					}
 				}
+				vTraits=vList.join(', ');
 				$('#cart').append('<div id="'+y[i].product.replace(/[|]+/g,'')+'" class="product"><img src="https://soapcloset.thesassyalpaca.com/images/products/'+products[j].gsx$photos.$t.substring(0,products[j].gsx$photos.$t.indexOf(','))+'"><div class="dataSource" data-price="'+products[j].gsx$price.$t.substring(0,endString(products[j].gsx$price.$t,','))+'" data-content="'+y[i].qty*products[j].gsx$price.$t.substring(0,endString(products[j].gsx$price.$t,','))+'"><h3>'+products[j].gsx$productname.$t+'</h3><span>'+vTraits+'</span></div><div id="'+y[i].product.replace(/[|]+/g,'')+'counter" class="counter" data-content="'+y[i].product+'"><div class="down">-</div><input type="number" value="'+y[i].qty+'" min="0"><div class="up">+</div></div></div>');
 				thisProduct=$('#'+y[i].product.replace(/[|]+/g,'')+'counter');
 				theProduct=y[i].product;
