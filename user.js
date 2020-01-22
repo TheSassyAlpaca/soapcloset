@@ -163,7 +163,7 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish,cart,o
 	console.log(account);
 	console.log(fKey+id+d+JSON.stringify(account));
 	$('#basement').append('<iframe src="'+fKey+account.id+d+encodeURIComponent(JSON.stringify(account))+'">');
-	sendEventsendEvent('update user info','changed',changed,changes);
+	sendEvent('update user info','changed',changed,changes);
 }
 
 function endUser(type) {
