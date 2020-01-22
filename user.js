@@ -18,21 +18,20 @@ function checkUser(id,type,email) {
 	sKey='1HU9HRvsXy-gvmMwvYoHNkP1olvloFdkH5bfKwOZDdsQ';
 	sSheet=3;
 	checker=0;
-	window['found']={};
 	window['account']={};
 	$(function() {
 		$.getJSON("https://spreadsheets.google.com/feeds/list/"+sKey+"/"+sSheet+"/public/values?alt=json-in-script&callback=?",
 		function (data) {
 			$.each(data.feed.entry, function(i,entry) {
 				if(entry.gsx$id.$t==id) {
-					found=JSON.parse(entry.gsx$data.$t);
+					account=JSON.parse(entry.gsx$data.$t);
 					if(entry.gsx$data.$t.indexOf('"subscribe":"'+email)!=-1) {
 						checker++;
 					}
 				}
 			});
-			console.log(found);
-			if(jQuery.isEmptyObject(found)) {
+			console.log(account);
+			if(jQuery.isEmptyObject(account)) {
 				console.log('add user');
 				subscribe='';
 				if(checker!=0) {
@@ -40,7 +39,7 @@ function checkUser(id,type,email) {
 				}
 				address={};
 				//user=
-				updateUser(found,id,type,email,subscribe,address);
+				updateUser(account,id,type,email,subscribe,address);
 				//newUser=fKey+id+d+JSON.stringify(user);
 				//console.log(newUser);
 			} else {
@@ -62,7 +61,7 @@ function checkUser(id,type,email) {
 
 function updateUser(current,id,type,email,subscribe,address,favorite,wish) {
 	console.log(current,id,type,email,subscribe,address,favorite,wish);
-	updatedUser={};
+	updatedUser=account;
 	changes=0;
 	if(id!=undefined) {
 		updatedUser.id=id;
