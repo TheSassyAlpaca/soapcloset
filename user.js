@@ -55,21 +55,26 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish,cart,o
 	console.log(current,id,type,email,subscribe,address,favorite,wish,cart,order);
 	updatedUser=account;
 	changes=0;
+	changed=[];
 	if(id!=undefined&&id!=null) {
 		updatedUser.id=id;
 		changes++;
+		changed.push('id');
 	}
 	if(type!=undefined&&type!=null) {
 		updatedUser.type=type;
 		changes++;
+		changed.push('type');
 	}
 	if(email!=undefined&&email!=null) {
 		updatedUser.email=email;
 		changes++;
+		changed.push('email');
 	}
 	if(subscribe!=undefined&&subscribe!=null) {
 		updatedUser.subscribe=subscribe;
 		changes++;
+		changed.push('subscribe');
 	}
 	if(!jQuery.isEmptyObject(address)&&(updatedUser.addresses!=undefined||updatedUser.addresses!=[])&&address!=null) {
 		addFinder=0;
@@ -83,9 +88,12 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish,cart,o
 			updatedUser.addresses.push(address);
 		}
 		changes++;
+		changed.push('addresses');
 	} else {
 		updatedUser.addresses=[];
 		updatedUser.addresses.push(address);
+		changes++;
+		changed.push('addresses');
 	}
 	favHolder=[];
 	favCheck=0;
@@ -95,11 +103,15 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish,cart,o
 				favHolder.push(updatedUser.favorites[i]);
 			} else {
 				favCheck++;
+				changes++;
+				changed.push('favorite');
 			}
 		}
 	}
 	if(favCheck==0) {
 		favHolder.push(favorite);
+		changes++;
+		changed.push('favorite');
 	}
 	updatedUser.favorites=favHolder;
 	wishHolder=[];
@@ -110,16 +122,21 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish,cart,o
 				wishHolder.push(updatedUser.wishes[i]);
 			} else {
 				wishCheck++;
+				changes++;
+				changed.push('wish');
 			}
 		}
 	}
 	if(wishCheck==0) {
 		wishHolder.push(wish);
+		changes++;
+		changed.push('wish');
 	}
 	updatedUser.wishes=wishHolder;
 	if(cart!=undefined&&cart!=null) {
 		updatedUser.cart=cart;
 		changes++;
+		changed.push('cart');
 	}
 	orderHolder=[];
 	orderCheck=0;
@@ -129,11 +146,15 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish,cart,o
 				orderHolder.push(updatedUser.orders[i]);
 			} else {
 				orderCheck++;
+				changes++;
+				changed.push('order');
 			}
 		}
 	}
 	if(orderCheck==0) {
 		orderHolder.push(order);
+		changes++;
+		changed.push('order');
 	}
 	updatedUser.orders=orderHolder;
 	console.log(changes);
@@ -142,7 +163,7 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish,cart,o
 	console.log(account);
 	console.log(fKey+id+d+JSON.stringify(account));
 	$('#basement').append('<iframe src="'+fKey+account.id+d+encodeURIComponent(JSON.stringify(account))+'">');
-	//sendEvent();
+	sendEventsendEvent('update user info','changed',changed,changes);
 }
 
 function endUser(type) {
