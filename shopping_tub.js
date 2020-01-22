@@ -14,12 +14,12 @@ $(function() {
 function getAddresses() {
 	$('#addresses').append('<div class="toggleButtons"><span>Ship</span><span>Deliver</span><div class="slider"></div></div>');
 	$('.slider,.toggleButtons span').click(function() {
-		if($(this).css('float')=='right') {
-			$(this).css('float','left');
-			$(this).attr('data-content',$(this).parent().children('span:nth-child(2)').text())
+		if($(this).parent().children('.slider').css('float')=='right') {
+			$(this).parent().children('.slider').css('float','left');
+			$(this).parent().children('.slider').attr('data-content',$(this).parent().children('span:nth-child(2)').text())
 		} else {
-			$(this).css('float','right');
-			$(this).attr('data-content',$(this).parent().children('span:nth-child(1)').text())
+			$(this).parent().children('.slider').css('float','right');
+			$(this).parent().children('.slider').attr('data-content',$(this).parent().children('span:nth-child(1)').text())
 		}
 	})
 	/*
