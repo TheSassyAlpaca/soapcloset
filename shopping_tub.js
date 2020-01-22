@@ -7,8 +7,46 @@ $(function() {
 		$('#content').append('<div id="info" class="cartBand"></div>');
 		$('#content').append('<div id="coupon" class="cartBand"></div>');
 		openCart();
+		getAddresses();
 	}
 })
+
+function getAddresses() {
+	$('#addresses').append('<div class="toggleButtons"><span>Ship</span><span>Deliver</span><div class="slider"></div></div>');
+	$('.slider,.toggleButtons span').click(function() {
+		if($(this).css('float')=='right') {
+			$(this).css('float','left');
+			$(this).attr('data-content',$(this).parent().children('span:nth-child(2)').text())
+		} else {
+			$(this).css('float','right');
+			$(this).attr('data-content',$(this).parent().children('span:nth-child(2)').text())
+		}
+	})
+	/*
+	$(function() {
+		$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/1/public/values?alt=json-in-script&callback=?",
+		function (data) {
+			$.each(data.feed.entry, function(i,entry) {
+				
+				
+				if(x.indexOf(entry.gsx$proname.$t)!=-1) {
+					products.push(entry);
+					if(entry.gsx$var.$t!='NA') {
+						thisVars=entry.gsx$var.$t.split(",");
+						for(j=0;j<thisVars.length;j++) {
+							if(pVars.indexOf(thisVars[j])==-1) {
+								pVars.push(thisVars[j]);
+							}
+						}
+						
+					}
+				}
+			});
+			//
+		})
+	})
+	*/
+}
 
 function openCart() {
 	//do onload of '/shopping_tub'
@@ -162,7 +200,7 @@ function updateSubTotal() {
 	$('.dataSource').each(function() {
 		subTotal=subTotal+Number($(this).attr('data-content'));
 	})
-	$('#cartSubTotal').append('<h3>Estimated Total</h3><span>'+subTotal+'</span><span>This total does not reflect discounts for bulk rates, special offers, or coupons.</span>');
+	$('#cartSubTotal').append('<h3>Estimated Total</h3><span>$'+subTotal+'</span><span>This total does not reflect discounts for bulk rates, special offers, or coupons.</span>');
 }
 
 function updateCartItem(x,y) {
