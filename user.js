@@ -18,21 +18,30 @@ function checkUser(id,type,email) {
 	sKey='1HU9HRvsXy-gvmMwvYoHNkP1olvloFdkH5bfKwOZDdsQ';
 	sSheet=3;
 	checker=0;
-	window['user']={};
+	window['found']={};
 	$(function() {
 		$.getJSON("https://spreadsheets.google.com/feeds/list/"+sKey+"/"+sSheet+"/public/values?alt=json-in-script&callback=?",
 		function (data) {
 			$.each(data.feed.entry, function(i,entry) {
 				if(entry.gsx$id.$t==id) {
-					user=JSON.parse(entry.gsx$data.$t);
+					found=JSON.parse(entry.gsx$data.$t);
 					if(entry.gsx$data.$t.indexOf('"subscribe":"'+email)!=-1) {
 						checker++;
 					}
 				}
 			});
-			console.log(user.length);
-			if(user===undefined) {
+			console.log(found);
+			if(found===undefined) {
 				console.log('add user');
+				subscribe='';
+				if(checker!=0) {
+					subscribe=email;
+				}
+				address={};
+				user=updateUser(id,type,email,subscribe,address);
+				newUser=fKey+id+d+JSON.stringify(user);
+			} else {
+				//save user data as object
 			}
 			console.log(checker);
 			if(checker===0) {
@@ -46,6 +55,35 @@ function checkUser(id,type,email) {
 			//console.log(Oils[1].id);
 		});
 	});
+}
+
+function updateUser(id,type,email,subscribe,address) {
+	updatedUser={};
+	if(id!=undefined) {
+		updatedUser.id=id;
+	}
+	if(type!=undefined) {
+		updatedUser.data.type=type;
+	}
+	if(email!=undefined||email!=updatedUser.data.email) {
+		updatedUser.data.email=email;
+	}
+	if(subscribe!=undefined||subscribe!=updatedUser.data.subscribe) {
+		updatedUser.data.subscribe=subscribe;
+	}
+	if(address!={}) {
+		addFinder=0;
+		for(i=0;i<updatedUser.data.addresses.length;i++) {
+			if(updatedUser.data.addresses[i].id==address.id) {
+				addFinder++;
+				updatedUser.data.addresses[i]=address;
+			}
+		}
+		if(addFinder==0) {
+			updatedUser.data.addresses.push(address);
+		}
+	}
+	return updatedUser
 }
 
 function endUser(type) {
