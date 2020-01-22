@@ -63,7 +63,7 @@
 	margin-left: calc((var(--thumb) * 2) + 20px);
 }
 
-.toggleButton span {
+.toggleButtons span {
 	width: 50%;
 	display: inline-block;
 	text-align: center;
@@ -71,7 +71,7 @@
 	margin-top: 0px !important;
 }
 
-.toggleButton .slider {
+.toggleButtons .slider {
 	width: 50%;
 	display: block;
 	text-align: center;
