@@ -19,7 +19,7 @@ function getAddresses() {
 			$(this).attr('data-content',$(this).parent().children('span:nth-child(2)').text())
 		} else {
 			$(this).css('float','right');
-			$(this).attr('data-content',$(this).parent().children('span:nth-child(2)').text())
+			$(this).attr('data-content',$(this).parent().children('span:nth-child(1)').text())
 		}
 	})
 	/*
