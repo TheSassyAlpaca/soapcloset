@@ -6,15 +6,46 @@ function createOrFindUser(id,auth,type) {
 		if(response.error){
 			console.error(response.error);
 		} else {
-			console.log(response);
-			console.log(response.email);
-			//function to check if email and id are attached
-			checkSubscriber(id,type,response.email);
+			checkUser();
+			//checkSubscriber(id,type,response.email);
 		}
 	});
-	//user account page
-	//url='https://graph.facebook.com/'+id+'?fields=email,first_name,last_name,picture&access_token='+auth;
-	//console.log(response.picture.data.url);
+}
+
+function checkUser(id,type,email) {
+	fKey='https://docs.google.com/forms/d/e/1FAIpQLScKaphtjTSpy9IQdGn-nSn0V1KESVQB1bzh4znvFIh8S8MBGA/formResponse?usp=pp_url&entry.576123776=';
+	d='&entry.1859584535=';
+	sKey='1HU9HRvsXy-gvmMwvYoHNkP1olvloFdkH5bfKwOZDdsQ';
+	sSheet=3;
+	checker=0;
+	window['user']={};
+	$(function() {
+		$.getJSON("https://spreadsheets.google.com/feeds/list/"+sKey+"/"+sSheet+"/public/values?alt=json-in-script&callback=?",
+		function (data) {
+			$.each(data.feed.entry, function(i,entry) {
+				if(entry.gsx$id.$t==id) {
+					user=JSON.parse(entry.gsx$data.$t);
+					if(entry.gsx$data.$t.indexOf('"subscribe":"'+email)!=-1) {
+						checker++;
+					}
+				}
+			});
+			console.log(user);
+			if(user.length==0) {
+				console.log('add user');
+			}
+			console.log(checker);
+			if(checker===0) {
+				$('#subscribe').prev().children('input').val(email).attr('name',id);
+			}
+			if(checker!==0) {
+				//change subscription field
+				$('#subscribe').parent().prev('span').text('Thank You for Subscribing!');
+				$('#subscribe').parent().remove();
+			}
+			//console.log(Oils[1].id);
+		});
+	});
 }
 
 function endUser(type) {
@@ -22,6 +53,7 @@ function endUser(type) {
 	$('#userCart').css('display','none');
 }
 
+/*
 function checkSubscriber(id,type,email) {
 	sKey='17tAZ9gxLCcj0A1xHOqim2qYlJHwzXFOl6ziDV2rtdAc';
 	checker=0;
@@ -46,3 +78,4 @@ function checkSubscriber(id,type,email) {
 		});
 	});
 }
+*/
