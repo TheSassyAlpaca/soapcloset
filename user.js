@@ -63,19 +63,19 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish) {
 	console.log(current,id,type,email,subscribe,address,favorite,wish);
 	updatedUser=account;
 	changes=0;
-	if(id!=undefined) {
+	if(id!=undefined&&id!=null) {
 		updatedUser.id=id;
 		changes++;
 	}
-	if(type!=undefined) {
+	if(type!=undefined&&type!=null) {
 		updatedUser.type=type;
 		changes++;
 	}
-	if(email!=undefined||email!=updatedUser.email) {
+	if(email!=undefined&&email!=null) {
 		updatedUser.email=email;
 		changes++;
 	}
-	if(subscribe!=undefined||subscribe!=updatedUser.subscribe) {
+	if(subscribe!=undefined&&subscribe!=null) {
 		updatedUser.subscribe=subscribe;
 		changes++;
 	}
