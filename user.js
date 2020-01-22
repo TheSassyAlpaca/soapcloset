@@ -90,6 +90,9 @@ function updateUser(current,id,type,email,subscribe,address) {
 			updatedUser.addresses.push(address);
 		}
 		changes++;
+	} else {
+		updatedUser.addresses=[];
+		updatedUser.addresses.push(address);
 	}
 	
 	console.log(changes);
