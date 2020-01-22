@@ -1,5 +1,5 @@
 function sendEvent(category,action,label,value) {
-	ga('send', 'event', {
+	gtag('send', 'event', {
 		eventCategory: category,
 		eventAction: action,
 		eventLabel: label,
