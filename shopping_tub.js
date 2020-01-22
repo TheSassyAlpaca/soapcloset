@@ -1,11 +1,11 @@
 $(function() {
 	if(location.href=='https://soapcloset.thesassyalpaca.com/shopping_tub') {
-		$('#content').append('<div id="cartHeader"></div>');
-		$('#content').append('<div id="cart"></div>');
-		$('#content').append('<div id="cartSubTotal"></div>');
-		$('#content').append('<div id="addresses"></div>');
-		$('#content').append('<div id="info"></div>');
-		$('#content').append('<div id="coupon"></div>');
+		$('#content').append('<div id="cartHeader" class="cartBand"></div>');
+		$('#content').append('<div id="cart" class="cartBand"></div>');
+		$('#content').append('<div id="cartSubTotal" class="cartBand"></div>');
+		$('#content').append('<div id="addresses" class="cartBand"></div>');
+		$('#content').append('<div id="info" class="cartBand"></div>');
+		$('#content').append('<div id="coupon" class="cartBand"></div>');
 		openCart();
 	}
 })
