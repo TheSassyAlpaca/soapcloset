@@ -72,11 +72,11 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish) {
 		updatedUser.type=type;
 		changes++;
 	}
-	if(email!=undefined||email!=updatedUser.data.email) {
+	if(email!=undefined||email!=updatedUser.email) {
 		updatedUser.email=email;
 		changes++;
 	}
-	if(subscribe!=undefined||subscribe!=updatedUser.data.subscribe) {
+	if(subscribe!=undefined||subscribe!=updatedUser.subscribe) {
 		updatedUser.subscribe=subscribe;
 		changes++;
 	}
