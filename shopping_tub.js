@@ -12,17 +12,10 @@ $(function() {
 })
 
 function getAddresses() {
-	$('#addresses').append('<div class="toggleButtons"><input type="radio" name="orderType" value="Ship"><input type="radio" name="orderType" value="Delivery" checked></div>');
-	
-	//<div class="slider"></div><span>Ship</span><span>Deliver</span></div>');
-	$('.slider,.toggleButtons span').click(function() {
-		if($(this).parent().children('.slider').css('float')=='right') {
-			$(this).parent().children('.slider').css('float','left');
-			$(this).parent().children('.slider').attr('data-content',$(this).parent().children('span:nth-child(3)').text())
-		} else {
-			$(this).parent().children('.slider').css('float','right');
-			$(this).parent().children('.slider').attr('data-content',$(this).parent().children('span:nth-child(2)').text())
-		}
+	$('#addresses').append('<div class="toggleButtons"><div name="orderType" value="Ship"><div name="orderType" value="Deliver"></div>');
+	$('.toggleButtons div').click(function() {
+		$('.toggleButtons div').removeClass('selected');
+		$(this).addClass('selected');
 	})
 	/*
 	$(function() {
