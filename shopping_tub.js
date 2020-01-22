@@ -129,7 +129,7 @@ function showCart(x,y) {
 						$(this).parent().children('input').val(Number($(this).parent().children('input').val())+1);
 					}
 				})
-				updateCartItem(y[i].product,y[i].qty);
+				updateCartItem(y[i].product,$('#'+y[i].product.replace(/[|]+/g,'')+'counter').children('input').val());
 			}
 		}
 	}
@@ -139,7 +139,7 @@ function showCart(x,y) {
 function updateCartItem(x,y) {
 	//updateCookie('product','Replace',x+'+'+y,2592000000);
 	console.log('product','Replace',x+'+'+y,2592000000);
-	$('#'+x.replace(/[|]+/g,'')+'counter').children('input').val(y);
+	//$('#'+x.replace(/[|]+/g,'')+'counter').children('input').val(y);
 	$('#'+x.replace(/[|]+/g,'')).children('div.dataSource').attr('data-content',$('#'+x.replace(/[|]+/g,'')).children('div.dataSource').attr('data-price')*y);
 }
 
