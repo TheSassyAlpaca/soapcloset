@@ -98,11 +98,13 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish) {
 	}
 	favHolder=[];
 	favCheck=0;
-	for(i=0;i<updatedUser.favorites.length;i++) {
-		if(updatedUser.favorites[i]!=favorite) {
-			favHolder.push(updatedUser.favorites[i]);
-		} else {
-			favCheck++;
+	if(updatedUser.favorites) {
+		for(i=0;i<updatedUser.favorites.length;i++) {
+			if(updatedUser.favorites[i]!=favorite) {
+				favHolder.push(updatedUser.favorites[i]);
+			} else {
+				favCheck++;
+			}
 		}
 	}
 	if(favCheck==0) {
@@ -111,11 +113,13 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish) {
 	updatedUser.favorites=favHolder;
 	wishHolder=[];
 	wishCheck=0;
-	for(i=0;i<updatedUser.wishes.length;i++) {
-		if(updatedUser.wishes[i]!=wish) {
-			wishHolder.push(updatedUser.wishes[i]);
-		} else {
-			wishCheck++;
+	if(updatedUser.wishes) {
+		for(i=0;i<updatedUser.wishes.length;i++) {
+			if(updatedUser.wishes[i]!=wish) {
+				wishHolder.push(updatedUser.wishes[i]);
+			} else {
+				wishCheck++;
+			}
 		}
 	}
 	if(wishCheck==0) {
