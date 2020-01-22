@@ -160,7 +160,7 @@ function updateSubTotal() {
 	$('#cartSubTotal').empty();
 	subTotal=0;
 	$('.dataSource').each(function() {
-		subTotal=subTotal+$(this).attr('data-content');
+		subTotal=subTotal+Number($(this).attr('data-content'));
 	})
 	$('#cartSubTotal').append(subTotal);
 }
