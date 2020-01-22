@@ -96,5 +96,6 @@ function getCookieValue(c,a,v) {
 	} else {
 		newValue=item+"+"+qty;
 	}
+	updateUser(null,null,null,null,null,null,null,null,newValue,null)
 	return newValue
 }
