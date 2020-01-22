@@ -119,6 +119,7 @@ function showCart(x,y) {
 				}
 				$('#cart').append('<div id="'+y[i].product.replace(/[|]+/g,'')+'" class="product"><img src="https://soapcloset.thesassyalpaca.com/images/products/'+products[j].gsx$photos.$t.substring(0,products[j].gsx$photos.$t.indexOf(','))+'"><div class="dataSource" data-price="'+products[j].gsx$price.$t.substring(0,endString(products[j].gsx$price.$t,','))+'" data-content="'+y[i].qty*products[j].gsx$price.$t.substring(0,endString(products[j].gsx$price.$t,','))+'"><h3>'+products[j].gsx$productname.$t+'</h3><span>'+vTraits+'</span></div><div id="'+y[i].product.replace(/[|]+/g,'')+'counter" class="counter"><div class="down">-</div><input type="number" value="'+y[i].qty+'" min="0"><div class="up">+</div></div></div>');
 				thisProduct=$('#'+y[i].product.replace(/[|]+/g,'')+'counter');
+				theProduct=y[i].product;
 				thisProduct.children('div').click(function() {
 					if($(this).hasClass('down')) {
 						if($(this).parent().children('input').val()>0) {
@@ -128,7 +129,7 @@ function showCart(x,y) {
 					if($(this).hasClass('up')) {
 						$(this).parent().children('input').val(Number($(this).parent().children('input').val())+1);
 					}
-					updateCartItem(y[i].product,$('#'+y[i].product.replace(/[|]+/g,'')+'counter').children('input').val());
+					updateCartItem(theProduct,$('#'+y[i].product.replace(/[|]+/g,'')+'counter').children('input').val());
 				})
 				
 			}
