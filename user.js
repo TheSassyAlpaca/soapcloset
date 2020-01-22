@@ -52,7 +52,7 @@ function checkUser(id,type,email) {
 }
 
 function updateUser(current,id,type,email,subscribe,address,favorite,wish,cart,order) {
-	console.log(current,id,type,email,subscribe,address,favorite,wish);
+	console.log(current,id,type,email,subscribe,address,favorite,wish,cart,order);
 	updatedUser=account;
 	changes=0;
 	if(id!=undefined&&id!=null) {
@@ -71,7 +71,7 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish,cart,o
 		updatedUser.subscribe=subscribe;
 		changes++;
 	}
-	if(!jQuery.isEmptyObject(address)&&(updatedUser.addresses!=undefined||updatedUser.addresses!=[])) {
+	if(!jQuery.isEmptyObject(address)&&(updatedUser.addresses!=undefined||updatedUser.addresses!=[])&&address!=null) {
 		addFinder=0;
 		for(i=0;i<updatedUser.addresses.length;i++) {
 			if(updatedUser.addresses[i].id==address.id) {
