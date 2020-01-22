@@ -162,7 +162,7 @@ function updateSubTotal() {
 	$('.dataSource').each(function() {
 		subTotal=subTotal+Number($(this).attr('data-content'));
 	})
-	$('#cartSubTotal').append(subTotal);
+	$('#cartSubTotal').append('<h3>Estimated Total</h3><span>'+subTotal+'</span><span>This total does not reflect discounts for bulk rates, special offers, or coupons.</span>');
 }
 
 function updateCartItem(x,y) {
