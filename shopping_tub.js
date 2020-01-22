@@ -12,7 +12,9 @@ $(function() {
 })
 
 function getAddresses() {
-	$('#addresses').append('<div class="toggleButtons"><div class="slider"></div><span>Ship</span><span>Deliver</span></div>');
+	$('#addresses').append('<div class="toggleButtons"><input type="radio" name="orderType" value="Ship"><input type="radio" name="orderType" value="Delivery" checked></div>');
+	
+	//<div class="slider"></div><span>Ship</span><span>Deliver</span></div>');
 	$('.slider,.toggleButtons span').click(function() {
 		if($(this).parent().children('.slider').css('float')=='right') {
 			$(this).parent().children('.slider').css('float','left');
