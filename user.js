@@ -59,6 +59,7 @@ function checkUser(id,type,email) {
 }
 
 function updateUser(current,id,type,email,subscribe,address) {
+	console.log(locals());
 	updatedUser={};
 	changes=0;
 	if(id!=undefined) {
