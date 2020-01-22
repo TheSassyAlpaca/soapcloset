@@ -31,14 +31,14 @@ function checkUser(id,type,email) {
 				}
 			});
 			console.log(found);
-			if(found===undefined) {
+			if(found==={}) {
 				console.log('add user');
 				subscribe='';
 				if(checker!=0) {
 					subscribe=email;
 				}
 				address={};
-				user=updateUser(id,type,email,subscribe,address);
+				user=updateUser(found,id,type,email,subscribe,address);
 				newUser=fKey+id+d+JSON.stringify(user);
 				console.log(newUser);
 			} else {
@@ -58,19 +58,24 @@ function checkUser(id,type,email) {
 	});
 }
 
-function updateUser(id,type,email,subscribe,address) {
+function updateUser(current,id,type,email,subscribe,address) {
 	updatedUser={};
+	changes=0;
 	if(id!=undefined) {
 		updatedUser.id=id;
+		changes++;
 	}
 	if(type!=undefined) {
 		updatedUser.data.type=type;
+		changes++;
 	}
 	if(email!=undefined||email!=updatedUser.data.email) {
 		updatedUser.data.email=email;
+		changes++;
 	}
 	if(subscribe!=undefined||subscribe!=updatedUser.data.subscribe) {
 		updatedUser.data.subscribe=subscribe;
+		changes++;
 	}
 	if(address!={}) {
 		addFinder=0;
@@ -83,6 +88,7 @@ function updateUser(id,type,email,subscribe,address) {
 		if(addFinder==0) {
 			updatedUser.data.addresses.push(address);
 		}
+		changes++;
 	}
 	return updatedUser
 }
