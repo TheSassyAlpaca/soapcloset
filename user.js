@@ -7,7 +7,6 @@ function createOrFindUser(id,auth,type) {
 			console.error(response.error);
 		} else {
 			checkUser(id,type,response.email);
-			//checkSubscriber(id,type,response.email);
 		}
 	});
 }
@@ -38,28 +37,21 @@ function checkUser(id,type,email) {
 					subscribe=email;
 				}
 				address={};
-				//user=
-				updateUser(account,id,type,email,subscribe,address);
-				//newUser=fKey+id+d+JSON.stringify(user);
-				//console.log(newUser);
-			} else {
-				//save user data as object
+				updateUser(account,id,type,email,subscribe);
 			}
 			console.log(checker);
 			if(checker===0) {
 				$('#subscribe').prev().children('input').val(email).attr('name',id);
 			}
 			if(checker!==0) {
-				//change subscription field
 				$('#subscribe').parent().prev('span').text('Thank You for Subscribing!');
 				$('#subscribe').parent().remove();
 			}
-			//console.log(Oils[1].id);
 		});
 	});
 }
 
-function updateUser(current,id,type,email,subscribe,address,favorite,wish) {
+function updateUser(current,id,type,email,subscribe,address,favorite,wish,cart,order) {
 	console.log(current,id,type,email,subscribe,address,favorite,wish);
 	updatedUser=account;
 	changes=0;
@@ -125,12 +117,32 @@ function updateUser(current,id,type,email,subscribe,address,favorite,wish) {
 		wishHolder.push(wish);
 	}
 	updatedUser.wishes=wishHolder;
+	if(cart!=undefined&&cart!=null) {
+		updatedUser.cart=cart;
+		changes++;
+	}
+	orderHolder=[];
+	orderCheck=0;
+	if(updatedUser.orders) {
+		for(i=0;i<updatedUser.orders.length;i++) {
+			if(updatedUser.orders[i]!=order) {
+				orderHolder.push(updatedUser.orders[i]);
+			} else {
+				orderCheck++;
+			}
+		}
+	}
+	if(orderCheck==0) {
+		orderHolder.push(order);
+	}
+	updatedUser.orders=orderHolder;
 	console.log(changes);
 	//return updatedUser
 	account=updatedUser;
 	console.log(account);
 	console.log(fKey+id+d+JSON.stringify(account));
 	$('#basement').append('<iframe src="'+fKey+account.id+d+encodeURIComponent(JSON.stringify(account))+'">');
+	//sendEvent();
 }
 
 function endUser(type) {
