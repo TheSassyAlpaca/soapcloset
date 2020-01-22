@@ -3,11 +3,17 @@
 }
 
 .cartBand {
-	
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+	padding: 10px 0px;
 }
 
 .product {
-	
+	margin-bottom: 5px;
+	padding: 5px 0px;
+}
+
+.product:hover {
+	background-color: rgba(var(--sage),.2);
 }
 
 .product img {
@@ -32,6 +38,8 @@
 	position: absolute;
 	top: 0px;
 	right: calc(var(--thumb) * -1);
+	font-size: 36px;
+	line-height: var(--thumb);
 }
 
 .product h3 {
