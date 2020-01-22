@@ -40,6 +40,7 @@ function checkUser(id,type,email) {
 				address={};
 				user=updateUser(id,type,email,subscribe,address);
 				newUser=fKey+id+d+JSON.stringify(user);
+				console.log(newUser);
 			} else {
 				//save user data as object
 			}
@@ -90,30 +91,3 @@ function endUser(type) {
 	$('#userLog').css('display','block');
 	$('#userCart').css('display','none');
 }
-
-/*
-function checkSubscriber(id,type,email) {
-	sKey='17tAZ9gxLCcj0A1xHOqim2qYlJHwzXFOl6ziDV2rtdAc';
-	checker=0;
-	$(function() {
-		$.getJSON("https://spreadsheets.google.com/feeds/list/" + sKey + "/1/public/values?alt=json-in-script&callback=?",
-		function (data) {
-			$.each(data.feed.entry, function(i,entry) {
-				if(entry.gsx$id.$t==id&&entry.gsx$email.$t==email) {
-					checker++;
-				}
-			});
-			console.log(checker);
-			if(checker===0) {
-				$('#subscribe').prev().children('input').val(email).attr('name',id);
-			}
-			if(checker!==0) {
-				//change subscription field
-				$('#subscribe').parent().prev('span').text('Thank You for Subscribing!');
-				$('#subscribe').parent().remove();
-			}
-			//console.log(Oils[1].id);
-		});
-	});
-}
-*/
