@@ -123,7 +123,7 @@ function showCart(x,y) {
 					vS=y[i].product.substring(y[i].product.indexOf('_')+1,y[i].product.length);
 					console.log(vS);
 					*/
-					sets=y[i].product.split('=');
+					sets=y[i].product.split('_');
 					sVars=sets[1].split('|');
 					for(s=0;s<sVars.length;s++) {
 						thisS=sVars[s].split('-');
