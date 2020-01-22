@@ -67,27 +67,27 @@ function updateUser(current,id,type,email,subscribe,address) {
 		changes++;
 	}
 	if(type!=undefined) {
-		updatedUser.data.type=type;
+		updatedUser.type=type;
 		changes++;
 	}
 	if(email!=undefined||email!=updatedUser.data.email) {
-		updatedUser.data.email=email;
+		updatedUser.email=email;
 		changes++;
 	}
 	if(subscribe!=undefined||subscribe!=updatedUser.data.subscribe) {
-		updatedUser.data.subscribe=subscribe;
+		updatedUser.subscribe=subscribe;
 		changes++;
 	}
 	if(address!={}) {
 		addFinder=0;
-		for(i=0;i<updatedUser.data.addresses.length;i++) {
-			if(updatedUser.data.addresses[i].id==address.id) {
+		for(i=0;i<updatedUser.addresses.length;i++) {
+			if(updatedUser.addresses[i].id==address.id) {
 				addFinder++;
-				updatedUser.data.addresses[i]=address;
+				updatedUser.addresses[i]=address;
 			}
 		}
 		if(addFinder==0) {
-			updatedUser.data.addresses.push(address);
+			updatedUser.addresses.push(address);
 		}
 		changes++;
 	}
