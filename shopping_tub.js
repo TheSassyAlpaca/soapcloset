@@ -16,10 +16,10 @@ function getAddresses() {
 	$('.slider,.toggleButtons span').click(function() {
 		if($(this).parent().children('.slider').css('float')=='right') {
 			$(this).parent().children('.slider').css('float','left');
-			$(this).parent().children('.slider').attr('data-content',$(this).parent().children('span:nth-child(2)').text())
+			$(this).parent().children('.slider').attr('data-content',$(this).parent().children('span:nth-child(3)').text())
 		} else {
 			$(this).parent().children('.slider').css('float','right');
-			$(this).parent().children('.slider').attr('data-content',$(this).parent().children('span:nth-child(1)').text())
+			$(this).parent().children('.slider').attr('data-content',$(this).parent().children('span:nth-child(2)').text())
 		}
 	})
 	/*
