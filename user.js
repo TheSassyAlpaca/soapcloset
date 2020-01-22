@@ -31,7 +31,7 @@ function checkUser(id,type,email) {
 				}
 			});
 			console.log(found);
-			if(found==={}) {
+			if(found=={}) {
 				console.log('add user');
 				subscribe='';
 				if(checker!=0) {
