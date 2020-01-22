@@ -6,7 +6,7 @@ function createOrFindUser(id,auth,type) {
 		if(response.error){
 			console.error(response.error);
 		} else {
-			checkUser();
+			checkUser(id,type,response.email);
 			//checkSubscriber(id,type,response.email);
 		}
 	});
