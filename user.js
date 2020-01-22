@@ -31,7 +31,7 @@ function checkUser(id,type,email) {
 				}
 			});
 			console.log(user.length);
-			if(user.length==0) {
+			if(user===undefined) {
 				console.log('add user');
 			}
 			console.log(checker);
