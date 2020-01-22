@@ -30,7 +30,7 @@ function checkUser(id,type,email) {
 					}
 				}
 			});
-			console.log(user);
+			console.log(user.length);
 			if(user.length==0) {
 				console.log('add user');
 			}
