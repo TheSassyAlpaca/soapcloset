@@ -119,8 +119,8 @@ function showCart(x,y) {
 				}
 				$('#cart').append('<div id="'+y[i].product+'" class="product"><img src="https://soapcloset.thesassyalpaca.com/images/products/'+products[j].gsx$photos.$t.substring(0,products[j].gsx$photos.$t.indexOf(','))+'"><div data-price="'+products[j].gsx$price.$t.substring(0,endString(products[j].gsx$price.$t,','))+'" data-content="'+y[i].qty*products[j].gsx$price.$t.substring(0,products[j].gsx$price.$t.indexOf(','))+'"><h3>'+products[j].gsx$productname.$t+'</h3><span>'+vTraits+'</span></div><div id="'+y[i].product+'counter" class="counter"><div class="down">-</div><input type="number" value="'+y[i].qty+'" min="0"><div class="up">+</div></div></div>');
 				updateCartItem(y[i].product,y[i].qty);
-				thisProduct=y[i].product;
-				$('#'+thisProduct+'counter').children('div').click(function() {
+				thisProduct=y[i].product+'counter';
+				$('#'+thisProduct).children('div').click(function() {
 					if($(this).hasClass('down')) {
 						if($('#'+y[i].product+'counter').children('input').val()>0) {
 							$('#'+y[i].product+'counter').children('input').val(Number($('#'+y[i].product+'counter').children('input').val())-1);
