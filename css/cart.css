@@ -65,10 +65,11 @@
 
 .toggleButtons {
 	height: calc(var(--thumb) / 2);
-	box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.75), inset 1px 1px 1px 0px rgba(var(--oats),0.25), inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+	box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.35), inset 1px 1px 1px 0px rgba(var(--oats),0.25), inset -1px -1px 1px 0px rgba(0,0,0,0.25);
 	border-radius: 3px;
 	margin-top: 0px !important;
 	overflow: hidden;
+	background-color: whitesmoke;
 }
 
 .toggleButtons div {
