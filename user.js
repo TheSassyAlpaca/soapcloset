@@ -59,6 +59,7 @@ function checkUser(id,type,email) {
 }
 
 function updateUser(current,id,type,email,subscribe,address) {
+	console.log(current,id,type,email,subscribe,address);
 	updatedUser={};
 	changes=0;
 	if(id!=undefined) {
@@ -90,6 +91,8 @@ function updateUser(current,id,type,email,subscribe,address) {
 		}
 		changes++;
 	}
+	
+	console.log(changes);
 	return updatedUser
 }
 
