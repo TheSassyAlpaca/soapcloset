@@ -3,5 +3,5 @@ function sendEvent(category,label) {
 		eventCategory: category,
 		eventLabel: label
 	});
-	console.log(category,action,label);
+	console.log(category,label);
 }
