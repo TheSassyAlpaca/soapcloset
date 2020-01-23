@@ -1,7 +1,6 @@
-function sendEvent(category,label) {
-	gtag('event', 'click', {
+function sendEvent(category,action,label) {
+	gtag('event', action, {
 		eventCategory: category,
 		eventLabel: label
 	});
-	console.log(category,label);
 }
