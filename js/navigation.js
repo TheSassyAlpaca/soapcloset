@@ -15,6 +15,12 @@ function downloadProducts() {
 					console.log(p);
 					console.log(p.name);
 					console.log(p.keywords);
+					if($('#'+p.category.replace(/[\s&]/,'')).length==0) {
+						$('#content').append('<div id="'+p.category.replace(/[\s&]/,'')+'" class="category"></div>');
+					}
+					if($('#'+p.category.replace(/[\s&]/,'')).children($('#'+p.subcategory.replace(/[\s&]/,'')).length==0) {
+						$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="category"></div>');
+					}
 				});
 				//dataPulls("getSongs");
 			});
