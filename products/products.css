@@ -1,23 +1,42 @@
+.listing {
+	font-family: var(--econ);
+	overflow: hidden;
+	max-height: calc(var(--thumb) * 1.25);
+}
+
+.listing h3 {
+	margin: 0px
+}
+
 .listingLeft {
 	display: inline-block;
 	height: calc(var(--thumb) * 1.25);
 	width: calc(var(--thumb) * 1.25);
+	vertical-align: top;
 }
 
 .listingLeft img {
 	display: inline-block;
 	height: calc(var(--thumb) * 1.25);
 	width: calc(var(--thumb) * 1.25);
+	
 }
 
 .listingMid {
 	display: inline-block;
 	height: calc(var(--thumb) * 1.25);
-	width: calc(100% - (var(--thumb) * 2.25));
+	width: calc(100% - (var(--thumb) * 2.25) - 20px);
+	vertical-align: top;
+	padding: 0px 10px 10px 10px;
 }
 
 .listingRight {
 	display: inline-block;
 	height: calc(var(--thumb) * 1.25);
 	width: calc(var(--thumb) * 1);
+	vertical-align: top;
+}
+
+.keywords {
+	font-size: 90%;
 }
