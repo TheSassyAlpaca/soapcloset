@@ -32,146 +32,19 @@ body {
 	display: none;
 }
 
-#userAlert {
-	position: fixed;
-	margin: calc(50vw - 150px);
-	width: 300px;
-	bottom: 0px;
-	text-align: center;
-	background-color: black;
-	padding: 10px 0px;
-	color: rgb(var(--oats));
-	box-shadow: -20px 0px 25px 0px rgba(0,0,0,0.75), 20px 0px 25px 0px rgba(0,0,0,0.75);
-}
-
 #content {
 	padding: var(--thumb) 10px 10px 10px;
 	margin: 0px;
 }
 
-#content .band:last-child {
-	margin-bottom: -10px;
-	//border-bottom: 10px solid rgb(var(--sage));
-}
-
-#handmadeNaturalLocal {
-	background-image: url('/images/general/Papaya.jpg');
-}
-#comeMeetUs {
-	background-image: url('/images/general/Papaya.jpg');
-}
-
-#localPartners {
-	background-image: url('/images/general/fruit%20pigments.jpg');
-}
-.band {
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: calc(100vh - var(--thumb));
-	width: 100vw;
-	margin-left: -10px;
-	position: relative;
-}
-
-.band .text {
-	font-size: 14vw;
-	padding: 10vh 20px;
-	font-family: var(--soapCloset);
-	color: rgb(var(--oats));
-	text-shadow: 0px 0px 3px rgb(var(--ocean)), 0px 0px 5px black;
-	text-align: center;
-	margin: auto;
-	display: table;
-}
-
-.band .button {
-	background-color: rgb(var(--bark));
-	height: var(--thumb);
-	width: calc(100vw - var(--thumb));
-	margin-left: calc(var(--thumb) / 2);
-	position: absolute;
-	bottom: 10vh;
-	border-radius: 0px;
-	box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75), inset 1px 1px 1px 0px rgba(var(--oats),0.25), inset -1px -1px 1px 0px rgba(0,0,0,0.25);
-	text-align: center;
-	font-size: calc(var(--thumb) / 2) !important;
-	font-family: var(--econ);
-	line-height: var(--thumb);
-	color: rgb(var(--oats));
-	cursor: pointer;
-}
-
-.band .text span {
-	display: block;
-}
-
-.band .text.matchWidth span:nth-child(2) {
-	font-size: 125%;
-	line-height: 55%;
-}
-
-.band .text.matchWidth span:nth-child(3) {
-	font-size: 185%;
-	line-height: 120%;
-}
-
-.band .text.jumble span:nth-child(1) {
-	line-height: 50%;
-	font-size: 75%;
-}
-
-.band .text.jumble span:nth-child(2) {
-	line-height: 80%;
-	font-size: 140%;
-}
-
-.band .text.jumble span:nth-child(3) {
-	line-height: 100%;
-	font-size: 80%;
-}
-
-.band .text.partners span:nth-child(1) {
-	line-height: 50%;
-	font-size: 75%;
-}
-
-.band .text.partners span:nth-child(2) {
-	line-height: 80%;
-	font-size: 60%;
-}
-
-.band .text.partners span:nth-child(3) {
-	line-height: 90%;
-	font-size: 160%;
-}
-
-#contactMe {
+@media only screen and (min-width:360px) {
 	
 }
 
-#cMEmail, #cMSubject {
-	height: calc(var(--thumb) / 2);
-	text-indent: 5px;
-}
-
-#cMMessage {
-	height: calc(var(--thumb) * 2);
-	text-indent: 5px;
-	width: calc(100% - 6px);
-	margin-top: 10px;
-	height: calc(var(--thumb) * 2) !important;
-}
-
-@media only screen and (min-width:360px) {
-	.band .button {
-		max-width: 300px;
-		margin-left: calc(50vw - 150px);
-	}
-}
-
 @media only screen and (min-width:700px) {
-	.band .text {
-		font-size: 8vw;
-	}
+	
+}
+
+@media only screen and (min-width:900px) {
+	
 }
