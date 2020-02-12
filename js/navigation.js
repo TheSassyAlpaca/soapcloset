@@ -19,7 +19,7 @@ function downloadProducts() {
 						$('#content').append('<div id="'+p.category.replace(/[\s&]/,'')+'" class="category"></div>');
 					}
 					if($('#'+p.category.replace(/[\s&]/,'')).children($('#'+p.subcategory.replace(/[\s&]/,''))).length==0) {
-						$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="category"></div>');
+						$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="subcategory"></div>');
 					}
 					$('#'+p.category.replace(/[\s&]/,'')).children($('#'+p.subcategory.replace(/[\s&]/,''))).append(listing(p));
 				});
@@ -30,7 +30,7 @@ function downloadProducts() {
 }
 
 function listing(p) {
-	l='<div id="'+p.name.replace(/[\s&]/,'').toLowerCase()+'"><div class="listingLeft"><img src="'+p.images[0]+'"></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+bulkRates(p)+'</span></div></div>' 
+	l='<div id="'+p.name.replace(/[\s&]/,'').toLowerCase()+'" class="listing"><div class="listingLeft"><img src="'+p.images[0]+'"></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'</div></div>' 
 	return l
 }
 
