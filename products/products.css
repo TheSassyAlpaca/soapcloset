@@ -1,1 +1,23 @@
+.listingLeft {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(var(--thumb) * 1.25);
+}
 
+.listingLeft img {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(var(--thumb) * 1.25);
+}
+
+.listingMid {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(100% - (var(--thumb) * 2.25));
+}
+
+.listingRight {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(var(--thumb) * 1);
+}
