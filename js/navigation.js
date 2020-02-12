@@ -21,9 +21,23 @@ function downloadProducts() {
 					if($('#'+p.category.replace(/[\s&]/,'')).children($('#'+p.subcategory.replace(/[\s&]/,''))).length==0) {
 						$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="category"></div>');
 					}
+					$('#'+p.category.replace(/[\s&]/,'')).children($('#'+p.subcategory.replace(/[\s&]/,''))).append(listing(p));
 				});
 				//dataPulls("getSongs");
 			});
 		});
 	})
+}
+
+function listing(p) {
+	l='<div id="'+p.name.replace(/[\s&]/,'').toLowerCase()+'"><div class="listingLeft"><img src="'+p.images[0]+'"></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+bulkRates(p)+'</span></div></div>' 
+	return l
+}
+
+function bulkRates(p) {
+	b='';
+	if('bulk' in p && p.bulk!==[]) {
+		b='<div class="bulkRates"><span>Bulk Prices</span><div><span>'+p.bulk.join('</span><span>')+'</span></div></div>';
+	}
+	return b
 }
