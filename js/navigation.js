@@ -12,8 +12,9 @@ function downloadProducts() {
 				$.each(data.feed.entry, function(i,entry) {
 					p=JSON.parse(entry.gsx$data.$t);
 					products.push(p);
+					console.log(p);
 					console.log(p.name);
-					console.log(p.name2);
+					console.log(p.keywords);
 				});
 				//dataPulls("getSongs");
 			});
