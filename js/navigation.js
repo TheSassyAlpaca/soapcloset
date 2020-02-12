@@ -10,7 +10,7 @@ function downloadProducts() {
 			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/4/public/values?alt=json-in-script&callback=?",
 			function (data) {
 				$.each(data.feed.entry, function(i,entry) {
-					p=jQuery.parseJSON(entry.gsx$data.$t);
+					p=JSON.parse(entry.gsx$data.$t);
 					products.push(p);
 					console.log(p.name);
 					console.log(p.name2);
