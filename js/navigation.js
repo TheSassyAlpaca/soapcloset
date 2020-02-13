@@ -48,9 +48,11 @@ function downloadProducts() {
 					if($(this).hasClass('expand')) {
 						$('.listing').removeClass('expand');
 						$(this).removeClass('expand');
+						$(this).find('.bulkRates').children('div').removeClass('expand');
 					} else {
 						$('.listing').removeClass('expand');
 						$(this).addClass('expand');
+						$(this).find('.bulkRates').children('div').addClass('expand');
 					}
 				})
 				$('.bulkRates').click(function() {
