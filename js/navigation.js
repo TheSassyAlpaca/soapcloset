@@ -19,7 +19,7 @@ function downloadProducts() {
 						$('#content').append('<div id="'+p.category.replace(/[\s&]/,'')+'" class="category"><h1>'+p.category+'</h1></div>');
 					}
 					console.log($('#'+p.category.replace(/[\s&]/,'')+' #'+p.subcategory.replace(/[\s&]/,'')));
-					if(!$('#'+p.category.replace(/[\s&]/,'')).has($('#'+p.subcategory.replace(/[\s&]/,'')))) {
+					if(!$('#'+p.subcategory.replace(/[\s&]/,'')).has($('#'+p.category.replace(/[\s&]/,'')))) {
 						console.log($('#'+p.category.replace(/[\s&]/,'')+' #'+p.subcategory.replace(/[\s&]/,'')));
 						$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
 					}
