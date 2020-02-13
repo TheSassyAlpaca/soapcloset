@@ -23,7 +23,7 @@ function downloadProducts() {
 						console.log($('#'+p.category.replace(/[\s&]/,'')+' #'+p.subcategory.replace(/[\s&]/,'')));
 						$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
 					}
-					$('#'+p.category.replace(/[\s&]/,'')).children($('#'+p.subcategory.replace(/[\s&]/,''))).append(listing(p));
+					$('#'+p.category.replace(/[\s&]/,'')+' #'+p.subcategory.replace(/[\s&]/,''))).append(listing(p));
 				});
 				//
 				$('.category').children('h1').click(function() {
