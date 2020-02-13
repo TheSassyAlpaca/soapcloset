@@ -25,14 +25,24 @@ function downloadProducts() {
 				});
 				//
 				$('.category').children('h1').click(function() {
-					$('.category').removeClass('expand');
-					$(this).parent().toggleClass('expand');
+					if($(this).parent().hasClass('expand')) {
+						$('.category').removeClass('expand');
+						$(this).parent().removeClass('expand');
+					} else {
+						$('.category').removeClass('expand');
+						$(this).parent().addClass('expand');
+					}
 				})
 				$('.subcategory').children('h2').click(function() {
 					$('.category').removeClass('expand');
-					$('.subcategory').removeClass('expand');
 					$(this).parents('.category').addClass('expand');
-					$(this).parent().toggleClass('expand');
+					if($(this).parent().hasClass('expand')) {
+						$('.subcategory').removeClass('expand');
+						$(this).parent().removeClass('expand');
+					} else {
+						$('.subcategory').removeClass('expand');
+						$(this).parent().addClass('expand');
+					}
 				})
 				$('.listing').click(function() {
 					$('.listing').removeClass('expand');
