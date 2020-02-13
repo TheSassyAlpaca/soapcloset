@@ -19,7 +19,7 @@ function downloadProducts() {
 						$('#content').append('<div id="'+p.category.replace(/[\s&]/,'')+'" class="category"><h1>'+p.category+'</h1></div>');
 					}
 					//if($('#'+p.category.replace(/[\s&]/,'')).children($('#'+p.subcategory.replace(/[\s&]/,''))).length==0) {
-						$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
+					//	$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
 					//}
 					$('#'+p.category.replace(/[\s&]/,'')).children($('#'+p.subcategory.replace(/[\s&]/,''))).append(listing(p));
 				});
