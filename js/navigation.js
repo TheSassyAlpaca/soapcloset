@@ -3,7 +3,7 @@ $(function() {
 })
 
 function downloadProducts() {
-	window['products']=[]
+	window['products']=[];
 	$(function() {
 		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
 		$(function() {
@@ -18,7 +18,8 @@ function downloadProducts() {
 					if($('#'+p.category.replace(/[\s&]/,'')).length==0) {
 						$('#content').append('<div id="'+p.category.replace(/[\s&]/,'')+'" class="category"><h1>'+p.category+'</h1></div>');
 					}
-					if(!$('#'+p.category.replace(/[\s&]/,'')).has($('#'+p.subcategory.replace(/[\s&]/,'')))) {
+					if($('#'+p.category.replace(/[\s&]/,'')).children($('#'+p.subcategory.replace(/[\s&]/,''))).length==0) {
+						console.log($('#'+p.category.replace(/[\s&]/,'')).children($('#'+p.subcategory.replace(/[\s&]/,''))));
 						$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
 					}
 					$('#'+p.category.replace(/[\s&]/,'')).children($('#'+p.subcategory.replace(/[\s&]/,''))).append(listing(p));
