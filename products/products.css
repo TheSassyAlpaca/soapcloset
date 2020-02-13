@@ -2,10 +2,12 @@
 	font-family: var(--econ);
 }
 
-h1, h2, h3 {
+h1, h2 {
 	margin: 0px;
 	height: var(--thumb);
     max-height: var(--thumb);
+	line-height: var(--thumb);
+	font-size: calc(var(--thumb) * .75);
 }
 
 .expand, .reveal {
@@ -14,14 +16,12 @@ h1, h2, h3 {
 
 .category {
 	text-align: center;
-	height: var(--thumb);
     max-height: var(--thumb);
 	overflow: hidden;
 }
 
 .subcategory {
 	text-align: center;
-	height: var(--thumb);
 	max-height: var(--thumb);
 	overflow: hidden;
 }
@@ -33,7 +33,7 @@ h1, h2, h3 {
 }
 
 .listing h3 {
-	
+	margin: 0px;
 }
 
 .listing+hr {
