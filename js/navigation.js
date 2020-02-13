@@ -37,7 +37,7 @@ function listing(p) {
 function bulkRates(p) {
 	b='';
 	if('bulk' in p && p.bulk!==[]) {
-		b='<div class="bulkRates"><span>Bulk Prices</span><div><span>'+p.bulk.join('</span><span>')+'</span></div></div>';
+		b='<div class="bulkRates"><span>Bulk Prices</span><div><span>'+p.bulk.join('</span><br><span>')+'</span></div></div>';
 	}
 	return b
 }
