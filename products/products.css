@@ -45,7 +45,7 @@
 	vertical-align: top;
 }
 
-.listingRight span:nth-child(1) {
+.listingRight>span:nth-child(1) {
 	width: 100%;
 	height: calc(var(--thumb) * .5);
 	line-height: calc(var(--thumb) * .5);
