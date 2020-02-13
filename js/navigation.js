@@ -53,6 +53,15 @@ function downloadProducts() {
 						$(this).addClass('expand');
 					}
 				})
+				$('.bulkRates').click(function() {
+					if($(this).children('div').hasClass('expand')) {
+						$('.bulkRates').children('div').removeClass('expand');
+						$(this).children('div').removeClass('expand');
+					} else {
+						$('.bulkRates').children('div').removeClass('expand');
+						$(this).children('div').addClass('expand');
+					}
+				})
 			});
 		});
 	})
