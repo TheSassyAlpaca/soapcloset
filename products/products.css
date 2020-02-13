@@ -30,6 +30,7 @@ h1, h2 {
 	overflow: hidden;
 	max-height: calc(var(--thumb) * 1.25);
 	margin: 5px 0px;
+	text-align: left;
 }
 
 .listing h3 {
