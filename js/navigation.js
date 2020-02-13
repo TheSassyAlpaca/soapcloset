@@ -28,7 +28,7 @@ function downloadProducts() {
 					$('.category').removeClass('expand');
 					$(this).parent().toggleClass('expand');
 				})
-				$('.subcategory').children('h1').click(function() {
+				$('.subcategory').children('h2').click(function() {
 					$('.category').removeClass('expand');
 					$('.subcategory').removeClass('expand');
 					$(this).parents('.category').addClass('expand');
