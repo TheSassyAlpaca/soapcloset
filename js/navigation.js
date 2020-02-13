@@ -1,59 +1,102 @@
-$(function() {
-	downloadProducts();
-})
-
-function downloadProducts() {
-	window['products']=[];
-	$(function() {
-		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
-		$(function() {
-			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/4/public/values?alt=json-in-script&callback=?",
-			function (data) {
-				$.each(data.feed.entry, function(i,entry) {
-					p=JSON.parse(entry.gsx$data.$t);
-					products.push(p);
-					console.log(p);
-					console.log(p.name);
-					console.log(p.keywords);
-					if($('#'+p.category.replace(/[\s&]/,'')).length==0) {
-						$('#content').append('<div id="'+p.category.replace(/[\s&]/,'')+'" class="category"><h1>'+p.category+'</h1></div>');
-					}
-					//console.log($('#'+p.category.replace(/[\s&]/,'')).children('#'+p.subcategory.replace(/[\s&]/,'')));
-					if($('#'+p.category.replace(/[\s&]/,'')).children('#'+p.subcategory.replace(/[\s&]/,'')).length==0) {
-						//console.log($('#'+p.category.replace(/[\s&]/,'')).children('#'+p.subcategory.replace(/[\s&]/,'')));
-						$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
-					}
-					$('#'+p.category.replace(/[\s&]/,'')).children('#'+p.subcategory.replace(/[\s&]/,'')).append(listing(p));
-				});
-				//
-				$('.category').children('h1').click(function() {
-					$('.category').removeClass('expand');
-					$(this).parent().toggleClass('expand');
-				})
-				$('.subcategory').children('h2').click(function() {
-					$('.category').removeClass('expand');
-					$('.subcategory').removeClass('expand');
-					$(this).parents('.category').addClass('expand');
-					$(this).parent().toggleClass('expand');
-				})
-				$('.listing').click(function() {
-					$('.listing').removeClass('expand');
-					$(this).toggleClass('expand');
-				})
-			});
-		});
-	})
+#content {
+	font-family: var(--econ);
 }
 
-function listing(p) {
-	l='<div id="'+p.name.replace(/[\s&]/,'').toLowerCase()+'" class="listing"><div class="listingLeft"><img src="'+p.images[0]+'"></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'</div></div><hr>' 
-	return l
+h1, h2, h3 {
+	margin: 0px;
 }
 
-function bulkRates(p) {
-	b='';
-	if('bulk' in p && p.bulk!==[]) {
-		b='<div class="bulkRates"><span>Bulk Prices</span><div><span>'+p.bulk.join('</span><br><span>')+'</span></div></div>';
-	}
-	return b
+.expand, .reveal {
+	max-height: 9999px !important;
+}
+
+.category {
+	text-align: center;
+}
+
+.subcategory {
+	text-align: center;
+}
+
+.listing {
+	overflow: hidden;
+	max-height: calc(var(--thumb) * 1.25);
+	margin: 5px 0px;
+}
+
+.listing h3 {
+	
+}
+
+.listing+hr {
+	margin: 0px auto;
+	border: 0px;
+	border-bottom: .5px solid rgba(0,0,0,0.25);
+	width: 90%;
+}
+
+.listingLeft {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(var(--thumb) * 1.25);
+	vertical-align: top;
+}
+
+.listingLeft img {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(var(--thumb) * 1.25);
+}
+
+.listingMid {
+	display: inline-block;
+	width: calc(100% - (var(--thumb) * 2.25) - 20px);
+	vertical-align: top;
+	padding: 0px 10px 10px 10px;
+}
+
+.listingRight {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(var(--thumb) * 1);
+	vertical-align: top;
+}
+
+.listingRight>span:nth-child(1) {
+	width: 100%;
+	height: calc(var(--thumb) * .75);
+	line-height: calc(var(--thumb) * .75);
+	font-size: calc(var(--thumb) * .5);
+	display: block;
+	text-align: center;
+}
+
+.bulkRates {
+	position: relative;
+}
+
+.bulkRates>span {
+	width: 100%;
+	display: block;
+	text-align: center;
+	font-size: 75%;
+}
+
+.bulkRates div {
+	max-height: 0px;
+	overflow: hidden;
+	position: absolute;
+	top: calc(var(--thumb) * -0.5);
+	width: 100%;
+	height: calc(var(--thumb) * 1.25);
+	text-align: center;
+	background-color: white;
+}
+
+.bulkRates div span {
+	
+}
+
+.keywords {
+	font-size: 90%;
 }
