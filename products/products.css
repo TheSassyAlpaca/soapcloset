@@ -5,7 +5,7 @@
 h1, h2 {
 	margin: 0px;
 	height: var(--thumb);
-    max-height: var(--thumb);
+	max-height: var(--thumb);
 	line-height: var(--thumb);
 	font-size: calc(var(--thumb) * .75);
 }
@@ -16,7 +16,7 @@ h1, h2 {
 
 .category {
 	text-align: center;
-    max-height: var(--thumb);
+	max-height: var(--thumb);
 	overflow: hidden;
 }
 
