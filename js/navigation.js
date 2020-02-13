@@ -45,10 +45,6 @@ function downloadProducts() {
 					}
 				})
 				$('.listing').click(function() {
-					$('.listing').removeClass('expand');
-					$(this).toggleClass('expand');
-					
-					
 					if($(this).hasClass('expand')) {
 						$('.listing').removeClass('expand');
 						$(this).removeClass('expand');
