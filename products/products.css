@@ -58,10 +58,11 @@
 	
 }
 
-.bulkRates~span {
+.bulkRates>span {
 	width: 100%;
 	display: block;
 	text-align: center;
+	font-size: 75%;
 }
 
 .bulkRates div {
