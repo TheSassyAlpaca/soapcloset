@@ -81,6 +81,7 @@ function downloadProducts() {
 						a=1;
 					}
 					console.log(a);
+					console.log(p);
 					changeCookie(p.name.replace(/[\s&]/,'').toLowerCase(),a);
 				})
 			});
