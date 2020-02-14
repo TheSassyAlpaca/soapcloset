@@ -95,7 +95,7 @@ h1, h2 {
 	max-height: 0px;
 	overflow: hidden;
 	position: absolute;
-	top: calc(var(--thumb) * -0.5);
+	top: calc(var(--thumb) * -0.75);
 	width: 100%;
 	height: calc(var(--thumb) * 1.25);
 	text-align: center;
