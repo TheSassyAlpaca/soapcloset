@@ -81,9 +81,9 @@ function downloadProducts() {
 						a=1;
 					}
 					if(i.val()!=0) {
-						$(this).parent().find('.addToCart').css('display','none');
+						$(this).parents('.listing').find('.addToCart').css('display','none');
 					} else {
-						$(this).parent().find('.addToCart').css('display','block');
+						$(this).parents('.listing').find('.addToCart').css('display','block');
 					}
 					console.log(a);
 					console.log(p);
