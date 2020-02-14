@@ -76,6 +76,7 @@ function downloadProducts() {
 						} else {
 							i.val(Number(Number(i.val())+1));
 						}
+						a=i.val();
 					} else {
 						a=1;
 					}
