@@ -2,6 +2,10 @@
 	font-family: var(--econ);
 }
 
+.button {
+	
+}
+
 h1, h2 {
 	margin: 0px;
 	height: var(--thumb);
@@ -28,7 +32,7 @@ h1, h2 {
 
 .listing {
 	overflow: hidden;
-	max-height: calc(var(--thumb) * 1.25);
+	max-height: calc(var(--thumb) * 1.75);
 	margin: 5px 0px;
 	text-align: left;
 }
@@ -82,6 +86,9 @@ h1, h2 {
 
 .bulkRates {
 	position: relative;
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
 }
 
 .bulkRates>span {
@@ -100,9 +107,15 @@ h1, h2 {
 	height: calc(var(--thumb) * 1.25);
 	text-align: center;
 	background-color: white;
+	font-size: 16px;
+	line-height: 110%;
 }
 
 .bulkRates div span {
+	
+}
+
+.addToCart {
 	
 }
 
