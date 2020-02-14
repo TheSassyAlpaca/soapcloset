@@ -76,7 +76,10 @@ function downloadProducts() {
 						} else {
 							i.val(Number(Number(i.val())+1));
 						}
+					} else {
+						a=1;
 					}
+					console.log(a);
 					changeCookie(p.name.replace(/[\s&]/,'').toLowerCase(),a);
 				})
 			});
