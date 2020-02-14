@@ -65,7 +65,8 @@ function downloadProducts() {
 						$(this).children('div').addClass('expand');
 					}
 				})
-				$('.listing button').click(function() {
+				$('.listing button').click(function(e) {
+					e.stopPropagation();
 					p=$(this).parents('.listing').attr('data');
 					a=0;
 					i=$(this).parent().find('input');
