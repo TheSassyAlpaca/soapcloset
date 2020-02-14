@@ -67,7 +67,7 @@ function downloadProducts() {
 				})
 				$('.listing button').click(function(e) {
 					e.stopPropagation();
-					p=$(this).parents('.listing').attr('data');
+					p=JSON.parse($(this).parents('.listing').attr('data'));
 					a=0;
 					i=$(this).parent().find('input');
 					if(!$(this).hasClass('addToCart')) {
