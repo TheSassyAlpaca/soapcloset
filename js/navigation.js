@@ -16,7 +16,7 @@ function downloadProducts() {
 					console.log(p.name);
 					console.log(p.keywords);
 					if($('#'+p.category.replace(/[\s&]/,'')).length==0) {
-						$('#content').append('<div id="'+p.category.replace(/[\s&]/,'')+'" class="category"><h1>'+p.category+'</h1></div>');
+						$('#content').append('<div id="'+p.category.replace(/[\s&]/,'')+'" class="category"><h1>'+p.category+'</h1><div class="photoBox"></div></div>');
 					}
 					if($('#'+p.category.replace(/[\s&]/,'')).children('#'+p.subcategory.replace(/[\s&]/,'')).length==0) {
 						$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
@@ -72,9 +72,9 @@ function downloadProducts() {
 					i=$(this).parent().find('input');
 					if(!$(this).hasClass('addToCart')) {
 						if($(this).hasClass('down')) {
-							i.val(Number(i.val()-1));
+							i.val(Number(Number(i.val())-1));
 						} else {
-							i.val(Number(i.val()+1));
+							i.val(Number(Number(i.val())+1));
 						}
 					}
 					changeCookie(p.name.replace(/[\s&]/,'').toLowerCase(),a);
