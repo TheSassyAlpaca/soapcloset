@@ -2,8 +2,12 @@
 	font-family: var(--econ);
 }
 
-.button {
+button {
 	
+}
+
+input {
+	font-family: var(--econ);
 }
 
 h1, h2 {
@@ -68,11 +72,16 @@ h1, h2 {
 	padding: 0px 10px 10px 10px;
 }
 
+.keywords {
+	font-size: 90%;
+}
+
 .listingRight {
 	display: inline-block;
 	height: calc(var(--thumb) * 1.25);
 	width: calc(var(--thumb) * 1);
 	vertical-align: top;
+	position: relative;
 }
 
 .listingRight>span:nth-child(1) {
@@ -115,10 +124,21 @@ h1, h2 {
 	
 }
 
+.buy {
+	height: calc(var(--thumb) * .5);
+	overflow: hidden;
+	position: absolute;
+	bottom: calc(var(--thumb) * .5);
+	width: 100%;
+}
+
 .addToCart {
+	height: calc(var(--thumb) * .5);
+	font-family: var(--econ);
+	padding: 3px;
+}
+
+.buy div input {
 	
 }
 
-.keywords {
-	font-size: 90%;
-}
