@@ -80,6 +80,11 @@ function downloadProducts() {
 					} else {
 						a=1;
 					}
+					if(i.val()!=0) {
+						$(this).parent().find('.addToCart').css('display','none');
+					} else {
+						$(this).parent().find('.addToCart').css('display','block');
+					}
 					console.log(a);
 					console.log(p);
 					changeCookie(p.name.replace(/[\s&]/,'').toLowerCase(),a);
@@ -105,8 +110,8 @@ function bulkRates(p) {
 function getValue(p) {
 	//check cookies for this product using p.name.replace(/[\s&]/,'')
 	//check for availability through p.qty
-	//default = 1
-	i=1;
+	//default = 0
+	i=0;
 	return i
 }
 
