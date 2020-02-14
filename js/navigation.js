@@ -24,7 +24,7 @@ function downloadProducts() {
 					$('#'+p.category.replace(/[\s&]/,'')).children('#'+p.subcategory.replace(/[\s&]/,'')).append(listing(p));
 				});
 				//
-				$('.category').children('h1').click(function() {
+				$('.category').children('.catHeader').click(function() {
 					if($(this).parent().hasClass('expand')) {
 						$('.category').removeClass('expand');
 						$(this).parent().removeClass('expand');
