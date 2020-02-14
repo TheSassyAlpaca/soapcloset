@@ -65,13 +65,26 @@ function downloadProducts() {
 						$(this).children('div').addClass('expand');
 					}
 				})
+				$('.listing button').click(function() {
+					p=$(this).parents('.listing').attr('data');
+					a=0;
+					i=$(this).parent().find('input');
+					if(!$(this).hasClass('addToCart')) {
+						if($(this).hasClass('down')) {
+							i.val(i.val()-1);
+						} else {
+							i.val(i.val()+1);
+						}
+					}
+					changeCookie(p.name.replace(/[\s&]/,'').toLowerCase(),a);
+				})
 			});
 		});
 	})
 }
 
 function listing(p) {
-	l='<div id="'+p.name.replace(/[\s&]/,'').toLowerCase()+'" class="listing"><div class="listingLeft"><img src="'+p.images[0]+'"></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'</div></div><hr>' 
+	l='<div id="'+p.name.replace(/[\s&]/,'').toLowerCase()+'" class="listing" data="'+p+'"><div class="listingLeft"><img src="'+p.images[0]+'"></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'<div class="buy"><button>Add To Cart</button><div><button class="down">-</button><input type="text" value="'+getValue(p)+'" min="0" max="'+p.qty+'"><button>+</button></div></div></div></div><hr>' 
 	return l
 }
 
@@ -81,4 +94,12 @@ function bulkRates(p) {
 		b='<div class="bulkRates"><span>Bulk Prices</span><div><span>'+p.bulk.join('</span><br><span>')+'</span></div></div>';
 	}
 	return b
+}
+
+function getValue(p) {
+	//check cookies for this product using p.name.replace(/[\s&]/,'')
+	//check for availability through p.qty
+	//default = 1
+	i=1;
+	return i
 }
