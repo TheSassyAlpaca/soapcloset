@@ -107,3 +107,7 @@ function getValue(p) {
 	i=1;
 	return i
 }
+
+function changeCookie(p,a) {
+	console.log("QTY "+a);
+}
