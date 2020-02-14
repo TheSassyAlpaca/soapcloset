@@ -55,7 +55,8 @@ function downloadProducts() {
 						$(this).find('.bulkRates').children('div').addClass('expand');
 					}
 				})
-				$('.bulkRates').click(function() {
+				$('.bulkRates').click(function(e) {
+					e.stopPropagation();
 					if($(this).children('div').hasClass('expand')) {
 						$('.bulkRates').children('div').removeClass('expand');
 						$(this).children('div').removeClass('expand');
