@@ -81,6 +81,7 @@ function downloadProducts() {
 						a=1;
 					}
 					if(i.val()!=0) {
+						console.log("Not zero "+i.val());
 						$(this).parents('.buy').find('.addToCart').css('display','none');
 					} else {
 						$(this).parents('.buy').find('.addToCart').css('display','block');
