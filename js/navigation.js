@@ -21,7 +21,7 @@ function downloadProducts() {
 					if($('#'+p.category.replace(/[\s&]/,'')).children('#'+p.subcategory.replace(/[\s&]/,'')).length==0) {
 						$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
 					}
-					$('#'+p.category.replace(/[\s&]/,'')).children('#'+p.subcategory.replace(/[\s&]/,'')).append(listing(p));
+					$('#'+p.category.replace(/[\s&]/,'')).children('#'+p.subcategory.replace(/[\s&]/,'')).append(listing(p,i));
 				});
 				//
 				$('.category').children('.catHeader').click(function() {
@@ -67,7 +67,7 @@ function downloadProducts() {
 				})
 				$('.listing button').click(function(e) {
 					e.stopPropagation();
-					p=JSON.parse($(this).parents('.listing').attr('data'));
+					p=products[$(this).parents('.listing').attr('data')];
 					a=0;
 					i=$(this).parent().find('input');
 					if(!$(this).hasClass('addToCart')) {
@@ -88,8 +88,8 @@ function downloadProducts() {
 	})
 }
 
-function listing(p) {
-	l='<div id="'+p.name.replace(/[\s&]/,'').toLowerCase()+'" class="listing" data="'+JSON.stringify(p)+'"><div class="listingLeft"><img src="'+p.images[0]+'"></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'<div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#11206;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#11205;</button></div></div></div></div><hr>' 
+function listing(p,i) {
+	l='<div id="'+p.name.replace(/[\s&]/,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><img src="'+p.images[0]+'"></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'<div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#11206;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#11205;</button></div></div></div></div><hr>' 
 	return l
 }
 
