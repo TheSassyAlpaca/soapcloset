@@ -78,6 +78,7 @@ function downloadProducts() {
 						}
 						a=i.val();
 					} else {
+						i.val()=1;
 						a=1;
 					}
 					console.log(i.val());
