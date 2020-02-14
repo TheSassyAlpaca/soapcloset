@@ -24,7 +24,7 @@ h1, h2 {
 
 .category {
 	text-align: center;
-	max-height: var(--thumb);
+	max-height: calc(var(--thumb) * 2.2);
 	overflow: hidden;
 }
 
@@ -33,6 +33,7 @@ h1, h2 {
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	filter: saturate(0.5);
 }
 
 .photoBox {
