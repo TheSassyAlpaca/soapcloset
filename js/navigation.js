@@ -80,6 +80,7 @@ function downloadProducts() {
 					} else {
 						a=1;
 					}
+					console.log(i.val());
 					if(i.val()!=0) {
 						console.log("Not zero "+i.val());
 						$(this).parents('.buy').find('.addToCart').css('display','none');
