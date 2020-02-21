@@ -23,7 +23,7 @@ function downloadProducts() {
 					}
 					$('#'+p.category.replace(/[\s&]/,'')).children('#'+p.subcategory.replace(/[\s&]/,'')).append(listing(p,i));
 				});
-				//
+				//toggle categories
 				$('.category').children('.catHeader').click(function() {
 					if($(this).parent().hasClass('expand')) {
 						$('.category').removeClass('expand');
@@ -33,6 +33,7 @@ function downloadProducts() {
 						$(this).parent().addClass('expand');
 					}
 				})
+				//toggle sub-categories
 				$('.subcategory').children('h2').click(function() {
 					$('.category').removeClass('expand');
 					$(this).parents('.category').addClass('expand');
@@ -44,6 +45,7 @@ function downloadProducts() {
 						$(this).parent().addClass('expand');
 					}
 				})
+				//expand/contract listing
 				$('.listing').click(function() {
 					if($(this).hasClass('expand')) {
 						$('.listing').removeClass('expand');
@@ -55,6 +57,7 @@ function downloadProducts() {
 						$(this).find('.bulkRates').children('div').addClass('expand');
 					}
 				})
+				//reveal/conceal bulkrates
 				$('.bulkRates').click(function(e) {
 					e.stopPropagation();
 					if($(this).children('div').hasClass('expand')) {
@@ -65,6 +68,7 @@ function downloadProducts() {
 						$(this).children('div').addClass('expand');
 					}
 				})
+				//add/remove/increment item to cart
 				$('.listing button').click(function(e) {
 					e.stopPropagation();
 					p=products[$(this).parents('.listing').attr('data')];
@@ -92,10 +96,11 @@ function downloadProducts() {
 					console.log(p);
 					changeCookie(p.name.replace(/[\s&]/,'').toLowerCase(),a);
 				})
+				//open page to product
 				$('.listingLeft, .listingMid h3').click(function(e) {
 					e.stopPropagation();
 					p=products[$(this).parents('.listing').attr('data')];
-					window.location.href="/"+p.name.replace(/[\s&]/,'').toLowerCase();
+					window.location.href="/products/"+p.name.replace(/[\s&]/,'').toLowerCase();
 				})
 			});
 		});
