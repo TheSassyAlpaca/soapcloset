@@ -16,10 +16,7 @@ h1, h2 {
 	max-height: var(--thumb);
 	line-height: var(--thumb);
 	font-size: calc(var(--thumb) * .75);
-}
-
-hr {
-	
+	text-shadow: 0px 0px 2px rgb(var(--oats));
 }
 
 .expand, .reveal {
@@ -41,8 +38,15 @@ hr {
 	filter: saturate(0.5);
 }
 
+.catHeader hr {
+	margin: 0px auto;
+	width: 90%;
+	border: 0px;
+	box-shadow: 0px 0px 0px 1px rgb(var(--oats)), 0px 0px 0px 1px rgb(var(--ocean)), 0px 0px 5px 1px rgb(var(--oats));
+}
+
 .photoBox {
-	height: calc(var(--thumb) * 1.2);
+	height: calc(var(--thumb) * 1.1);
 	display: inline-block;
 }
 
@@ -57,6 +61,7 @@ hr {
 .proPhoto img {
 	height: calc(var(--thumb) * 1.0);
 	width: calc(var(--thumb) * 1.0);
+	box-shadow: 0px 0px 2px 1px rgb(var(--oats)), 0px 0px 5px 1px rgb(var(--ocean));
 }
 
 .subcategory {
@@ -64,6 +69,11 @@ hr {
 	max-height: var(--thumb);
 	overflow: hidden;
 	transition: 1s cubic-bezier(0, 1, 0, 1);
+}
+
+.subcategory h2 {
+	filter: invert(1);
+	background: rgb(var(--oats));
 }
 
 .listing {
