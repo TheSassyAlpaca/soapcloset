@@ -85,6 +85,9 @@ h1, h2 {
 
 .listing h3 {
 	margin: 0px;
+	font-size: 34px;
+	line-height: calc(var(--thumb) / 3 * 2);
+	height: calc(var(--thumb) / 3 * 2);
 }
 
 .listing+hr {
