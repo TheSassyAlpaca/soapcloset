@@ -17,7 +17,7 @@ function downloadProducts() {
 					console.log(p.keywords);
 					if($('#'+p.category.replace(/[\s&]/,'')).length==0) {
 						$('#content').append('<div id="'+p.category.replace(/[\s&]/,'')+'" class="category"><div class="catHeader" style="background-image:url('+p.images[0]+')"><h1>'+p.category+'</h1><div class="photoBox"></div></div></div>');
-						$('#'+p.category.replace(/[\s&]/,'')).children('.photoBox').append('<div class="proPhoto">'+p.images[0]+'</div>');
+						$('#'+p.category.replace(/[\s&]/,'')).find('.photoBox').append('<div class="proPhoto">'+p.images[0]+'</div>');
 					}
 					if($('#'+p.category.replace(/[\s&]/,'')).children('#'+p.subcategory.replace(/[\s&]/,'')).length==0) {
 						$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
@@ -109,7 +109,7 @@ function downloadProducts() {
 }
 
 function listing(p,i) {
-	l='<div id="'+p.name.replace(/[\s&]/,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><img src="'+p.images[0]+'"></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'<div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25B2;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#x25BC;</button></div></div></div></div><hr>' 
+	l='<div id="'+p.name.replace(/[\s&]/,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><img src="'+p.images[0]+'"></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'<div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div></div><hr>' 
 	return l
 }
 
