@@ -59,7 +59,66 @@ h1, h2 {
 	font-family: var(--econ);
 }
 
+header {
+	height: var(--thumb);
+	background-color: rgb(var(--ocean));
+}
 
+#blt {
+	height: var(--thumb);
+	width: var(--thumb);
+	display: inline-block;
+}
+
+#menuGlyph {
+	height: var(--thumb);
+	width: var(--thumb);
+	position: relative;
+}
+
+.menuBar {
+	width: calc(var(--thumb) * 0.5);
+	border: 1px solid rgb(var(--oats));
+	background-color: rgb(var(--oats));
+	position: absolute;
+}
+
+#blt.expand .menuBar:nth-child(1) {
+	top: calc(var(--thumb) / 6 * 2);
+	left: calc(var(--thumb) * 0.25);
+}
+
+#blt.expand .menuBar:nth-child(2) {
+	
+}
+
+#blt.expand .menuBar:nth-child(3) {
+	
+}
+
+#home {
+	height: var(--thumb);
+	width: calc(100% - (var(--thumb) * 2) - 8px);
+	display: inline-block;
+	vertical-align: top;
+	font-family: var(--soapCloset);
+	font-size: calc(var(--thumb) * 0.5);
+	line-height: var(--thumb);
+	color: rgb(var(--oats));
+}
+
+#cart {
+	width: var(--thumb);
+	height: var(--thumb);
+	display: inline-block;
+}
+
+#cart img {
+	width: calc(var(--thumb) / 2);
+	height: calc(var(--thumb) / 2);
+	margin: calc(var(--thumb) / 4);
+	filter: invert(1);
+}
 
 @media only screen and (min-width:360px) {
 	
