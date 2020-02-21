@@ -92,6 +92,11 @@ function downloadProducts() {
 					console.log(p);
 					changeCookie(p.name.replace(/[\s&]/,'').toLowerCase(),a);
 				})
+				$('.listingLeft, .listingMid h3').click(function(e) {
+					e.stopPropagation();
+					p=products[$(this).parents('.listing').attr('data')];
+					window.location.href="/"+p.name.replace(/[\s&]/,'').toLowerCase();
+				})
 			});
 		});
 	})
