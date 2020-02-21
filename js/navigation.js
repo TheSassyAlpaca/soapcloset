@@ -22,6 +22,7 @@ function downloadProducts() {
 					if($('#'+p.category.replace(/[\s&]/,'')).children('#'+p.subcategory.replace(/[\s&]/,'')).length==0) {
 						$('#'+p.category.replace(/[\s&]/,'')).append('<div id="'+p.subcategory.replace(/[\s&]/,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
 					}
+					$('#'+p.category.replace(/[\s&]/,'')).find('.photoBox').append('<div class="proPhoto"><img src="'+p.images[0]+'"></div>');
 					$('#'+p.category.replace(/[\s&]/,'')).children('#'+p.subcategory.replace(/[\s&]/,'')).append(listing(p,i));
 				});
 				//toggle categories
