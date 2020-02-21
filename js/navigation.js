@@ -98,7 +98,7 @@ function downloadProducts() {
 }
 
 function listing(p,i) {
-	l='<div id="'+p.name.replace(/[\s&]/,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><img src="'+p.images[0]+'"></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'<div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#11206;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#11205;</button></div></div></div></div><hr>' 
+	l='<div id="'+p.name.replace(/[\s&]/,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><img src="'+p.images[0]+'"></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'<div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25B2;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#x25BC;</button></div></div></div></div><hr>' 
 	return l
 }
 
