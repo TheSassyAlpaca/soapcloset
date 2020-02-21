@@ -18,6 +18,10 @@ h1, h2 {
 	font-size: calc(var(--thumb) * .75);
 }
 
+hr {
+	
+}
+
 .expand, .reveal {
 	max-height: 9999px !important;
 }
@@ -39,9 +43,18 @@ h1, h2 {
 
 .photoBox {
 	height: calc(var(--thumb) * 1.2);
+	display: inline-block;
 }
 
 .proPhoto {
+	height: calc(var(--thumb) * 1.0);
+	width: calc(var(--thumb) * 1.0);
+	margin: calc(var(--thumb) * 0.05) auto;
+	display: inline-block;
+	padding: 0px 3px;
+}
+
+.proPhoto img {
 	height: calc(var(--thumb) * 1.0);
 	width: calc(var(--thumb) * 1.0);
 }
