@@ -37,7 +37,17 @@ function buildBLT() {
 }
 
 function buildSocialMedia() {
-	
+	socialMedia=[
+		{icon:'facebook.png',href:'https://www.facebook.com/sassyalpaca'},
+		{icon:'twitter.png',href:'https://twitter.com/SassyAlpaca1'},
+		{icon:'instagram.png',href:'https://www.instagram.com/alpacasassy'},
+		{icon:'etsy.png',href:'https://www.etsy.com/shop/TheSassyAlpacaLLC'},
+		{icon:'pinterest.png',href:'/pinterest'}
+	];
+	img="https://soapcloset.thesassyalpaca.com/images/";
+	for(i=0;i<socialMedia.length;i++) {
+		$('.socialArea').append('<a href="'+socialMedia[i].href+'" class="socialLink"><img src="'+socialMedia[i].icon+'"></a>');
+	}
 }
 
 function buildSearch() {
