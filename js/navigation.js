@@ -31,10 +31,10 @@ function buildBLT() {
 	$('#blt').click(function() {
 		$(this).toggleClass('expand');
 	})
-	$('.menuItem').click(function(e) {
+	/*$('.menuItem').click(function(e) {
 		e.stopPropagation();
 		$(this).toggleClass('expand');
-	})
+	})*/
 }
 
 function buildSocialMedia() {
