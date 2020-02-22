@@ -26,8 +26,15 @@ function buildBLT() {
 	$('#blt').append('<div id="bltBody"><div class="bltMenu"></div><div class="socialArea"></div></div>');
 	menuObject=[{name:'Products',src:'/products'},{name:'Shops & Markets',src:'/shops_and_markets'},{name:'Ingredients',src:'/ingredients'},{name:'Gallery',src:'/gallery'},{name:'Blog',src:'/blog'}];
 	for(i=0;i<menuObject.length;i++) {
-		$('.bltMenu').append('<div class="menuItem"><a src="'+menuObject[i].src+'">'+menuObject[i].name+'</a></div>');
+		$('.bltMenu').append('<a src="'+menuObject[i].src+'" class="menuItem"><div>'+menuObject[i].name+'</div></a>');
 	}
+	$('#blt').click(function() {
+		$(this).toggleClass('expand');
+	})
+	$('.menuItem').click(function(e) {
+		e.stopPropagation();
+		$(this).toggleClass('expand');
+	})
 }
 
 function buildSocialMedia() {
