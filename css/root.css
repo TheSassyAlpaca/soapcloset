@@ -62,6 +62,7 @@ h1, h2 {
 header {
 	height: var(--thumb);
 	background-color: rgb(var(--ocean));
+	position: absolute;
 }
 
 #blt {
@@ -83,22 +84,42 @@ header {
 	position: absolute;
 }
 
+#blt .menuBar:nth-child(1) {
+	top: calc((var(--thumb) / 6 * 2) - 1px);
+	left: calc((var(--thumb) * 0.25) - 1px);
+}
+
+#blt .menuBar:nth-child(2) {
+	top: calc((var(--thumb) / 2) - 1px);
+	left: calc((var(--thumb) * 0.25) - 1px);
+}
+
+#blt .menuBar:nth-child(3) {
+	bottom: calc((var(--thumb) / 6 * 2) - 1px);
+	left: calc((var(--thumb) * 0.25) - 1px);
+}
+
 #blt.expand .menuBar:nth-child(1) {
-	top: calc(var(--thumb) / 6 * 2);
-	left: calc(var(--thumb) * 0.25);
+	top: calc((var(--thumb) / 6 * 3) - 1px);
+	left: calc((var(--thumb) * 0.25) - 1px);
+	transform-origin: center;
+	transform: rotate(45deg);
 }
 
 #blt.expand .menuBar:nth-child(2) {
-	
+	display: none;
 }
 
 #blt.expand .menuBar:nth-child(3) {
-	
+	bottom: calc((var(--thumb) / 6 * 3) - 1px);
+	left: calc((var(--thumb) * 0.25) - 1px);
+	transform-origin: center;
+	transform: rotate(135deg);
 }
 
 #home {
 	height: var(--thumb);
-	width: calc(100% - (var(--thumb) * 2) - 8px);
+	width: calc(100vw - (var(--thumb) * 2) - 8px);
 	display: inline-block;
 	vertical-align: top;
 	font-family: var(--soapCloset);
