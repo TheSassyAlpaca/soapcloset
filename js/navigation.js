@@ -46,7 +46,7 @@ function buildSocialMedia() {
 	];
 	img="https://soapcloset.thesassyalpaca.com/images/";
 	for(i=0;i<socialMedia.length;i++) {
-		$('.socialArea').append('<a href="'+socialMedia[i].href+'" class="socialLink"><img src="'+socialMedia[i].icon+'"></a>');
+		$('.socialArea').append('<a href="'+socialMedia[i].href+'" class="socialLink"><img src="'img+socialMedia[i].icon+'"></a>');
 	}
 }
 
