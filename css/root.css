@@ -182,8 +182,29 @@ header {
 	filter: invert(1);
 }
 
+.socialArea {
+	text-indent: 0px;
+}
+
+.socialLink {
+	height: calc(var(--thumb) * 0.5);
+	width: calc(var(--thumb) * 0.5);
+	display: inline-block;
+	text-indent: 0px;
+}
+
+.socialLink img {
+	height: calc(var(--thumb) * 0.5);
+	width: calc(var(--thumb) * 0.5);
+	vertical-align: top;
+}
+
 footer {
 	background-color: rgb(var(--sage));
+}
+
+.fineprint {
+	
 }
 
 @media only screen and (min-width:360px) {
