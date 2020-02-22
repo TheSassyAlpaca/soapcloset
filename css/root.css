@@ -54,7 +54,7 @@ h1, h2 {
 }
 
 #content {
-	padding: var(--thumb) 10px 10px 10px;
+	padding: calc(var(--thumb) + 10px) 10px 10px 10px;
 	margin: 0px;
 	font-family: var(--econ);
 }
@@ -143,14 +143,18 @@ header {
 
 .menuItem {
 	height: calc(var(--thumb) / 3 * 2);
-	line-height: var(--thumb);
+	line-height: calc(var(--thumb) / 3 * 2);
 	display: block;
 	text-indent: 10px;
+	text-decoration: none;
+	color: rgb(var(--oats));
 }
 
 .socialArea {
 	position: absolute;
     bottom: 0px;
+	height: var(--thumb);
+	width: 100%;
 }
 
 #home {
@@ -168,6 +172,7 @@ header {
 	width: var(--thumb);
 	height: var(--thumb);
 	display: inline-block;
+	vertical-align: top;
 }
 
 #cart img {
@@ -175,6 +180,10 @@ header {
 	height: calc(var(--thumb) / 2);
 	margin: calc(var(--thumb) / 4);
 	filter: invert(1);
+}
+
+footer {
+	background-color: rgb(var(--sage));
 }
 
 @media only screen and (min-width:360px) {
