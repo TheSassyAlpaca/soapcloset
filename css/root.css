@@ -138,7 +138,7 @@ header {
 }
 
 .bltMenu {
-	
+	height: calc(100vh - (var(--thumb) * 2));
 }
 
 .menuItem {
@@ -148,13 +148,6 @@ header {
 	text-indent: 10px;
 	text-decoration: none;
 	color: rgb(var(--oats));
-}
-
-.socialArea {
-	position: absolute;
-    bottom: 0px;
-	height: var(--thumb);
-	width: 100%;
 }
 
 #home {
@@ -183,7 +176,9 @@ header {
 }
 
 .socialArea {
-	text-indent: 0px;
+	height: calc(var(--thumb) * 0.5);
+	width: fit-content;
+	margin: calc(var(--thumb) * 0.25) auto;
 }
 
 .socialLink {
@@ -191,6 +186,7 @@ header {
 	width: calc(var(--thumb) * 0.5);
 	display: inline-block;
 	text-indent: 0px;
+	padding: 0px 10px;
 }
 
 .socialLink img {
