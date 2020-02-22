@@ -62,13 +62,20 @@ h1, h2 {
 header {
 	height: var(--thumb);
 	background-color: rgb(var(--ocean));
-	position: absolute;
+	position: fixed;
+	z-index: 100;
+	box-shadow: 0px 0px 5px black;
 }
 
 #blt {
 	height: var(--thumb);
 	width: var(--thumb);
 	display: inline-block;
+	overflow: hidden;
+}
+
+#blt.expand {
+	overflow: unset;
 }
 
 #menuGlyph {
@@ -115,6 +122,35 @@ header {
 	left: calc((var(--thumb) * 0.25) - 1px);
 	transform-origin: center;
 	transform: rotate(135deg);
+}
+
+#bltBody {
+	height: calc(100vh - var(--thumb));
+	width: 80vw;
+	max-width: 300px;
+	background-color: rgb(var(--ocean));
+	position: relative;
+	line-height: var(--thumb);
+	text-indent: 10px;
+	font-size: 25px;
+	font-family: var(--soapCloset);
+	color: rgb(var(--oats));
+}
+
+.bltMenu {
+	
+}
+
+.menuItem {
+	height: calc(var(--thumb) / 3 * 2);
+	line-height: var(--thumb);
+	display: block;
+	text-indent: 10px;
+}
+
+.socialArea {
+	position: absolute;
+    bottom: 0px;
 }
 
 #home {
