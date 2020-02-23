@@ -203,6 +203,7 @@ header {
 	padding: 0px;
 	vertical-align: top;
 	text-indent: 10px;
+	outline: none;
 }
 
 .searchBar button {
@@ -211,6 +212,7 @@ header {
 	display: inline-block;
 	padding: 0px;
 	border: none;
+	outline: none;
 }
 
 .searchBar button img {
