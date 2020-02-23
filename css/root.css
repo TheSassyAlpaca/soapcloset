@@ -157,21 +157,26 @@ header {
 
 #home {
 	height: var(--thumb);
-	width: calc(100vw - (var(--thumb) * 2.5) - 12px);
+	width: calc(100vw - (var(--thumb) * 1) - 4px);
 	display: inline-block;
 	vertical-align: top;
 	font-family: var(--soapCloset);
 	font-size: calc(var(--thumb) * 0.5);
 	line-height: var(--thumb);
 	color: rgb(var(--oats));
+	overflow: hidden;
 }
 
 #search {
-	
+	right: calc(var(--thumb) / 4 * 3);
 }
 
 .searchArea {
 	
+}
+
+#cart {
+	right: 0px;
 }
 
 #cart, #search {
@@ -179,6 +184,8 @@ header {
 	height: var(--thumb);
 	display: inline-block;
 	vertical-align: top;
+	position: fixed;
+	top: 0px;
 }
 
 #cart img, #search img {
