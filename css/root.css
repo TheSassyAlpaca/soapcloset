@@ -266,6 +266,10 @@ footer {
 	text-align: center;
 }
 
+footer .searchBar {
+	display: none;
+}
+
 #footerMenu {
 	padding: 10px 0px;
 }
