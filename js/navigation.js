@@ -59,15 +59,13 @@ function buildSearch() {
 	//add all to searchBar element
 	$('.searchBar').append('<input placeholder="Search"><button><img src="/images/search.png"></button>');
 	$('.searchBar button').click(function(e) {
-		$('footer').prepend("Button "+$(this).parent().find('input').val());
-		console.log("Button "+$(this).parent().find('input').val());
+		searchThis($(this).parent().find('input').val());
 	})
 	$('.searchBar input').on('keypress', function(e) {
 		if (e.keyCode==13) {
 			e.preventDefault();
 			e.target.blur();
-			$('footer').prepend($(this).parent().find('input').val());
-			console.log($(this).parent().find('input').val());
+			searchThis($(this).parent().find('input').val());
         }
 	})
 }
@@ -78,4 +76,8 @@ function submitForm(f,q,a) {
 		fSub=fSub+'&'+q[i]+'='+a[i+1];
 	}
 	$('#basement').append('<iframe src="'+f+'">');
+}
+
+function searchThis(x) {
+	window.location.href='/search?q='+x+'&f=NA';
 }
