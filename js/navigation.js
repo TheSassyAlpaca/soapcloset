@@ -2,6 +2,9 @@ $(function() {
 	$('#home').click(function() {
 		window.location.href="/";
 	})
+	$('#cart').click(function() {
+		window.location.href="/cart";
+	})
 	$('.subscribe button').click(function() {
 		f="";
 		q=[];
