@@ -144,6 +144,7 @@ function getValue(p) {
 		if(cookie[0]=='cart') {
 			cart=JSON.parse(cookie[1]);
 			console.log(cart);
+			console.log(name);
 			if(name in cart) {
 				q=cart[name];
 			}
