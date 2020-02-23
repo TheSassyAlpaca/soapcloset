@@ -163,6 +163,7 @@ function changeCookie(c,p,a) {
 			}
 		}
 	}
+	console.log(cart);
 	if(found!=0) {
 		document.cookie=JSON.stringify(cart);
 	} else {
