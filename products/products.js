@@ -107,6 +107,7 @@ function downloadProducts() {
 				})
 				//show qty
 				$('.buy input').each(function() {
+					console.log($(this));
 					if($(this).val()!=0) {
 						$(this).parent().parent().children('.addToCart').css('display','none');
 					}
