@@ -58,6 +58,10 @@ function buildSearch() {
 	})
 	//add all to searchBar element
 	$('.searchBar').append('<input placeholder="Search"><button><img src="/images/search.png"></button>');
+	$('.searchBar button').click(function(e) {
+		$('footer').prepend($(this).parent().find('input').val());
+		console.log($(this).parent().find('input').val());
+	})
 	
 }
 
