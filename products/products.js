@@ -102,7 +102,7 @@ function downloadProducts() {
 					window.location.href="/products/"+p.name.replace(/[\s&]/,'').toLowerCase();
 				})
 				//show qty
-				$('.buy').each(function() {
+				$('.buy input').each(function() {
 					if($(this).val()!=0) {
 						$(this).parent().css('display','none');
 					}
