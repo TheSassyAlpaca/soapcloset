@@ -127,7 +127,7 @@ function getValue(p) {
 	console.log(cooks);
 	q=0;
 	cart={};
-	name=p.name.replace(/[\s&]/,''.toLowerCase())
+	name=p.name.replace(/[\s&]/,''.toLowerCase());
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
 		if(cookie[0]=='cart') {
@@ -145,4 +145,28 @@ function getValue(p) {
 
 function changeCookie(c,p,a) {
 	console.log(c+" "+p+" "+a);
+	//testing
+	c=document.cookie;
+	console.log(c);
+	cooks=c.split('; ');
+	console.log(cooks);
+	cart={};
+	name=p;
+	found=0;
+	for(i=0;i<cooks.length;i++) {
+		cookie=cooks[i].split('=');
+		if(cookie[0]=='cart') {
+			cart=JSON.parse(cookie[1]);
+			if(name in cart) {
+				cart.name=a;
+				found++;
+			}
+		}
+	}
+	if(found!=0) {
+		document.cookie=JSON.stringify(cart);
+	} else {
+		cart.name=a;
+		document.cookie=JSON.stringify(cart);
+	}
 }
