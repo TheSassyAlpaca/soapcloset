@@ -124,8 +124,24 @@ function bulkRates(p) {
 
 function getValue(p) {
 	//check cookies for this product using p.name.replace(/[\s&]/,'')
+	c=document.cookie;
+	console.log(c);
+	cooks=c.split('; ');
+	console.log(cooks);
+	/*for(i=0;i<cooks.length;i++) {
+		cooks[i]
+		if(c[i].name.toLowerCase()==p.name) {
+			
+		}
+	}
+	
+	if(c.indexOf(p.name.replace(/[\s&]/,'').toLowerCase() in c) {
+		
+	}
+	
 	//check for availability through p.qty
 	//default = 0
+	*/
 	i=0;
 	return i
 }
