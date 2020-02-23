@@ -68,6 +68,10 @@ function buildSearch() {
 			searchThis($(this).parent().find('input').val());
         }
 	})
+	$('.back').click(function(e) {
+		e.stopPropagation();
+		$('#search').removeClass('open');
+	})
 }
 
 function submitForm(f,q,a) {
