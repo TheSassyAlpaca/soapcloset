@@ -58,8 +58,12 @@ function buildSearch() {
 	})
 	//add all to searchBar element
 	$('.searchBar').append('<input placeholder="Search"><button><img src="/images/search.png"></button>');
-	$('.searchBar button').on('keypress click', function(e) {
-		if (e.keyCode == 13) {
+	$('.searchBar button').click(function(e) {
+		$('footer').prepend("Button "+$(this).parent().find('input').val());
+		console.log("Button "+$(this).parent().find('input').val());
+	})
+	$('.searchBar input').on('keypress', function(e) {
+		if (e.keyCode==13) {
 			e.preventDefault();
 			e.target.blur();
 			$('footer').prepend($(this).parent().find('input').val());
