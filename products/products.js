@@ -158,7 +158,7 @@ function changeCookie(c,p,a) {
 		if(cookie[0]=='cart') {
 			cart=JSON.parse(cookie[1]);
 			if(name in cart) {
-				cart.[name]=a;
+				cart[name]=a;
 				found++;
 			}
 		}
@@ -167,7 +167,7 @@ function changeCookie(c,p,a) {
 	if(found!=0) {
 		document.cookie='cart='+JSON.stringify(cart);
 	} else {
-		cart.[name]=a;
+		cart[name]=a;
 		document.cookie='cart='+JSON.stringify(cart);
 	}
 }
