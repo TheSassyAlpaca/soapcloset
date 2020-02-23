@@ -141,6 +141,7 @@ function getValue(p) {
 	name=p.name.replace(/[\s&]/,''.toLowerCase());
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
+		console.log(cookie);
 		if(cookie[0]=='cart') {
 			cart=JSON.parse(cookie[1]);
 			if(name in cart) {
