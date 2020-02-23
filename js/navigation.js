@@ -46,8 +46,13 @@ function buildSocialMedia() {
 	];
 	img="https://soapcloset.thesassyalpaca.com/images/";
 	for(i=0;i<socialMedia.length;i++) {
-		$('.socialArea').append('<a href="'+socialMedia[i].href+'" class="socialLink"><img src="'+img+socialMedia[i].icon+'"></a>');
+		$('.socialArea').append('<a href="'+socialMedia[i].href+'" class="socialLink" target="_blank"><img src="'+img+socialMedia[i].icon+'"></a>');
 	}
+	$('.socialLink').each(function() {
+		if($(this).attr('src').indexOf('etsy')!=-1) {
+			$(this).css('filter','invert(1)');
+		}
+	})
 }
 
 function buildSearch() {
