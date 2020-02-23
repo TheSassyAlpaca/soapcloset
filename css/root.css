@@ -213,6 +213,13 @@ header {
 	border: none;
 }
 
+.searchBar button img {
+	width: calc(var(--thumb) / 2);
+	height: calc(var(--thumb) / 2);
+	margin: calc(var(--thumb) / 4) calc(var(--thumb) / 8);
+	filter: invert(1);
+}
+
 #cart {
 	right: 0px;
 }
