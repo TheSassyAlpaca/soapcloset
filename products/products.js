@@ -86,6 +86,7 @@ function downloadProducts() {
 					}
 					if(i.val()>i.attr('max')) {
 						i.val(i.attr('max'));
+						a=i.val();
 					}
 					console.log(i.val());
 					if(i.val()!=0) {
