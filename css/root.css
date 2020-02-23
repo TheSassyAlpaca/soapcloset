@@ -175,6 +175,18 @@ header {
 	
 }
 
+#search.open {
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	width: 100vw;
+	height: var(--thumb);
+}
+
+.searchBar {
+	
+}
+
 #cart {
 	right: 0px;
 }
