@@ -176,12 +176,11 @@ header {
 }
 
 #search.open {
-	right: 0px;
-	background-color: rgb(var(--ocean));
+	
 }
 
 #search.open .searchBar {
-	width: calc(100vw - (var(--thumb) * 0.75));
+	width: 100vw;
 	height: var(--thumb);
 	background-color: rgb(var(--ocean));
 	position: fixed;
