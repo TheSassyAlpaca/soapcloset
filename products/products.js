@@ -144,7 +144,7 @@ function getValue(p) {
 		if(cookie[0]=='cart') {
 			cart=JSON.parse(cookie[1]);
 			if(name in cart) {
-				q=cart.name;
+				q=cart[name];
 			}
 		}
 	}
@@ -168,21 +168,9 @@ function changeCookie(c,p,a) {
 		cookie=cooks[i].split('=');
 		if(cookie[0]=='cart') {
 			cart=JSON.parse(cookie[1]);
-			/*if(name in cart) {
-				cart[name]=a;
-				found++;
-			}*/
 		}
 	}
 	console.log(cart);
-	/*if(found!=0) {
-		document.cookie='cart='+JSON.stringify(cart);
-	} else {
-		cart[name]=a;
-		document.cookie='cart='+JSON.stringify(cart);
-	}
-	*/
-	
 	cart[name]=a;
 	document.cookie='cart='+JSON.stringify(cart);
 }
