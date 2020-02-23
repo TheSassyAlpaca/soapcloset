@@ -180,7 +180,7 @@ header {
 	background-color: rgb(var(--ocean));
 }
 
-.searchBar {
+#search.open .searchBar {
 	width: calc(100vw - (var(--thumb) * 0.75));
 	height: var(--thumb);
 	background-color: rgb(var(--ocean));
