@@ -58,11 +58,14 @@ function buildSearch() {
 	})
 	//add all to searchBar element
 	$('.searchBar').append('<input placeholder="Search"><button><img src="/images/search.png"></button>');
-	$('.searchBar button').click(function(e) {
-		$('footer').prepend($(this).parent().find('input').val());
-		console.log($(this).parent().find('input').val());
+	$('.searchBar button').on('keypress', 'click', (function(e) {
+		if (e.keyCode == 13) {
+			e.preventDefault();
+			e.target.blur();
+			$('footer').prepend($(this).parent().find('input').val());
+			console.log($(this).parent().find('input').val());
+        }
 	})
-	
 }
 
 function submitForm(f,q,a) {
