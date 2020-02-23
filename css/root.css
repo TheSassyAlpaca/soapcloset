@@ -29,7 +29,12 @@ body {
 }
 
 button {
-	
+	background-color: rgb(var(--bark));
+	border-color: rgb(var(--bark));
+	border-radius: 2px;
+	border-width: 1px;
+	color: rgb(var(--oats));
+	font-family: var(--econ);
 }
 
 input {
@@ -197,10 +202,56 @@ header {
 
 footer {
 	background-color: rgb(var(--sage));
+	font-family: var(--econ);
+	text-align: center;
+}
+
+#footerMenu {
+	padding: 10px 0px;
+}
+
+#footerMenu .menuItem {
+	font-size: 24px;
+}
+
+.subscribe .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset {
+	display: inline-block;
+	width: calc(100vw - 100px);
+	margin-left: 10px;
+}
+
+.subscribe input {
+	width: 100%;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+	border: none;
+	height: calc(var(--thumb) / 2);
+	padding: 0px;
+	vertical-align: top;
+	text-indent: 10px;
+}
+
+.subscribe button {
+	font-size: 20px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	padding: 2px 7px;
+	display: inline-block;
+	width: 80px;
+	height: calc(var(--thumb) / 2);
+	vertical-align: top;
+	margin-right
+}
+
+#legalBar .menuItem {
+	width: 30%;
+	display: inline-block;
 }
 
 .fineprint {
-	
+	padding: 10px 0px;
+	display: block;
+	color: rgb(var(--oats));
 }
 
 @media only screen and (min-width:360px) {
