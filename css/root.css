@@ -157,7 +157,7 @@ header {
 
 #home {
 	height: var(--thumb);
-	width: calc(100vw - (var(--thumb) * 3) - 12px);
+	width: calc(100vw - (var(--thumb) * 2.5) - 12px);
 	display: inline-block;
 	vertical-align: top;
 	font-family: var(--soapCloset);
@@ -175,7 +175,7 @@ header {
 }
 
 #cart, #search {
-	width: var(--thumb);
+	width: calc(var(--thumb) / 4 * 3);
 	height: var(--thumb);
 	display: inline-block;
 	vertical-align: top;
@@ -184,7 +184,7 @@ header {
 #cart img, #search img {
 	width: calc(var(--thumb) / 2);
 	height: calc(var(--thumb) / 2);
-	margin: calc(var(--thumb) / 4);
+	margin: calc(var(--thumb) / 4) calc(var(--thumb) / 8);
 	filter: invert(1);
 }
 
