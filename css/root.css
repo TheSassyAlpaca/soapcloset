@@ -205,6 +205,7 @@ header {
 	vertical-align: top;
 	text-indent: 10px;
 	outline: none;
+	caret-color: rgb(var(--oats));
 }
 
 .searchBar button {
