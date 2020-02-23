@@ -84,6 +84,9 @@ function downloadProducts() {
 						i.val(1);
 						a=1;
 					}
+					if(i>$(this).parent().find('input').attr('max')) {
+						i=$(this).parent().find('input').attr('max');
+					}
 					console.log(i.val());
 					if(i.val()!=0) {
 						console.log("Not zero "+i.val());
