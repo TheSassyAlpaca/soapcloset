@@ -96,7 +96,7 @@ function downloadProducts() {
 					}
 					console.log(a);
 					console.log(p);
-					changeCookie(p.name.replace(/[\s&]/,'').toLowerCase(),a);
+					changeCookie('cart',p.name.replace(/[\s&]/,'').toLowerCase(),a);
 				})
 				//open page to product
 				$('.listingLeft, .listingMid h3').click(function(e) {
@@ -130,6 +130,6 @@ function getValue(p) {
 	return i
 }
 
-function changeCookie(p,a) {
-	console.log("QTY "+a);
+function changeCookie(c,p,a) {
+	console.log(c+" "+p+" "+a);
 }
