@@ -58,7 +58,7 @@ function buildSearch() {
 	})
 	//add all to searchBar element
 	$('.searchBar').append('<input placeholder="Search"><button><img src="/images/search.png"></button>');
-	$('.searchBar button').on('keypress click', (function(e) {
+	$('.searchBar button').on('keypress click', function(e) {
 		if (e.keyCode == 13) {
 			e.preventDefault();
 			e.target.blur();
