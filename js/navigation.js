@@ -96,6 +96,7 @@ function userAlert(x) {
 	}
 	e=$('#userAlert');
 	e.text(x);
+	e.addClass('alert');
 	setTimeout(function() {
 		e.removeClass('alert');
 		e.text();
