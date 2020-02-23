@@ -57,7 +57,7 @@ function buildSearch() {
 		e.stopPropagation();
 	})
 	//add all to searchBar element
-	$('.searchBar').append();
+	$('.searchBar').append('<input placeholder="Search"><button><img src="/images/search.png"></button>');
 	
 }
 
