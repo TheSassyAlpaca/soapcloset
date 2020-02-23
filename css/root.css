@@ -240,7 +240,7 @@ footer {
 	width: 80px;
 	height: calc(var(--thumb) / 2);
 	vertical-align: top;
-	margin-right
+	margin-right: 10px;
 }
 
 #legalBar .menuItem {
