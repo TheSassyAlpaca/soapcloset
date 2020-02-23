@@ -176,15 +176,17 @@ header {
 }
 
 #search.open {
-	top: 0px;
-	left: 0px;
-	position: fixed;
-	width: 100vw;
-	height: var(--thumb);
+	right: 0px;
+	background-color: rgb(var(--ocean));
 }
 
 .searchBar {
-	
+	width: calc(100vw - (var(--thumb) * 0.75));
+	height: var(--thumb);
+	background-color: rgb(var(--ocean));
+	position: fixed;
+	top: 0px;
+	left: 0px;
 }
 
 #cart {
