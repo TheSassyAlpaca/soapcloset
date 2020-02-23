@@ -66,6 +66,7 @@ h1, h2 {
 
 header {
 	height: var(--thumb);
+	width: 100vw;
 	background-color: rgb(var(--ocean));
 	position: fixed;
 	z-index: 100;
@@ -157,7 +158,7 @@ header {
 
 #home {
 	height: var(--thumb);
-	width: calc(100vw - (var(--thumb) * 1) - 4px);
+	width: calc(100vw - (var(--thumb) * 1) - 5px);
 	display: inline-block;
 	vertical-align: top;
 	font-family: var(--soapCloset);
@@ -212,6 +213,7 @@ header {
 	display: inline-block;
 	padding: 0px;
 	border: none;
+	border-radius: 0px;
 	outline: none;
 }
 
