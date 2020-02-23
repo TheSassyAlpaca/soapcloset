@@ -133,7 +133,6 @@ function getValue(p) {
 	cart={};
 	name=p.name.replace(/[\s&]/,'').toLowerCase();
 	for(i=0;i<cooks.length;i++) {
-	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
 		if(cookie[0]=='cart') {
 			cart=JSON.parse(cookie[1]);
@@ -160,7 +159,6 @@ function changeCookie(c,p,a) {
 			cart=JSON.parse(cookie[1]);
 		}
 	}
-
 	cart[name]=a;
 	document.cookie='cart='+JSON.stringify(cart);
 }
