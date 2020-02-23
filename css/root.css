@@ -130,6 +130,21 @@ header {
 	transform: rotate(135deg);
 }
 
+#blt.back .menuBar:nth-child(1) {
+	transform: rotate(-30deg);
+	transform-origin: left;
+	top: calc((var(--thumb) / 2) - 1px);
+	width: calc(var(--thumb) / 4 * 1);
+}
+
+#blt.back .menuBar:nth-child(3) {
+	transform: rotate(30deg);
+	transform-origin: left;
+	top: calc((var(--thumb) / 2) - 2px);
+	width: calc(var(--thumb) / 4 * 1);
+	height: 0px;
+}
+
 #bltBody {
 	height: calc(100vh - var(--thumb));
 	width: 80vw;
@@ -232,7 +247,7 @@ header {
 	right: 0px;
 }
 
-#cart, #search {
+#cart, #search, .back {
 	width: calc(var(--thumb) / 4 * 3);
 	height: var(--thumb);
 	display: inline-block;
@@ -241,7 +256,7 @@ header {
 	top: 0px;
 }
 
-#cart img, #search img {
+#cart img, #search img, .back img {
 	width: calc(var(--thumb) / 2);
 	height: calc(var(--thumb) / 2);
 	margin: calc(var(--thumb) / 4) calc(var(--thumb) / 8);
