@@ -165,9 +165,9 @@ function changeCookie(c,p,a) {
 	}
 	console.log(cart);
 	if(found!=0) {
-		document.cookie=JSON.stringify(cart);
+		document.cookie='cart='+JSON.stringify(cart);
 	} else {
 		cart.name=a;
-		document.cookie=JSON.stringify(cart);
+		document.cookie='cart='+JSON.stringify(cart);
 	}
 }
