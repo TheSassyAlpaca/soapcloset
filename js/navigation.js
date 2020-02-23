@@ -49,7 +49,8 @@ function buildSocialMedia() {
 
 function buildSearch() {
 	$('#search').append('<div class="searchBar"></div>');
-	$('#search').click(function() {
+	$('#search').click(function(e) {
+		e.stopPropagation();
 		$(this).toggleClass('open');
 	})
 	//add all to searchBar element
