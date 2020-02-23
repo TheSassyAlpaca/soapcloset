@@ -101,6 +101,12 @@ function downloadProducts() {
 					p=products[$(this).parents('.listing').attr('data')];
 					window.location.href="/products/"+p.name.replace(/[\s&]/,'').toLowerCase();
 				})
+				//show qty
+				$('.buy').each(function() {
+					if($(this).val()!=0) {
+						$(this).parent().css('display','none');
+					}
+				})
 			});
 		});
 	})
@@ -137,7 +143,7 @@ function getValue(p) {
 			}
 		}
 	}
-	if(p.qty>q) {
+	if(p.qty<q) {
 		q=p.qty;
 	}
 	return q
@@ -157,17 +163,21 @@ function changeCookie(c,p,a) {
 		cookie=cooks[i].split('=');
 		if(cookie[0]=='cart') {
 			cart=JSON.parse(cookie[1]);
-			if(name in cart) {
+			/*if(name in cart) {
 				cart[name]=a;
 				found++;
-			}
+			}*/
 		}
 	}
 	console.log(cart);
-	if(found!=0) {
+	/*if(found!=0) {
 		document.cookie='cart='+JSON.stringify(cart);
 	} else {
 		cart[name]=a;
 		document.cookie='cart='+JSON.stringify(cart);
 	}
+	*/
+	
+	cart[name]=a;
+	document.cookie='cart='+JSON.stringify(cart);
 }
