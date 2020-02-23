@@ -179,6 +179,10 @@ header {
 	
 }
 
+#search .searchBar {
+	display: none;
+}
+
 #search.open .searchBar {
 	width: 100vw;
 	height: var(--thumb);
@@ -186,6 +190,27 @@ header {
 	position: fixed;
 	top: 0px;
 	left: 0px;
+	display: unset !important;
+}
+
+.searchBar input {
+	border: none;
+	border-bottom: 1px solid rgb(var(--oats));
+	background: transparent;
+	height: calc(var(--thumb) * 0.5 - 1px);
+	width: calc(100% - (var(--thumb) * 0.75) - 20px);
+	margin: calc(var(--thumb) * 0.25) 10px;
+	padding: 0px;
+	vertical-align: top;
+	text-indent: 10px;
+}
+
+.searchBar button {
+	width: calc(var(--thumb) / 4 * 3);
+	height: var(--thumb);
+	display: inline-block;
+	padding: 0px;
+	border: none;
 }
 
 #cart {
