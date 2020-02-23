@@ -48,6 +48,12 @@ function buildSocialMedia() {
 }
 
 function buildSearch() {
+	$('#search').append('<div class="searchBar"></div>');
+	$('#search').click(function() {
+		$(this).children('.searchBar').css('top','0px');
+	})
+	//add all to searchBar element
+	$('.searchBar').append();
 	
 }
 
