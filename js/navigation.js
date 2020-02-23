@@ -88,3 +88,16 @@ function submitForm(f,q,a) {
 function searchThis(x) {
 	window.location.href='/search?q='+x+'&f=NA';
 }
+
+function userAlert(x) {
+	t=3000+(x.length * 10);
+	if(!$('#userAlert').length) {
+		$('#content').append('<div id="userAlert"></div>')
+	}
+	e=$('#userAlert');
+	e.text(x);
+	setTimeout(function() {
+		e.removeClass('alert');
+		e.text();
+	},t)
+}
