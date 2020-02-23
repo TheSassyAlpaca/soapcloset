@@ -206,6 +206,9 @@ header {
 	text-indent: 10px;
 	outline: none;
 	caret-color: rgb(var(--oats));
+	font-size: 24px;
+    color: rgb(var(--oats));
+
 }
 
 .searchBar button {
