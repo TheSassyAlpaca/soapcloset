@@ -126,10 +126,15 @@ function getValue(p) {
 	cooks=c.split('; ');
 	console.log(cooks);
 	q=0;
+	cart={};
+	name=p.name.replace(/[\s&]/,''.toLowerCase())
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
-		if(cookie[0]==p.name.replace(/[\s&]/,''.toLowerCase())) {
-			q=cookie[1];
+		if(cookie[0]=='cart') {
+			cart=JSON.parse(cookie[1]);
+			if(name in cart) {
+				q=cart.name;
+			}
 		}
 	}
 	if(p.qty>q) {
