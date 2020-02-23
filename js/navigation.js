@@ -53,6 +53,9 @@ function buildSearch() {
 		e.stopPropagation();
 		$(this).toggleClass('open');
 	})
+	$('.searchBar').click(function(e) {
+		e.stopPropagation();
+	})
 	//add all to searchBar element
 	$('.searchBar').append();
 	
