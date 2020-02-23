@@ -1,11 +1,3 @@
-//+blt
-//+home
-//go to cart
-//update cart count
-//+subscribe
-//+search bar
-//+social area
-
 $(function() {
 	$('#home').click(function() {
 		window.location.href="/";
@@ -49,7 +41,7 @@ function buildSocialMedia() {
 		$('.socialArea').append('<a href="'+socialMedia[i].href+'" class="socialLink" target="_blank"><img src="'+img+socialMedia[i].icon+'"></a>');
 	}
 	$('.socialLink').each(function() {
-		if($(this).attr('src').indexOf('etsy')!=-1) {
+		if($(this).attr('href').indexOf('etsy')!=-1) {
 			$(this).css('filter','invert(1)');
 		}
 	})
