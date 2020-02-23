@@ -12,9 +12,6 @@ function downloadProducts() {
 				$.each(data.feed.entry, function(i,entry) {
 					p=JSON.parse(entry.gsx$data.$t);
 					products.push(p);
-					console.log(p);
-					console.log(p.name);
-					console.log(p.keywords);
 					if($('#'+p.category.replace(/[\s&]/,'')).length==0) {
 						$('#content').append('<div id="'+p.category.replace(/[\s&]/,'')+'" class="category"><div class="catHeader" style="background-image:url('+p.images[0]+')"><h1>'+p.category+'</h1><hr><div class="photoBox"></div><hr></div></div>');
 						$('#'+p.category.replace(/[\s&]/,'')).find('.photoBox').append('<div class="proPhoto"><img src="'+p.images[0]+'"></div>');
@@ -128,21 +125,16 @@ function getValue(p) {
 	console.log(c);
 	cooks=c.split('; ');
 	console.log(cooks);
-	/*for(i=0;i<cooks.length;i++) {
-		cooks[i]
-		if(c[i].name.toLowerCase()==p.name) {
-			
+	i=0;
+	for(i=0;i<cooks.length;i++) {
+		cookie=cooks[i].split('=');
+		if(cookie[0]==p.name.replace(/[\s&]/,''.toLowerCase())) {
+			i=cookie[1];
 		}
 	}
-	
-	if(c.indexOf(p.name.replace(/[\s&]/,'').toLowerCase() in c) {
-		
+	if(p.qty>i) {
+		i=p.qty;
 	}
-	
-	//check for availability through p.qty
-	//default = 0
-	*/
-	i=0;
 	return i
 }
 
