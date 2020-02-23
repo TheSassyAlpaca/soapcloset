@@ -125,17 +125,17 @@ function getValue(p) {
 	console.log(c);
 	cooks=c.split('; ');
 	console.log(cooks);
-	i=0;
+	q=0;
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
 		if(cookie[0]==p.name.replace(/[\s&]/,''.toLowerCase())) {
-			i=cookie[1];
+			q=cookie[1];
 		}
 	}
-	if(p.qty>i) {
-		i=p.qty;
+	if(p.qty>q) {
+		q=p.qty;
 	}
-	return i
+	return q
 }
 
 function changeCookie(c,p,a) {
