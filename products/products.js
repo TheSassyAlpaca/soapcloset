@@ -138,7 +138,7 @@ function getValue(p) {
 	console.log(cooks);
 	q=0;
 	cart={};
-	name=p.name.replace(/[\s&]/,''.toLowerCase());
+	name=p.name.replace(/[\s&]/,'').toLowerCase();
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
 		if(cookie[0]=='cart') {
