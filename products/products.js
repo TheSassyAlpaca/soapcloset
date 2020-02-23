@@ -94,6 +94,7 @@ function downloadProducts() {
 						$(this).parents('.buy').find('.addToCart').css('display','block');
 					}
 					changeCookie('cart',p.name.replace(/[\s&]/,'').toLowerCase(),a);
+					userAlert(a+' '+p.name+' are now in your cart.');
 				})
 				//open page to product
 				$('.listingLeft, .listingMid h3').click(function(e) {
