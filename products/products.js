@@ -88,15 +88,11 @@ function downloadProducts() {
 						i.val(i.attr('max'));
 						a=i.val();
 					}
-					console.log(i.val());
 					if(i.val()!=0) {
-						console.log("Not zero "+i.val());
 						$(this).parents('.buy').find('.addToCart').css('display','none');
 					} else {
 						$(this).parents('.buy').find('.addToCart').css('display','block');
 					}
-					console.log(a);
-					console.log(p);
 					changeCookie('cart',p.name.replace(/[\s&]/,'').toLowerCase(),a);
 				})
 				//open page to product
@@ -107,7 +103,6 @@ function downloadProducts() {
 				})
 				//show qty
 				$('.buy input').each(function() {
-					console.log($(this));
 					if($(this).val()!=0) {
 						$(this).parent().parent().children('.addToCart').css('display','none');
 					}
@@ -133,18 +128,15 @@ function bulkRates(p) {
 function getValue(p) {
 	//check cookies for this product using p.name.replace(/[\s&]/,'')
 	c=document.cookie;
-	console.log(c);
 	cooks=c.split('; ');
-	console.log(cooks);
 	q=0;
 	cart={};
 	name=p.name.replace(/[\s&]/,'').toLowerCase();
 	for(i=0;i<cooks.length;i++) {
+	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
 		if(cookie[0]=='cart') {
 			cart=JSON.parse(cookie[1]);
-			console.log(cart);
-			console.log(name);
 			if(name in cart) {
 				q=cart[name];
 			}
@@ -157,12 +149,8 @@ function getValue(p) {
 }
 
 function changeCookie(c,p,a) {
-	console.log(c+" "+p+" "+a);
-	//testing
 	c=document.cookie;
-	console.log(c);
 	cooks=c.split('; ');
-	console.log(cooks);
 	cart={};
 	name=p;
 	found=0;
@@ -172,7 +160,7 @@ function changeCookie(c,p,a) {
 			cart=JSON.parse(cookie[1]);
 		}
 	}
-	console.log(cart);
+
 	cart[name]=a;
 	document.cookie='cart='+JSON.stringify(cart);
 }
