@@ -69,6 +69,10 @@
 	transform: rotate(90deg);
 }
 
+.lessercategory>h3:before {
+	zoom: .65;
+}
+
 .lessercategory {
 	max-height: calc((var(--thumb) * .65) + 0px);
 	overflow: hidden;
@@ -83,6 +87,7 @@
 	font-size: calc(var(--thumb) * .5);
 	text-shadow: 0px 0px 2px rgb(var(--oats));
 	background-color: rgb(var(--sage));
+	position: relative;
 }
 
 .listing {
