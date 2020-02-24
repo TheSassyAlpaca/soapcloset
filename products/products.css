@@ -53,6 +53,7 @@
 
 .listing {
 	overflow: hidden;
+	min-height: calc(var(--thumb) * 1.75);
 	max-height: calc(var(--thumb) * 1.75);
 	margin: 5px 0px;
 	text-align: left;
