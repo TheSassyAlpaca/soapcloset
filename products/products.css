@@ -23,6 +23,7 @@
 .photoBox {
 	height: calc(var(--thumb) * 1.1);
 	display: inline-block;
+	overflow: hidden;
 }
 
 .proPhoto {
