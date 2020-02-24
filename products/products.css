@@ -48,8 +48,22 @@
 }
 
 .subcategory h2 {
-	filter: invert(1);
-	background: rgb(var(--oats));
+	background: rgb(var(--ocean));
+	box-shadow: 0px 0px 2px rgb(var(--oats));
+}
+
+.lessercategory {
+	
+}
+
+.lessercategory h3 {
+	margin: 0px;
+	height: calc(var(--thumb) * .75);
+	max-height: calc(var(--thumb) * .75);
+	line-height: calc(var(--thumb) * .75);
+	font-size: calc(var(--thumb) * .5);
+	text-shadow: 0px 0px 2px rgb(var(--oats));
+	background-color: rgb(var(--sage));
 }
 
 .listing {
