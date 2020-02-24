@@ -42,7 +42,7 @@
 
 .subcategory {
 	text-align: center;
-	max-height: var(--thumb);
+	max-height: calc((var(--thumb) * 1) + 1px);
 	overflow: hidden;
 	transition: 1s cubic-bezier(0, 1, 0, 1);
 }
@@ -70,8 +70,9 @@
 }
 
 .lessercategory {
-	max-height: calc(var(--thumb) * .65);
+	max-height: calc((var(--thumb) * .65) + 0px);
 	overflow: hidden;
+	margin-top: 1px;
 }
 
 .lessercategory>h3 {
