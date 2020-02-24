@@ -47,6 +47,10 @@ function downloadProducts() {
 						$(this).parent().addClass('expand');
 					}
 				})
+				//toggle lesser-categories
+				$('.lessercategory').children('h3').click(function() {
+					$(this).parent().toggleClass('expand');
+				})
 				//expand/contract listing
 				$('.listing').click(function() {
 					if($(this).hasClass('expand')) {
