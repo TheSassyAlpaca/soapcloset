@@ -50,14 +50,23 @@
 .subcategory h2 {
 	background: rgb(var(--ocean));
 	box-shadow: 0px 0px 2px rgb(var(--oats));
+	position: relative;
 }
 
 .subcategory h2:before {
-	
+	position: absolute;
+	top: calc(var(--thumb) * 0.25);
+	left: calc(var(--thumb) * 0.375);
+	content: '';
+	border-top: calc(var(--thumb) * 0.25) solid transparent;
+	border-left: calc(var(--thumb) * 0.25) solid rgb(var(--oats));
+	border-bottom: calc(var(--thumb) * 0.25) solid transparent;
+	transform-origin: center;
+	transition: .25s;
 }
 
 .subcategory.expand h2:before {
-	
+	transform: rotate(90deg);
 }
 
 .lessercategory {
