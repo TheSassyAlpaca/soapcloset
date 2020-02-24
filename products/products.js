@@ -20,7 +20,7 @@ function downloadProducts() {
 						$('#'+p.category.replace(/[\s&'!-#()]/g,'')).append('<div id="'+p.subcategory.replace(/[\s&'!-#()]/g,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
 					}
 					if($('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).children('.'+p.lessercategory.replace(/[\s&'!-#()]/g,'')).length==0) {
-						$('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).append('<div class="'+p.lessercategory.replace(/[\s&'!-#()]/g,'')+' subcategory"><h3>'+p.lessercategory+'</h3></div>');
+						$('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).append('<div class="'+p.lessercategory.replace(/[\s&'!-#()]/g,'')+' lessercategory"><h3>'+p.lessercategory+'</h3></div>');
 					}
 					$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox').append('<div class="proPhoto"><img src="'+p.images[0]+'"></div>');
 					$('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).children('.'+p.lessercategory.replace(/[\s&'!-#()]/g,'')).append(listing(p,i));
