@@ -29,7 +29,7 @@ function getProduct() {
 				$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'</div>');
 				//price
 					//bulk rates
-				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+p.price+'</div><div><div>'+p.unit+'</div><div class="bulk">'+p.bulk.join(', ')+'</div></div></div></div>');
+				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+p.price+'</div><div><div>'+p.unit+'</div><div class="bulk">'+p.bulk.join(', ')+'</div></div></div><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+0+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div>');
 				//description
 				$('#content').append('<div id="description">'+p.description+'</div>');
 				//ingredients
