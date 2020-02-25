@@ -5,6 +5,7 @@ $(function() {
 function getProduct() {
 	getP=window.location.href.substring(47,window.location.href.lastIndexOf("/"));
 	product={};
+	p=product;
 	$(function() {
 		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
 		$(function() {
@@ -13,24 +14,24 @@ function getProduct() {
 				$.each(data.feed.entry, function(i,entry) {
 					product=JSON.parse(entry.gsx$data.$t);
 					if(product.name.replace(/[\s&'!-#()]/g,'').toLowerCase()==getP) {
-						
+						p=product;
 					}
 				});
 				//title
 				//keywords
-				$('#content').append('<div id="title"><h1>'+product.name+'</h1><span>'+listKeywords(product.keywords)+'</span></div>');
+				$('#content').append('<div id="title"><h1>'+p.name+'</h1><span>'+listKeywords(p.keywords)+'</span></div>');
 				//image slides
 					//image thumbs
 					//slide mechanics
 				$('#content').append('<div id="slideshow"><div id="slideHolder"></div></div>');
-				$('#slideshow').append('<div id="slideThumb">'+slides(product.images)+'</div>');
+				$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'</div>');
 				//price
 					//bulk rates
-				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+product.price+'</div><div><div>'+product.unit+'</div><div class="bulk">'+product.bulk.join(', ')+'</div></div></div></div>');
+				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+p.price+'</div><div><div>'+p.unit+'</div><div class="bulk">'+p.bulk.join(', ')+'</div></div></div></div>');
 				//description
-				$('#content').append('<div id="description">'+product.description+'</div>');
+				$('#content').append('<div id="description">'+p.description+'</div>');
 				//ingredients
-				$('#content').append('<div id="ingredients">Ingredients'+ingredients(product.description)+'</div>');
+				$('#content').append('<div id="ingredients">Ingredients'+ingredients(p.description)+'</div>');
 				//functions
 				//slideshow
 				$('.slide').click(function() {
