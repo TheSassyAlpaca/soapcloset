@@ -42,5 +42,5 @@
 }
 
 .ingredient {
-	display: inline-block;
+	display: contents;
 }
