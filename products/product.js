@@ -26,7 +26,7 @@ function getProduct() {
 				$('#slideshow').append('<div id="slideThumb">'+slides(product.images)+'</div>');
 				//price
 					//bulk rates
-				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+product.price+'</div><div><div>'+product.unit+'</div><div class="bulk">'+b.join(', ')+'</div></div></div></div>');
+				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+product.price+'</div><div><div>'+product.unit+'</div><div class="bulk">'+product.bulk.join(', ')+'</div></div></div></div>');
 				//description
 				$('#content').append('<div id="description">'+product.description+'</div>');
 				//ingredients
