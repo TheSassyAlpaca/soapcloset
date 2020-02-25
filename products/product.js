@@ -38,7 +38,7 @@ function getProduct() {
 					$('#slideHolder').css('background-image',$(this).css('background-image'));
 				})
 				//ingredients tooltip
-				$('.ingredients').on('hover click',function() {
+				$('.ingredient').on('hover click',function() {
 					console.log($(this).attr('data-source'));
 				})
 			})
