@@ -50,7 +50,7 @@ function getProduct() {
 				})
 				$('.buy button').click(function(e) {
 					e.stopPropagation();
-					p=products[$(this).parents('.listing').attr('data')];
+					//p=products[$(this).parents('.listing').attr('data')];
 					a=0;
 					i=$(this).parent().find('input');
 					if(!$(this).hasClass('addToCart')) {
