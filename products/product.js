@@ -31,7 +31,7 @@ function getProduct() {
 				//description
 				$('#content').append('<div id="description">'+p.description+'</div>');
 				//ingredients
-				$('#content').append('<div id="ingredients">Ingredients'+ingredients(p.ingredients)+'</div>');
+				$('#content').append('<div id="ingredients"><b>Ingredients:</b> '+ingredients(p.ingredients)+'</div>');
 				//functions
 				//slideshow
 				$('.slide').click(function() {
