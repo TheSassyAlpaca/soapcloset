@@ -29,7 +29,7 @@ function getProduct() {
 				$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'</div>');
 				//price
 					//bulk rates
-				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+p.price+'</div><div><div>'+p.unit+'</div><div class="bulk">'+p.bulk.join(', ')+'</div></div></div><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+0+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div>');
+				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+p.price+'</div><div><div>'+p.unit+'</div><div class="bulk">'+p.bulk.join(', ')+'</div></div></div><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div>');
 				//description
 				$('#content').append('<div id="description">'+p.description+'</div>');
 				//ingredients
@@ -48,9 +48,52 @@ function getProduct() {
 						}
 					}
 				})
+				$('.buy input').each(function() {
+					if($(this).val()!=0) {
+						$(this).parent().parent().children('.addToCart').css('display','none');
+					}
+				})
 			})
 		});
 	});
+}
+
+function changeCookie(c,p,a) {
+	c=document.cookie;
+	cooks=c.split('; ');
+	cart={};
+	name=p;
+	found=0;
+	for(i=0;i<cooks.length;i++) {
+		cookie=cooks[i].split('=');
+		if(cookie[0]=='cart') {
+			cart=JSON.parse(cookie[1]);
+		}
+	}
+	cart[name]=a;
+	document.cookie='cart='+JSON.stringify(cart);
+}
+
+function getValue(p) {
+	//check cookies for this product using p.name.replace(/[\s&'!-#()]/g,'')
+	c=document.cookie;
+	cooks=c.split('; ');
+	q=0;
+	cart={};
+	name=p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
+	for(i=0;i<cooks.length;i++) {
+		cookie=cooks[i].split('=');
+		if(cookie[0]=='cart') {
+			cart=JSON.parse(cookie[1]);
+			if(name in cart) {
+				q=cart[name];
+			}
+		}
+	}
+	if(p.qty<q) {
+		q=p.qty;
+	}
+	return q
 }
 
 function ingredients(ing) {
