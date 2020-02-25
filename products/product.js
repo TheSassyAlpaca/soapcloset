@@ -17,6 +17,8 @@ function getProduct() {
 						p=product;
 					}
 				});
+				window['ingredientList']=[];
+				function getIngredients();
 				//title
 				//keywords
 				$('#content').append('<div id="title"><h1>'+p.name+'</h1><span>'+listKeywords(p.keywords)+'</span></div>');
@@ -40,6 +42,11 @@ function getProduct() {
 				//ingredients tooltip
 				$('.ingredient').on('hover click',function() {
 					console.log($(this).attr('data-source'));
+					for(i=0;i<ingredientList.length;i++) {
+						if(ingredientList[i].name==$(this).attr('data-source')) {
+							console.log(ingredientList[i].desc);
+						}
+					}
 				})
 			})
 		});
@@ -49,7 +56,7 @@ function getProduct() {
 function ingredients(ing) {
 	ingredients='';
 	for(i=0;i<ing.length;i++) {
-		ingredients=ingredients+'<div class="ingredient" data-source="'+ing[i].replace(/[\s&'!-#()]/g,'').toLowerCase()+'">'+ing[i]+'</div>';
+		ingredients=ingredients+'<div class="ingredient" data-source="'+ing[i]+'">'+ing[i]+'</div>';
 		if(i<ing.length-1) {
 			ingredients=ingredients+', ';
 		}
@@ -68,4 +75,18 @@ function slides(s) {
 function listKeywords(k) {
 	keywords=k.join(', ');
 	return keywords
+}
+
+function getIngredients() {
+	$(function() {
+		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
+		$(function() {
+			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/9/public/values?alt=json-in-script&callback=?",
+			function (data) {
+				$.each(data.feed.entry, function(i,entry) {
+					ingredientList.push(JSON.parse(entry.gsx$data.$t));
+				});
+			})
+		});
+	});
 }
