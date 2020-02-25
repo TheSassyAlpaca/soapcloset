@@ -40,3 +40,7 @@
 	line-height: calc(var(--thumb) * 0.5);
 	height: calc(var(--thumb) * 0.5);
 }
+
+.ingredient {
+	display: inline-block;
+}
