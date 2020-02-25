@@ -5,6 +5,9 @@ $(function() {
 function getProduct() {
 	p=window.location.href.substring(window.location.href.lastIndexOf("/")+1,window.location.href.indexOf('#'));
 	console.log(p);
+	console.log(window.location.href);
+	console.log(window.location.href.lastIndexOf("/")+1);
+	console.log(window.location.href.indexOf('#'));
 	$(function() {
 		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
 		$(function() {
