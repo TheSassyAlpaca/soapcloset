@@ -18,7 +18,7 @@ function getProduct() {
 					}
 				});
 				window['ingredientList']=[];
-				function getIngredients();
+				getIngredients();
 				//title
 				//keywords
 				$('#content').append('<div id="title"><h1>'+p.name+'</h1><span>'+listKeywords(p.keywords)+'</span></div>');
