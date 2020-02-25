@@ -23,7 +23,7 @@ function getProduct() {
 				//image slides
 					//image thumbs
 					//slide mechanics
-				$('#content').append('<div id="slideshow"><div id="slideHolder"></div></div>');
+				$('#content').append('<div id="slideshow"><div id="slideHolder" style="background-image:url('+p.images[0]+')"></div></div>');
 				$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'</div>');
 				//price
 					//bulk rates
@@ -31,7 +31,7 @@ function getProduct() {
 				//description
 				$('#content').append('<div id="description">'+p.description+'</div>');
 				//ingredients
-				$('#content').append('<div id="ingredients">Ingredients'+ingredients(p.description)+'</div>');
+				$('#content').append('<div id="ingredients">Ingredients'+ingredients(p.ingredients)+'</div>');
 				//functions
 				//slideshow
 				$('.slide').click(function() {
