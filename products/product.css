@@ -1,1 +1,42 @@
-css
+#slideshow {
+	position: relative;
+}
+
+#slideHolder {
+	width: 100%;
+	height: 50vh;
+	background-size: cover;
+}
+
+#slideThumb {
+	height: var(--thumb);
+	width: fit-content;
+	margin: calc(var(--thumb) * -1) auto 0px auto;
+}
+
+#slideThumb .slide {
+	height: var(--thumb);
+	width: var(--thumb);
+	margin: auto;
+	display: inline-block;
+	background-size: cover;
+}
+
+.priceBox div:nth-child(1) {
+	display: inline-block;
+	font-size: calc(var(--thumb) * 1);
+	line-height: var(--thumb);
+	height: var(--thumb);
+	width: var(--thumb);
+	vertical-align: top;
+	text-align: center;
+}
+
+.priceBox div:nth-child(2) {
+	display: inline-block;
+}
+
+.priceBox div:nth-child(2) div {
+	line-height: calc(var(--thumb) * 0.5);
+	height: calc(var(--thumb) * 0.5);
+}
