@@ -22,7 +22,7 @@
 	background-size: cover;
 }
 
-.priceBox div:nth-child(1) {
+.priceBox>div:nth-child(1) {
 	display: inline-block;
 	font-size: calc(var(--thumb) * 1);
 	line-height: var(--thumb);
