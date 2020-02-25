@@ -48,7 +48,7 @@ function getProduct() {
 						}
 					}
 				})
-				$('.listing button').click(function(e) {
+				$('.buy button').click(function(e) {
 					e.stopPropagation();
 					p=products[$(this).parents('.listing').attr('data')];
 					a=0;
