@@ -41,6 +41,11 @@
 	height: calc(var(--thumb) * 0.5);
 }
 
+#description {
+	margin: 10px auto;
+	font-size: 20px;
+}
+
 .ingredient {
 	display: contents;
 }
