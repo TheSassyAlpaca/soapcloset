@@ -48,6 +48,34 @@ function getProduct() {
 						}
 					}
 				})
+				$('.listing button').click(function(e) {
+					e.stopPropagation();
+					p=products[$(this).parents('.listing').attr('data')];
+					a=0;
+					i=$(this).parent().find('input');
+					if(!$(this).hasClass('addToCart')) {
+						if($(this).hasClass('down')) {
+							i.val(Number(Number(i.val())-1));
+						} else {
+							i.val(Number(Number(i.val())+1));
+						}
+						a=i.val();
+					} else {
+						i.val(1);
+						a=1;
+					}
+					if(i.val()>i.attr('max')) {
+						i.val(i.attr('max'));
+						a=i.val();
+					}
+					if(i.val()!=0) {
+						$(this).parents('.buy').find('.addToCart').css('display','none');
+					} else {
+						$(this).parents('.buy').find('.addToCart').css('display','block');
+					}
+					changeCookie('cart',p.name.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
+					userAlert(a+' '+p.name+' are now in your cart.');
+				})
 				$('.buy input').each(function() {
 					if($(this).val()!=0) {
 						$(this).parent().parent().children('.addToCart').css('display','none');
