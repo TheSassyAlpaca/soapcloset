@@ -87,6 +87,7 @@ function getProduct() {
 }
 
 function changeCookie(c,p,a) {
+	console.log(c,p,a);
 	c=document.cookie;
 	cooks=c.split('; ');
 	cart={};
