@@ -3,7 +3,8 @@ $(function() {
 })
 
 function getProduct() {
-	p=window.location.href.substring(47,window.location.href.indexOf('#'));
+	w=window.location.href;
+	p=w.substring(47,window.location.href.indexOf('#'));
 	console.log(p);
 	$(function() {
 		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
