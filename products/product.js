@@ -101,7 +101,7 @@ function changeCookie(c,p,a) {
 		}
 	}
 	cart[name]=a;
-	document.cookie='cart='+JSON.stringify(cart)+'; path: /';
+	document.cookie='cart='+JSON.stringify(cart)+';path: /;domain=.thesassyalpaca.com';
 }
 
 function getValue(p) {
