@@ -101,7 +101,7 @@ function changeCookie(c,p,a) {
 		}
 	}
 	cart[name]=a;
-	$.cookie=('cart', JSON.stringify(cart), { path: '/' });
+	document.cookie='cart='+JSON.stringify(cart)+'; path: /';
 }
 
 function getValue(p) {
