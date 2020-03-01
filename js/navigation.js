@@ -36,7 +36,7 @@ function countCart() {
 	}
 	//return q
 	console.log(q);
-	if(!$('#cart').children('#cartCount').length==0) {
+	if(!$('#cart #cartCount').length==0) {
 		$('#cart').append('<div id="cartCount"></div>');
 	}
 	$('#cartCount').text(q);
