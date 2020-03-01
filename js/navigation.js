@@ -18,7 +18,7 @@ $(function() {
 	countCart();
 })
 
-function countCart(p) {
+function countCart() {
 	c=document.cookie;
 	cooks=c.split('; ');
 	q=0;
@@ -35,7 +35,7 @@ function countCart(p) {
 		}
 	}
 	//return q
-	console.log(countCart);
+	console.log(q);
 }
 
 function buildBLT() {
@@ -122,4 +122,46 @@ function userAlert(x) {
 		e.removeClass('alert');
 		e.text();
 	},t)
+}
+
+
+function getValue(p) {
+	//check cookies for this product using p.name.replace(/[\s&'!-#()]/g,'')
+	c=document.cookie;
+	cooks=c.split('; ');
+	q=0;
+	cart={};
+	name=p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
+	for(i=0;i<cooks.length;i++) {
+		cookie=cooks[i].split('=');
+		if(cookie[0]=='cart') {
+			cart=JSON.parse(cookie[1]);
+			if(name in cart) {
+				q=cart[name];
+			}
+		}
+	}
+	if(p.qty<q) {
+		q=p.qty;
+	}
+	return q
+}
+
+function changeCookie(c,p,a) {
+	console.log(c,p,a);
+	console.log(document.cookie);
+	c=document.cookie;
+	cooks=c.split('; ');
+	cart={};
+	name=p;
+	found=0;
+	for(i=0;i<cooks.length;i++) {
+		cookie=cooks[i].split('=');
+		if(cookie[0]=='cart') {
+			cart=JSON.parse(cookie[1]);
+		}
+	}
+	cart[name]=a;
+	document.cookie='cart='+JSON.stringify(cart)+';path=/;domain=.thesassyalpaca.com';
+	countCart();
 }
