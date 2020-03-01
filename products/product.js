@@ -139,8 +139,10 @@ function ingredients(ing) {
 
 function slides(s) {
 	slides='';
-	for(i=0;i<s.length;i++) {
-		slides=slides+'<div class="slide" style="background-image:url(https://soapcloset.thesassyalpaca.com'+s[i]+')"></div>';
+	if(s.length>1) {
+		for(i=0;i<s.length;i++) {
+			slides=slides+'<div class="slide" style="background-image:url(https://soapcloset.thesassyalpaca.com'+s[i]+')"></div>';
+		}
 	}
 	return slides
 }
