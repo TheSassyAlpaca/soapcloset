@@ -263,6 +263,22 @@ header {
 	filter: invert(1);
 }
 
+#cartCount {
+	position: absolute;
+	top: 6px;
+	right: 3px;
+	width: calc(var(--thumb) * .33);
+	height: calc(var(--thumb) * .33);
+	background: rgb(var(--sage));
+	text-align: center;
+	line-height: calc(var(--thumb) * .33);
+	font-size: calc(var(--thumb) * .25);
+	font-family: var(--econ);
+	border-radius: 50%;
+	color: rgb(var(--oats));
+	box-shadow: 0px 0px 5px 0px rgb(var(--oats));
+}
+
 .socialArea {
 	height: calc(var(--thumb) * 0.5);
 	width: fit-content;
