@@ -30,7 +30,7 @@ function countCart() {
 			cart=JSON.parse(cookie[1]);
 			for(k in cart) {
 				console.log(cart[k]);
-				q=q+cart[k];
+				q=q+Number(cart[k]);
 			}
 		}
 	}
