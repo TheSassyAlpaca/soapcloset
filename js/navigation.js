@@ -15,7 +15,28 @@ $(function() {
 	buildBLT();
 	buildSocialMedia();
 	buildSearch();
+	countCart();
 })
+
+function countCart(p) {
+	c=document.cookie;
+	cooks=c.split('; ');
+	q=0;
+	cart={};
+	//name=p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
+	for(i=0;i<cooks.length;i++) {
+		cookie=cooks[i].split('=');
+		if(cookie[0]=='cart') {
+			cart=JSON.parse(cookie[1]);
+			for(k in cart) {
+				console.log(cart[k]);
+				q=q+cart[k];
+			}
+		}
+	}
+	//return q
+	console.log(countCart);
+}
 
 function buildBLT() {
 	$('#blt').append('<div id="bltBody"><div class="bltMenu"></div><div class="socialArea"></div></div>');
