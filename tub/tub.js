@@ -131,7 +131,7 @@ function total() {
 	});
 	$('#tubTotal').empty().append('<label>Subtotal:</label><span>$'+tubTotal+'</span>');
 	couponTotal=0;
-	if(Number($('#coupon').attr('data-source'))!='NaN') {
+	if(Number($('#coupon').attr('data-source'))!=NaN) {
 		couponTotal=Number($('#coupon').attr('data-source'));
 		$('#couponTotal').empty().append('<label>Coupon Code:</label><span>-'+couponTotal+'%</span>');
 	}
@@ -140,7 +140,7 @@ function total() {
 	
 	
 	profTotal=0;
-	if(Number($('#profession').attr('data-source'))!='NaN') {
+	if(Number($('#profession').attr('data-source'))!=NaN) {
 		profTotal=Number($('#profession').attr('data-source'));
 		$('#profTotal').empty().append('<label>Profession:</label><span>-'+profTotal+'%</span>');
 	}
