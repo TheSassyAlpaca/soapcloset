@@ -129,7 +129,7 @@ function total() {
 		console.log(Number($(this).attr('data-source')));
 		tubTotal=tubTotal+Number($(this).attr('data-source'));
 	});
-	$('#tubTotal').empty().append('<label>Subtotal:</label><span>$'+tubTotal+'</span>');
+	$('#tubTotal').empty().append('<label>Subtotal:</label><span>$'+tubTotal.toFixed(2)+'</span>');
 	couponTotal=0;
 	if(!isNaN(Number($('#coupon').attr('data-source')))) {
 		couponTotal=Number($('#coupon').attr('data-source'));
@@ -144,7 +144,7 @@ function total() {
 	console.log(profTotal);
 	estTotal=tubTotal*((100-couponTotal-profTotal)/100);
 	console.log(estTotal);
-	$('#estTotal').empty().append('<label>Estimated Total:</label><span>$'+estTotal+'</span>');
+	$('#estTotal').empty().append('<label>Estimated Total:</label><span>$'+estTotal.toFixed(2)+'</span>');
 }
 
 function dataList(l) {
