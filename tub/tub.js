@@ -84,8 +84,10 @@ function downloadProducts() {
 					}
 					if(i.val()!=0) {
 						$(this).parents('.buy').find('.addToCart').css('display','none');
+						$(this).parents('.listing').find('.listingRight span').text('$'+(i.val()*p.price));
+						//listingRight
 					} else {
-						$(this).parents('.buy').find('.addToCart').css('display','block');
+						$(this).parents('.listing').remove();
 					}
 					changeCookie('cart',p.name.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
 					userAlert(a+' '+p.name+' are now in your cart.');
@@ -121,7 +123,7 @@ function showTub() {
 				for(j=0;j<products.length;j++) {
 					if(products[j].name.replace(/[\s&'!-#()]/g,'').toLowerCase()==k) {
 						p=products[j];
-						list=list+'<div id="'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3></div><div class="listingRight"><span>$'+p.price+'</span><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div></div><hr>';
+						list=list+'<div id="'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3></div><div class="listingRight"><span>$'+(cart[k]*p.price)+'</span><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div></div><hr>';
 					}
 				}
 			}
