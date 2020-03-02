@@ -43,7 +43,9 @@ professionList=[
 	{option:'Education',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
 	{option:'EMS/EMT',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
 	{option:'Police',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
-	{option:'Fire/Rescue',disc:'10',text:'Enjoy a 10% discount on your entire order.'}
+	{option:'Fire/Rescue',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
+	{option:'Other',disc:'0',text:''},
+	{option:'Prefer Not To Say',disc:'0',text:''}
 ];
 
 function downloadProducts() {
