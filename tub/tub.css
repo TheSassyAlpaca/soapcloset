@@ -1,7 +1,17 @@
+.region {
+	font-family: var(--econ);
+}
+
+.region h1 {
+	font-family: var(--soapCloset);
+	font-size: 30px;
+	text-align: center;
+}
+
 .listing {
 	overflow: hidden;
-	min-height: calc(var(--thumb) * 1.75);
-	max-height: calc(var(--thumb) * 1.75);
+	min-height: calc(var(--thumb) * 1.25);
+	max-height: calc(var(--thumb) * 1.25);
 	margin: 5px 0px;
 	text-align: left;
 }
