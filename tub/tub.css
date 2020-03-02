@@ -135,3 +135,23 @@
 	padding: 0px;
 	font-size: 100%;
 }
+
+#coupon input {
+	width: 80%;
+	max-width: 300px;
+	margin: auto;
+	display: block;
+	text-align: center;
+	height: calc(var(--thumb) * 0.5);
+	font-size: calc(var(--thumb) * 0.33);
+}
+
+#coupon span {
+	width: 80%;
+	max-width: 300px;
+	margin: auto;
+	display: block;
+	text-align: center;
+	height: calc(var(--thumb) * 0.5);
+	font-size: calc(var(--thumb) * 0.33);
+}
