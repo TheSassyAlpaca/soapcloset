@@ -1,1 +1,127 @@
-tub
+.listing {
+	overflow: hidden;
+	min-height: calc(var(--thumb) * 1.75);
+	max-height: calc(var(--thumb) * 1.75);
+	margin: 5px 0px;
+	text-align: left;
+}
+
+.listing h3 {
+	margin: 0px;
+	font-size: 24px;
+	line-height: calc(var(--thumb) / 2);
+	height: calc(var(--thumb) / 2);
+	overflow: hidden;
+	word-break: break-all;
+}
+
+.listing+hr {
+	margin: 0px auto;
+	border: 0px;
+	border-bottom: 1px solid rgba(var(--sage),0.25);
+	width: 90%;
+}
+
+.listingLeft {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(var(--thumb) * 1.25);
+	vertical-align: top;
+}
+
+.listingLeft div {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(var(--thumb) * 1.25);
+	background-size: cover;
+	background-position: center center;
+}
+
+.listingMid {
+	display: inline-block;
+	width: calc(100% - (var(--thumb) * 2.25) - 20px);
+	vertical-align: top;
+	padding: 0px 10px 10px 10px;
+}
+
+.keywords {
+	font-size: 90%;
+}
+
+.listingRight {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(var(--thumb) * 1);
+	vertical-align: top;
+	position: relative;
+}
+
+.listingRight>span:nth-child(1) {
+	width: 100%;
+	height: calc(var(--thumb) * .75);
+	line-height: calc(var(--thumb) * .75);
+	font-size: calc(var(--thumb) * .5);
+	display: block;
+	text-align: center;
+}
+
+.bulkRates {
+	position: relative;
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
+}
+
+.bulkRates>span {
+	width: 100%;
+	display: block;
+	text-align: center;
+	font-size: 75%;
+}
+
+.bulkRates div {
+	max-height: 0px;
+	overflow: hidden;
+	position: absolute;
+	top: calc(var(--thumb) * -0.75);
+	width: 100%;
+	height: calc(var(--thumb) * 1.25);
+	text-align: center;
+	background-color: white;
+	font-size: 16px;
+	line-height: 110%;
+}
+
+.bulkRates div span {
+	
+}
+
+.buy {
+	height: calc(var(--thumb) * .5);
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+}
+
+.addToCart {
+	height: calc(var(--thumb) * .5);
+	width: calc(var(--thumb));
+	font-family: var(--econ);
+	padding: 3px;
+}
+
+.buy div input {
+	width: calc(var(--thumb) * .3);
+	height: calc(var(--thumb) * .5);
+	text-align: center;
+	padding: 0px;
+	border: 0px;
+}
+
+.buy div button {
+	width: calc(var(--thumb) * .35);
+	height: calc(var(--thumb) * .5);
+	text-align: center;
+	padding: 0px;
+	font-size: 100%;
+}
