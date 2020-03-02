@@ -149,9 +149,9 @@ function downloadProducts() {
 
 function total() {
 	tubTotal=0;
-	$('#items .listing').each(function() {
-		console.log(Number($(this).attr('data')));
-		tubTotal=tubTotal+Number($(this).attr('data'));
+	$('#items .listingRight').each(function() {
+		console.log(Number($(this).attr('data-source')));
+		tubTotal=tubTotal+Number($(this).attr('data-source'));
 	});
 	$('#tubTotal').text(tubTotal);
 	couponTotal=0;
@@ -191,7 +191,7 @@ function showTub() {
 				for(j=0;j<products.length;j++) {
 					if(products[j].name.replace(/[\s&'!-#()]/g,'').toLowerCase()==k&&cart[k]>0) {
 						p=products[j];
-						list=list+'<div id="'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3></div><div class="listingRight"><span>$'+(cart[k]*p.price)+'</span><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div></div><hr>';
+						list=list+'<div id="'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3></div><div class="listingRight" data-source="'+(cart[k]*p.price)+'"><span>$'+(cart[k]*p.price)+'</span><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div></div><hr>';
 					}
 				}
 			}
