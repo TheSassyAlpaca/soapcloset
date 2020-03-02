@@ -154,3 +154,22 @@
 	text-align: center;
 	font-size: calc(var(--thumb) * 0.33);
 }
+
+#totals .total {
+	width: 80%;
+	max-width: 300px;
+	margin: auto;
+}
+
+#totals .total label {
+	font-size: 20px;
+	width: 50%;
+	display: inline-block;
+}
+
+#totals .total span {
+	text-align: right;
+	font-size: 20px;
+	width: 50%;
+	display: inline-block;
+}
