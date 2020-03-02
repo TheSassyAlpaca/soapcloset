@@ -149,9 +149,9 @@
 #coupon span {
 	width: 80%;
 	max-width: 300px;
-	margin: auto;
+	margin: 10px auto;
 	display: block;
 	text-align: center;
-	height: calc(var(--thumb) * 0.5);
+	min-height: calc(var(--thumb) * 0.5);
 	font-size: calc(var(--thumb) * 0.33);
 }
