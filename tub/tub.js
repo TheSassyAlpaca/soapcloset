@@ -103,7 +103,7 @@ function downloadProducts() {
 					}
 				})
 				$('#coupon .content').append('<input type="text" placeholder="Enter Coupon Code">');
-				$('#coupon input').input(function() {
+				$('#coupon input').change(function() {
 					console.log($('#coupon input').val());
 				})
 				
