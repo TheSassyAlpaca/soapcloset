@@ -129,7 +129,7 @@ function downloadProducts() {
 						if(professionList[j].option==val) {
 							codeFound++;
 							$('#profession').attr('data-source',professionList[j].disc);
-							$('#profession span').text(coupon[j].text);
+							$('#profession span').text(professionList[j].text);
 						}
 					}
 					if(codeFound==0) {
