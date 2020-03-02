@@ -102,11 +102,20 @@ function downloadProducts() {
 						$(this).parent().parent().children('.addToCart').css('display','none');
 					}
 				})
-				$('#coupon .content').append('<input type="text" placeholder="Enter Coupon Code">');
+				$('#coupon .content').append('<input type="text" placeholder="Enter Coupon Code"><span></span>');
 				$('#coupon input').oninput(function() {
+					coupon=[
+						{code:'villagemarketplace',disc:'10',text:'This coupon gives you 10% off your entire purcahse and supports Village Marketplace.'},
+						{code:'marketplaceatpaynemill',disc:'10',text:'This coupon gives you 10% off your entire purcahse and supports The Marketplace at Payne Mill.'}
+					];
 					console.log($('#coupon input').val());
-					if($('#coupon input').val()) {
-						
+					codeFound=0;
+					for(j=0;j<coupon.length;j++) {
+						if($('#coupon input').val()==coupon[j].code) {
+							codeFound++;
+							$('#coupon').attr('data-source',coupon[j].disc)
+							$('#coupon span').text(coupon[j].text);
+						}
 					}
 				})
 				
