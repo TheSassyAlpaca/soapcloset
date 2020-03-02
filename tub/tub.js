@@ -1,27 +1,3 @@
-/* build framework 
-items
-coupon codes
-profession
-fulfillment method
-subTotal
-
-location
-*/
-
-/* PROFESSION
-	dropdown of professions with discounts
-	show benefit, only if there is a benefit
-*/
-
-/* SUBTOTALS
-	ITEM subtotal
-	DISCOUNT
-		COUPON (%)
-		PROFESSION (%)
-		**SPECIALS
-	ESTIMATED TOTAL
-*/
-
 /* FULFILLMENT
 	radial button for Pickup, Delivery, Shipping
 	if Pickup: select location
@@ -155,13 +131,20 @@ function total() {
 	});
 	$('#tubTotal').empty().append('<label>Subtotal:</label><span>$'+tubTotal+'</span>');
 	couponTotal=0;
-	couponTotal=Number($('#coupon').attr('data-source'));
+	if(Number($('#coupon').attr('data-source'))!='NaN') {
+		couponTotal=Number($('#coupon').attr('data-source'));
+		$('#couponTotal').empty().append('<label>Coupon Code:</label><span>-'+couponTotal+'%</span>');
+	}
 	console.log(couponTotal);
-	$('#couponTotal').empty().append('<label>Coupon Code:</label><span>-'+couponTotal+'%</span>');
+	
+	
+	
 	profTotal=0;
-	profTotal=Number($('#profession').attr('data-source'));
+	if(Number($('#profession').attr('data-source'))!='NaN') {
+		profTotal=Number($('#profession').attr('data-source'));
+		$('#profTotal').empty().append('<label>Profession:</label><span>-'+profTotal+'%</span>');
+	}
 	console.log(profTotal);
-	$('#profTotal').empty().append('<label>Profession:</label><span>-'+profTotal+'%</span>');
 	estTotal=tubTotal*((100-couponTotal-profTotal)/100);
 	console.log(estTotal);
 	$('#estTotal').empty().append('<label>Estimated Total:</label><span>$'+estTotal+'</span>');
@@ -178,9 +161,7 @@ function dataList(l) {
 function showTub() {
 	c=document.cookie;
 	cooks=c.split('; ');
-	//q=0;
 	cart={};
-	//name=p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
 	list='';
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
