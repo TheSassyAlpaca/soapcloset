@@ -8,18 +8,6 @@ subTotal
 location
 */
 
-/* Get list of items from cookies
-	Image
-	Name/qty
-	Price
-*/
-
-/* COUPONS
-	input field for coupon code
-	unknown coupon or its benefits
-	if logged in, option to save repeatable codes (shops)
-*/
-
 /* PROFESSION
 	dropdown of professions with discounts
 	show benefit, only if there is a benefit
@@ -48,6 +36,15 @@ $(function() {
 	$('#content').append('<div id="totals" class="region"><h1>Estimated Total</h1><div class="content"></div></div>');
 	downloadProducts();
 })
+
+professionList=[
+	{option:'Military',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
+	{option:'Medical',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
+	{option:'Education',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
+	{option:'EMS/EMT',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
+	{option:'Police',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
+	{option:'Fire/Rescue',disc:'10',text:'Enjoy a 10% discount on your entire order.'}
+];
 
 function downloadProducts() {
 	window['products']=[];
@@ -113,16 +110,31 @@ function downloadProducts() {
 					for(j=0;j<coupon.length;j++) {
 						if($('#coupon input').val()==coupon[j].code) {
 							codeFound++;
-							$('#coupon').attr('data-source',coupon[j].disc)
+							$('#coupon').attr('data-source',coupon[j].disc);
 							$('#coupon span').text(coupon[j].text);
 						}
 					}
 					if(codeFound==0) {
+						$('#coupon').attr('data-source','')
 						$('#coupon span').text('');
 					}
 				})
-				
-				$('#totals .content').append(total());
+				$('#profession .content').append('<input type="text" list="professions"><datalist id="professions">'+dataList(professionList)+'</datalist><span></span>');
+				$('#profession input').change(function() {
+					val=$(this).val()
+					codeFound=0;
+					for(j=0;j<professionList.length;j++) {
+						if(professionList[j].option==val) {
+							codeFound++;
+							$('#profession').attr('data-source',professionList[j].disc);
+							$('#profession span').text(coupon[j].text);
+						}
+					}
+					if(codeFound==0) {
+						$('#profession').attr('data-source','');
+						$('#profession span').text('');
+					}
+				})
 			});
 		});
 	})
@@ -130,6 +142,14 @@ function downloadProducts() {
 
 function total() {
 	
+}
+
+function dataList(l) {
+	dataset='';
+	for(i=0;i<l.length;i++) {
+		dataset=dataset+'<option value="'+l[i].option+'">'
+	}
+	return dataset
 }
 
 function showTub() {
