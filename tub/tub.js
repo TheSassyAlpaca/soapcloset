@@ -103,7 +103,7 @@ function downloadProducts() {
 					}
 				})
 				$('#coupon .content').append('<input type="text" placeholder="Enter Coupon Code"><span></span>');
-				$('#coupon input').input(function() {
+				$('#coupon input').on('change keyup',function() {
 					coupon=[
 						{code:'villagemarketplace',disc:'10',text:'This coupon gives you 10% off your entire purcahse and supports Village Marketplace.'},
 						{code:'marketplaceatpaynemill',disc:'10',text:'This coupon gives you 10% off your entire purcahse and supports The Marketplace at Payne Mill.'}
