@@ -136,7 +136,7 @@
 	font-size: 100%;
 }
 
-#coupon input {
+#coupon input, #profession input {
 	width: 80%;
 	max-width: 300px;
 	margin: auto;
@@ -146,7 +146,7 @@
 	font-size: calc(var(--thumb) * 0.33);
 }
 
-#coupon span {
+#coupon span, #profession span {
 	width: 80%;
 	max-width: 300px;
 	margin: 10px auto;
