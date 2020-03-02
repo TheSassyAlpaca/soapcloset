@@ -40,6 +40,9 @@ function countCart() {
 		$('#cart').append('<div id="cartCount"></div>');
 	}
 	$('#cartCount').text(q);
+	if(q==0) {
+		$('#cartCount').remove();
+	}
 }
 
 function buildBLT() {
