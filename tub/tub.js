@@ -117,6 +117,9 @@ function downloadProducts() {
 							$('#coupon span').text(coupon[j].text);
 						}
 					}
+					if(codeFound==0) {
+						$('#coupon span').text('');
+					}
 				})
 				
 				$('#totals .content').append(total());
