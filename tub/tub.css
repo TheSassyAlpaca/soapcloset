@@ -152,6 +152,5 @@
 	margin: 10px auto;
 	display: block;
 	text-align: center;
-	min-height: calc(var(--thumb) * 0.5);
 	font-size: calc(var(--thumb) * 0.33);
 }
