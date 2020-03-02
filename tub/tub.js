@@ -61,7 +61,7 @@ function downloadProducts() {
 					products.push(p);
 				});
 				//get items from cookies
-				$('#content').append(showTub());
+				$('#items .content').append(showTub());
 			});
 		});
 	})
