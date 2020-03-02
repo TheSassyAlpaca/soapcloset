@@ -102,9 +102,19 @@ function downloadProducts() {
 						$(this).parent().parent().children('.addToCart').css('display','none');
 					}
 				})
+				$('#coupon .content').append('<input type="text" placeholder="Enter Coupon Code">');
+				$('#coupon input').input(function() {
+					console.log($('#coupon input').val());
+				})
+				
+				$('#totals .content').append(total());
 			});
 		});
 	})
+}
+
+function total() {
+	
 }
 
 function showTub() {
@@ -129,12 +139,5 @@ function showTub() {
 			}
 		}
 	}
-	//return q
-	/*console.log(q);
-	if($('#cartCount').length==0) {
-		$('#cart').append('<div id="cartCount"></div>');
-	}
-	$('#cartCount').text(q);
-	*/
 	return list
 }
