@@ -3,7 +3,7 @@ $(function() {
 		window.location.href="/";
 	})
 	$('#cart').click(function() {
-		window.location.href="/cart";
+		window.location.href="/tub";
 	})
 	$('.subscribe button').click(function() {
 		f="";
