@@ -111,7 +111,7 @@ function downloadProducts() {
 					console.log($('#coupon input').val());
 					codeFound=0;
 					for(j=0;j<coupon.length;j++) {
-						if($('#coupon input').val().toLowercase()==coupon[j].code) {
+						if($('#coupon input').val().toLowerCase()==coupon[j].code) {
 							codeFound++;
 							$('#coupon').attr('data-source',coupon[j].disc);
 							$('#coupon span').text(coupon[j].text);
