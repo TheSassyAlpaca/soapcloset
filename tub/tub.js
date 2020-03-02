@@ -150,20 +150,20 @@ function downloadProducts() {
 function total() {
 	tubTotal=0;
 	$('#items .listingRight').each(function() {
-		console.log($(this).attr('data-source'));
-		tubTotal=tubTotal+$(this).attr('data-source');
+		console.log(Number($(this).attr('data-source')));
+		tubTotal=tubTotal+Number($(this).attr('data-source'));
 	});
 	$('#tubTotal').text(tubTotal);
 	couponTotal=0;
-	couponTotal=$('#couponTotal').attr('data-source');
+	couponTotal=Number($('#couponTotal').attr('data-source'));
 	console.log(couponTotal);
 	$('#couponTotal').text(couponTotal);
 	profTotal=0;
-	profTotal=$('#profTotal').attr('data-source');
+	profTotal=Number($('#profTotal').attr('data-source'));
 	console.log(profTotal);
 	$('#profTotal').text(profTotal);
 	estTotal=0;
-	estTotal=$('#estTotal').attr('data-source');
+	estTotal=Number($('#estTotal').attr('data-source'));
 	console.log(estTotal);
 	$('#estTotal').text(estTotal);
 }
