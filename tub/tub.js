@@ -153,18 +153,18 @@ function total() {
 		console.log(Number($(this).attr('data-source')));
 		tubTotal=tubTotal+Number($(this).attr('data-source'));
 	});
-	$('#tubTotal').text(tubTotal);
+	$('#tubTotal').text('<label>Subtotal:</label><span>$'+tubTotal+'</span>');
 	couponTotal=0;
 	couponTotal=Number($('#coupon').attr('data-source'));
 	console.log(couponTotal);
-	$('#couponTotal').text(couponTotal);
+	$('#couponTotal').text('<label>Coupon Code:</label><span>-'+couponTotal+'%</span>');
 	profTotal=0;
 	profTotal=Number($('#profession').attr('data-source'));
 	console.log(profTotal);
-	$('#profTotal').text(profTotal);
+	$('#profTotal').text('<label>Profession:</label><span>-'+profTotal+'%</span>');
 	estTotal=tubTotal*((100-couponTotal-profTotal)/100);
 	console.log(estTotal);
-	$('#estTotal').text(estTotal);
+	$('#estTotal').text('<label>Estimated Total:</label><span>$'+estTotal+'</span>');
 }
 
 function dataList(l) {
