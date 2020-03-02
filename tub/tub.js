@@ -84,12 +84,13 @@ function downloadProducts() {
 					if(i.val()!=0) {
 						$(this).parents('.buy').find('.addToCart').css('display','none');
 						$(this).parents('.listing').find('.listingRight span').text('$'+(i.val()*p.price));
-						//listingRight
+						$(this).parents('.listing').find('.listingRight').attr('data-source',i.val()*p.price);
 					} else {
 						$(this).parents('.listing').remove();
 					}
 					changeCookie('cart',p.name.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
 					userAlert(a+' '+p.name+' are now in your cart.');
+					total();
 				})
 				$('.listingLeft, .listingMid h3').click(function(e) {
 					e.stopPropagation();
@@ -120,6 +121,7 @@ function downloadProducts() {
 						$('#coupon').attr('data-source','')
 						$('#coupon span').text('');
 					}
+					total();
 				})
 				$('#profession .content').append('<input type="text" list="professions"><datalist id="professions">'+dataList(professionList)+'</datalist><span></span>');
 				$('#profession input').change(function() {
@@ -136,14 +138,34 @@ function downloadProducts() {
 						$('#profession').attr('data-source','');
 						$('#profession span').text('');
 					}
+					total();
 				})
+				$('#totals .content').append('<div id="tubTotal" class="total"></div><div id="couponTotal" class="total"></div><div id="profTotal" class="total"></div><div id="estTotal" class="total"></div>');
+				total();
 			});
 		});
 	})
 }
 
 function total() {
-	
+	tubTotal=0;
+	$('#items .listingRight').each(function() {
+		console.log($(this).attr('data-source'));
+		tubTotal=tubTotal+$(this).attr('data-source');
+	});
+	$('#tubTotal').text(tubTotal);
+	couponTotal=0;
+	couponTotal=$('#couponTotal').attr('data-source');
+	console.log(couponTotal);
+	$('#couponTotal').text(couponTotal);
+	profTotal=0;
+	profTotal=$('#profTotal').attr('data-source');
+	console.log(profTotal);
+	$('#profTotal').text(profTotal);
+	estTotal=0;
+	estTotal=$('#estTotal').attr('data-source');
+	console.log(estTotal);
+	$('#estTotal').text(estTotal);
 }
 
 function dataList(l) {
