@@ -133,9 +133,9 @@ function downloadProducts() {
 					}
 					total();
 				})
-				$('#fulfillment .content').append('<input type="text" list="fulfillments"><datalist id="fulfillments">'+dataList(fulfillmentList)+'</datalist><input type="text" list="pickups"><datalist id="pickups">'+dataList(pickupList)+'</datalist><div id="address" style="display:none"><div class="line"><input type="text" placeholder="Street Address"></div><div class="line"><input type="text" placeholder="Street Address 2"></div><div class="line"><input type="text" placeholder="City"><input type="text" placeholder="State"><input type="text" placeholder="Zip Code"></div></div>');
+				$('#fulfillment .content').append('<input type="text" class="list" list="fulfillments"><datalist id="fulfillments">'+dataList(fulfillmentList)+'</datalist><input type="text" class="list" list="pickups"><datalist id="pickups">'+dataList(pickupList)+'</datalist><div id="address" style="display:none"><div class="line"><input type="text" placeholder="Street Address"></div><div class="line"><input type="text" placeholder="Street Address 2"></div><div class="line"><input type="text" placeholder="City"><input type="text" placeholder="State"><input type="text" placeholder="Zip Code"></div></div>');
 				$('#fulfillment input').change(function() {
-					if($(this).hasAttribute('list')) {
+					if($(this).hasClass('list')) {
 						val=$(this).val();
 						if($(this).attr('list')=='fulfillments') {
 							order.fulfillment=val;
