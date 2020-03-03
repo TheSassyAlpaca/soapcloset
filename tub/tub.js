@@ -9,8 +9,8 @@ $(function() {
 	$('#content').append('<div id="items" class="region"><h1>Shopping Tub</h1><div class="content"></div></div>');
 	$('#content').append('<div id="coupon" class="region"><h1>Coupon Code</h1><div class="content"></div></div>');
 	$('#content').append('<div id="profession" class="region"><h1>Profession (Optional)</h1><div class="content"></div></div>');
-	$('#content').append('<div id="totals" class="region"><h1>Estimated Total</h1><div class="content"></div></div>');
 	$('#content').append('<div id="fulfillment" class="region"><h1>Fulfillment</h1><div class="content"></div></div>');
+	$('#content').append('<div id="totals" class="region"><h1>Estimated Total</h1><div class="content"></div></div>');
 	downloadProducts();
 })
 
@@ -123,23 +123,27 @@ function downloadProducts() {
 				$('#totals .content').append('<div id="tubTotal" class="total"></div><div id="couponTotal" class="total"></div><div id="profTotal" class="total"></div><div id="estTotal" class="total"></div><span>This is your estimated total. Once we confirm your order we will apply discounts to give you the lowest price available.</span><button id="placeOrder">Place Order</button>');
 				total();
 				$('#placeOrder').click(function() {
-					c=document.cookie;
-					cooks=c.split('; ');
-					cart={};
-					for(i=0;i<cooks.length;i++) {
-						cookie=cooks[i].split('=');
-						if(cookie[0]=='cart') {
-							cart=JSON.parse(cookie[1]);
-							order.cart=cart;
-						}
-					}
-					console.log(cart);
-					console.log(order);
-					console.log(document.cookie);
+					buildOrder();
 				})
 			});
 		});
 	})
+}
+
+function buildOrder() {
+	c=document.cookie;
+	cooks=c.split('; ');
+	cart={};
+	for(i=0;i<cooks.length;i++) {
+		cookie=cooks[i].split('=');
+		if(cookie[0]=='cart') {
+			cart=JSON.parse(cookie[1]);
+			order.cart=cart;
+		}
+	}
+	console.log(cart);
+	console.log(order);
+	console.log(document.cookie);
 }
 
 function total() {
