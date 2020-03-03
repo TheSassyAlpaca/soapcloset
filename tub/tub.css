@@ -136,7 +136,7 @@
 	font-size: 100%;
 }
 
-#coupon input, #profession input, #fulfillment input {
+#coupon input, #profession input {
 	width: 80%;
 	max-width: 300px;
 	margin: auto;
@@ -155,15 +155,31 @@
 	font-size: calc(var(--thumb) * 0.33);
 }
 
-.line input:nth-child(1) {
+#fulfillment input {
+	width: 100%;
+	max-width: 300px;
+	margin: 10px auto;
+	display: block;
+	text-align: center;
+	font-size: calc(var(--thumb) * 0.33);
+}
+
+.line {
+	width: 80%;
+	max-width: 300px;
+	margin: 10px auto;
+	display: block;
+}
+
+.line+.line+.line input:nth-child(1) {
 	
 }
 
-.line input:nth-child(2) {
+.line+.line+.line input:nth-child(2) {
 	
 }
 
-.line input:nth-child(3) {
+.line+.line+.line input:nth-child(3) {
 	
 }
 
