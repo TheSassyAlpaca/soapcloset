@@ -1,267 +1,180 @@
 $(function() {
-	$('#content').append('<div id="items" class="region"><h1>Shopping Tub</h1><div class="content"></div></div>');
-	$('#content').append('<div id="coupon" class="region"><h1>Coupon Code</h1><div class="content"></div></div>');
-	$('#content').append('<div id="profession" class="region"><h1>Profession (Optional)</h1><div class="content"></div></div>');
-	$('#content').append('<div id="fulfillment" class="region"><h1>Fulfillment</h1><div class="content"></div></div>');
-	$('#content').append('<div id="totals" class="region"><h1>Estimated Total</h1><div class="content"></div></div>');
-	downloadProducts();
+	$('#home').click(function() {
+		window.location.href="/";
+	})
+	$('#cart').click(function() {
+		window.location.href="/tub";
+	})
+	$('.subscribe button').click(function() {
+		f="";
+		q=[];
+		a=[];
+		a.push($(this).parent().find('input.searchInput').val());
+		submitForm(f,q,a);
+	})
+	buildBLT();
+	buildSocialMedia();
+	buildSearch();
+	countCart();
 })
 
-professionList=[
-	{option:'Military',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
-	{option:'Medical',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
-	{option:'Education',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
-	{option:'EMS/EMT',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
-	{option:'Police',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
-	{option:'Fire/Rescue',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
-	{option:'Other',disc:'0',text:''},
-	{option:'Prefer Not To Say',disc:'0',text:''}
-];
-
-fulfillmentList=[
-	{option:'Pickup'},
-	{option:'Deliver'},
-	{option:'Ship'}
-];
-
-pickupList=[
-	{option:'Village Marketplace'},
-	{option:'International City Farmers Market'},
-	{option:'Perry Farmers Market'},
-	{option:'Wesleyan Farmers Market'},
-	{option:'The Market: Downtown Macon'}
-];
-
-order={};
-
-function downloadProducts() {
-	window['products']=[];
-	$(function() {
-		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
-		$(function() {
-			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/4/public/values?alt=json-in-script&callback=?",
-			function (data) {
-				$.each(data.feed.entry, function(i,entry) {
-					p=JSON.parse(entry.gsx$data.$t);
-					products.push(p);
-				});
-				//get items from cookies
-				$('#items .content').append(showTub());
-				$('.listing button').click(function(e) {
-					e.stopPropagation();
-					p=products[$(this).parents('.listing').attr('data')];
-					a=0;
-					i=$(this).parent().find('input');
-					if(!$(this).hasClass('addToCart')) {
-						if($(this).hasClass('down')) {
-							i.val(Number(Number(i.val())-1));
-						} else {
-							i.val(Number(Number(i.val())+1));
-						}
-						a=i.val();
-					} else {
-						i.val(1);
-						a=1;
-					}
-					if(i.val()>i.attr('max')) {
-						i.val(i.attr('max'));
-						a=i.val();
-					}
-					if(i.val()!=0) {
-						$(this).parents('.buy').find('.addToCart').css('display','none');
-						$(this).parents('.listing').find('.listingRight span').text('$'+(i.val()*p.price));
-						$(this).parents('.listing').find('.listingRight').attr('data-source',i.val()*p.price);
-					} else {
-						$(this).parents('.listing').remove();
-					}
-					changeCookie('cart',p.name.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
-					userAlert(a+' '+p.name+' are now in your cart.');
-					total();
-				})
-				$('.listingLeft, .listingMid h3').click(function(e) {
-					e.stopPropagation();
-					p=products[$(this).parents('.listing').attr('data')];
-					window.location.href="/products/"+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
-				})
-				$('.buy input').each(function() {
-					if($(this).val()!=0) {
-						$(this).parent().parent().children('.addToCart').css('display','none');
-					}
-				})
-				$('#coupon .content').append('<input type="text" placeholder="Enter Coupon Code"><span></span>');
-				$('#coupon input').on('change keyup',function() {
-					coupon=[
-						{code:'villagemarketplace',disc:'10',text:'This coupon gives you 10% off your entire purcahse and supports Village Marketplace.'},
-						{code:'marketplaceatpaynemill',disc:'10',text:'This coupon gives you 10% off your entire purcahse and supports The Marketplace at Payne Mill.'}
-					];
-					console.log($('#coupon input').val());
-					codeFound=0;
-					for(j=0;j<coupon.length;j++) {
-						if($('#coupon input').val().toLowerCase()==coupon[j].code) {
-							codeFound++;
-							$('#coupon').attr('data-source',coupon[j].disc);
-							$('#coupon span').text(coupon[j].text);
-						}
-					}
-					if(codeFound==0) {
-						$('#coupon').attr('data-source','')
-						$('#coupon span').text('');
-					}
-					total();
-				})
-				$('#profession .content').append('<input type="text" list="professions"><datalist id="professions">'+dataList(professionList)+'</datalist><span></span>');
-				$('#profession input').change(function() {
-					val=$(this).val()
-					codeFound=0;
-					for(j=0;j<professionList.length;j++) {
-						if(professionList[j].option==val) {
-							codeFound++;
-							$('#profession').attr('data-source',professionList[j].disc);
-							$('#profession span').text(professionList[j].text);
-						}
-					}
-					if(codeFound==0) {
-						$('#profession').attr('data-source','');
-						$('#profession span').text('');
-					}
-					total();
-				})
-				$('#fulfillment .content').append('<input type="text" class="list" list="fulfillments" placeholder="Select a fulfillment method."><datalist id="fulfillments">'+dataList(fulfillmentList)+'</datalist><input type="text" class="list" list="pickups" style="display:none" placeholder="Select a pickup location."><datalist id="pickups">'+dataList(pickupList)+'</datalist><div id="address" style="display:none"><div class="line"><input type="text" placeholder="Street Address"></div><div class="line"><input type="text" placeholder="Street Address 2"></div><div class="line"><input type="text" placeholder="City"><input type="text" placeholder="State"><input type="text" placeholder="Zip Code"></div></div>');
-				$('#fulfillment input').change(function() {
-					if($(this).hasClass('list')) {
-						val=$(this).val();
-						if($(this).attr('list')=='fulfillments') {
-							order.fulfillment=val;
-							if(val=='Deliver'||val=='Ship') {
-								$('#address').css('display','block');
-								$('#fulfillments').next().css('display','none');
-								delete order.pickup;
-							} else {
-								if(val=='Pickup') {
-									$('#address').css('display','none');
-									$('#fulfillments').next().css('display','block');
-								} else {
-									$('#address').css('display','none');
-									$('#fulfillments').next().css('display','none');
-								}
-							}
-						}
-						if($(this).attr('list')=='pickups') {
-							order.pickup=val;
-						}
-					} else {
-						if($(this).parents($('#address').length)) {
-							add={};
-							$('#address').find('input').each(function() {
-								add[$(this).attr('placeholder').replace(/[\s]/g,'')]=$(this).val();
-							})
-							order.address=add;
-						}
-					}
-					checkCompletion();
-					//total();
-				})
-				$('#totals .content').append('<div id="tubTotal" class="total"></div><div id="couponTotal" class="total"></div><div id="profTotal" class="total"></div><div id="estTotal" class="total"></div><span>This is your estimated total. Once we confirm your order we will apply discounts to give you the lowest price available.</span><button id="placeOrder" style="display:none">Place Order</button>');
-				total();
-				$('#placeOrder').click(function() {
-					buildOrder();
-				})
-			});
-		});
-	})
-}
-
-function checkCompletion() {
-	complete=0;
-	if($('#fulfillment').find('input')[0].val()=='Pickup'&&$('#fulfillment').find('input')[1].val()!=undefined) {
-		$('#placeOrder').css('display','block');
-		complete++;
-	}
-	if($('#fulfillment').find('input')[0].val()=='Deliever'||$('#fulfillment').find('input')[0].val()=='Ship') {
-		$('#placeOrder').css('display','block');
-		complete++;
-	}
-	if(complete==0) {
-		$('#placeOrder').css('display','none');
-	}
-}
-
-function buildOrder() {
+function countCart() {
 	c=document.cookie;
 	cooks=c.split('; ');
+	q=0;
 	cart={};
-	for(i=0;i<cooks.length;i++) {
-		cookie=cooks[i].split('=');
-		if(cookie[0]=='cart') {
-			cart=JSON.parse(cookie[1]);
-			order.cart=cart;
-		}
-	}
-	console.log(cart);
-	console.log(order);
-	console.log(document.cookie);
-}
-
-function total() {
-	tubTotal=0;
-	$('#items .listingRight').each(function() {
-		console.log(Number($(this).attr('data-source')));
-		tubTotal=tubTotal+Number($(this).attr('data-source'));
-	});
-	$('#tubTotal').empty().append('<label>Subtotal:</label><span>$'+tubTotal.toFixed(2)+'</span>');
-	couponTotal=0;
-	if(!isNaN(Number($('#coupon').attr('data-source')))) {
-		couponTotal=Number($('#coupon').attr('data-source'));
-		$('#couponTotal').empty().append('<label>Coupon Code:</label><span>-'+couponTotal+'%</span>');
-		order.coupon=$('#coupon input').val();
-	} else {
-		delete order.coupon;
-	}
-	console.log(couponTotal);
-	profTotal=0;
-	if(!isNaN(Number($('#profession').attr('data-source')))) {
-		profTotal=Number($('#profession').attr('data-source'));
-		$('#profTotal').empty().append('<label>Profession:</label><span>-'+profTotal+'%</span>');
-		order.profession=$('#profession input').val();
-	} else {
-		delete order.profession;
-	}
-	console.log(profTotal);
-	estTotal=tubTotal*((100-couponTotal-profTotal)/100);
-	console.log(estTotal);
-	$('#estTotal').empty().append('<label>Estimated Total:</label><span>$'+estTotal.toFixed(2)+'</span>');
-	order.estimate=estTotal;
-	console.log(order);
-	checkCompletion();
-}
-
-function dataList(l) {
-	dataset='';
-	for(i=0;i<l.length;i++) {
-		dataset=dataset+'<option value="'+l[i].option+'">'
-	}
-	return dataset
-}
-
-function showTub() {
-	c=document.cookie;
-	cooks=c.split('; ');
-	cart={};
-	list='';
+	//name=p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
 		if(cookie[0]=='cart') {
 			cart=JSON.parse(cookie[1]);
 			for(k in cart) {
 				console.log(cart[k]);
-				for(j=0;j<products.length;j++) {
-					if(products[j].name.replace(/[\s&'!-#()]/g,'').toLowerCase()==k&&cart[k]>0) {
-						p=products[j];
-						list=list+'<div id="'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3></div><div class="listingRight" data-source="'+(cart[k]*p.price)+'"><span>$'+(cart[k]*p.price)+'</span><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div></div><hr>';
-					}
-				}
+				q=q+Number(cart[k]);
 			}
 		}
 	}
-	return list
+	//return q
+	console.log(q);
+	if($('#cartCount').length==0) {
+		$('#cart').append('<div id="cartCount"></div>');
+	}
+	$('#cartCount').text(q);
+	if(q==0) {
+		$('#cartCount').remove();
+	}
+}
+
+function buildBLT() {
+	$('#blt').append('<div id="bltBody"><div class="bltMenu"></div><div class="socialArea"></div></div>');
+	menuObject=[{name:'Products',src:'/products'},{name:'Shops & Markets',src:'/shops_and_markets'},{name:'Ingredients',src:'/ingredients'},{name:'Gallery',src:'/gallery'},{name:'Blog',src:'/blog'}];
+	for(i=0;i<menuObject.length;i++) {
+		$('.bltMenu').append('<a href="'+menuObject[i].src+'" class="menuItem">'+menuObject[i].name+'</a>');
+	}
+	$('#blt').click(function() {
+		$(this).toggleClass('expand');
+	})
+	$('.menuItem').click(function(e) {
+		e.stopPropagation();
+	})
+}
+
+function buildSocialMedia() {
+	socialMedia=[
+		{icon:'facebook.png',href:'https://www.facebook.com/sassyalpaca'},
+		{icon:'twitter.png',href:'https://twitter.com/SassyAlpaca1'},
+		{icon:'instagram.png',href:'https://www.instagram.com/alpacasassy'},
+		{icon:'etsy.png',href:'https://www.etsy.com/shop/TheSassyAlpacaLLC'},
+		{icon:'pinterest.png',href:'/pinterest'}
+	];
+	img="https://soapcloset.thesassyalpaca.com/images/";
+	for(i=0;i<socialMedia.length;i++) {
+		$('.socialArea').append('<a href="'+socialMedia[i].href+'" class="socialLink" target="_blank"><img src="'+img+socialMedia[i].icon+'"></a>');
+	}
+	$('.socialLink').each(function() {
+		if($(this).attr('href').indexOf('etsy')!=-1) {
+			$(this).css('filter','invert(1)');
+		}
+	})
+}
+
+function buildSearch() {
+	$('#search').append('<div class="searchBar"></div>');
+	$('#search').click(function(e) {
+		e.stopPropagation();
+		$(this).toggleClass('open');
+	})
+	$('.searchBar').click(function(e) {
+		e.stopPropagation();
+	})
+	//add all to searchBar element
+	$('.searchBar').append('<div class="back"><img src="/images/left.png"></div><input placeholder="Search"><button><img src="/images/search.png"></button>');
+	$('.searchBar button').click(function(e) {
+		searchThis($(this).parent().find('input').val());
+	})
+	$('.searchBar input').on('keypress', function(e) {
+		if (e.keyCode==13) {
+			e.preventDefault();
+			e.target.blur();
+			searchThis($(this).parent().find('input').val());
+        }
+	})
+	$('.back').click(function(e) {
+		e.stopPropagation();
+		$('#search').removeClass('open');
+	})
+}
+
+function submitForm(f,q,a) {
+	fSub=f+a[0];
+	for(i=0;i<q.length;i++) {
+		fSub=fSub+'&'+q[i]+'='+a[i+1];
+	}
+	$('#basement').append('<iframe src="'+f+'">');
+}
+
+function searchThis(x) {
+	window.location.href='/search?q='+x+'&f=NA';
+}
+
+function userAlert(x) {
+	t=3000+(x.length * 10);
+	if(!$('#userAlert').length) {
+		$('#content').append('<div id="userAlert"></div>')
+	}
+	e=$('#userAlert');
+	e.text(x);
+	e.addClass('alert');
+	setTimeout(function() {
+		e.removeClass('alert');
+		e.text();
+	},t)
+}
+
+
+function getValue(p) {
+	//check cookies for this product using p.name.replace(/[\s&'!-#()]/g,'')
+	c=document.cookie;
+	cooks=c.split('; ');
+	q=0;
+	cart={};
+	name=p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
+	for(i=0;i<cooks.length;i++) {
+		cookie=cooks[i].split('=');
+		if(cookie[0]=='cart') {
+			cart=JSON.parse(cookie[1]);
+			if(name in cart) {
+				q=cart[name];
+			}
+		}
+	}
+	if(p.qty<q) {
+		q=p.qty;
+	}
+	return q
+}
+
+function changeCookie(c,p,a) {
+	console.log(c,p,a);
+	console.log(document.cookie);
+	c=document.cookie;
+	cooks=c.split('; ');
+	cart={};
+	name=p;
+	found=0;
+	for(i=0;i<cooks.length;i++) {
+		cookie=cooks[i].split('=');
+		if(cookie[0]=='cart') {
+			cart=JSON.parse(cookie[1]);
+		}
+	}
+	cart[name]=a;
+	now = new Date();
+	time = now.getTime();
+	expireTime = time + (1000*60*60*24*30);
+	now.setTime(expireTime);
+	expire=now.toGMTString();
+	console.log(expire);
+	document.cookie='cart='+JSON.stringify(cart)+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
+	countCart();
 }
