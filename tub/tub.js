@@ -31,6 +31,14 @@ fulfillmentList=[
 	{option:'Ship'}
 ];
 
+pickupList=[
+	{option:'Village Marketplace'},
+	{option:'International City Farmers Market'},
+	{option:'Perry Farmers Market'},
+	{option:'Wesleyan Farmers Market'},
+	{option:'The Market: Downtown Macon'}
+];
+
 order={};
 
 function downloadProducts() {
