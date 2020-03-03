@@ -24,6 +24,8 @@ professionList=[
 	{option:'Prefer Not To Say',disc:'0',text:''}
 ];
 
+order={};
+
 function downloadProducts() {
 	window['products']=[];
 	$(function() {
@@ -119,7 +121,6 @@ function downloadProducts() {
 				$('#totals .content').append('<div id="tubTotal" class="total"></div><div id="couponTotal" class="total"></div><div id="profTotal" class="total"></div><div id="estTotal" class="total"></div><span>This is your estimated total. Once we confirm your order we will apply discounts to give you the lowest price available.</span><button id="placeOrder">Place Order</button>');
 				total();
 				$('#placeOrder').click(function() {
-					//cart
 					c=document.cookie;
 					cooks=c.split('; ');
 					cart={};
@@ -127,6 +128,7 @@ function downloadProducts() {
 						cookie=cooks[i].split('=');
 						if(cookie[0]=='cart') {
 							cart=JSON.parse(cookie[1]);
+							order.cart=cart;
 						}
 					}
 					console.log(cart);
@@ -147,17 +149,25 @@ function total() {
 	if(!isNaN(Number($('#coupon').attr('data-source')))) {
 		couponTotal=Number($('#coupon').attr('data-source'));
 		$('#couponTotal').empty().append('<label>Coupon Code:</label><span>-'+couponTotal+'%</span>');
+		order.coupon=$('#coupon input').val();
+	} else {
+		delete order.coupon;
 	}
 	console.log(couponTotal);
 	profTotal=0;
 	if(!isNaN(Number($('#profession').attr('data-source')))) {
 		profTotal=Number($('#profession').attr('data-source'));
 		$('#profTotal').empty().append('<label>Profession:</label><span>-'+profTotal+'%</span>');
+		order.profession=$('#profession input').val();
+	} else {
+		delete order.profession;
 	}
 	console.log(profTotal);
 	estTotal=tubTotal*((100-couponTotal-profTotal)/100);
 	console.log(estTotal);
 	$('#estTotal').empty().append('<label>Estimated Total:</label><span>$'+estTotal.toFixed(2)+'</span>');
+	order.estimate=estTotal;
+	console.log(order);
 }
 
 function dataList(l) {
