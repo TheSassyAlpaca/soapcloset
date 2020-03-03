@@ -169,6 +169,12 @@ function changeCookie(c,p,a) {
 		}
 	}
 	cart[name]=a;
-	document.cookie='cart='+JSON.stringify(cart)+';path=/;domain=.thesassyalpaca.com';
+	now = new Date();
+	time = now.getTime();
+	expireTime = time + (1000*60*60*24*30);
+	now.setTime(expireTime);
+	expire=now.toGMTString();
+	console.log(expire);
+	document.cookie='cart='+JSON.stringify(cart)+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
 	countCart();
 }
