@@ -158,15 +158,10 @@ function downloadProducts() {
 							order.address=add;
 						}
 					}
-					now = new Date();
-					time = now.getTime();
-					expireTime = time + 1000*36000;
-					now.setTime(expireTime);
-					
-					console.log(now.toGMTString());
+					checkCompletion();
 					//total();
 				})
-				$('#totals .content').append('<div id="tubTotal" class="total"></div><div id="couponTotal" class="total"></div><div id="profTotal" class="total"></div><div id="estTotal" class="total"></div><span>This is your estimated total. Once we confirm your order we will apply discounts to give you the lowest price available.</span><button id="placeOrder">Place Order</button>');
+				$('#totals .content').append('<div id="tubTotal" class="total"></div><div id="couponTotal" class="total"></div><div id="profTotal" class="total"></div><div id="estTotal" class="total"></div><span>This is your estimated total. Once we confirm your order we will apply discounts to give you the lowest price available.</span><button id="placeOrder" style="display:none">Place Order</button>');
 				total();
 				$('#placeOrder').click(function() {
 					buildOrder();
@@ -174,6 +169,21 @@ function downloadProducts() {
 			});
 		});
 	})
+}
+
+function checkCompletion() {
+	complete=0;
+	if($('#fulfillment').find('input')[0].val()=='Pickup'&&$('#fulfillment').find('input')[1].val()!=undefined) {
+		$('#placeOrder').css('display','block');
+		complete++;
+	}
+	if($('#fulfillment').find('input')[0].val()=='Deliever'||$('#fulfillment').find('input')[0].val()=='Ship') {
+		$('#placeOrder').css('display','block');
+		complete++;
+	}
+	if(complete==0) {
+		$('#placeOrder').css('display','none');
+	}
 }
 
 function buildOrder() {
@@ -222,6 +232,7 @@ function total() {
 	$('#estTotal').empty().append('<label>Estimated Total:</label><span>$'+estTotal.toFixed(2)+'</span>');
 	order.estimate=estTotal;
 	console.log(order);
+	checkCompletion();
 }
 
 function dataList(l) {
