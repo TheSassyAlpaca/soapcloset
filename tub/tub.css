@@ -155,6 +155,10 @@
 	font-size: calc(var(--thumb) * 0.33);
 }
 
+#fulfillment .content>input:first-child {
+	margin-bottom: 10px;
+}
+
 #fulfillment .line input {
 	width: 100%;
 }
