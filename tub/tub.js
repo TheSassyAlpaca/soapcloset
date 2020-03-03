@@ -1,10 +1,3 @@
-/* FULFILLMENT
-	radial button for Pickup, Delivery, Shipping
-	if Pickup: select location
-	if Delivery: select county (list of counties delivered to)
-	if Shipping or Delivery: enter address
-*/
-
 $(function() {
 	$('#content').append('<div id="items" class="region"><h1>Shopping Tub</h1><div class="content"></div></div>');
 	$('#content').append('<div id="coupon" class="region"><h1>Coupon Code</h1><div class="content"></div></div>');
@@ -133,7 +126,7 @@ function downloadProducts() {
 					}
 					total();
 				})
-				$('#fulfillment .content').append('<input type="text" class="list" list="fulfillments"><datalist id="fulfillments">'+dataList(fulfillmentList)+'</datalist><input type="text" class="list" list="pickups" style="display:none"><datalist id="pickups">'+dataList(pickupList)+'</datalist><div id="address" style="display:none"><div class="line"><input type="text" placeholder="Street Address"></div><div class="line"><input type="text" placeholder="Street Address 2"></div><div class="line"><input type="text" placeholder="City"><input type="text" placeholder="State"><input type="text" placeholder="Zip Code"></div></div>');
+				$('#fulfillment .content').append('<input type="text" class="list" list="fulfillments" placeholder="Select a fulfillment method."><datalist id="fulfillments">'+dataList(fulfillmentList)+'</datalist><input type="text" class="list" list="pickups" style="display:none" placeholder="Select a pickup location."><datalist id="pickups">'+dataList(pickupList)+'</datalist><div id="address" style="display:none"><div class="line"><input type="text" placeholder="Street Address"></div><div class="line"><input type="text" placeholder="Street Address 2"></div><div class="line"><input type="text" placeholder="City"><input type="text" placeholder="State"><input type="text" placeholder="Zip Code"></div></div>');
 				$('#fulfillment input').change(function() {
 					if($(this).hasClass('list')) {
 						val=$(this).val();
@@ -152,7 +145,7 @@ function downloadProducts() {
 							order.pickup=val;
 						}
 					} else {
-						if($('#address').contains($(this))) {
+						if($(this).parents($('#address').length)) {
 							add={};
 							$('#address').find('input').each(function() {
 								add[$(this).attr('placeholder').replace(/[\s]/g,'')]=$(this).val();
