@@ -158,7 +158,12 @@ function downloadProducts() {
 							order.address=add;
 						}
 					}
+					now = new Date();
+					time = now.getTime();
+					expireTime = time + 1000*36000;
+					now.setTime(expireTime);
 					
+					console.log(now.toGMTString());
 					//total();
 				})
 				$('#totals .content').append('<div id="tubTotal" class="total"></div><div id="couponTotal" class="total"></div><div id="profTotal" class="total"></div><div id="estTotal" class="total"></div><span>This is your estimated total. Once we confirm your order we will apply discounts to give you the lowest price available.</span><button id="placeOrder">Place Order</button>');
