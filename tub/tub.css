@@ -136,7 +136,7 @@
 	font-size: 100%;
 }
 
-#coupon input, #profession input {
+#coupon input, #profession input, #fulfillment input {
 	width: 80%;
 	max-width: 300px;
 	margin: auto;
@@ -153,6 +153,18 @@
 	display: block;
 	text-align: center;
 	font-size: calc(var(--thumb) * 0.33);
+}
+
+.line input:nth-child(1) {
+	
+}
+
+.line input:nth-child(2) {
+	
+}
+
+.line input:nth-child(3) {
+	
 }
 
 #totals .total {
