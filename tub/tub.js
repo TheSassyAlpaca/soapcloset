@@ -173,11 +173,11 @@ function downloadProducts() {
 
 function checkCompletion() {
 	complete=0;
-	if($('#fulfillment').find('input')[0].val()=='Pickup'&&$('#fulfillment').find('input')[1].val()!=undefined) {
+	if($('#fulfillment').find('input').eq(0).val()=='Pickup'&&$('#fulfillment').find('input').eq(1).val()!=undefined) {
 		$('#placeOrder').css('display','block');
 		complete++;
 	}
-	if($('#fulfillment').find('input')[0].val()=='Deliever'||$('#fulfillment').find('input')[0].val()=='Ship') {
+	if($('#fulfillment').find('input').eq(0).val()=='Deliever'||$('#fulfillment').find('input').eq(0).val()=='Ship') {
 		$('#placeOrder').css('display','block');
 		complete++;
 	}
