@@ -175,9 +175,17 @@
 }
 
 #totals>span {
-	
+	width: 80%;
+	max-width: 300px;
+	margin: 10px auto;
+	display: block;
 }
 
 #placeOrder {
-	
+	width: 80%;
+	max-width: 300px;
+	margin: 10px auto;
+	display: block;
+	height: calc(var(--thumb) * 0.75);
+	font-size: calc(var(--thumb) * 0.5);
 }
