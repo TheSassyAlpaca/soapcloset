@@ -133,12 +133,32 @@ function downloadProducts() {
 					}
 					total();
 				})
-				$('#fulfillment .content').append('<input type="text" list="fulfillments"><datalist id="fulfillments">'+dataList(fulfillmentList)+'</datalist><input type="text" list="pickups"><datalist id="pickups">'+dataList(pickupList)+'</datalist><div id="address"><div class="line"><input type="text" placeholder="Street Address"></div><div class="line"><input type="text" placeholder="Street Address 2"></div><div class="line"><input type="text" placeholder="City"><input type="text" placeholder="State"><input type="text" placeholder="Zip Code"></div></div>');
+				$('#fulfillment .content').append('<input type="text" list="fulfillments"><datalist id="fulfillments">'+dataList(fulfillmentList)+'</datalist><input type="text" list="pickups"><datalist id="pickups">'+dataList(pickupList)+'</datalist><div id="address" style="display:none"><div class="line"><input type="text" placeholder="Street Address"></div><div class="line"><input type="text" placeholder="Street Address 2"></div><div class="line"><input type="text" placeholder="City"><input type="text" placeholder="State"><input type="text" placeholder="Zip Code"></div></div>');
 				$('#fulfillment input').change(function() {
-					val=$(this).val();
-					if(val=='Deliver'||val=='Ship') {
-						$('#fulfillment')
+					if($(this).hasAttribute('list')) {
+						val=$(this).val();
+						if($(this).attr('list')=='fulfillments') {
+							order.fulfillment=val;
+							if(val=='Deliver'||val=='Ship') {
+								$('#address').css('display','block');
+								delete order.pickup;
+							} else {
+								$('#address').css('display','none');
+							}
+						}
+						if($(this).attr('list')=='pickups') {
+							order.pickup=val;
+						}
+					} else {
+						if($('#address').contains($(this))) {
+							add={};
+							$('#address').find('input').each(function() {
+								add[$(this).attr('placeholder').replace(/[\s]/g,'')]=$(this).val();
+							})
+							order.address=add;
+						}
 					}
+					
 					//total();
 				})
 				$('#totals .content').append('<div id="tubTotal" class="total"></div><div id="couponTotal" class="total"></div><div id="profTotal" class="total"></div><div id="estTotal" class="total"></div><span>This is your estimated total. Once we confirm your order we will apply discounts to give you the lowest price available.</span><button id="placeOrder">Place Order</button>');
