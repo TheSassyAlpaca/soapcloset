@@ -177,7 +177,7 @@ function checkCompletion() {
 		$('#placeOrder').css('display','block');
 		complete++;
 	}
-	if($('#fulfillment').find('input').eq(0).val()=='Deliever'||$('#fulfillment').find('input').eq(0).val()=='Ship') {
+	if($('#fulfillment').find('input').eq(0).val()=='Deliver'||$('#fulfillment').find('input').eq(0).val()=='Ship') {
 		$('#placeOrder').css('display','block');
 		complete++;
 	}
