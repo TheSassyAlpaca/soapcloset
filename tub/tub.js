@@ -137,8 +137,13 @@ function downloadProducts() {
 								$('#fulfillments').next().css('display','none');
 								delete order.pickup;
 							} else {
-								$('#address').css('display','none');
-								$('#fulfillments').next().css('display','block');
+								if(val=='Pickup') {
+									$('#address').css('display','none');
+									$('#fulfillments').next().css('display','block');
+								} else {
+									$('#address').css('display','none');
+									$('#fulfillments').next().css('display','none');
+								}
 							}
 						}
 						if($(this).attr('list')=='pickups') {
