@@ -135,6 +135,7 @@ function downloadProducts() {
 					}
 					console.log(cart);
 					console.log(order);
+					console.log(document.cookie);
 				})
 			});
 		});
