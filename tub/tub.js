@@ -173,7 +173,7 @@ function downloadProducts() {
 
 function checkCompletion() {
 	complete=0;
-	if($('#fulfillment').find('input').eq(0).val()=='Pickup'&&$('#fulfillment').find('input').eq(1).val()!=undefined) {
+	if($('#fulfillment').find('input').eq(0).val()=='Pickup'&&$('#fulfillment').find('input').eq(1).val().length) {
 		$('#placeOrder').css('display','block');
 		complete++;
 	}
