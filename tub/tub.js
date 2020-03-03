@@ -25,6 +25,12 @@ professionList=[
 	{option:'Prefer Not To Say',disc:'0',text:''}
 ];
 
+fulfillmentList=[
+	{option:'Pickup'},
+	{option:'Deliver'},
+	{option:'Ship'}
+];
+
 order={};
 
 function downloadProducts() {
@@ -119,7 +125,14 @@ function downloadProducts() {
 					}
 					total();
 				})
-				$('#fulfillment .content').append('');
+				$('#fulfillment .content').append('<input type="text" list="fulfillments"><datalist id="fulfillments">'+dataList(fulfillmentList)+'</datalist><input type="text" list="pickups"><datalist id="pickups">'+dataList(pickupList)+'</datalist><div id="address"><div class="line"><input type="text" placeholder="Street Address"></div><div class="line"><input type="text" placeholder="Street Address 2"></div><div class="line"><input type="text" placeholder="City"><input type="text" placeholder="State"><input type="text" placeholder="Zip Code"></div></div>');
+				$('#fulfillment input').change(function() {
+					val=$(this).val();
+					if(val=='Deliver'||val=='Ship') {
+						$('#fulfillment')
+					}
+					//total();
+				})
 				$('#totals .content').append('<div id="tubTotal" class="total"></div><div id="couponTotal" class="total"></div><div id="profTotal" class="total"></div><div id="estTotal" class="total"></div><span>This is your estimated total. Once we confirm your order we will apply discounts to give you the lowest price available.</span><button id="placeOrder">Place Order</button>');
 				total();
 				$('#placeOrder').click(function() {
