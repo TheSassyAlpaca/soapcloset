@@ -133,7 +133,7 @@ function downloadProducts() {
 					}
 					total();
 				})
-				$('#fulfillment .content').append('<input type="text" class="list" list="fulfillments"><datalist id="fulfillments">'+dataList(fulfillmentList)+'</datalist><input type="text" class="list" list="pickups"><datalist id="pickups">'+dataList(pickupList)+'</datalist><div id="address" style="display:none"><div class="line"><input type="text" placeholder="Street Address"></div><div class="line"><input type="text" placeholder="Street Address 2"></div><div class="line"><input type="text" placeholder="City"><input type="text" placeholder="State"><input type="text" placeholder="Zip Code"></div></div>');
+				$('#fulfillment .content').append('<input type="text" class="list" list="fulfillments"><datalist id="fulfillments">'+dataList(fulfillmentList)+'</datalist><input type="text" class="list" list="pickups" style="display:none"><datalist id="pickups">'+dataList(pickupList)+'</datalist><div id="address" style="display:none"><div class="line"><input type="text" placeholder="Street Address"></div><div class="line"><input type="text" placeholder="Street Address 2"></div><div class="line"><input type="text" placeholder="City"><input type="text" placeholder="State"><input type="text" placeholder="Zip Code"></div></div>');
 				$('#fulfillment input').change(function() {
 					if($(this).hasClass('list')) {
 						val=$(this).val();
@@ -141,9 +141,11 @@ function downloadProducts() {
 							order.fulfillment=val;
 							if(val=='Deliver'||val=='Ship') {
 								$('#address').css('display','block');
+								$('#fulfillments').next().css('display','none');
 								delete order.pickup;
 							} else {
 								$('#address').css('display','none');
+								$('#fulfillments').next().css('display','block');
 							}
 						}
 						if($(this).attr('list')=='pickups') {
