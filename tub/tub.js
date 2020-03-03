@@ -118,6 +118,19 @@ function downloadProducts() {
 				})
 				$('#totals .content').append('<div id="tubTotal" class="total"></div><div id="couponTotal" class="total"></div><div id="profTotal" class="total"></div><div id="estTotal" class="total"></div><span>This is your estimated total. Once we confirm your order we will apply discounts to give you the lowest price available.</span><button id="placeOrder">Place Order</button>');
 				total();
+				$('#placeOrder').click(function() {
+					//cart
+					c=document.cookie;
+					cooks=c.split('; ');
+					cart={};
+					for(i=0;i<cooks.length;i++) {
+						cookie=cooks[i].split('=');
+						if(cookie[0]=='cart') {
+							cart=JSON.parse(cookie[1]);
+						}
+					}
+					console.log(cart);
+				})
 			});
 		});
 	})
