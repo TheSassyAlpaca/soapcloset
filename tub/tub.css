@@ -174,7 +174,7 @@
 	display: inline-block;
 }
 
-#totals>span {
+#totals .content > span {
 	width: 80%;
 	max-width: 300px;
 	margin: 10px auto;
