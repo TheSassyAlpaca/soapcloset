@@ -186,7 +186,7 @@ function checkCompletion() {
 	if($('#fulfillment').find('input').eq(0).val()=='Deliver'||$('#fulfillment').find('input').eq(0).val()=='Ship') {
 		fulfilled++;
 	}
-	if($('#contact').find('input').is(':valid')) {
+	if($('#contact').find('input').is(':invalid')) {
 		email++;
 	}
 	if(fulfilled==0||email==0) {
