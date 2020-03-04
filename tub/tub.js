@@ -3,6 +3,7 @@ $(function() {
 	$('#content').append('<div id="coupon" class="region"><h1>Coupon Code</h1><div class="content"></div></div>');
 	$('#content').append('<div id="profession" class="region"><h1>Profession (Optional)</h1><div class="content"></div></div>');
 	$('#content').append('<div id="fulfillment" class="region"><h1>Fulfillment</h1><div class="content"></div></div>');
+	$('#content').append('<div id="contact" class="region"><h1>Contact</h1><div class="content"></div></div>');
 	$('#content').append('<div id="totals" class="region"><h1>Estimated Total</h1><div class="content"></div></div>');
 	downloadProducts();
 })
@@ -161,6 +162,11 @@ function downloadProducts() {
 					checkCompletion();
 					//total();
 				})
+				$('#contact').append('<input type="email" placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">');
+				$('#contact input').change(function() {
+					order.email=$(this).val();
+					checkCompletion();
+				})
 				$('#totals .content').append('<div id="tubTotal" class="total"></div><div id="couponTotal" class="total"></div><div id="profTotal" class="total"></div><div id="estTotal" class="total"></div><span>This is your estimated total. Once we confirm your order we will apply discounts to give you the lowest price available.</span><button id="placeOrder" style="display:none">Place Order</button>');
 				total();
 				$('#placeOrder').click(function() {
@@ -172,17 +178,22 @@ function downloadProducts() {
 }
 
 function checkCompletion() {
-	complete=0;
+	fulfilled=0;
+	email=0;
 	if($('#fulfillment').find('input').eq(0).val()=='Pickup'&&$('#fulfillment').find('input').eq(1).val().length) {
-		$('#placeOrder').css('display','block');
-		complete++;
+		fulfilled++;
 	}
 	if($('#fulfillment').find('input').eq(0).val()=='Deliver'||$('#fulfillment').find('input').eq(0).val()=='Ship') {
-		$('#placeOrder').css('display','block');
-		complete++;
+		fulfilled++;
 	}
-	if(complete==0) {
+	if($('#fulfillment').find('input').valid()) {
+		email++;
+	}
+	if(fulfilled==0||email==0) {
 		$('#placeOrder').css('display','none');
+	}
+	if(fulfilled!=0&&email!=0) {
+		$('#placeOrder').css('display','block');
 	}
 }
 
