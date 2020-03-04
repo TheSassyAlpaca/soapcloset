@@ -162,7 +162,7 @@ function downloadProducts() {
 					checkCompletion();
 					//total();
 				})
-				$('#contact').append('<input type="email" placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">');
+				$('#contact .content').append('<input type="email" placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">');
 				$('#contact input').on('change keyup',function() {
 					order.email=$(this).val();
 					checkCompletion();
