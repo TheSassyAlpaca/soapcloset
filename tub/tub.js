@@ -163,7 +163,7 @@ function downloadProducts() {
 					//total();
 				})
 				$('#contact').append('<input type="email" placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">');
-				$('#contact input').change(function() {
+				$('#contact input').on('change keyup',function() {
 					order.email=$(this).val();
 					checkCompletion();
 				})
@@ -186,7 +186,7 @@ function checkCompletion() {
 	if($('#fulfillment').find('input').eq(0).val()=='Deliver'||$('#fulfillment').find('input').eq(0).val()=='Ship') {
 		fulfilled++;
 	}
-	if($('#fulfillment').find('input').valid()) {
+	if($('#fulfillment').find('input').valid()==true) {
 		email++;
 	}
 	if(fulfilled==0||email==0) {
