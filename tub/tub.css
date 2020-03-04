@@ -136,7 +136,7 @@
 	font-size: 100%;
 }
 
-#coupon input, #profession input, #fulfillment input {
+#coupon input, #profession input, #fulfillment input, #contact input {
 	width: 80%;
 	max-width: 300px;
 	margin: auto;
@@ -184,6 +184,11 @@
 	width: 25% !important;
 	display: inline-block !important;
 	margin-right: -4px !important;
+}
+
+#contact input:invalid {
+	background: pink;
+	border: red;
 }
 
 #totals .total {
