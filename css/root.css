@@ -299,6 +299,41 @@ header {
 	vertical-align: top;
 }
 
+.band {
+	background-image: url(/images/products/duallayerbarkblend.JPG);
+	margin: -10px;
+	height: 80vh;
+	background-size: cover;
+	background-position: center center;
+	font-family: var(--soapCloset);
+}
+
+.band a {
+	text-decoration: none;
+	color: rgb(var(--oats));
+	text-shadow: 0px 0px 5px rgb(var(--ocean)), 0px 0px 10px rgb(var(--sage));
+}
+
+.band .container {
+	height: 100%;
+	width: 80vw;
+	max-width: 300px;
+	min-width: 50vw;
+	margin: auto;
+	display: flex;
+}
+
+.band .content {
+	margin: auto;
+}
+
+.band .line {
+	display: block;
+	width: 100%;
+	text-align: center;
+	line-height: 100%;
+}
+
 footer {
 	background-color: rgb(var(--sage));
 	font-family: var(--econ);
