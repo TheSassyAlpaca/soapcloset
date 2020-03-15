@@ -349,6 +349,25 @@ header {
 	margin-top: -46px;
 }
 
+.event {
+	
+}
+
+.event eImg {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(var(--thumb) * 1.25);
+	background-size: cover;
+	background-position: center center;
+}
+
+.eMid {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(100vw - (var(--thumb) * 1.25) - 20px);
+}
+
+
 footer {
 	background-color: rgb(var(--sage));
 	font-family: var(--econ);
