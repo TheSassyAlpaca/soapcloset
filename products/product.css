@@ -1,6 +1,7 @@
 #title, #pricing, #description, #ingredients {
 	max-width: 800px;
 	margin: 10px auto;
+	font-size: initial;
 }
 
 #slideshow {
@@ -87,8 +88,4 @@
 #description {
 	margin: 10px auto;
 	font-size: 20px;
-}
-
-.ingredient {
-	display: contents;
 }
