@@ -344,9 +344,9 @@ header {
 
 #map iframe {
 	border: none;
-	width: 100%;
+	width: 100vw;
 	height: 50vh;
-	margin-top: -46px;
+	margin: -56px -10px 0px -10px;
 }
 
 .event {
