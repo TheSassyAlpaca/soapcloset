@@ -283,6 +283,7 @@ header {
 	height: calc(var(--thumb) * 0.5);
 	width: fit-content;
 	margin: calc(var(--thumb) * 0.25) auto;
+	text-indent: 0px;
 }
 
 .socialLink {
@@ -302,7 +303,7 @@ header {
 .band {
 	background-image: url(/images/products/duallayerbarkblend.JPG);
 	margin: -10px;
-	height: 80vh;
+	height: calc(100vh - var(--thumb));
 	background-size: cover;
 	background-position: center center;
 	font-family: var(--soapCloset);
@@ -412,8 +413,15 @@ footer .searchBar {
 	bottom: 70px !important;
 }
 
-@media only screen and (min-width:360px) {
+@media only screen and (min-width:361px) {
+	.subscribe {
+		max-width: 320px;
+		margin: auto;
+	}
 	
+	.subscribe .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset {
+		max-width: 220px;
+	}
 }
 
 @media only screen and (min-width:700px) {
