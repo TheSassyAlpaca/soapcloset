@@ -39,6 +39,7 @@ function getShopsAndMarkets() {
 						$('#shops').append('<div id="'+e.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="event" data-source="'+e.gps+'"><div class="eImg" style="background-image: url('+e.image+')"></div><div class="eMid"><h2>'+e.name+'</h2><div class="eBody">'+e.address.replace(', ','</br>')+'<br><a href="'+e.website+'">Website</a><div class="eSocial"><a href="'+e.facebook+'"><img src="/images/facebook.png"></a><a href="'+e.instagram+'"><img src="/images/instagram.png"></a></div><div class="eRight"></div></div>');
 					} else {
 						marketList.push(e);
+						$('#markets').append('<div id="'+e.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="event" data-source="'+e.gps+'"><div class="eImg" style="background-image: url('+e.image+')"></div><div class="eMid"><h2>'+e.name+'</h2><div class="eBody">'+e.frequency+'<br>'+e.address.replace(', ','</br>')+'<br><a href="'+e.website+'">Website</a><div class="eSocial"><a href="'+e.facebook+'"><img src="/images/facebook.png"></a><a href="'+e.instagram+'"><img src="/images/instagram.png"></a></div><div class="eRight"></div></div>');
 					}
 					if(i==0) {
 						$('#map iframe').attr('src',map+e.gps.replace(', ','%2C')+'&z=11');
