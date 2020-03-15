@@ -372,6 +372,11 @@ header {
 	width: calc(100vw - (var(--thumb) * 1.25) - 20px);
 }
 
+.eSocial img {
+	display: inline-block;
+	height: calc(var(--thumb) * .75);
+	width: calc(var(--thumb) * .75);
+}
 
 footer {
 	background-color: rgb(var(--sage));
