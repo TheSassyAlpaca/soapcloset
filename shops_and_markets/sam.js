@@ -36,7 +36,7 @@ function getShopsAndMarkets() {
 					e=JSON.parse(entry.gsx$data.$t);
 					if(e.type=="shop") {
 						shops.push(e);
-						$('#shops').append('<div id="'+e.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="event" data-source="'+e.gps+'"><div class="eImg" style="background-image: url('+e.image+')"></div><div class="eMid"><h2>'+e.name+'</h2><div class="eBody">'+e.frequency+'<br>'+e.address.replace(', ','</br>')+'<br>'+e.website+'<div class="eSocial">'+e.facebook+e.instagram+'</div><div class="eRight"></div></div>');
+						$('#shops').append('<div id="'+e.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="event" data-source="'+e.gps+'"><div class="eImg" style="background-image: url('+e.image+')"></div><div class="eMid"><h2>'+e.name+'</h2><div class="eBody">'+e.address.replace(', ','</br>')+'<br><a href="'+e.website+'">Website</a><div class="eSocial"><a href="'+e.facebook+'"><img src="/images/facebook.png"></a><a href="'+e.instagram+'"><img src="/images/instagram.png"></a></div><div class="eRight"></div></div>');
 					} else {
 						markets.push(e);
 					}
