@@ -370,12 +370,19 @@ header {
 	display: inline-block;
 	height: calc(var(--thumb) * 1.25);
 	width: calc(100vw - (var(--thumb) * 1.25) - 20px);
+	position: relative;
 }
 
 .eSocial img {
 	display: inline-block;
-	height: calc(var(--thumb) * .75);
-	width: calc(var(--thumb) * .75);
+	height: calc(var(--thumb) * .5);
+	width: calc(var(--thumb) * .5);
+	filter: invert(1);
+	vertical-align: top;
+}
+
+.eSocial img:nth-child(1) {
+	margin-top: -3px;
 }
 
 footer {
