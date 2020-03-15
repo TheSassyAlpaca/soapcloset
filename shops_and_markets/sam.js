@@ -2,7 +2,7 @@ map="https://www.google.com/maps/d/embed?mid=1Ur_3A9sCrxrMDNeVaCBaHhCWKslitKgN&l
 
 $(function() {
 	//build page framework
-	$('#content').append('<div id="map"><iframe src="'+map+'"></iframe"></div><div id="shops" class="category"><h1>Shops</h1></div><div id="markets" class="category"><h1>Markets</h1>');
+	$('#content').append('<div id="map"><iframe src="'+map+'"></iframe"></div><div id="shops" class="category"><h1>Shops</h1></div><div id="markets" class="category"><h1>Markets</h1></div>');
 	//get list of shops and markets from DB
 	//separate shops from markets
 	shops=[];
@@ -41,7 +41,7 @@ function getShopsAndMarkets() {
 						markets.push(e);
 					}
 					if(i==0) {
-						$('#map iframe').attr('src',map+e.gps.replace(', ','%2C')+'z11');
+						$('#map iframe').attr('src',map+e.gps.replace(', ','%2C')+'&z=11');
 					}
 					console.log(e)
 				});
