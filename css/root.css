@@ -350,7 +350,8 @@ header {
 }
 
 #samContainer {
-	margin-top: calc(50vh - 56px);
+	height: calc(50vh - 10px);
+	overflow: scroll;
 }
 
 .event {
