@@ -1,4 +1,8 @@
+map="https://www.google.com/maps/d/embed?mid=1Ur_3A9sCrxrMDNeVaCBaHhCWKslitKgN&ll="
+
 $(function() {
+	//build page framework
+	$('#content').append('<div id="map"><iframe src=""></iframe"></div><div id="shops" class="category"><h1>Shops</h1></div><div id="markets" class="category"><h1>Markets</h1>');
 	//get list of shops and markets from DB
 	//separate shops from markets
 	shops=[];
@@ -32,6 +36,7 @@ function getShopsAndMarkets() {
 					e=JSON.parse(entry.gsx$data.$t);
 					if(e.type=="shop") {
 						shops.push(e);
+						$('#shops').append('<div id="'+e.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="event" data-source="'+e.gps+'"><div class="eImg"></div><div eMid"><h2>'+e.name+'</h2><div class="eBody">'+e.frequency+'<br>'+e.address+'<br>'+e.website+'<div class="eSocial">'+e.facebook+e.instagram+'</div><div class="eRight"></div></div>');
 					} else {
 						markets.push(e);
 					}
