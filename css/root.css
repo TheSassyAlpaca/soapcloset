@@ -354,11 +354,13 @@ header {
 }
 
 .event {
-	
+	margin: 10px auto;
 }
 
 .event h2 {
 	font-size: calc(var(--thumb) / 2);
+	overflow: overlay;
+	margin-top: -10px;
 }
 
 .event .eImg {
@@ -373,8 +375,9 @@ header {
 .eMid {
 	display: inline-block;
 	height: calc(var(--thumb) * 1.25);
-	width: calc(100vw - (var(--thumb) * 1.25) - 20px);
+	width: calc(100vw - (var(--thumb) * 1.25) - 30px);
 	position: relative;
+	margin-left: 10px;
 }
 
 .eSocial {
