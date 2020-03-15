@@ -40,6 +40,9 @@ function getShopsAndMarkets() {
 					} else {
 						markets.push(e);
 					}
+					if(i==0) {
+						$('#map iframe').attr('src',map+e.gps.replace(', ','%2C')+'z11');
+					}
 					console.log(e)
 				});
 			});
