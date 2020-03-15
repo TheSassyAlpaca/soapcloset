@@ -2,7 +2,7 @@ map="https://www.google.com/maps/d/embed?mid=1Ur_3A9sCrxrMDNeVaCBaHhCWKslitKgN&l
 
 $(function() {
 	//build page framework
-	$('#content').append('<div id="map"><iframe src="'+map+'"></iframe"></div><div id="shops" class="category"><h1>Shops</h1></div><div id="markets" class="category"><h1>Markets</h1></div>');
+	$('#content').append('<div id="map"><iframe src="'+map+'32.805007368420775%2C-83.62111061384797&z=11"></iframe"></div><div id="shops" class="category"><h1>Shops</h1></div><div id="markets" class="category"><h1>Markets</h1></div>');
 	//get list of shops and markets from DB
 	//separate shops from markets
 	shops=[];
