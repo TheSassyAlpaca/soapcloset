@@ -3,6 +3,8 @@
 	max-height: calc(var(--thumb) * 2.2);
 	overflow: hidden;
 	transition: 1s cubic-bezier(0, 1, 0, 1);
+	max-width: 800px;
+	margin: auto;
 }
 
 .catHeader {
@@ -29,7 +31,7 @@
 .proPhoto {
 	height: calc(var(--thumb) * 1.0);
 	width: calc(var(--thumb) * 1.0);
-	margin: calc(var(--thumb) * 0.05) auto;
+	margin: calc(var(--thumb) * 0.08) auto;
 	display: inline-block;
 	padding: 0px 3px;
 }
@@ -217,4 +219,3 @@
 	padding: 0px;
 	font-size: 100%;
 }
-
