@@ -301,7 +301,6 @@ header {
 }
 
 .band {
-	background-image: url(/images/products/duallayerbarkblend.JPG);
 	margin: -10px;
 	height: calc(100vh - var(--thumb));
 	background-size: cover;
@@ -333,6 +332,14 @@ header {
 	width: 100%;
 	text-align: center;
 	line-height: 100%;
+}
+
+.band .line.text {
+	font-size: 26px;
+	background-image: radial-gradient(rgb(var(--ocean)) 30%, transparent 100%);
+	width: calc(100vw - 40px);
+	margin: 0px -10vw;
+	padding: 10px 20px;
 }
 
 footer {
