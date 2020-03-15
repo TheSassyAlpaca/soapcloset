@@ -19,5 +19,25 @@ $(function() {
 		frequency (text)
 		social media (limit - FB,Insta)
 	*/
-	
+	getShopsAndMarkets();
 })
+
+function getShopsAndMarkets() {
+	$(function() {
+		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
+		$(function() {
+			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/10/public/values?alt=json-in-script&callback=?",
+			function (data) {
+				$.each(data.feed.entry, function(i,entry) {
+					e=JSON.parse(entry.gsx$data.$t);
+					if(e.type=="shop") {
+						shops.push(e);
+					} else {
+						markets.push(e);
+					}
+					console.log(e)
+				});
+			});
+		});
+	})
+}
