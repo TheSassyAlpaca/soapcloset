@@ -65,6 +65,13 @@ h1, h2 {
 	font-size: 24px;
 }
 
+#content+i {
+	font-size: 60px;
+	text-shadow: 3px 3px 5px rgb(var(--ocean));
+	text-align: center;
+	display: block;
+}
+
 header {
 	height: var(--thumb);
 	width: 100vw;
