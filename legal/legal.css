@@ -5,6 +5,8 @@
 #content h2 {
 	margin-top: 10px;
 	font-family: var(--econ);
+	max-height: unset !important;
+	height: unset !important;
 }
 
 #content span {
