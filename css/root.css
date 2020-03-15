@@ -349,6 +349,10 @@ header {
 	margin: -56px -10px 0px -10px;
 }
 
+#shops {
+	margin-top: calc(50vh - 56px);
+}
+
 .event {
 	
 }
@@ -371,6 +375,13 @@ header {
 	height: calc(var(--thumb) * 1.25);
 	width: calc(100vw - (var(--thumb) * 1.25) - 20px);
 	position: relative;
+}
+
+.eSocial {
+	position: absolute;
+	right: calc(100vw - (var(--thumb) * 1.25) - 20px);
+	top: calc((var(--thumb) * 1.25) + 10px);
+	width: calc((var(--thumb) * 1.25));
 }
 
 .eSocial img {
