@@ -5,8 +5,8 @@ $(function() {
 	$('#content').append('<div id="map"><iframe src="'+map+'32.805007368420775%2C-83.62111061384797&z=11"></iframe"></div><div id="shops" class="category"><h1>Shops</h1></div><div id="markets" class="category"><h1>Markets</h1></div>');
 	//get list of shops and markets from DB
 	//separate shops from markets
-	shops=[];
-	markets=[];
+	shopList=[];
+	marketList=[];
 	//loop through shops and markets respectively and perform their function
 	/*shops will show:
 		image(s)
@@ -35,16 +35,20 @@ function getShopsAndMarkets() {
 				$.each(data.feed.entry, function(i,entry) {
 					e=JSON.parse(entry.gsx$data.$t);
 					if(e.type=="shop") {
-						shops.push(e);
+						shopList.push(e);
 						$('#shops').append('<div id="'+e.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="event" data-source="'+e.gps+'"><div class="eImg" style="background-image: url('+e.image+')"></div><div class="eMid"><h2>'+e.name+'</h2><div class="eBody">'+e.address.replace(', ','</br>')+'<br><a href="'+e.website+'">Website</a><div class="eSocial"><a href="'+e.facebook+'"><img src="/images/facebook.png"></a><a href="'+e.instagram+'"><img src="/images/instagram.png"></a></div><div class="eRight"></div></div>');
 					} else {
-						markets.push(e);
+						marketList.push(e);
 					}
 					if(i==0) {
 						$('#map iframe').attr('src',map+e.gps.replace(', ','%2C')+'&z=11');
 					}
 					console.log(e)
 				});
+				//
+				$('.event').click(function() {
+					$('#map iframe').attr('src',map+$(this).attr('data-source').replace(', ','%2C')+'&z=11');
+				})
 			});
 		});
 	})
