@@ -357,7 +357,7 @@ header {
 	font-size: calc(var(--thumb) / 2);
 }
 
-.event eImg {
+.event .eImg {
 	display: inline-block;
 	height: calc(var(--thumb) * 1.25);
 	width: calc(var(--thumb) * 1.25);
