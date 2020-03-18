@@ -12,6 +12,7 @@ $(function() {
 		a.push($(this).parent().find('input.searchInput').val());
 		submitForm(f,q,a);
 		sendEvent('User','Subscribe',a.join(","));
+		userAlert('Subscribed');
 	})
 	buildBLT();
 	buildSocialMedia();
