@@ -11,6 +11,7 @@ $(function() {
 		a=[];
 		a.push($(this).parent().find('input.searchInput').val());
 		submitForm(f,q,a);
+		sendEvent('User Request','Subscribe',a);
 	})
 	buildBLT();
 	buildSocialMedia();
@@ -177,4 +178,11 @@ function changeCookie(c,p,a) {
 	console.log(expire);
 	document.cookie='cart='+JSON.stringify(cart)+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
 	countCart();
+}
+
+function sendEvent(category,action,label) {
+	gta('event', action, {
+		eventCategory: category,
+		eventLabel: label
+	});
 }
