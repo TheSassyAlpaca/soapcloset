@@ -215,7 +215,7 @@ function buildOrder() {
 	console.log(cart);
 	console.log(order);
 	console.log(document.cookie);
-	sendEvent('User','Subscribe',order);
+	sendEvent('User','Order',JSON.stringify(order));
 	userAlert('Order Submitted! Check your email for confirmation and status!');
 	//enter alert!!
 	
@@ -300,4 +300,5 @@ function emptyTub() {
 	expire=now.toGMTString();
 	console.log(expire);
 	document.cookie='cart={};expires='+expire+';path=/;domain=.thesassyalpaca.com';
+	countCart();
 }
