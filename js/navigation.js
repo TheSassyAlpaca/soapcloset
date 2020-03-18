@@ -181,7 +181,7 @@ function changeCookie(c,p,a) {
 }
 
 function sendEvent(category,action,label) {
-	gta('event', action, {
+	gtag('event', action, {
 		eventCategory: category,
 		eventLabel: label
 	});
