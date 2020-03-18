@@ -26,7 +26,7 @@ fulfillmentList=[
 ];
 
 pickupList=[
-	{option:'Village Marketplace'},
+	{option:'RAFB Exchange'},
 	{option:'International City Farmers Market'},
 	{option:'Perry Farmers Market'},
 	{option:'Wesleyan Farmers Market'},
@@ -211,6 +211,8 @@ function buildOrder() {
 	console.log(cart);
 	console.log(order);
 	console.log(document.cookie);
+	sendEvent('User','Subscribe',order);
+	//submit form
 }
 
 function total() {
