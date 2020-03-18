@@ -13,7 +13,7 @@ function getProduct() {
 			function (data) {
 				$.each(data.feed.entry, function(i,entry) {
 					product=JSON.parse(entry.gsx$data.$t);
-					if(product.name.replace(/[\s&'!-#()]/g,'').toLowerCase()==getP) {
+					if(product.id.replace(/[\s&'!-#()]/g,'').toLowerCase()==getP) {
 						p=product;
 					}
 				});
@@ -73,7 +73,7 @@ function getProduct() {
 					} else {
 						$(this).parents('.buy').find('.addToCart').css('display','block');
 					}
-					changeCookie('cart',p.name.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
+					changeCookie('cart',p.id.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
 					userAlert(a+' '+p.name+' are now in your cart.');
 				})
 				$('.buy input').each(function() {
@@ -87,6 +87,7 @@ function getProduct() {
 }
 
 function ingredients(ing) {
+	//break ing into array ings
 	ingredients='';
 	for(i=0;i<ing.length;i++) {
 		ingredients=ingredients+'<div class="ingredient" data-source="'+ing[i]+'">'+ing[i]+'</div>';
