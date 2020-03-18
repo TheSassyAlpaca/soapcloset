@@ -1,5 +1,6 @@
 .region {
 	font-family: var(--econ);
+	font-size: initial !important;
 }
 
 .region h1 {
