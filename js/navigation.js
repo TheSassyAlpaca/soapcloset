@@ -117,6 +117,7 @@ function submitForm(f,q,a) {
 
 function searchThis(x) {
 	window.location.href='/search?q='+x+'&f=NA';
+	sendEvent('User','Search',x);
 }
 
 function userAlert(x) {
