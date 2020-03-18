@@ -299,5 +299,5 @@ function emptyTub() {
 	now.setTime(expireTime);
 	expire=now.toGMTString();
 	console.log(expire);
-	document.cookie='cart='{}';expires='+expire+';path=/;domain=.thesassyalpaca.com';
+	document.cookie='cart={};expires='+expire+';path=/;domain=.thesassyalpaca.com';
 }
