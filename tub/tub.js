@@ -223,7 +223,7 @@ function buildOrder() {
 	//https://docs.google.com/forms/d/e/1FAIpQLSdCEcSCvTvPhQZriFjsO5w7b_NukS_SRw8XFCUzjk2bTpZ33A/formResponse?usp=pp_url&entry.148047722=i
 	//&
 	//entry.1353804064=e
-	submitForm('https://docs.google.com/forms/d/e/1FAIpQLSdCEcSCvTvPhQZriFjsO5w7b_NukS_SRw8XFCUzjk2bTpZ33A/formResponse?usp=pp_url&entry.148047722=',['entry.1353804064'],[JSON.stringify(order),order.email]);
+	submitForm('https://docs.google.com/forms/d/e/1FAIpQLSdCEcSCvTvPhQZriFjsO5w7b_NukS_SRw8XFCUzjk2bTpZ33A/formResponse?usp=pp_url&entry.148047722=',['entry.1353804064'],[encodeURIComponent(JSON.stringify(order)),order.email]);
 	//erase cart
 }
 
