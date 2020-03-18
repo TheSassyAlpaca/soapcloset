@@ -101,14 +101,14 @@ function downloadProducts() {
 					} else {
 						$(this).parents('.buy').find('.addToCart').css('display','block');
 					}
-					changeCookie('cart',p.name.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
+					changeCookie('cart',p.id.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
 					userAlert(a+' '+p.name+' are now in your cart.');
 				})
 				//open page to product
 				$('.listingLeft, .listingMid h3').click(function(e) {
 					e.stopPropagation();
 					p=products[$(this).parents('.listing').attr('data')];
-					window.location.href="/products/"+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
+					window.location.href="/products/"+p.id.replace(/[\s&'!-#()]/g,'').toLowerCase();
 				})
 				//show qty
 				$('.buy input').each(function() {
@@ -122,7 +122,7 @@ function downloadProducts() {
 }
 
 function listing(p,i) {
-	l='<div id="'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'<div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div></div><hr>';
+	l='<div id="'+p.id.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'<div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div></div><hr>';
 	return l
 }
 
