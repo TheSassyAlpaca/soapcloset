@@ -217,14 +217,7 @@ function buildOrder() {
 	console.log(document.cookie);
 	sendEvent('User','Order',JSON.stringify(order));
 	userAlert('Order Submitted! Check your email for confirmation and status!');
-	//enter alert!!
-	
-	//submit form
-	//https://docs.google.com/forms/d/e/1FAIpQLSdCEcSCvTvPhQZriFjsO5w7b_NukS_SRw8XFCUzjk2bTpZ33A/formResponse?usp=pp_url&entry.148047722=i
-	//&
-	//entry.1353804064=e
 	submitForm('https://docs.google.com/forms/d/e/1FAIpQLSdCEcSCvTvPhQZriFjsO5w7b_NukS_SRw8XFCUzjk2bTpZ33A/formResponse?usp=pp_url&entry.148047722=',['entry.1353804064'],[encodeURIComponent(JSON.stringify(order)),order.email]);
-	//erase cart
 	emptyTub();
 }
 
@@ -281,9 +274,9 @@ function showTub() {
 			for(k in cart) {
 				console.log(cart[k]);
 				for(j=0;j<products.length;j++) {
-					if(products[j].name.replace(/[\s&'!-#()]/g,'').toLowerCase()==k&&cart[k]>0) {
+					if(products[j].id.replace(/[\s&'!-#()]/g,'').toLowerCase()==k&&cart[k]>0) {
 						p=products[j];
-						list=list+'<div id="'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3></div><div class="listingRight" data-source="'+(cart[k]*p.price)+'"><span>$'+(cart[k]*p.price)+'</span><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div></div><hr>';
+						list=list+'<div id="'+p.id.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3></div><div class="listingRight" data-source="'+(cart[k]*p.price)+'"><span>$'+(cart[k]*p.price)+'</span><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div></div><hr>';
 					}
 				}
 			}
