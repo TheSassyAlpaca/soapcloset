@@ -11,7 +11,7 @@ $(function() {
 		a=['NA'];
 		a.push($(this).parent().find('input.searchInput').val());
 		submitForm(f,q,a);
-		sendEvent('User Request','Subscribe',a.join(","));
+		sendEvent('User','Subscribe',a.join(","));
 	})
 	buildBLT();
 	buildSocialMedia();
@@ -111,7 +111,7 @@ function submitForm(f,q,a) {
 	for(i=0;i<q.length;i++) {
 		fSub=fSub+'&'+q[i]+'='+a[i+1];
 	}
-	$('#basement').append('<iframe src="'+f+'">');
+	$('#basement').append('<iframe src="'+fSub+'">');
 }
 
 function searchThis(x) {
