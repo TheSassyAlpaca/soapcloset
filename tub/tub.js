@@ -186,7 +186,7 @@ function checkCompletion() {
 	if($('#fulfillment').find('input').eq(0).val()=='Deliver'||$('#fulfillment').find('input').eq(0).val()=='Ship') {
 		fulfilled++;
 	}
-	if($('#contact input:valid').length!=0) {
+	if($('#contact input:valid').length!=0&&$('#contact input').val().indexOf('@')!=-1) {
 		console.log('Email check: so far so good');
 		console.log($('#contact input').val().substring($('#contact input').val().indexOf('@'),$('#contact input').val().length-1));
 		if($('#contact input').val().substring($('#contact input').val().indexOf('@'),$('#contact input').val().length-1).indexOf('.')!=-1) {
@@ -216,7 +216,15 @@ function buildOrder() {
 	console.log(order);
 	console.log(document.cookie);
 	sendEvent('User','Subscribe',order);
+	userAlert('Order Submitted! Check your email for confirmation and status!');
+	//enter alert!!
+	
 	//submit form
+	//https://docs.google.com/forms/d/e/1FAIpQLSdCEcSCvTvPhQZriFjsO5w7b_NukS_SRw8XFCUzjk2bTpZ33A/formResponse?usp=pp_url&entry.148047722=i
+	//&
+	//entry.1353804064=e
+	submitForm('https://docs.google.com/forms/d/e/1FAIpQLSdCEcSCvTvPhQZriFjsO5w7b_NukS_SRw8XFCUzjk2bTpZ33A/formResponse?usp=pp_url&entry.148047722=',['entry.1353804064'],[order,order.email]);
+	//erase cart
 }
 
 function total() {
