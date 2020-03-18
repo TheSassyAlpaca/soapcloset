@@ -193,10 +193,11 @@ function checkCompletion() {
 			email++;
 		}
 	}
+	console.log(order.estimate);
 	if(fulfilled==0||email==0||order.estimate==0) {
 		$('#placeOrder').css('display','none');
 	}
-	if(fulfilled!=0&&email!=0&&order.estimate>=0) {
+	if(fulfilled!=0&&email!=0&&order.estimate>0) {
 		$('#placeOrder').css('display','block');
 	}
 }
