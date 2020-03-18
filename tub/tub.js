@@ -75,7 +75,7 @@ function downloadProducts() {
 					} else {
 						$(this).parents('.listing').remove();
 					}
-					changeCookie('cart',p.name.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
+					changeCookie('cart',p.id.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
 					userAlert(a+' '+p.name+' are now in your cart.');
 					total();
 				})
