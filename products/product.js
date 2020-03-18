@@ -3,7 +3,7 @@ $(function() {
 })
 
 function getProduct() {
-	getP=window.location.href.substring(47,window.location.href.lastIndexOf("/"));
+	getP=window.location.href.substring(40,window.location.href.lastIndexOf("/"));
 	product={};
 	p=product;
 	$(function() {
