@@ -141,13 +141,13 @@ function getValue(p) {
 	cooks=c.split('; ');
 	q=0;
 	cart={};
-	name=p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
+	id=p.id.replace(/[\s&'!-#()]/g,'').toLowerCase();
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
 		if(cookie[0]=='cart') {
 			cart=JSON.parse(cookie[1]);
-			if(name in cart) {
-				q=cart[name];
+			if(id in cart) {
+				q=cart[id];
 			}
 		}
 	}
@@ -163,7 +163,7 @@ function changeCookie(c,p,a) {
 	c=document.cookie;
 	cooks=c.split('; ');
 	cart={};
-	name=p;
+	id=p;
 	found=0;
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
@@ -171,7 +171,7 @@ function changeCookie(c,p,a) {
 			cart=JSON.parse(cookie[1]);
 		}
 	}
-	cart[name]=a;
+	cart[id]=a;
 	now = new Date();
 	time = now.getTime();
 	expireTime = time + (1000*60*60*24*30);
