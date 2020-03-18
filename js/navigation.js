@@ -67,7 +67,7 @@ function buildSocialMedia() {
 		{icon:'etsy.png',href:'https://www.etsy.com/shop/TheSassyAlpacaLLC'},
 		{icon:'pinterest.png',href:'/pinterest'}
 	];
-	img="https://soapcloset.thesassyalpaca.com/images/";
+	img="https://www.thesassyalpaca.com/images/";
 	for(i=0;i<socialMedia.length;i++) {
 		$('.socialArea').append('<a href="'+socialMedia[i].href+'" class="socialLink" target="_blank"><img src="'+img+socialMedia[i].icon+'"></a>');
 	}
