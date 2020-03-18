@@ -34,6 +34,7 @@ function getShopsAndMarkets() {
 				//
 				$('.event').click(function() {
 					$('#map iframe').attr('src',map+$(this).attr('data-source').replace(', ','%2C')+'&z=11');
+					sendEvent('User','Shops and Markets',$(this).attr('data-source'));
 				})
 			});
 		});
