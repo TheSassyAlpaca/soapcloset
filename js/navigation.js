@@ -182,7 +182,7 @@ function changeCookie(c,p,a) {
 
 function sendEvent(category,action,label) {
 	gtag('event', action, {
-		'eventCategory': category,
-		'eventLabel': label
+		'event_category': category,
+		'event_label': label
 	});
 }
