@@ -6,12 +6,12 @@ $(function() {
 		window.location.href="/tub";
 	})
 	$('.subscribe button').click(function() {
-		f="";
-		q=[];
-		a=[];
+		f="https://docs.google.com/forms/d/e/1FAIpQLSeOQKOaVn7oDYXnIktlJnx2IMLc1mgKtrcJp19HM-QQt1iTFQ/formResponse?usp=pp_url&entry.148047722=";
+		q=['entry.1353804064'];
+		a=['NA'];
 		a.push($(this).parent().find('input.searchInput').val());
 		submitForm(f,q,a);
-		sendEvent('User Request','Subscribe',a);
+		sendEvent('User Request','Subscribe',a.join(","));
 	})
 	buildBLT();
 	buildSocialMedia();
