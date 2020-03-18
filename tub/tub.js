@@ -186,7 +186,7 @@ function checkCompletion() {
 	if($('#fulfillment').find('input').eq(0).val()=='Deliver'||$('#fulfillment').find('input').eq(0).val()=='Ship') {
 		fulfilled++;
 	}
-	if($('#contact input:valid').length!=0) {
+	if($('#contact input:valid').length!=0&&$('#contact input').val().indexOf('@')!=-1&&$('#contact input').val().substring($('#contact input').val().indexOf('@'),$('#contact input').val().length-1).indexOf('.')!=-1) {
 		email++;
 	}
 	if(fulfilled==0||email==0) {
