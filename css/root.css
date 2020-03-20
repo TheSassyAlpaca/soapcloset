@@ -35,6 +35,7 @@ button {
 	border-width: 1px;
 	color: rgb(var(--oats));
 	font-family: var(--econ);
+	cursor: pointer;
 }
 
 input {
@@ -96,6 +97,7 @@ header {
 	height: var(--thumb);
 	width: var(--thumb);
 	position: relative;
+	cursor: pointer;
 }
 
 .menuBar {
@@ -262,6 +264,7 @@ header {
 	vertical-align: top;
 	position: fixed;
 	top: 0px;
+	cursor: pointer;
 }
 
 #cart img, #search img, .back img {
@@ -347,8 +350,8 @@ header {
 	background-image: radial-gradient(rgb(var(--ocean)) 30%, transparent 100%);
 	width: calc(100vw - 40px);
 	max-width: 300px;
-	margin: 0px -10vw;
-	padding: 10px 20px;
+	margin: 0px auto;
+	padding: 10px 0px;
 }
 
 #map iframe {
@@ -370,6 +373,7 @@ header {
 
 .event {
 	margin: 10px auto;
+	cursor: pointer;
 }
 
 .event h2 {
