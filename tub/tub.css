@@ -1,6 +1,8 @@
 .region {
 	font-family: var(--econ);
 	font-size: initial !important;
+	max-width: 800px;
+	margin: auto;
 }
 
 .region h1 {
