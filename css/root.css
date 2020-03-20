@@ -346,6 +346,7 @@ header {
 	font-size: 26px;
 	background-image: radial-gradient(rgb(var(--ocean)) 30%, transparent 100%);
 	width: calc(100vw - 40px);
+	max-width: 300px;
 	margin: 0px -10vw;
 	padding: 10px 20px;
 }
@@ -361,6 +362,11 @@ header {
 	height: calc(50vh - 10px);
 	overflow: scroll;
 }
+
+#samContainer {
+	max-width: 800px;
+	margin: auto;
+} 
 
 .event {
 	margin: 10px auto;
@@ -385,15 +391,17 @@ header {
 	display: inline-block;
 	height: calc(var(--thumb) * 1.25);
 	width: calc(100vw - (var(--thumb) * 1.25) - 30px);
+	max-width: calc(800px - (var(--thumb) * 1.25) - 30px);
 	position: relative;
 	margin-left: 10px;
 }
 
 .eSocial {
 	position: absolute;
-	right: calc(100vw - (var(--thumb) * 1.25) - 20px);
+	//right: calc(100vw - (var(--thumb) * 1.25) - 20px);
 	top: calc((var(--thumb) * 1.25) + 10px);
 	width: calc((var(--thumb) * 1.25));
+	left: -85px;
 }
 
 .eSocial img {
@@ -404,7 +412,7 @@ header {
 	vertical-align: top;
 }
 
-.eSocial img:nth-child(1) {
+.eSocial a:nth-child(1) img {
 	margin-top: -3px;
 }
 
