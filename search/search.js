@@ -29,7 +29,7 @@ function getKeywords(q) {
 						pi=pi.toLowerCase();
 						if(pd.indexOf(q[j].toLowerCase())!=-1||pi.indexOf(q[j].toLowerCase())!=-1) {
 							console.log(product);
-							if(!$('#content' '#products').length) {
+							if(!$('#content #products').length) {
 								$('#content').append('<div id="products" class="category"><h1>Products</h1></div>');
 							}
 							$('#products').append('<a href="/products/"'+product.id+'" target="_self">'+listing(product,i)+'</a>');
