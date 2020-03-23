@@ -19,7 +19,9 @@ function getKeywords(q) {
 					product=JSON.parse(entry.gsx$data.$t);
 					pros.push(product);
 					for(j=0;j<q.length;j++) {
-						if(product.description.indexOf(q[j])!=-1||product.ingredients.indexOf(q[j])!=-1) {
+						pd=product.description.toLowerCase();
+						pi=product.ingredients.toLowerCase();
+						if(pd.indexOf(q[j].toLowerCase())!=-1||pi.indexOf(q[j].toLowerCase())!=-1) {
 							if($('#content').children($('#products')).length==-1) {
 								$('#content').append('<div id="products" class="region"><h1>Products</h1></div>');
 							}
