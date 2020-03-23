@@ -1,7 +1,7 @@
 $(function() {
 	console.log(decodeURI($(location).attr('hash')));
 	query=decodeURI($(location).attr('hash'));
-	query=query.substring(1,query.length);
+	query=query.replace('#','');
 	sendEvent('User','Search',query);
 	q=query.split(' ');
 	$('#content').append('<div>'+decodeURI($(location).attr('hash'))+'</div>');
@@ -22,7 +22,8 @@ function getKeywords(q) {
 					pros.push(product);
 					for(j=0;j<q.length;j++) {
 						pd=product.description.toLowerCase();
-						pi=product.ingredients.toLowerCase();
+						pi=product.ingredients.join(' ');
+						pi=pi.toLowerCase();
 						if(pd.indexOf(q[j].toLowerCase())!=-1||pi.indexOf(q[j].toLowerCase())!=-1) {
 							if($('#content').children($('#products')).length==-1) {
 								$('#content').append('<div id="products" class="region"><h1>Products</h1></div>');
