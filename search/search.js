@@ -3,6 +3,8 @@ $(function() {
 	query=decodeURI($(location).attr('hash'));
 	q=query.split(' ');
 	getKeywords(q);
+	$('#content').append(decodeURI($(location).attr('hash')));
+	$('#content').append(q);
 })
 
 function getKeywords(q) {
