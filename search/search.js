@@ -20,6 +20,9 @@ function getKeywords(q) {
 				$.each(data.feed.entry, function(i,entry) {
 					product=JSON.parse(entry.gsx$data.$t);
 					pros.push(product);
+					if(i==0) {
+						console.log(product);
+					}
 					for(j=0;j<q.length;j++) {
 						pd=product.description.toLowerCase();
 						pi=product.ingredients.join(' ');
