@@ -29,7 +29,7 @@ function getKeywords(q) {
 						pl=product.lessercategory.toLowerCase();
 						pn=product.name.toLowerCase();
 						pk=product.keywords.join(' ');
-						pk=product.keywords.toLowerCase();
+						pk=pk.toLowerCase();
 						pd=product.description.toLowerCase();
 						pi=product.ingredients.join(' ');
 						pi=pi.toLowerCase();
