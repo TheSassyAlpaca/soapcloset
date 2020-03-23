@@ -4,6 +4,10 @@
 	font-size: initial;
 }
 
+#title h1 {
+	overflow: hidden;
+}
+
 #slideshow {
 	position: relative;
 	margin: 0px -10px;
