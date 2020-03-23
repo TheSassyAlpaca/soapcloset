@@ -20,9 +20,6 @@ function getKeywords(q) {
 				$.each(data.feed.entry, function(i,entry) {
 					product=JSON.parse(entry.gsx$data.$t);
 					pros.push(product);
-					if(i==0) {
-						console.log(product);
-					}
 					for(j=0;j<q.length;j++) {
 						pc=product.category.toLowerCase();
 						ps=product.subcategory.toLowerCase();
@@ -34,11 +31,10 @@ function getKeywords(q) {
 						pi=product.ingredients.join(' ');
 						pi=pi.toLowerCase();
 						if(pc.indexOf(q[j].toLowerCase())!=-1||ps.indexOf(q[j].toLowerCase())!=-1||pl.indexOf(q[j].toLowerCase())!=-1||pn.indexOf(q[j].toLowerCase())!=-1||pk.indexOf(q[j].toLowerCase())!=-1||pd.indexOf(q[j].toLowerCase())!=-1||pi.indexOf(q[j].toLowerCase())!=-1) {
-							console.log(product);
 							if(!$('#content #products').length) {
 								$('#content').append('<div id="products" class="category"><h1>Products</h1></div>');
 							}
-							$('#products').append('<a href="/products/"'+product.id+'" target="_self">'+listing(product,i)+'</a><hr>');
+							$('#products').append('<a href="/products/'+product.id+'" target="_self">'+listing(product,i)+'</a><hr>');
 							//i?
 						}
 					}
