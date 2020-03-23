@@ -1,7 +1,7 @@
 $(function() {
 	console.log(decodeURI($(location).attr('hash')));
 	query=decodeURI($(location).attr('hash'));
-	ques=query.replace('#','');
+	ques=query.replace(/[#]/g,'');
 	sendEvent('User','Search',query);
 	q=ques.split(' ');
 	$('#content').append('<div>'+decodeURI($(location).attr('hash'))+'</div>');
