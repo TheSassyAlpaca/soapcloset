@@ -1,15 +1,17 @@
 $(function() {
 	console.log(decodeURI($(location).attr('hash')));
 	query=decodeURI($(location).attr('hash'));
+	query=query.substring(1);
+	sendEvent('User','Search',query);
 	q=query.split(' ');
+	$('#content').append('<div>'+decodeURI($(location).attr('hash'))+'</div>');
+	$('#content').append('<div>'+q+'</div>');
 	getKeywords(q);
-	$('#content').append(decodeURI($(location).attr('hash')));
-	$('#content').append(q);
 })
 
 function getKeywords(q) {
 	console.log(q);
-	window[pros]=[];
+	window['pros']=[];
 	$(function() {
 		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
 		$(function() {
@@ -19,7 +21,9 @@ function getKeywords(q) {
 					product=JSON.parse(entry.gsx$data.$t);
 					pros.push(product);
 					for(j=0;j<q.length;j++) {
-						if(product.description.indexOf(q[j])!=-1||product.ingredients.indexOf(q[j])!=-1) {
+						pd=product.description.toLowerCase();
+						pi=product.ingredients.toLowerCase();
+						if(pd.indexOf(q[j].toLowerCase())!=-1||pi.indexOf(q[j].toLowerCase())!=-1) {
 							if($('#content').children($('#products')).length==-1) {
 								$('#content').append('<div id="products" class="region"><h1>Products</h1></div>');
 							}
