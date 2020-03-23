@@ -1,9 +1,9 @@
 $(function() {
 	console.log(decodeURI($(location).attr('hash')));
 	query=decodeURI($(location).attr('hash'));
-	query=query.replace('#','');
+	ques=query.replace('#','');
 	sendEvent('User','Search',query);
-	q=query.split(' ');
+	q=ques.split(' ');
 	$('#content').append('<div>'+decodeURI($(location).attr('hash'))+'</div>');
 	$('#content').append('<div>'+q+'</div>');
 	getKeywords(q);
