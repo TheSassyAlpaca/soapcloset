@@ -1,44 +1,228 @@
-$(function() {
-	console.log(decodeURI($(location).attr('hash')));
-	query=decodeURI($(location).attr('hash'));
-	query=query.substring(1);
-	sendEvent('User','Search',query);
-	q=query.split(' ');
-	$('#content').append(decodeURI($(location).attr('hash')));
-	$('#content').append(q);
-	getKeywords(q);
-})
-
-function getKeywords(q) {
-	console.log(q);
-	window['pros']=[];
-	$(function() {
-		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
-		$(function() {
-			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/4/public/values?alt=json-in-script&callback=?",
-			function (data) {
-				$.each(data.feed.entry, function(i,entry) {
-					product=JSON.parse(entry.gsx$data.$t);
-					pros.push(product);
-					for(j=0;j<q.length;j++) {
-						pd=product.description.toLowerCase();
-						pi=product.ingredients.toLowerCase();
-						if(pd.indexOf(q[j].toLowerCase())!=-1||pi.indexOf(q[j].toLowerCase())!=-1) {
-							if($('#content').children($('#products')).length==-1) {
-								$('#content').append('<div id="products" class="region"><h1>Products</h1></div>');
-							}
-							$('#products').append('<a href="/products/"'+product.id+'" target="_self">'+listing(product,i)+'</a>');
-						}
-					}
-				});
-				//run search for other items such as blogs and ingredients
-				
-			});
-		});
-	});	
+.category {
+	text-align: center;
+	max-height: calc(var(--thumb) * 2.2);
+	overflow: hidden;
+	transition: 1s cubic-bezier(0, 1, 0, 1);
+	max-width: 800px;
+	margin: auto;
+	font-size: initial;
 }
 
-function listing(p,i) {
-	l='<div id="'+p.id.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'<div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div></div><hr>';
-	return l
+.catHeader {
+	height: calc(var(--thumb) * 2.2);
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	filter: saturate(0.5);
+}
+
+.catHeader hr {
+	margin: 0px auto;
+	width: 90%;
+	border: 0px;
+	box-shadow: 0px 0px 0px 1px rgb(var(--oats)), 0px 0px 0px 1px rgb(var(--ocean)), 0px 0px 5px 1px rgb(var(--oats));
+	cursor: pointer;
+}
+
+.photoBox {
+	height: calc(var(--thumb) * 1.1);
+	display: inline-block;
+	overflow: hidden;
+}
+
+.proPhoto {
+	height: calc(var(--thumb) * 1.0);
+	width: calc(var(--thumb) * 1.0);
+	margin: calc(var(--thumb) * 0.08) auto;
+	display: inline-block;
+	padding: 0px 3px;
+}
+
+.proPhoto img {
+	height: calc(var(--thumb) * 1.0);
+	width: calc(var(--thumb) * 1.0);
+	box-shadow: 0px 0px 2px 1px rgb(var(--oats)), 0px 0px 5px 1px rgb(var(--ocean));
+}
+
+.subcategory {
+	text-align: center;
+	max-height: calc((var(--thumb) * 1) + 1px);
+	overflow: hidden;
+	transition: 1s cubic-bezier(0, 1, 0, 1);
+}
+
+.subcategory h2 {
+	background: rgb(var(--ocean));
+	box-shadow: 0px 0px 2px rgb(var(--oats));
+	position: relative;
+}
+
+.subcategory h2:before, .lessercategory>h3:before {
+	position: absolute;
+	top: calc(var(--thumb) * 0.25);
+	left: calc(var(--thumb) * 0.375);
+	content: '';
+	border-top: calc(var(--thumb) * 0.25) solid transparent;
+	border-left: calc(var(--thumb) * 0.25) solid rgb(var(--oats));
+	border-bottom: calc(var(--thumb) * 0.25) solid transparent;
+	transform-origin: center;
+	transition: .25s;
+	cursor: pointer;
+}
+
+.subcategory.expand h2:before, .lessercategory.expand>h3:before {
+	transform: rotate(90deg);
+}
+
+.lessercategory>h3:before {
+	zoom: .65;
+}
+
+.lessercategory {
+	max-height: calc((var(--thumb) * .65) + 0px);
+	overflow: hidden;
+	margin-top: 1px;
+}
+
+.lessercategory>h3 {
+	margin: 0px;
+	height: calc(var(--thumb) * .65);
+	max-height: calc(var(--thumb) * .65);
+	line-height: calc(var(--thumb) * .65);
+	font-size: calc(var(--thumb) * .5);
+	text-shadow: 0px 0px 2px rgb(var(--oats));
+	background-color: rgb(var(--sage));
+	position: relative;
+}
+
+.listing {
+	overflow: hidden;
+	min-height: calc(var(--thumb) * 1.75);
+	max-height: calc(var(--thumb) * 1.75);
+	margin: 5px 0px;
+	text-align: left;
+}
+
+.listing h3 {
+	margin: 0px;
+	font-size: 24px;
+	line-height: calc(var(--thumb) / 2);
+	height: calc(var(--thumb) / 2);
+	overflow: hidden;
+	word-break: break-all;
+	cursor: pointer;
+}
+
+.listing+hr {
+	margin: 0px auto;
+	border: 0px;
+	border-bottom: 1px solid rgba(var(--sage),0.25);
+	width: 90%;
+}
+
+.listingLeft {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(var(--thumb) * 1.25);
+	vertical-align: top;
+	cursor: pointer;
+}
+
+.listingLeft div {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(var(--thumb) * 1.25);
+	background-size: cover;
+	background-position: center center;
+}
+
+.listingMid {
+	display: inline-block;
+	width: calc(100% - (var(--thumb) * 2.25) - 20px);
+	vertical-align: top;
+	padding: 0px 10px 10px 10px;
+}
+
+.keywords {
+	font-size: 90%;
+}
+
+.listingRight {
+	display: inline-block;
+	height: calc(var(--thumb) * 1.25);
+	width: calc(var(--thumb) * 1);
+	vertical-align: top;
+	position: relative;
+}
+
+.listingRight>span:nth-child(1) {
+	width: 100%;
+	height: calc(var(--thumb) * .75);
+	line-height: calc(var(--thumb) * .75);
+	font-size: calc(var(--thumb) * .5);
+	display: block;
+	text-align: center;
+}
+
+.bulkRates {
+	position: relative;
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.bulkRates>span {
+	width: 100%;
+	display: block;
+	text-align: center;
+	font-size: 75%;
+}
+
+.bulkRates div {
+	max-height: 0px;
+	overflow: hidden;
+	position: absolute;
+	top: calc(var(--thumb) * -0.75);
+	width: 100%;
+	height: calc(var(--thumb) * 1.25);
+	text-align: center;
+	background-color: white;
+	font-size: 16px;
+	line-height: 110%;
+}
+
+.bulkRates div span {
+	
+}
+
+.buy {
+	height: calc(var(--thumb) * .5);
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+}
+
+.addToCart {
+	height: calc(var(--thumb) * .5);
+	width: calc(var(--thumb));
+	font-family: var(--econ);
+	padding: 3px;
+}
+
+.buy div input {
+	width: calc(var(--thumb) * .3);
+	height: calc(var(--thumb) * .5);
+	text-align: center;
+	padding: 0px;
+	border: 0px;
+}
+
+.buy div button {
+	width: calc(var(--thumb) * .35);
+	height: calc(var(--thumb) * .5);
+	text-align: center;
+	padding: 0px;
+	font-size: 100%;
+	cursor: pointer;
 }
