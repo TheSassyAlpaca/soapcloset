@@ -16,11 +16,13 @@ function getKeywords(q) {
 				$.each(data.feed.entry, function(i,entry) {
 					product=JSON.parse(entry.gsx$data.$t);
 					pros.push(product);
-					if(product.[key].indexOf()!=-1) {
-						if($('#content').children($('#products')).length==-1) {
-							$('#content').append('<div id="products" class="region"><h1>Products</h1></div>');
+					for(j=0;j<q.length;j++) {
+						if(product.description.indexOf(q[j])!=-1||product.ingredients.indexOf(q[j])!=-1) {
+							if($('#content').children($('#products')).length==-1) {
+								$('#content').append('<div id="products" class="region"><h1>Products</h1></div>');
+							}
+							$('#products').append('<a href="/products/"'+product.id+'" target="_self">'+listing(product,i)+'</a>');
 						}
-						$('#products').append('<a href="/products/"'+product.id+'" target="_self">'+listing(product,i)+'</a>');
 					}
 				});
 				//run search for other items such as blogs and ingredients
