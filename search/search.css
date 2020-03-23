@@ -4,9 +4,9 @@ $(function() {
 	query=query.substring(1);
 	sendEvent('User','Search',query);
 	q=query.split(' ');
-	getKeywords(q);
 	$('#content').append(decodeURI($(location).attr('hash')));
 	$('#content').append(q);
+	getKeywords(q);
 })
 
 function getKeywords(q) {
