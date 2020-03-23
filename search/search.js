@@ -45,6 +45,6 @@ function getKeywords(q) {
 }
 
 function listing(p,i) {
-	l='<div id="'+p.id.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3><span class="categories">'+p.category+'/'+p.subcategory+'/'+p.lessercategory+'</span><br><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span><br><span class="ingredients">Ingredients: '+p.ingredients+'</span></div></div>';
+	l='<div id="'+p.id.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3><span class="categories">'+p.category+'>'+p.subcategory+'>'+p.lessercategory+'</span><br><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span><br><span class="ingredients">Ingredients: '+p.ingredients+'</span></div></div>';
 	return l
 }
