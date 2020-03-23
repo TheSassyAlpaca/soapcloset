@@ -4,8 +4,6 @@ $(function() {
 	ques=query.replace(/[#]/g,'');
 	sendEvent('User','Search',query);
 	q=ques.split(' ');
-	$('#content').append('<div>'+decodeURI($(location).attr('hash'))+'</div>');
-	$('#content').append('<div>'+q+'</div>');
 	getKeywords(q);
 })
 
@@ -34,7 +32,7 @@ function getKeywords(q) {
 							if(!$('#content #products').length) {
 								$('#content').append('<div id="products" class="category"><h1>Products</h1></div>');
 							}
-							$('#products').append('<a href="/products/'+product.id+'" target="_self">'+listing(product,i)+'</a><hr>');
+							$('#products').append('<a href="/products/'+product.id.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" target="_self">'+listing(product,i)+'</a><hr>');
 							//i?
 						}
 					}
