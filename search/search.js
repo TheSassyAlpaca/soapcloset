@@ -24,15 +24,22 @@ function getKeywords(q) {
 						console.log(product);
 					}
 					for(j=0;j<q.length;j++) {
+						pc=product.category.toLowerCase();
+						ps=product.subcategory.toLowerCase();
+						pl=product.lessercategory.toLowerCase();
+						pn=product.name.toLowerCase();
+						pk=product.keywords.join(' ');
+						pk=product.keywords.toLowerCase();
 						pd=product.description.toLowerCase();
 						pi=product.ingredients.join(' ');
 						pi=pi.toLowerCase();
-						if(pd.indexOf(q[j].toLowerCase())!=-1||pi.indexOf(q[j].toLowerCase())!=-1) {
+						if(pc.indexOf(q[j].toLowerCase())!=-1||ps.indexOf(q[j].toLowerCase())!=-1||pl.indexOf(q[j].toLowerCase())!=-1||pn.indexOf(q[j].toLowerCase())!=-1||pk.indexOf(q[j].toLowerCase())!=-1||pd.indexOf(q[j].toLowerCase())!=-1||pi.indexOf(q[j].toLowerCase())!=-1) {
 							console.log(product);
 							if(!$('#content #products').length) {
 								$('#content').append('<div id="products" class="category"><h1>Products</h1></div>');
 							}
-							$('#products').append('<a href="/products/"'+product.id+'" target="_self">'+listing(product,i)+'</a>');
+							$('#products').append('<a href="/products/"'+product.id+'" target="_self">'+listing(product,i)+'</a><hr>');
+							//i?
 						}
 					}
 				});
@@ -44,6 +51,6 @@ function getKeywords(q) {
 }
 
 function listing(p,i) {
-	l='<div id="'+p.id.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><button>&#x25B2;</button></div></div></div></div><hr>';
+	l='<div id="'+p.id.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3><span class="categories">'+p.category+'/'+p.subcategory+'/'+p.lessercategory+'</span><br><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span><br><span class="ingredients">Ingredients: '+p.ingredients+'</span></div></div>';
 	return l
 }
