@@ -172,7 +172,7 @@ function downloadProducts() {
 					order.email=$(this).val();
 					checkCompletion();
 				})
-				$('#totals .content').append('<div id="tubTotal" class="total"></div><div id="couponTotal" class="total"></div><div id="profTotal" class="total"></div><div id="estTotal" class="total"></div><span>This is your estimated total. Once we confirm your order we will apply discounts to give you the lowest price available.</span><button id="placeOrder" style="display:none">Place Order</button>');
+				$('#totals .content').append('<div id="tubTotal" class="total"></div><div id="couponTotal" class="total"></div><div id="profTotal" class="total"></div><div id="estTotal" class="total"></div><span>This is your estimated total. Once we confirm your order we will apply discounts to give you the lowest price available.</span><button id="placeOrder" class="greyedOut">Place Order</button>');
 				total();
 				$('#placeOrder').click(function() {
 					if(!$(this).hasClass('expand')) {
