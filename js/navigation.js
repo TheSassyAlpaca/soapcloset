@@ -152,8 +152,8 @@ function getValue(p) {
 			}
 		}
 	}
-	if(p.qty<q) {
-		q=p.qty;
+	if(Number(p.qty)<q) {
+		q=Number(p.qty);
 	}
 	return q
 }
