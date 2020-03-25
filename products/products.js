@@ -105,7 +105,7 @@ function downloadProducts() {
 					if(i.val()>Number(i.attr('max'))) {
 						i.val(Number(i.attr('max')));
 						a=i.val();
-						$(this).parent().find('input').next().addClass('greyedOut');
+						i.next().addClass('greyedOut');
 					}
 					if(i.val()!=0) {
 						$(this).parents('.buy').find('.addToCart').css('display','none');
