@@ -128,7 +128,7 @@ function goToHash() {
 	$(hash).addClass('expand');
 	$([document.documentElement, document.body]).animate({
         scrollTop: $(hash).offset().top - 60
-    }, 500);
+    }, 2000);
 }
 
 function listing(p,i) {
