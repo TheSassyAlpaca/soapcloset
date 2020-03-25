@@ -23,7 +23,7 @@ function downloadProducts() {
 						$('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).append('<div class="'+p.lessercategory.replace(/[\s&'!-#()]/g,'')+' lessercategory expand"><h3>'+p.lessercategory+'</h3></div>');
 					}
 					photoCheck=0;
-					$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox').children('img').each(function() {
+					$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox proPhoto img').each(function() {
 						console.log($(this).attr('src'));
 						if($(this).attr('src')==p.images[0]) {
 							photoCheck++;
