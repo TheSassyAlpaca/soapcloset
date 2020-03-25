@@ -498,6 +498,10 @@ footer .searchBar {
 	bottom: 70px !important;
 }
 
+.greyedOut {
+	background-color: grey;
+}
+
 @media only screen and (min-width:361px) {
 	.subscribe {
 		max-width: 320px;
