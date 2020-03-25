@@ -205,10 +205,12 @@ function checkCompletion() {
 	}
 	console.log(order.estimate);
 	if(fulfilled==0||email==0||order.estimate==0) {
-		$('#placeOrder').css('display','none');
+		//$('#placeOrder').css('display','none');
+		$('#placeOrder').addClass('greyedOut');
 	}
 	if(fulfilled!=0&&email!=0&&order.estimate>0) {
-		$('#placeOrder').css('display','block');
+		//$('#placeOrder').css('display','block');
+		$('#placeOrder').removeClass('greyedOut')
 	}
 }
 
