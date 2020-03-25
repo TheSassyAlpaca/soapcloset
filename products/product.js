@@ -31,6 +31,7 @@ function getProduct() {
 					//bulk rates
 				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+p.price+'</div><div><div>'+p.unit+'</div><div class="bulk">'+p.bulk.join(', ')+'</div></div></div><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div>');
 				//description
+				$('#content').append(checkInventory(p.qty,p.name));
 				$('#content').append('<div id="description">'+p.description+'</div>');
 				//ingredients
 				$('#content').append('<div id="ingredients"><b>Ingredients:</b> '+ingredients(p.ingredients)+'</div>');
@@ -53,6 +54,7 @@ function getProduct() {
 					//p=products[$(this).parents('.listing').attr('data')];
 					a=0;
 					i=$(this).parent().find('input');
+					$(this).parent().find('input').next().removeClass('greyedOut');
 					if(!$(this).hasClass('addToCart')) {
 						if($(this).hasClass('down')) {
 							i.val(Number(Number(i.val())-1));
@@ -64,9 +66,10 @@ function getProduct() {
 						i.val(1);
 						a=1;
 					}
-					if(i.val()>Number(i.attr('max'))) {
+					if(i.val()>=Number(i.attr('max'))) {
 						i.val(Number(i.attr('max')));
 						a=i.val();
+						i.next().addClass('greyedOut');
 					}
 					if(i.val()!=0) {
 						$(this).parents('.buy').find('.addToCart').css('display','none');
@@ -80,10 +83,22 @@ function getProduct() {
 					if($(this).val()!=0) {
 						$(this).parent().parent().children('.addToCart').css('display','none');
 					}
+					if($(this).val()>=$(this).attr('max')) {
+						$(this).parent().find('input').next().addClass('greyedOut');
+					}
 				})
 			})
 		});
 	});
+}
+
+function checkInventory(i,n) {
+	alert='';
+	safe=5;
+	if(i<=safe) {
+		alert='<br><span style="color: red">'+i+' '+n+' remaining.</span>';
+	}
+	return alert
 }
 
 function ingredients(ing) {
