@@ -136,7 +136,7 @@ function goToHash() {
 	$(hash).addClass('expand');
 	$([document.documentElement, document.body]).animate({
         scrollTop: $(hash).offset().top - 60
-    }, 2000);
+    }, 1000);
 }
 
 function listing(p,i) {
