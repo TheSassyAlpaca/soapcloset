@@ -1,7 +1,7 @@
 map="https://www.google.com/maps/d/embed?mid=1Ur_3A9sCrxrMDNeVaCBaHhCWKslitKgN&ll=";
 
 $(function() {
-	$('#content').append('<div id="map"><iframe src="'+map+'32.805007368420775%2C-83.62111061384797&z=11"></iframe></div><div id="samContainer"><div id="shops" class="category"><h1>Shops</h1></div><div id="markets" class="category"><h1>Markets</h1></div></div>');
+	$('#content').append('<div id="map"><iframe src="'+map+'32.805007368420775%2C-83.62111061384797&z=15"></iframe></div><div id="samContainer"><div id="shops" class="category"><h1>Shops</h1></div><div id="markets" class="category"><h1>Markets</h1></div></div>');
 	shopList=[];
 	marketList=[];
 	getShopsAndMarkets();
@@ -27,13 +27,13 @@ function getShopsAndMarkets() {
 						}
 					}
 					if(i==0) {
-						$('#map iframe').attr('src',map+e.gps.replace(', ','%2C')+'&z=11');
+						$('#map iframe').attr('src',map+e.gps.replace(', ','%2C')+'&z=15');
 					}
 					console.log(e)
 				});
 				//
 				$('.event').click(function() {
-					$('#map iframe').attr('src',map+$(this).attr('data-source').replace(', ','%2C')+'&z=11');
+					$('#map iframe').attr('src',map+$(this).attr('data-source').replace(', ','%2C')+'&z=15');
 					sendEvent('User','Shops and Markets',$(this).attr('data-source'));
 				})
 			});
