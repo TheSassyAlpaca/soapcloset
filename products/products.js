@@ -90,6 +90,7 @@ function downloadProducts() {
 					p=products[$(this).parents('.listing').attr('data')];
 					a=0;
 					i=$(this).parent().find('input');
+					$(this).parent().find('input').next().removeClass('greyedOut');
 					if(!$(this).hasClass('addToCart')) {
 						if($(this).hasClass('down')) {
 							i.val(Number(Number(i.val())-1));
@@ -104,6 +105,7 @@ function downloadProducts() {
 					if(i.val()>Number(i.attr('max'))) {
 						i.val(Number(i.attr('max')));
 						a=i.val();
+						$(this).parent().find('input').next().addClass('greyedOut');
 					}
 					if(i.val()!=0) {
 						$(this).parents('.buy').find('.addToCart').css('display','none');
@@ -124,6 +126,9 @@ function downloadProducts() {
 					if($(this).val()!=0) {
 						$(this).parent().parent().children('.addToCart').css('display','none');
 					}
+					if($(this).val()>=$(this).attr('max')) {
+						$(this).parent().find('input').next().addClass('greyedOut');
+					}
 				})
 				goToHash();
 			});
@@ -137,7 +142,7 @@ function goToHash() {
 	$(hash).addClass('expand');
 	$([document.documentElement, document.body]).animate({
         scrollTop: $(hash).offset().top - 60
-    }, 1000);
+    }, 1500);
 }
 
 function listing(p,i) {
