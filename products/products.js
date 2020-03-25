@@ -116,9 +116,16 @@ function downloadProducts() {
 						$(this).parent().parent().children('.addToCart').css('display','none');
 					}
 				})
+				goToHash();
 			});
 		});
 	})
+}
+
+function goToHash() {
+	hash=$(location).attr('hash');
+	$(hash).parents('.category, .subcategory, .lessercategory').addClass('expand');
+	
 }
 
 function listing(p,i) {
