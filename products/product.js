@@ -83,7 +83,7 @@ function getProduct() {
 					if($(this).val()!=0) {
 						$(this).parent().parent().children('.addToCart').css('display','none');
 					}
-					if($(this).val()>=$(this).attr('max')) {
+					if($(this).val()>=Number($(this).attr('max'))) {
 						$(this).parent().find('input').next().addClass('greyedOut');
 					}
 				})
