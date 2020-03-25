@@ -18,11 +18,17 @@ function getShopsAndMarkets() {
 					if(e.type=="shop") {
 						shopList.push(e);
 						if(e.address!="NA"&&e.image!="NA") {
+							if($('#shops').children('.event').length) {
+								$('#shops').append('<hr>');
+							}
 							$('#shops').append('<div id="'+e.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="event" data-source="'+e.gps+'"><div class="eImg" style="background-image: url('+e.image+')"></div><div class="eMid"><h2>'+e.name+'</h2><div class="eBody">'+e.address.replace(', ','</br>')+'<br><a href="'+e.website+'" target="_blank">Website</a><div class="eSocial"><a href="'+e.facebook+'" target="_blank"><img src="/images/facebook.png"></a><a href="'+e.instagram+'" target="_blank"><img src="/images/instagram.png"></a></div><div class="eRight"></div></div>');
 						}
 					} else {
 						marketList.push(e);
 						if(e.address!="NA"&&e.image!="NA") {
+							if($('#markets').children('.event').length) {
+								$('#markets').append('<hr>');
+							}
 							$('#markets').append('<div id="'+e.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="event" data-source="'+e.gps+'"><div class="eImg" style="background-image: url('+e.image+')"></div><div class="eMid"><h2>'+e.name+'</h2><div class="eBody">'+e.frequency+'<br>'+e.address.replace(', ','</br>')+'<br><a href="'+e.website+'" target="_blank">Website</a><div class="eSocial"><a href="'+e.facebook+'" target="_blank"><img src="/images/facebook.png"></a><a href="'+e.instagram+'" target="_blank"><img src="/images/instagram.png"></a></div><div class="eRight"></div></div>');
 						}
 					}
@@ -31,7 +37,6 @@ function getShopsAndMarkets() {
 					}
 					console.log(e)
 				});
-				//
 				$('.event').click(function() {
 					$('#map iframe').attr('src',map+$(this).attr('data-source').replace(', ','%2C')+'&z=15');
 					sendEvent('User','Shops and Markets',$(this).attr('data-source'));
