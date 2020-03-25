@@ -96,7 +96,7 @@ function checkInventory(i,n) {
 	alert='';
 	safe=5;
 	if(i<=safe) {
-		alert='<br><span style="color: red">'+i+' '+n+' remaining.</span>';
+		alert='<span style="color: red">'+i+' '+n+' remaining.</span><br>';
 	}
 	return alert
 }
