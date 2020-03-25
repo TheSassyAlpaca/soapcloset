@@ -127,7 +127,7 @@ function goToHash() {
 	$(hash).parents('.category, .subcategory, .lessercategory').addClass('expand');
 	$(hash).addClass('expand');
 	$([document.documentElement, document.body]).animate({
-        scrollTop: $(hash).offset().top
+        scrollTop: $(hash).offset().top - 60;
     }, 2000);
 }
 
