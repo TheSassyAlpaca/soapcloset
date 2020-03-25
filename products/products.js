@@ -24,6 +24,7 @@ function downloadProducts() {
 					}
 					photoCheck=0;
 					$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox').children('img').each(function() {
+						console.log($(this).attr('src'));
 						if($(this).attr('src')==p.images[0]) {
 							photoCheck++;
 						}
