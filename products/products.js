@@ -10,30 +10,32 @@ function downloadProducts() {
 			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/4/public/values?alt=json-in-script&callback=?",
 			function (data) {
 				$.each(data.feed.entry, function(i,entry) {
-					p=JSON.parse(entry.gsx$data.$t);
-					products.push(p);
-					if($('#'+p.category.replace(/[\s&'!-#()]/g,'')).length==0) {
-						$('#content').append('<div id="'+p.category.replace(/[\s&'!-#()]/g,'')+'" class="category"><div class="catHeader" style="background-image:url('+p.images[0]+')"><h1>'+p.category+'</h1><hr><div class="photoBox"></div><hr></div></div>');
-						$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox').append('<div class="proPhoto"><img src="'+p.images[0]+'"></div>');
-					}
-					if($('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).length==0) {
-						$('#'+p.category.replace(/[\s&'!-#()]/g,'')).append('<div id="'+p.subcategory.replace(/[\s&'!-#()]/g,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
-					}
-					if($('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).children('.'+p.lessercategory.replace(/[\s&'!-#()]/g,'')).length==0) {
-						$('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).append('<div class="'+p.lessercategory.replace(/[\s&'!-#()]/g,'')+' lessercategory expand"><h3>'+p.lessercategory+'</h3></div>');
-					}
-					photoCheck=0;
-					$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox').find('img').each(function() {
-						console.log($(this));
-						console.log($(this).attr('src'));
-						if($(this).attr('src')==p.images[0]) {
-							photoCheck++;
+					if(entry.gsx$data.$t!='{}') {
+						p=JSON.parse(entry.gsx$data.$t);
+						products.push(p);
+						if($('#'+p.category.replace(/[\s&'!-#()]/g,'')).length==0) {
+							$('#content').append('<div id="'+p.category.replace(/[\s&'!-#()]/g,'')+'" class="category"><div class="catHeader" style="background-image:url('+p.images[0]+')"><h1>'+p.category+'</h1><hr><div class="photoBox"></div><hr></div></div>');
+							$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox').append('<div class="proPhoto"><img src="'+p.images[0]+'"></div>');
 						}
-					})
-					if(photoCheck==0) {
-						$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox').append('<div class="proPhoto"><img src="'+p.images[0]+'"></div>');
+						if($('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).length==0) {
+							$('#'+p.category.replace(/[\s&'!-#()]/g,'')).append('<div id="'+p.subcategory.replace(/[\s&'!-#()]/g,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
+						}
+						if($('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).children('.'+p.lessercategory.replace(/[\s&'!-#()]/g,'')).length==0) {
+							$('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).append('<div class="'+p.lessercategory.replace(/[\s&'!-#()]/g,'')+' lessercategory expand"><h3>'+p.lessercategory+'</h3></div>');
+						}
+						photoCheck=0;
+						$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox').find('img').each(function() {
+							console.log($(this));
+							console.log($(this).attr('src'));
+							if($(this).attr('src')==p.images[0]) {
+								photoCheck++;
+							}
+						})
+						if(photoCheck==0) {
+							$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox').append('<div class="proPhoto"><img src="'+p.images[0]+'"></div>');
+						}
+						$('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).children('.'+p.lessercategory.replace(/[\s&'!-#()]/g,'')).append(listing(p,i));
 					}
-					$('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).children('.'+p.lessercategory.replace(/[\s&'!-#()]/g,'')).append(listing(p,i));
 				});
 				//toggle categories
 				$('.category').children('.catHeader').click(function() {
