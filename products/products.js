@@ -102,7 +102,7 @@ function downloadProducts() {
 						i.val(1);
 						a=1;
 					}
-					if(i.val()>Number(i.attr('max'))) {
+					if(i.val()>=Number(i.attr('max'))) {
 						i.val(Number(i.attr('max')));
 						a=i.val();
 						i.next().addClass('greyedOut');
