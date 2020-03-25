@@ -125,6 +125,7 @@ function downloadProducts() {
 function goToHash() {
 	hash=$(location).attr('hash');
 	$(hash).parents('.category, .subcategory, .lessercategory').addClass('expand');
+	$(hash).addClass('expand');
 	
 }
 
