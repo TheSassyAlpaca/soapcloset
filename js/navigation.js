@@ -4,9 +4,11 @@ $(function() {
 	//now=new date();
 	now=$.now();
 	console.log(now);
+	//console.log(now.toDateString());
 	if(notice.start<now&&notice.end>now) {
 		n='<a href="'+notice.link+'"><div class="notice">'+notice.text+'</div></a>';
-		$(n).insertBefore('header')
+		//$(n).insertBefore('header');
+		$('body').prepend(n);
 	}
 	$('#home').click(function() {
 		window.location.href="/";
