@@ -1,4 +1,4 @@
-notice={start:0,end:1586952000000,text:"Testing notice system.",link:"https://www.thesassyalpaca.com/404",color:"var(--sage)"};
+notice={start:0,end:1586952000000,text:"Testing notice system.",link:"https://www.thesassyalpaca.com/404",color:"rgb(var(--bark))"};
 
 $(function() {
 	//now=new date();
