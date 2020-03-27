@@ -1,4 +1,4 @@
-notice={start:0,end:1586952000000,text:"Site under construction. If you have any questions, please email Josh@TheSassyAlpaca.com",link:"https://www.thesassyalpaca.com/404",color:"rgb(var(--bark))"};
+notice={start:0,end:1586952000000,text:"Site under construction. If you have any questions, please email Josh@TheSassyAlpaca.com",link:"mailto:jos@thesassyalpaca.com",color:"rgb(var(--bark))",target:"_blank"};
 
 $(function() {
 	//now=new date();
@@ -9,7 +9,7 @@ $(function() {
 		n='<div class="notice">'+notice.text+'</div>';
 		//$(n).insertBefore('header');
 		$('#content').prepend(n);
-		$('#content').prepend('<a href="'+notice.link+'" target="_self" class="notice" style="background-color: '+notice.color+'">'+n+'</a>');
+		$('#content').prepend('<a href="'+notice.link+'" target="'+notice.target+'" class="notice" style="background-color: '+notice.color+'">'+n+'</a>');
 	}
 	$('#home').click(function() {
 		window.location.href="/";
