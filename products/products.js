@@ -140,12 +140,14 @@ function downloadProducts() {
 }
 
 function goToHash() {
-	hash=$(location).attr('hash');
-	$(hash).parents('.category, .subcategory, .lessercategory').addClass('expand');
-	$(hash).addClass('expand');
-	$([document.documentElement, document.body]).animate({
-        scrollTop: $(hash).offset().top - 60
-    }, 1500);
+	if($(location).attr('hash').length) {
+		hash=$(location).attr('hash');
+		$(hash).parents('.category, .subcategory, .lessercategory').addClass('expand');
+		$(hash).addClass('expand');
+		$([document.documentElement, document.body]).animate({
+			scrollTop: $(hash).offset().top - 60
+		}, 1500);
+	}
 }
 
 function listing(p,i) {
