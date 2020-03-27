@@ -46,6 +46,10 @@ function downloadProducts() {
 						$('.category').removeClass('expand');
 						$(this).parent().addClass('expand');
 					}
+					if($(this).hasClass('expand')) {
+						$(location).attr('hash',$(this).attr('id'));
+						goToHash();
+					}
 				})
 				//toggle sub-categories
 				$('.subcategory').children('h2').click(function() {
@@ -58,10 +62,18 @@ function downloadProducts() {
 						$('.subcategory').removeClass('expand');
 						$(this).parent().addClass('expand');
 					}
+					if($(this).hasClass('expand')) {
+						$(location).attr('hash',$(this).attr('id'));
+						goToHash();
+					}
 				})
 				//toggle lesser-categories
 				$('.lessercategory').children('h3').click(function() {
 					$(this).parent().toggleClass('expand');
+					if($(this).hasClass('expand')) {
+						$(location).attr('hash',$(this).attr('id'));
+						goToHash();
+					}
 				})
 				//expand/contract listing
 				$('.listing').click(function() {
