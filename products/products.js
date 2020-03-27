@@ -47,7 +47,7 @@ function downloadProducts() {
 						$(this).parent().addClass('expand');
 					}
 					if($(this).hasClass('expand')) {
-						$(location).attr('hash',$(this).attr('id'));
+						$(location).attr('hash',$(this).parent().attr('id'));
 						goToHash();
 					}
 				})
@@ -63,7 +63,7 @@ function downloadProducts() {
 						$(this).parent().addClass('expand');
 					}
 					if($(this).hasClass('expand')) {
-						$(location).attr('hash',$(this).attr('id'));
+						$(location).attr('hash',$(this).parent().attr('id'));
 						goToHash();
 					}
 				})
@@ -71,7 +71,7 @@ function downloadProducts() {
 				$('.lessercategory').children('h3').click(function() {
 					$(this).parent().toggleClass('expand');
 					if($(this).hasClass('expand')) {
-						$(location).attr('hash',$(this).attr('id'));
+						$(location).attr('hash',$(this).parent().attr('id'));
 						goToHash();
 					}
 				})
