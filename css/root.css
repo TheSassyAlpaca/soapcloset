@@ -262,7 +262,7 @@ header {
 	height: var(--thumb);
 	display: inline-block;
 	vertical-align: top;
-	position: fixed;
+	position: absolute;
 	top: 0px;
 	cursor: pointer;
 }
