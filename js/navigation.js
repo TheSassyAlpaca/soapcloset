@@ -1,4 +1,4 @@
-notice={start:0,end:1586952000000,text:"Testing notice system.",link:"https://www.thesassyalpaca.com/404"};
+notice={start:0,end:1586952000000,text:"Testing notice system.",link:"https://www.thesassyalpaca.com/404",color:"var(--sage)"};
 
 $(function() {
 	//now=new date();
@@ -9,7 +9,7 @@ $(function() {
 		n='<div class="notice">'+notice.text+'</div>';
 		//$(n).insertBefore('header');
 		$('#content').prepend(n);
-		$('#content').prepend('<a href="'+notice.link+'" target="_self" class="notice">'+n+'</a>');
+		$('#content').prepend('<a href="'+notice.link+'" target="_self" class="notice" style="background-color: '+notice.color+'">'+n+'</a>');
 	}
 	$('#home').click(function() {
 		window.location.href="/";
