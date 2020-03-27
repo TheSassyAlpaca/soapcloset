@@ -2,7 +2,9 @@ notice={start:0,end:1586952000,text:"Testing notice system.",link:"https://www.t
 
 $(function() {
 	//now=new date();
-	now=$.now()
+	now=$.now();
+	console.log(now);
+	console.log(now.toDateString());
 	if(notice.start<now&&notice.end>now) {
 		n='<a href="'+notice.link+'"><div class="notice">'+notice.text+'</div></a>';
 		$(n).insertBefore('header')
