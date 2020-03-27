@@ -6,9 +6,10 @@ $(function() {
 	console.log(now);
 	//console.log(now.toDateString());
 	if(notice.start<now&&notice.end>now) {
-		n='<a href="'+notice.link+'"><div class="notice">'+notice.text+'</div></a>';
+		n='<div class="notice">'+notice.text+'</div>';
 		//$(n).insertBefore('header');
 		$('#content').prepend(n);
+		$('#content').prepend('<a href="'+notice.link+'" target="_self" class="notice">'+n+'</a>');
 	}
 	$('#home').click(function() {
 		window.location.href="/";
