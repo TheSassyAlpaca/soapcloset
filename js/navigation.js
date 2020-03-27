@@ -8,7 +8,7 @@ $(function() {
 	if(notice.start<now&&notice.end>now) {
 		n='<a href="'+notice.link+'"><div class="notice">'+notice.text+'</div></a>';
 		//$(n).insertBefore('header');
-		$('header').prepend(n);
+		$('#content').prepend(n);
 	}
 	$('#home').click(function() {
 		window.location.href="/";
