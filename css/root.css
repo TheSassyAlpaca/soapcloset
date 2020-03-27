@@ -66,6 +66,18 @@ h1, h2 {
 	font-size: 24px;
 }
 
+div.notice {
+	padding: 0px 0px 10px 0px;
+}
+
+a.notice {
+	position: fixed;
+	top: var(--thumb);
+	width: calc(100vw - 20px);
+	padding: 10px 10px 0px 10px;
+	left: 0px;
+}
+
 #content > i {
 	font-size: 60px;
 	text-shadow: 3px 3px 5px rgb(var(--ocean));
