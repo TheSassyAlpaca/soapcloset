@@ -46,7 +46,7 @@ function downloadProducts() {
 						$('.category').removeClass('expand');
 						$(this).parent().addClass('expand');
 					}
-					if($(this).hasClass('expand')) {
+					if($(this).parent().hasClass('expand')) {
 						$(location).attr('hash',$(this).parent().attr('id'));
 						goToHash();
 					}
@@ -62,7 +62,7 @@ function downloadProducts() {
 						$('.subcategory').removeClass('expand');
 						$(this).parent().addClass('expand');
 					}
-					if($(this).hasClass('expand')) {
+					if($(this).parent().hasClass('expand')) {
 						$(location).attr('hash',$(this).parent().attr('id'));
 						goToHash();
 					}
@@ -70,7 +70,7 @@ function downloadProducts() {
 				//toggle lesser-categories
 				$('.lessercategory').children('h3').click(function() {
 					$(this).parent().toggleClass('expand');
-					if($(this).hasClass('expand')) {
+					if($(this).parent().hasClass('expand')) {
 						$(location).attr('hash',$(this).parent().attr('id'));
 						goToHash();
 					}
