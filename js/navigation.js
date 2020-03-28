@@ -30,6 +30,11 @@ $(function() {
 	buildSocialMedia();
 	buildSearch();
 	countCart();
+	$('#legalBar').children('a.menuItem').each(function() {
+		if($(this).attr('href')==='/legal/sitemap') {
+			$(this).attr('href','/sitemap.xml');
+		}
+	})
 })
 
 function countCart() {
