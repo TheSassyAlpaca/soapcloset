@@ -63,11 +63,16 @@
 	margin: calc(50vh - (var(--thumb) / 2)) auto;
 }
 
+#shareContainer a {
+	display: inline-block;
+}
+
 #shareContainer a div {
 	height: var(--thumb);
 	width: var(--thumb);
-	background-size: 100% 100%;
+	background-size: 80% 80%;
 	background-position: center center;
+	background-repeat: no-repeat;
 }
 
 .priceBox {
