@@ -87,6 +87,9 @@ function getProduct() {
 						$(this).parent().find('input').next().addClass('greyedOut');
 					}
 				})
+				$('#shareTool').click(function() {
+					console.log('clicky');
+				})
 			})
 		});
 	});
@@ -94,6 +97,35 @@ function getProduct() {
 
 function shareTool(x) {
 	console.log(x);
+	//expand share options
+	/*	position: fixed;
+		height: 100vh;
+		width: 100vw;
+		background-color: rgba(0,0,0,0.8); 
+	*/
+	
+	//facebook="https://www.facebook.com/sharer/sharer.php?u="
+		//$(location).attr('href')
+	//twitter="https://twitter.com/intent/tweet?text="
+		//$(location).attr('href')
+	//pinterest="https://pinterest.com/pin/create/button/?url="
+			//$(location).attr('href')
+		//&media=
+			//$("meta[property='og:image']").attr("content");
+		//&description=
+			//$("meta[property='og:description']").attr("content");
+	//linkedin="https://www.linkedin.com/shareArticle?mini=true"
+		//&url=
+			//$(location).attr('href')
+		//&title=$("meta[property='og:title']").attr("content");
+			//$(document).attr('title');
+		//&summary=
+			//$("meta[property='og:description']").attr("content");
+		//&source=
+			//The Sassy Alpaca
+			
+	share="";
+	return share
 }
 
 function checkInventory(i,n) {
