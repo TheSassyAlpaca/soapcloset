@@ -89,6 +89,17 @@ function getProduct() {
 				})
 				$('#shareTool').click(function() {
 					console.log('clicky');
+					socialMediaShares=[
+						{icon:'facebook.png',href:'https://www.facebook.com/sharer/sharer.php?u='+$(location).attr("href")},
+						{icon:'twitter.png',href:'https://twitter.com/intent/tweet?text='+$(location).attr("href")},
+						{icon:'linkedin.png',href:'https://www.linkedin.com/shareArticle?mini=true&url='+$(location).attr("href")+'&title='+$("meta[property=og:title]").attr("content")+'&summary='+$("meta[property=og:description]").attr("content")+'&source=The Sassy Alpaca'},
+						{icon:'pinterest.png',href:'https://pinterest.com/pin/create/button/?url='+$(location).attr("href")+'&media='+$("meta[property=og:image]").attr("content")+'&description='+$("meta[property=og:description]").attr("content")}
+					];
+				
+					$('body').append('<div id="shareModul"><div id="shareContainer"></div></div>');
+					for(s=0;s<socialMediaShares) {
+						$('#shareContainer').append('<a href="'+socialMediaShares.href+'" target="_blank"><div style="background-image: url('+socialMediaShares.icon+')"></div></a>');
+					}
 				})
 			})
 		});
@@ -123,7 +134,7 @@ function shareTool(x) {
 			//$("meta[property='og:description']").attr("content");
 		//&source=
 			//The Sassy Alpaca
-			
+	//'https://www.linkedin.com/shareArticle?mini=true&url='+$(location).attr('href')+'&title=$("meta[property='og:title']").attr("content")+'&summary='+$("meta[property='og:description']").attr("content")+'&source=The Sassy Alpaca'
 	share="";
 	return share
 }
