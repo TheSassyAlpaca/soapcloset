@@ -1,0 +1,10 @@
+# Group 1
+User-agent: Googlebot
+Disallow: /directoryName/
+
+# Group 2
+User-agent: *
+Allow: /
+
+Sitemap:
+https://www.thesassyalpaca.com/sitemap.xml
