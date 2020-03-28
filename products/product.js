@@ -97,7 +97,7 @@ function getProduct() {
 					];
 				
 					$('body').append('<div id="shareModul"><div id="shareContainer"></div></div>');
-					for(s=0;s<socialMediaShares) {
+					for(s=0;s<socialMediaShares.length;s++) {
 						$('#shareContainer').append('<a href="'+socialMediaShares.href+'" target="_blank"><div style="background-image: url('+socialMediaShares.icon+')"></div></a>');
 					}
 					$('#shareModul').click(function() {
