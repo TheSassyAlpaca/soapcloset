@@ -42,15 +42,32 @@
 	width: calc(var(--thumb) * .5);
 	background-image: url(/images/share.png);
 	background-size: 100% 100%;
+	background-position: center center;
 	filter: invert(1);
 }
 
 #shareModul {
-	
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 1000;
+	top: 0px;
+	left: 0px;
 }
 
 #shareContainer {
-	
+	min-width: var(--thumb);
+	max-width: calc(var(--thumb) * 4);
+	min-height: var(--thumb);
+	margin: calc(50vh - (var(--thumb) / 2)) auto;
+}
+
+#shareContainer a div {
+	height: var(--thumb);
+	width: var(--thumb);
+	background-size: 100% 100%;
+	background-position: center center;
 }
 
 .priceBox {
