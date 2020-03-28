@@ -95,10 +95,10 @@ function getProduct() {
 						{icon:'linkedin.png',href:'https://www.linkedin.com/shareArticle?mini=true&url='+$(location).attr("href")+'&title='+$("meta[property='og:title']").attr("content")+'&summary='+$("meta[property='og:description']").attr("content")+'&source=The Sassy Alpaca'},
 						{icon:'pinterest.png',href:'https://pinterest.com/pin/create/button/?url='+$(location).attr("href")+'&media='+$("meta[property='og:image']").attr("content")+'&description='+$("meta[property='og:description']").attr("content")}
 					];
-				
+					console.log(socialMediaShares);
 					$('body').append('<div id="shareModul"><div id="shareContainer"></div></div>');
 					for(s=0;s<socialMediaShares.length;s++) {
-						$('#shareContainer').append('<a href="'+socialMediaShares.href+'" target="_blank"><div style="background-image: url('+socialMediaShares.icon+')"></div></a>');
+						$('#shareContainer').append('<a href="'+socialMediaShares.href+'" target="_blank"><div style="background-image: url(/images/'+socialMediaShares.icon+')"></div></a>');
 					}
 					$('#shareModul').click(function() {
 						$('#shareModul').remove();
