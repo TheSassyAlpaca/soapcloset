@@ -25,8 +25,8 @@ function getProduct() {
 				//image slides
 					//image thumbs
 					//slide mechanics
-				$('#content').append('<div id="slideshow"><div id="slideHolder" style="background-image:url('+p.images[0]+')"></div></div>');
-				$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'<div id="shareTool">'+shareTool($(location).attr('href'))+'</div></div>');
+				$('#content').append('<div id="slideshow"><div id="shareTool">'+shareTool($(location).attr('href'))+'</div><div id="slideHolder" style="background-image:url('+p.images[0]+')"></div></div>');
+				$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'</div>');
 				//price
 					//bulk rates
 				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+p.price+'</div><div><div>'+p.unit+'</div><div class="bulk">'+p.bulk.join(', ')+'</div></div></div><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div>');
