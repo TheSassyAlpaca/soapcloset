@@ -100,6 +100,9 @@ function getProduct() {
 					for(s=0;s<socialMediaShares) {
 						$('#shareContainer').append('<a href="'+socialMediaShares.href+'" target="_blank"><div style="background-image: url('+socialMediaShares.icon+')"></div></a>');
 					}
+					$('#shareModul').click(function() {
+						$('#shareModul').remove();
+					})
 				})
 			})
 		});
