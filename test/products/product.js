@@ -8,6 +8,7 @@ $(function() {
 
 function getProduct() {
 	getP=window.location.href.substring(40,window.location.href.lastIndexOf("/"));
+	console.log(getP);
 	product={};
 	p=product;
 	$(function() {
