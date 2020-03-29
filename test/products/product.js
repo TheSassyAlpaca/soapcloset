@@ -52,7 +52,7 @@ function getProduct() {
 				console.log(p.options);
 				$('#content').append('<div id="options"></div>');
 				for(o=0;o<p.options.length;o++) {
-					$('#options').append('<h2>'+p.+'</h2><div class="optionsContainer">'+options(p.options[o])+'</div>');
+					$('#options').append('<h2>'+p.options[o].option+'</h2><div class="optionsContainer">'+options(p.options[o])+'</div>');
 				}
 				$('.slide').click(function() {
 					$('#slideHolder').css('background-image',$(this).css('background-image'));
