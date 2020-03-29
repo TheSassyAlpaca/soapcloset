@@ -84,7 +84,7 @@ function buildSocialMedia() {
 		{icon:'twitter.png',href:'https://twitter.com/SassyAlpaca1'},
 		{icon:'instagram.png',href:'https://www.instagram.com/alpacasassy'},
 		{icon:'etsy.png',href:'https://www.etsy.com/shop/TheSassyAlpacaLLC'},
-		{icon:'pinterest.png',href:'/pinterest'}
+		{icon:'pinterest.png',href:'https://www.pinterest.com/TheSassyAlpaca/'}
 	];
 	img="https://www.thesassyalpaca.com/images/";
 	for(i=0;i<socialMedia.length;i++) {
