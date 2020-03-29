@@ -1,3 +1,5 @@
+tempFolder="/test";
+
 $(function() {
 	downloadProducts();
 })
@@ -5,9 +7,9 @@ $(function() {
 function downloadProducts() {
 	window['products']=[];
 	$(function() {
-		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
+		pKey="1Z14hYfA6TiRhZ1zwZ3vehgOwQ2pfDL4A5wn1PPVFmhE";
 		$(function() {
-			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/4/public/values?alt=json-in-script&callback=?",
+			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/1/public/values?alt=json-in-script&callback=?",
 			function (data) {
 				$.each(data.feed.entry, function(i,entry) {
 					if(entry.gsx$data.$t!='{}') {
@@ -17,12 +19,11 @@ function downloadProducts() {
 							$('#content').append('<div id="'+p.category.replace(/[\s&'!-#()]/g,'')+'" class="category"><div class="catHeader" style="background-image:url('+p.images[0]+')"><h1>'+p.category+'</h1><hr><div class="photoBox"></div><hr></div></div>');
 							$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox').append('<div class="proPhoto"><img src="'+p.images[0]+'"></div>');
 						}
-						if($('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).length==0) {
-							$('#'+p.category.replace(/[\s&'!-#()]/g,'')).append('<div id="'+p.subcategory.replace(/[\s&'!-#()]/g,'')+'" class="subcategory"><h2>'+p.subcategory+'</h2></div>');
-						}
+						/*
 						if($('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).children('.'+p.lessercategory.replace(/[\s&'!-#()]/g,'')).length==0) {
 							$('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).append('<div class="'+p.lessercategory.replace(/[\s&'!-#()]/g,'')+' lessercategory expand"><h3>'+p.lessercategory+'</h3></div>');
 						}
+						*/
 						photoCheck=0;
 						$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox').find('img').each(function() {
 							console.log($(this));
@@ -34,7 +35,12 @@ function downloadProducts() {
 						if(photoCheck==0) {
 							$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox').append('<div class="proPhoto"><img src="'+p.images[0]+'"></div>');
 						}
-						$('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory.replace(/[\s&'!-#()]/g,'')).children('.'+p.lessercategory.replace(/[\s&'!-#()]/g,'')).append(listing(p,i));
+						for(s=0;sub<p.subcategory.length;s++) {
+							if($('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory[s].replace(/[\s&'!-#()]/g,'')).length==0) {
+								$('#'+p.category.replace(/[\s&'!-#()]/g,'')).append('<div id="'+p.subcategory[s].replace(/[\s&'!-#()]/g,'')+'" class="subcategory"><h2>'+p.subcategory[s]+'</h2></div>');
+							}
+							$('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory[s].replace(/[\s&'!-#()]/g,'')).append(listing(p,i,p.subcategory[s]));
+						}
 					}
 				});
 				//toggle categories
@@ -59,10 +65,12 @@ function downloadProducts() {
 						$(this).parent().addClass('expand');
 					}
 				})
+				/*
 				//toggle lesser-categories
 				$('.lessercategory').children('h3').click(function() {
 					$(this).parent().toggleClass('expand');
 				})
+				*/
 				//expand/contract listing
 				$('.listing').click(function() {
 					if($(this).hasClass('expand')) {
@@ -87,6 +95,10 @@ function downloadProducts() {
 					}
 					sendEvent('User','Bulk Rates','Interest');
 				})
+				//UPDATED TO HERE
+				
+				/*
+				//NOLONGER VALID AS USER MUST SELECT SCENT PROFILE ON SOME ITEMS!!
 				//add/remove/increment item to cart
 				$('.listing button').click(function(e) {
 					e.stopPropagation();
@@ -118,11 +130,12 @@ function downloadProducts() {
 					changeCookie('cart',p.id.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
 					userAlert(a+' '+p.name+' are now in your cart.');
 				})
+				*/
 				//open page to product
 				$('.listingLeft, .listingMid h3').click(function(e) {
 					e.stopPropagation();
 					p=products[$(this).parents('.listing').attr('data')];
-					window.location.href="/products/"+p.id.replace(/[\s&'!-#()]/g,'').toLowerCase();
+					window.location.href=tempFolder+"/products/"+p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+"/"+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
 				})
 				//show qty
 				$('.buy input').each(function() {
@@ -139,6 +152,11 @@ function downloadProducts() {
 	})
 }
 
+function listing(p,i,s) {
+	l='<div id="'+p.category.replace(/[\s&'!-#()]/g,'')+s.replace(/[\s&'!-#()]/g,'')+p.name.replace(/[\s&'!-#()]/g,'')+'" class="listing" data="'+i+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span>'+checkInventory(p.qty,p.name)+'<br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'<div class="buy"></div></div></div><hr>';
+	return l
+}
+
 function goToHash() {
 	if($(location).attr('hash').length) {
 		hash=$(location).attr('hash');
@@ -148,11 +166,6 @@ function goToHash() {
 			scrollTop: $(hash).offset().top - 60
 		}, 1500);
 	}
-}
-
-function listing(p,i) {
-	l='<div id="'+p.id.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span>'+checkInventory(p.qty,p.name)+'<br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'<div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div></div><hr>';
-	return l
 }
 
 function checkInventory(i,n) {
