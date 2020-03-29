@@ -48,6 +48,12 @@ function getProduct() {
 				//$('#content').append(checkInventory(p.qty,p.name));
 				$('#content').append('<div id="description">'+p.description+'</div>');
 				$('#content').append('<div id="ingredients"><b>Ingredients:</b> '+ingredients(p.ingredients)+'</div>');
+				//THIS IS WHERE THE NEW SCENT OPTIONS NEED TO BE ENTERED
+				console.log(p.options);
+				$('#content').append('<div id="options"></div>');
+				for(o=0;o<p.options.length;o++) {
+					$('#options').append('<h2>'+p.+'</h2><div class="optionsContainer">'+options(p.options[o])+'</div>');
+				}
 				$('.slide').click(function() {
 					$('#slideHolder').css('background-image',$(this).css('background-image'));
 				})
@@ -59,20 +65,6 @@ function getProduct() {
 						}
 					}
 				})
-				//THIS IS WHERE THE NEW SCENT OPTIONS NEED TO BE ENTERED
-				console.log(p.options);
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				/*
 				$('.buy button').click(function(e) {
 					e.stopPropagation();
@@ -135,6 +127,10 @@ function getProduct() {
 			})
 		});
 	});
+}
+
+function options(o) {
+	console.log(o);
 }
 
 function checkInventory(i,n) {
