@@ -1,4 +1,5 @@
 tempFolder="/test";
+safe=5;
 
 $(function() {
 	downloadProducts();
@@ -35,7 +36,7 @@ function downloadProducts() {
 						if(photoCheck==0) {
 							$('#'+p.category.replace(/[\s&'!-#()]/g,'')).find('.photoBox').append('<div class="proPhoto"><img src="'+p.images[0]+'"></div>');
 						}
-						for(s=0;sub<p.subcategory.length;s++) {
+						for(s=0;s<p.subcategory.length;s++) {
 							if($('#'+p.category.replace(/[\s&'!-#()]/g,'')).children('#'+p.subcategory[s].replace(/[\s&'!-#()]/g,'')).length==0) {
 								$('#'+p.category.replace(/[\s&'!-#()]/g,'')).append('<div id="'+p.subcategory[s].replace(/[\s&'!-#()]/g,'')+'" class="subcategory"><h2>'+p.subcategory[s]+'</h2></div>');
 							}
@@ -170,7 +171,6 @@ function goToHash() {
 
 function checkInventory(i,n) {
 	alert='';
-	safe=5;
 	if(i<=safe) {
 		alert='<br><span style="color: red">'+i+' '+n+' remaining.</span>';
 	}
