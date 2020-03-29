@@ -1,6 +1,6 @@
 # Group 1
 User-agent: Googlebot
-Disallow: /directoryName/
+Disallow: /test/
 
 # Group 2
 User-agent: *
