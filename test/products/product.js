@@ -7,8 +7,18 @@ $(function() {
 })
 
 function getProduct() {
-	getP=window.location.href.substring(40,window.location.href.lastIndexOf("/"));
+	getP=window.location.href.substring(44,window.location.href.lastIndexOf("/"));
 	console.log(getP);
+	getURLParts=window.location.href.split("/");
+	c=''
+	n=''
+	for(g=0;g<getURLParts.length;g++) {
+		if(getURLParts[g]=="products") {
+			c=getURLParts[g+1];
+			n=getURLParts[g+2];
+		}
+	}
+	console.log(c,n);
 	product={};
 	p=product;
 	$(function() {
@@ -18,7 +28,12 @@ function getProduct() {
 			function (data) {
 				$.each(data.feed.entry, function(i,entry) {
 					product=JSON.parse(entry.gsx$data.$t);
+					/*
 					if(product.id.replace(/[\s&'!-#()]/g,'').toLowerCase()==getP) {
+						p=product;
+					}
+					*/
+					if(product.category.replace(/[\s&'!-#()]/g,'').toLowerCase()==c&&product.name.replace(/[\s&'!-#()]/g,'').toLowerCase()==n) {
 						p=product;
 					}
 				});
