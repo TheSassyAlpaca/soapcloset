@@ -21,6 +21,7 @@ function getProduct() {
 						p=product;
 					}
 				});
+				console.log(p);
 				window['ingredientList']=[];
 				getIngredients();
 				$('#content').append('<div id="title"><h1>'+p.name+'</h1><span>'+listKeywords(p.keywords)+'</span></div>');
