@@ -149,7 +149,7 @@ function ingredients(ing) {
 	//break ing into array ings
 	ingredients='';
 	for(i=0;i<ing.length;i++) {
-		ingredients=ingredients+'<div class="ingredient" data-source="'+ing[i]+'">'+ing[i]+'</div>';
+		ingredients=ingredients+'<span class="ingredient" data-source="'+ing[i]+'">'+ing[i]+'</span>';
 		if(i<ing.length-1) {
 			ingredients=ingredients+', ';
 		}
