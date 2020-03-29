@@ -1,3 +1,7 @@
+tempFolder="/test";
+safe=5;
+p={};
+
 $(function() {
 	getProduct();
 })
@@ -7,9 +11,9 @@ function getProduct() {
 	product={};
 	p=product;
 	$(function() {
-		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
+		pKey="1Z14hYfA6TiRhZ1zwZ3vehgOwQ2pfDL4A5wn1PPVFmhE";
 		$(function() {
-			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/4/public/values?alt=json-in-script&callback=?",
+			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/1/public/values?alt=json-in-script&callback=?",
 			function (data) {
 				$.each(data.feed.entry, function(i,entry) {
 					product=JSON.parse(entry.gsx$data.$t);
@@ -19,28 +23,17 @@ function getProduct() {
 				});
 				window['ingredientList']=[];
 				getIngredients();
-				//title
-				//keywords
 				$('#content').append('<div id="title"><h1>'+p.name+'</h1><span>'+listKeywords(p.keywords)+'</span></div>');
-				//image slides
-					//image thumbs
-					//slide mechanics
-				$('#content').append('<div id="slideshow"><div id="shareTool">'+shareTool($(location).attr('href'))+'</div><div id="slideHolder" style="background-image:url('+p.images[0]+')"></div></div>');
+				$('#content').append('<div id="slideshow"><div id="shareTool"></div><div id="slideHolder" style="background-image:url('+p.images[0]+')"></div></div>');
 				$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'</div>');
-				//price
-					//bulk rates
-				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+p.price+'</div><div><div>'+p.unit+'</div><div class="bulk">'+p.bulk.join(', ')+'</div></div></div><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getValue(p)+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div>');
-				//description
-				$('#content').append(checkInventory(p.qty,p.name));
+				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+p.price+'</div><div><div>'+p.unit+'</div><div class="bulk">'+p.bulk.join(', ')+'</div></div></div></div>');
+				//Redo
+				//$('#content').append(checkInventory(p.qty,p.name));
 				$('#content').append('<div id="description">'+p.description+'</div>');
-				//ingredients
 				$('#content').append('<div id="ingredients"><b>Ingredients:</b> '+ingredients(p.ingredients)+'</div>');
-				//functions
-				//slideshow
 				$('.slide').click(function() {
 					$('#slideHolder').css('background-image',$(this).css('background-image'));
 				})
-				//ingredients tooltip
 				$('.ingredient').on('hover click',function() {
 					console.log($(this).attr('data-source'));
 					for(i=0;i<ingredientList.length;i++) {
@@ -49,9 +42,23 @@ function getProduct() {
 						}
 					}
 				})
+				//THIS IS WHERE THE NEW SCENT OPTIONS NEED TO BE ENTERED
+				console.log(p.options);
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				/*
 				$('.buy button').click(function(e) {
 					e.stopPropagation();
-					//p=products[$(this).parents('.listing').attr('data')];
 					a=0;
 					i=$(this).parent().find('input');
 					$(this).parent().find('input').next().removeClass('greyedOut');
@@ -79,6 +86,8 @@ function getProduct() {
 					changeCookie('cart',p.id.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
 					userAlert(a+' '+p.name+' are now in your cart.');
 				})
+				*/
+				//seems workable
 				$('.buy input').each(function() {
 					if($(this).val()!=0) {
 						$(this).parent().parent().children('.addToCart').css('display','none');
@@ -87,12 +96,14 @@ function getProduct() {
 						$(this).parent().find('input').next().addClass('greyedOut');
 					}
 				})
+				//this should probably be moved to Navigation.js
 				$('#shareTool').click(function() {
 					console.log('clicky');
+					//test and update the objects as needed...
 					socialMediaShares=[
 						{icon:'facebook.png',href:'https://www.facebook.com/sharer/sharer.php?u='+encodeURI($(location).attr("href"))},
 						{icon:'twitter.png',href:'https://twitter.com/intent/tweet?text='+encodeURI($(location).attr("href"))},
-						{icon:'linkedin.png',href:'https://www.linkedin.com/shareArticle?mini=true&url='+encodeURI($(location).attr("href"))+'&title='+encodeURI($("meta[property='og:title']").attr("content"))+'&summary='+encodeURI($("meta[property='og:description']").attr("content"))+'&source=The Sassy Alpaca'},
+						{icon:'linkedin.png',href:'https://www.linkedin.com/shareArticle?mini=true&url='+encodeURI($(location).attr("href"))+'&title='+encodeURI(p.name)+'&summary='+encodeURI(p.description)+'&source=The Sassy Alpaca'},
 						{icon:'pinterest.png',href:'https://pinterest.com/pin/create/button/?url='+encodeURI($(location).attr("href"))+'&media='+encodeURI($("meta[property='og:image']").attr("content"))+'&description='+encodeURI($("meta[property='og:description']").attr("content"))}
 					];
 					console.log(socialMediaShares);
@@ -109,42 +120,8 @@ function getProduct() {
 	});
 }
 
-function shareTool(x) {
-	console.log(x);
-	//expand share options
-	/*	position: fixed;
-		height: 100vh;
-		width: 100vw;
-		background-color: rgba(0,0,0,0.8); 
-	*/
-	
-	//facebook="https://www.facebook.com/sharer/sharer.php?u="
-		//$(location).attr('href')
-	//twitter="https://twitter.com/intent/tweet?text="
-		//$(location).attr('href')
-	//pinterest="https://pinterest.com/pin/create/button/?url="
-			//$(location).attr('href')
-		//&media=
-			//$("meta[property='og:image']").attr("content");
-		//&description=
-			//$("meta[property='og:description']").attr("content");
-	//linkedin="https://www.linkedin.com/shareArticle?mini=true"
-		//&url=
-			//$(location).attr('href')
-		//&title=$("meta[property='og:title']").attr("content");
-			//$(document).attr('title');
-		//&summary=
-			//$("meta[property='og:description']").attr("content");
-		//&source=
-			//The Sassy Alpaca
-	//'https://www.linkedin.com/shareArticle?mini=true&url='+$(location).attr('href')+'&title=$("meta[property='og:title']").attr("content")+'&summary='+$("meta[property='og:description']").attr("content")+'&source=The Sassy Alpaca'
-	share="";
-	return share
-}
-
 function checkInventory(i,n) {
 	alert='';
-	safe=5;
 	if(i<=safe) {
 		alert='<span style="color: red">'+i+' '+n+' remaining.</span><br>';
 	}
