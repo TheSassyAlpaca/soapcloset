@@ -133,7 +133,9 @@ function options(o) {
 	console.log(o);
 	opts='';
 	for(i=0;i<o.length;i++) {
-		opts=opts+'<div id="'+o[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="option"><label>'+o.name+'</label><div class="buy"><button>Add To Cart</button><div><button class="down">D</button><input type="text" value="0" min="0" max="'+o[i].qty+'"><button>U</button></div></div></div>';
+		opt='<div id="'+o[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="option"><label>'+o.name+'</label><div class="buy"><button>Add To Cart</button><div><button class="down">D</button><input type="text" value="0" min="0" max="'+o[i].qty+'"><button>U</button></div></div></div>';
+		console.log(opt);
+		opts=opts+opt;
 	}
 	return opts
 }
