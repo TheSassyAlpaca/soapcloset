@@ -98,6 +98,18 @@
 	height: calc(var(--thumb) * 0.5);
 }
 
+#options {
+	
+}
+
+#options h2 {
+	
+}
+
+.optionsContainer {
+	
+}
+
 .buy {
 	width: var(--thumb);
 	height: calc(var(--thumb) * 0.5);
