@@ -1,4 +1,4 @@
-#title, #pricing, #description, #ingredients {
+#title, #pricing, #description, #ingredients, #pricing+span {
 	max-width: 800px;
 	margin: 10px auto;
 	font-size: initial;
@@ -106,6 +106,10 @@
 #options h2 {
 	text-align: center;
 	font-size: 30px;
+}
+
+.option {
+	height: calc(var(--thumb) * .5);
 }
 
 .optionsContainer .buy {
