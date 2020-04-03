@@ -298,7 +298,7 @@ function showTub() {
 					//id=products[j].id.replace(/[\s&'!-#()]/g,'').toLowerCase();
 					id=products[j].category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+products[j].subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+products[j].name.replace(/[\s&'!-#()]/g,'').toLowerCase();
 					console.log([id,k]);
-					//if() {
+					if(k.indexOf(id)!=-1) {
 						for(os=0;os<products[j].options.length;os++) {
 							//console.log
 							for(o=0;o<products[j].options[os].length;o++) {
@@ -310,7 +310,7 @@ function showTub() {
 								}
 							}
 						}
-					//}
+					}
 				}
 			}
 		}
