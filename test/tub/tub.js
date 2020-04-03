@@ -301,7 +301,7 @@ function showTub() {
 					if(k.indexOf(id)!=-1) {
 						for(os=0;os<products[j].options.length;os++) {
 							console.log(products[j].options[os]);
-							for(o=0;o<products[j].options[os].length;o++) {
+							for(o=0;o<products[j].options[os].option.length;o++) {
 								console.log(products[j].options[os].option[o]);
 								io=id+'|'+products[j].options[os].option[o].name.replace(/[\s&'!-#()]/g,'').toLowerCase();
 								console.log([io,k]);
