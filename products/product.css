@@ -99,15 +99,17 @@
 }
 
 #options {
-	
+	max-width: 320px;
+	margin: auto;
 }
 
 #options h2 {
-	
+	text-align: center;
+	font-size: 30px;
 }
 
-.optionsContainer {
-	
+.optionsContainer .buy {
+	margin: unset;
 }
 
 .buy {
@@ -119,11 +121,18 @@
 	overflow: hidden;
 }
 
+.buy label {
+	height: calc(var(--thumb) * 0.5);
+	line-height: calc(var(--thumb) * 0.5);
+	display: inline-block;
+}
+
 .addToCart {
 	height: calc(var(--thumb) * .5);
 	width: calc(var(--thumb));
 	font-family: var(--econ);
 	padding: 3px;
+	vertical-align: top;
 }
 
 .buy div button {
