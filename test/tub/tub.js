@@ -252,6 +252,8 @@ function buildOrder() {
 	$('#contact input').val('');
 	total();
 	*/
+	$('#content').empty();
+	buildPage();
 }
 
 function total() {
