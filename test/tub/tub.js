@@ -54,9 +54,8 @@ function downloadProducts() {
 				});
 				//get items from cookies
 				$('#items .content').append(showTub());
-				$('.listing button').click(function(e) {
-					e.stopPropagation();
-					p=products[$(this).parents('.listing').attr('data')];
+				$('.buy button').click(function(e) {
+					//e.stopPropagation();
 					a=0;
 					i=$(this).parent().find('input');
 					$(this).parent().find('input').next().removeClass('greyedOut');
@@ -78,13 +77,13 @@ function downloadProducts() {
 					}
 					if(i.val()!=0) {
 						$(this).parents('.buy').find('.addToCart').css('display','none');
-						$(this).parents('.listing').find('.listingRight span').text('$'+(i.val()*p.price));
-						$(this).parents('.listing').find('.listingRight').attr('data-source',i.val()*p.price);
 					} else {
-						$(this).parents('.listing').remove();
+						$(this).parents('.buy').find('.addToCart').css('display','block');
 					}
-					changeCookie('cart',p.id.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
-					userAlert(a+' '+p.name+' are now in your cart.');
+					id=$(this).parents('.buy').attr('id');
+					console.log($(this).parents('.buy').attr('id'));
+					changeCookie('cart',id,a);
+					userAlert(a+' '+p.name+' - '+$(this).parents('.buy').attr('data-source')+' are now in your cart.');
 					total();
 				})
 				$('.listingLeft, .listingMid h3').click(function(e) {
@@ -307,7 +306,7 @@ function showTub() {
 								console.log([io,k]);
 								if(io==k&&cart[k]>0) {
 									p=products[j];
-									list=list+'<div id="'+io+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+' '+products[j].options[os].options[o].name+'</h3></div><div class="listingRight" data-source="'+(cart[k]*p.price)+'"><span>$'+(cart[k]*p.price)+'</span><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+p.options[os].option.qty+'><button>&#x25B2;</button></div></div></div></div>';
+									list=list+'<div id="'+io+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+' - '+products[j].options[os].options[o].name+'</h3></div><div class="listingRight" data-source="'+(cart[k]*p.price)+'"><span>$'+(cart[k]*p.price)+'</span><div id="'++'" class="buy" data-source="'+p.options[os].option.name+'"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+p.options[os].option.qty+'><button>&#x25B2;</button></div></div></div></div>';
 								}
 							}
 						}
