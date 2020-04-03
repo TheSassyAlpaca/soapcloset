@@ -101,14 +101,6 @@ function getProduct() {
 					changeCookie('cart',id,a);
 					userAlert(a+' '+p.name+' - '+$(this).parents('.option').attr('data-source')+' are now in your cart.');
 				})
-				
-				
-				
-				
-				
-				
-				
-				//seems workable
 				$('.buy input').each(function() {
 					if($(this).val()!=0) {
 						$(this).parent().parent().children('.addToCart').css('display','none');
@@ -141,11 +133,33 @@ function getProduct() {
 	});
 }
 
+function getOptionValue(o) {
+	//check cookies for this product using p.name.replace(/[\s&'!-#()]/g,'')
+	c=document.cookie;
+	cooks=c.split('; ');
+	q=0;
+	cart={};
+	id=p.id.replace(/[\s&'!-#()]/g,'').toLowerCase();
+	for(i=0;i<cooks.length;i++) {
+		cookie=cooks[i].split('=');
+		if(cookie[0]=='cart') {
+			cart=JSON.parse(cookie[1]);
+			if(id in cart) {
+				q=cart[id];
+			}
+		}
+	}
+	if(Number(p.qty)<q) {
+		q=Number(p.qty);
+	}
+	return q
+}
+
 function options(o) {
 	console.log(o);
 	opts='';
 	for(i=0;i<o.options.length;i++) {
-		opt='<div id="'+o.options[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="option"><label>'+o.options[i].name+'</label><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="0" min="0" max="'+o.options[i].qty+'"><button>&#x25B2;</button></div></div></div>';
+		opt='<div id="'+o.options[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="option"><label>'+o.options[i].name+'</label><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getOptionValue(o.options[i])+'" min="0" max="'+o.options[i].qty+'"><button>&#x25B2;</button></div></div></div>';
 		console.log(opt);
 		opts=opts+opt;
 	}
