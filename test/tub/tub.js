@@ -300,8 +300,9 @@ function showTub() {
 					console.log([id,k]);
 					if(k.indexOf(id)!=-1) {
 						for(os=0;os<products[j].options.length;os++) {
-							//console.log
+							console.log(products[j].options[os]);
 							for(o=0;o<products[j].options[os].length;o++) {
+								console.log(products[j].options[os].option[o]);
 								io=id+'|'+products[j].options[os].option[o].name.replace(/[\s&'!-#()]/g,'').toLowerCase();
 								console.log([io,k]);
 								if(io==k&&cart[k]>0) {
