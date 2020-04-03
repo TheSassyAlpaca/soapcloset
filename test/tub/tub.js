@@ -292,7 +292,7 @@ function showTub() {
 		if(cookie[0]=='cart') {
 			cart=JSON.parse(cookie[1]);
 			for(k in cart) {
-				console.log(cart[k]);
+				console.log(cart);
 				for(j=0;j<products.length;j++) {
 					//fix here?
 					//id=products[j].id.replace(/[\s&'!-#()]/g,'').toLowerCase();
