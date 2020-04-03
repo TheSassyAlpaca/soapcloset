@@ -135,6 +135,7 @@ function getProduct() {
 
 function getOptionValue(o) {
 	//check cookies for this product using p.name.replace(/[\s&'!-#()]/g,'')
+	/*
 	c=document.cookie;
 	cooks=c.split('; ');
 	q=0;
@@ -152,6 +153,8 @@ function getOptionValue(o) {
 	if(Number(p.qty)<q) {
 		q=Number(p.qty);
 	}
+	*/
+	q=0;
 	return q
 }
 
