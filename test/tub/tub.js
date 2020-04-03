@@ -283,6 +283,7 @@ function dataList(l) {
 
 function showTub() {
 	c=document.cookie;
+	console.log(c);
 	cooks=c.split('; ');
 	cart={};
 	list='';
@@ -296,14 +297,17 @@ function showTub() {
 					//fix here?
 					//id=products[j].id.replace(/[\s&'!-#()]/g,'').toLowerCase();
 					id=products[j].category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+products[j].subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+products[j].name.replace(/[\s&'!-#()]/g,'').toLowerCase();
-					console.log([id,cart[k]]);
-					for(os=0;os<products[j].options.length;os++) {
-						for(o=0;o<products[j].options[os].length;o++) {
-							io=id+'|'+products[j].options[os].option[o].name.replace(/[\s&'!-#()]/g,'').toLowerCase();
-							console.log([io,cart[k]]);
-							if(io==k&&cart[k]>0) {
-								p=products[j];
-								list=list+'<div id="'+io+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3></div><div class="listingRight" data-source="'+(cart[k]*p.price)+'"><span>$'+(cart[k]*p.price)+'</span><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+p.options[os].option[o].qty+'><button>&#x25B2;</button></div></div></div></div>';
+					console.log([id,k]);
+					if() {
+						for(os=0;os<products[j].options.length;os++) {
+							//console.log
+							for(o=0;o<products[j].options[os].length;o++) {
+								io=id+'|'+products[j].options[os].option[o].name.replace(/[\s&'!-#()]/g,'').toLowerCase();
+								console.log([io,k]);
+								if(io==k&&cart[k]>0) {
+									p=products[j];
+									list=list+'<div id="'+io+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3></div><div class="listingRight" data-source="'+(cart[k]*p.price)+'"><span>$'+(cart[k]*p.price)+'</span><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+p.options[os].option[o].qty+'><button>&#x25B2;</button></div></div></div></div>';
+								}
 							}
 						}
 					}
