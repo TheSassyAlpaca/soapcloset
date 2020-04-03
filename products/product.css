@@ -110,6 +110,15 @@
 
 .option {
 	height: calc(var(--thumb) * .5);
+	padding: 5px;
+	border: 1px solid rgb(var(--oats));
+	border-radius: 2px;
+}
+
+label {
+	height: calc(var(--thumb) * .5);
+	line-height: calc(var(--thumb) * .5);
+	display: inline-block;
 }
 
 .optionsContainer .buy {
