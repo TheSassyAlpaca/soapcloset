@@ -139,7 +139,6 @@ function getOptionValue(o) {
 	cooks=c.split('; ');
 	q=0;
 	cart={};
-	
 	id=p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+o.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
@@ -163,7 +162,7 @@ function options(o) {
 	opts='';
 	for(i=0;i<o.options.length;i++) {
 		console.log(o.options[i].qty);
-		opt='<div id="'+p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+o.options[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="option" data-source="'+o.options[i].name+'"><label>'+o.options[i].name+'</label><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getOptionValue(o.options[i])+'" min="0" max="'+o.options[i].qty+'"><button>&#x25B2;</button></div></div></div>';
+		opt='<div id="'+p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+o.options[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="option" data-source="'+o.options[i].name+'"><label>'+o.options[i].name+'</label><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getOptionValue(o.options[i])+'" min=0 max='+o.options[i].qty+'><button>&#x25B2;</button></div></div></div>';
 		console.log(opt);
 		opts=opts+opt;
 	}
