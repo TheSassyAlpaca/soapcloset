@@ -144,8 +144,8 @@ function options(o) {
 		cart={};
 		id=p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+o.options[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase();
 		console.log(id);
-		for(i=0;i<cooks.length;i++) {
-			cookie=cooks[i].split('=');
+		for(j=0;j<cooks.length;j++) {
+			cookie=cooks[j].split('=');
 			if(cookie[0]=='cart') {
 				cart=JSON.parse(cookie[1]);
 				if(id in cart) {
