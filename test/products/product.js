@@ -99,7 +99,7 @@ function getProduct() {
 					id=p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+$(this).parents('.option').attr('id');
 					console.log(p.category.replace(/[\s&'!-#()]/g,'').toLowerCase(),p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase(),p.name.replace(/[\s&'!-#()]/g,'').toLowerCase(),$(this).parents('.option').attr('id'));
 					changeCookie('cart',id,a);
-					userAlert(a+' '+p.name+' - '+$(this).parents('.option').attr('data-source')+' are now in your cart.');
+					userAlert(a+' '+p.name+' - '+$(this).parents('.option').attr('id')+' are now in your cart.');
 				})
 				$('.buy input').each(function() {
 					if($(this).val()!=0) {
