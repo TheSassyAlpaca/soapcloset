@@ -1,17 +1,5 @@
 $(function() {
-	$('#content').append('<div id="items" class="region"><h1>Shopping Tub</h1><div class="content"></div></div>');
-	$('#content').append('<hr>');
-	$('#content').append('<div id="coupon" class="region"><h1>Coupon Code</h1><div class="content"></div></div>');
-	$('#content').append('<hr>');
-	$('#content').append('<div id="profession" class="region"><h1>Profession (Optional)</h1><div class="content"></div></div>');
-	$('#content').append('<hr>');
-	$('#content').append('<div id="fulfillment" class="region"><h1>Fulfillment</h1><div class="content"></div></div>');
-	$('#content').append('<hr>');
-	$('#content').append('<div id="contact" class="region"><h1>Contact</h1><div class="content"></div></div>');
-	$('#content').append('<hr>');
-	$('#content').append('<div id="totals" class="region"><h1>Estimated Total</h1><div class="content"></div></div>');
-	$('#content').append('<hr>');
-	downloadProducts();
+	buildPage();
 })
 
 professionList=[
@@ -40,6 +28,22 @@ pickupList=[
 ];
 
 order={};
+
+function buildPage() {
+	$('#content').append('<div id="items" class="region"><h1>Shopping Tub</h1><div class="content"></div></div>');
+	$('#content').append('<hr>');
+	$('#content').append('<div id="coupon" class="region"><h1>Coupon Code</h1><div class="content"></div></div>');
+	$('#content').append('<hr>');
+	$('#content').append('<div id="profession" class="region"><h1>Profession (Optional)</h1><div class="content"></div></div>');
+	$('#content').append('<hr>');
+	$('#content').append('<div id="fulfillment" class="region"><h1>Fulfillment</h1><div class="content"></div></div>');
+	$('#content').append('<hr>');
+	$('#content').append('<div id="contact" class="region"><h1>Contact</h1><div class="content"></div></div>');
+	$('#content').append('<hr>');
+	$('#content').append('<div id="totals" class="region"><h1>Estimated Total</h1><div class="content"></div></div>');
+	$('#content').append('<hr>');
+	downloadProducts();
+}
 
 function downloadProducts() {
 	window['products']=[];
@@ -240,12 +244,14 @@ function buildOrder() {
 	userAlert('Order Submitted! Check your email for confirmation and status!');
 	submitForm('https://docs.google.com/forms/d/e/1FAIpQLSdCEcSCvTvPhQZriFjsO5w7b_NukS_SRw8XFCUzjk2bTpZ33A/formResponse?usp=pp_url&entry.148047722=',['entry.1353804064'],[encodeURIComponent(JSON.stringify(order)),order.email]);
 	emptyTub();
+	/*
 	$('#items .content').empty();
 	$('#coupon input').val('');
 	$('#profession input').val('');
 	$('#fulfillment input').val('');
 	$('#contact input').val('');
 	total();
+	*/
 }
 
 function total() {
