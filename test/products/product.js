@@ -65,9 +65,13 @@ function getProduct() {
 						}
 					}
 				})
-				/*
+				
+				
+				
+				
+				
 				$('.buy button').click(function(e) {
-					e.stopPropagation();
+					//e.stopPropagation();
 					a=0;
 					i=$(this).parent().find('input');
 					$(this).parent().find('input').next().removeClass('greyedOut');
@@ -92,10 +96,17 @@ function getProduct() {
 					} else {
 						$(this).parents('.buy').find('.addToCart').css('display','block');
 					}
-					changeCookie('cart',p.id.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
+					id=p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
+					changeCookie('cart',id,a);
 					userAlert(a+' '+p.name+' are now in your cart.');
 				})
-				*/
+				
+				
+				
+				
+				
+				
+				
 				//seems workable
 				$('.buy input').each(function() {
 					if($(this).val()!=0) {
