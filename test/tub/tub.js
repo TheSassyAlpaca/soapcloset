@@ -56,6 +56,7 @@ function downloadProducts() {
 				$('#items .content').append(showTub());
 				$('.buy button').click(function(e) {
 					//e.stopPropagation();
+					p=products[$(this).parents('.listing').attr('data')];
 					a=0;
 					i=$(this).parent().find('input');
 					$(this).parent().find('input').next().removeClass('greyedOut');
