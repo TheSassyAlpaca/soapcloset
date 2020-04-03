@@ -96,8 +96,8 @@ function getProduct() {
 					} else {
 						$(this).parents('.buy').find('.addToCart').css('display','block');
 					}
-					id=p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+$(this).parents('.option').attr('id');
-					console.log(p.category.replace(/[\s&'!-#()]/g,'').toLowerCase(),p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase(),p.name.replace(/[\s&'!-#()]/g,'').toLowerCase(),$(this).parents('.option').attr('id'));
+					id=$(this).parents('.option').attr('id');
+					console.log($(this).parents('.option').attr('id'));
 					changeCookie('cart',id,a);
 					userAlert(a+' '+p.name+' - '+$(this).parents('.option').attr('data-source')+' are now in your cart.');
 				})
@@ -135,12 +135,12 @@ function getProduct() {
 
 function getOptionValue(o) {
 	//check cookies for this product using p.name.replace(/[\s&'!-#()]/g,'')
-	/*
 	c=document.cookie;
 	cooks=c.split('; ');
 	q=0;
 	cart={};
-	id=p.id.replace(/[\s&'!-#()]/g,'').toLowerCase();
+	
+	id=p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+o.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
 		if(cookie[0]=='cart') {
@@ -150,11 +150,9 @@ function getOptionValue(o) {
 			}
 		}
 	}
-	if(Number(p.qty)<q) {
-		q=Number(p.qty);
+	if(Number(o.qty)<q) {
+		q=Number(o.qty);
 	}
-	*/
-	q=0;
 	return q
 }
 
@@ -162,7 +160,7 @@ function options(o) {
 	console.log(o);
 	opts='';
 	for(i=0;i<o.options.length;i++) {
-		opt='<div id="'+o.options[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="option" data-source="'+o.options[i].name+'"><label>'+o.options[i].name+'</label><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getOptionValue(o.options[i])+'" min="0" max="'+o.options[i].qty+'"><button>&#x25B2;</button></div></div></div>';
+		opt='<div id="'+p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+o.options[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="option" data-source="'+o.options[i].name+'"><label>'+o.options[i].name+'</label><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getOptionValue(o.options[i])+'" min="0" max="'+o.options[i].qty+'"><button>&#x25B2;</button></div></div></div>';
 		console.log(opt);
 		opts=opts+opt;
 	}
