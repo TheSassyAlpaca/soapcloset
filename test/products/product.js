@@ -133,6 +133,19 @@ function getProduct() {
 	});
 }
 
+function options(o) {
+	console.log(o);
+	opts='';
+	for(i=0;i<o.options.length;i++) {
+		console.log(o.options[i].qty);
+		v=getOptionValue(o.options[i]);
+		opt='<div class="option"><label>'+o.options[i].name+'</label><div id="'+p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+o.options[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="buy" data-source="'+o.options[i].name+'"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" min=0 max='+o.options[i].qty+' value='+v+'><button>&#x25B2;</button></div></div></div>';
+		console.log(opt);
+		opts=opts+opt;
+	}
+	return opts
+}
+
 function getOptionValue(o) {
 	//check cookies for this product using p.name.replace(/[\s&'!-#()]/g,'')
 	c=document.cookie;
@@ -155,19 +168,6 @@ function getOptionValue(o) {
 	console.log(o);
 	console.log(q);
 	return q
-}
-
-function options(o) {
-	console.log(o);
-	opts='';
-	for(i=0;i<o.options.length;i++) {
-		console.log(o.options[i].qty);
-		v=getOptionValue(o.options[i]);
-		opt='<div class="option"><label>'+o.options[i].name+'</label><div id="'+p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+o.options[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="buy" data-source="'+o.options[i].name+'"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" min=0 max='+o.options[i].qty+' value='+v+'><button>&#x25B2;</button></div></div></div>';
-		console.log(opt);
-		opts=opts+opt;
-	}
-	return opts
 }
 
 function checkInventory(i,n) {
