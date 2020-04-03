@@ -301,9 +301,9 @@ function showTub() {
 					if(k.indexOf(id)!=-1) {
 						for(os=0;os<products[j].options.length;os++) {
 							console.log(products[j].options[os]);
-							for(o=0;o<products[j].options[os].option.length;o++) {
-								console.log(products[j].options[os].option.options[o]);
-								io=id+'|'+products[j].options[os].option.options[o].name.replace(/[\s&'!-#()]/g,'').toLowerCase();
+							for(o=0;o<products[j].options[os].options.length;o++) {
+								console.log(products[j].options[os].options[o]);
+								io=id+'|'+products[j].options[os].options[o].name.replace(/[\s&'!-#()]/g,'').toLowerCase();
 								console.log([io,k]);
 								if(io==k&&cart[k]>0) {
 									p=products[j];
