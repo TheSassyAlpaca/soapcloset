@@ -96,8 +96,8 @@ function getProduct() {
 					} else {
 						$(this).parents('.buy').find('.addToCart').css('display','block');
 					}
-					id=p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+$(this).parents('.option').attr('data-source');
-					console.log(p.category.replace(/[\s&'!-#()]/g,'').toLowerCase(),p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase(),p.name.replace(/[\s&'!-#()]/g,'').toLowerCase(),$(this).parents('.option').attr('data-source'));
+					id=p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+$(this).parents('.option').attr('id');
+					console.log(p.category.replace(/[\s&'!-#()]/g,'').toLowerCase(),p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase(),p.name.replace(/[\s&'!-#()]/g,'').toLowerCase(),$(this).parents('.option').attr('id'));
 					changeCookie('cart',id,a);
 					userAlert(a+' '+p.name+' - '+$(this).parents('.option').attr('data-source')+' are now in your cart.');
 				})
@@ -162,7 +162,7 @@ function options(o) {
 	console.log(o);
 	opts='';
 	for(i=0;i<o.options.length;i++) {
-		opt='<div id="'+o.options[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="option"><label>'+o.options[i].name+'</label><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getOptionValue(o.options[i])+'" min="0" max="'+o.options[i].qty+'"><button>&#x25B2;</button></div></div></div>';
+		opt='<div id="'+o.options[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="option" data-source="'++'"><label>'+o.options[i].name+'</label><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+getOptionValue(o.options[i])+'" min="0" max="'+o.options[i].qty+'"><button>&#x25B2;</button></div></div></div>';
 		console.log(opt);
 		opts=opts+opt;
 	}
