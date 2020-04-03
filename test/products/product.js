@@ -143,7 +143,7 @@ function options(o) {
 		v=0;
 		cart={};
 		id=p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+o.options[i].name.replace(/[\s&'!-#()]/g,'').toLowerCase();
-		console.og(id);
+		console.log(id);
 		for(i=0;i<cooks.length;i++) {
 			cookie=cooks[i].split('=');
 			if(cookie[0]=='cart') {
