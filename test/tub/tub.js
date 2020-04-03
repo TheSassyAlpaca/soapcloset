@@ -309,7 +309,7 @@ function showTub() {
 								console.log([io,k]);
 								if(io==k&&cart[k]>0) {
 									p=products[j];
-									list=list+'<div id="'+io+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+' - '+products[j].options[os].options[o].name+'</h3></div><div class="listingRight" data-source="'+(cart[k]*p.price)+'"><span>$'+(cart[k]*p.price)+'</span><div id="'+io+'" class="buy" data-source="'+products[j].options[os].options[o].name+'"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+p.options[os].option.qty+'><button>&#x25B2;</button></div></div></div></div>';
+									list=list+'<div id="'+io+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+' - '+products[j].options[os].options[o].name+'</h3></div><div class="listingRight" data-source="'+(cart[k]*p.price)+'"><span>$'+(cart[k]*p.price)+'</span><div id="'+io+'" class="buy" data-source="'+products[j].options[os].options[o].name+'"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+products[j].options[os].options[o].qty+'><button>&#x25B2;</button></div></div></div></div>';
 								}
 							}
 						}
