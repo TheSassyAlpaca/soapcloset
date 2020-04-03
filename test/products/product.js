@@ -153,6 +153,8 @@ function getOptionValue(o) {
 	if(Number(o.qty)<q) {
 		q=Number(o.qty);
 	}
+	console.log(o);
+	console.log(q);
 	return q
 }
 
