@@ -2,6 +2,7 @@
 	max-width: 800px;
 	margin: 10px auto;
 	font-size: initial;
+	display: block;
 }
 
 #title h1 {
@@ -113,6 +114,8 @@
 	padding: 5px;
 	border: 1px solid rgb(var(--oats));
 	border-radius: 2px;
+	margin-bottom: 3px;
+	box-shadow: 0px 0px 3px 1px rgb(var(--oats));
 }
 
 label {
