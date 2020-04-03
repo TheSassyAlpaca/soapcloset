@@ -97,6 +97,7 @@ function getProduct() {
 						$(this).parents('.buy').find('.addToCart').css('display','block');
 					}
 					id=p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
+					console.log(p.category.replace(/[\s&'!-#()]/g,'').toLowerCase(),p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase(),p.name.replace(/[\s&'!-#()]/g,'').toLowerCase());
 					changeCookie('cart',id,a);
 					userAlert(a+' '+p.name+' are now in your cart.');
 				})
