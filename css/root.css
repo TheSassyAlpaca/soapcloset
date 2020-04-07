@@ -344,6 +344,10 @@ header {
 	color: rgba(var(--oats));
 }
 
+.band:first-child, .notice+.band {
+	margin-top: -10px;
+}
+
 .band:last-child {
 	margin-bottom: -10px;
 }
