@@ -118,11 +118,11 @@ function buildSearch() {
 			searchThis($(this).parent().find('input').val());
         }
 	})
-	$('#searchInput').focus();
 	$('.back').click(function(e) {
 		e.stopPropagation();
 		$('#search').removeClass('open');
 	})
+	$('#searchInput').focus();
 }
 
 function submitForm(f,q,a) {
