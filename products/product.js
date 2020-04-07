@@ -212,11 +212,11 @@ function ingredients(ing) {
 function slides(s) {
 	slides='';
 	if(s.length>1) {
-		slides='<hr>';
+		slides='';
 		for(i=0;i<s.length;i++) {
 			slides=slides+'<div class="slide" style="background-image:url(https://www.thesassyalpaca.com'+s[i]+')"></div>';
 		}
-		slides=slides+'<hr>';
+		slides=slides+'';
 	}
 	return slides
 }
