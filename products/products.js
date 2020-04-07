@@ -1,4 +1,4 @@
-tempFolder="/test";
+tempFolder="";
 safe=5;
 
 $(function() {
