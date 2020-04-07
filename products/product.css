@@ -24,15 +24,16 @@
 #slideThumb {
 	height: var(--thumb);
 	width: fit-content;
-	margin: calc(var(--thumb) * -1) auto 0px auto;
+	margin: calc(var(--thumb) * -1.25) auto calc(var(--thumb) * .75) auto;
 }
 
 #slideThumb .slide {
 	height: var(--thumb);
 	width: var(--thumb);
-	margin: auto;
+	margin: 5px;
 	display: inline-block;
 	background-size: cover;
+	box-shadow: 0px 0px 1px 1px rgb(var(--oats)), 0px 0px 5px 1px rgb(var(--ocean));
 }
 
 #shareTool {
