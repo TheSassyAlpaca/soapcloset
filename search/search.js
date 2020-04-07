@@ -28,7 +28,7 @@ function getKeywords(q) {
 						pd=product.description.toLowerCase();
 						pi=product.ingredients.join(' ');
 						pi=pi.toLowerCase();
-						if(pc.indexOf(q[j].toLowerCase())!=-1||ps.indexOf(q[j].toLowerCase())!=-1||pl.indexOf(q[j].toLowerCase())!=-1||pn.indexOf(q[j].toLowerCase())!=-1||pk.indexOf(q[j].toLowerCase())!=-1||pd.indexOf(q[j].toLowerCase())!=-1||pi.indexOf(q[j].toLowerCase())!=-1) {
+						if(pc.indexOf(q[j].toLowerCase())!=-1||ps.indexOf(q[j].toLowerCase())!=-1||pn.indexOf(q[j].toLowerCase())!=-1||pk.indexOf(q[j].toLowerCase())!=-1||pd.indexOf(q[j].toLowerCase())!=-1||pi.indexOf(q[j].toLowerCase())!=-1) {
 							if(!$('#content #products').length) {
 								$('#content').append('<div id="products" class="category"><h1>Products</h1></div>');
 							}
