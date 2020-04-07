@@ -107,7 +107,7 @@ function buildSearch() {
 		e.stopPropagation();
 	})
 	//add all to searchBar element
-	$('.searchBar').append('<div class="back"><img src="/images/left.png"></div><input placeholder="Search"><button><img src="/images/search.png"></button>');
+	$('.searchBar').append('<div class="back"><img src="/images/left.png"></div><input placeholder="Search" autofocus><button><img src="/images/search.png"></button>');
 	$('.searchBar button').click(function(e) {
 		searchThis($(this).parent().find('input').val());
 	})
@@ -118,6 +118,7 @@ function buildSearch() {
 			searchThis($(this).parent().find('input').val());
         }
 	})
+	//$('.back input').focus();
 	$('.back').click(function(e) {
 		e.stopPropagation();
 		$('#search').removeClass('open');
