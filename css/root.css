@@ -341,10 +341,16 @@ header {
 	height: auto;
 	padding: 40px 20px;
 	background-color: rgb(var(--sage));
+	color: rgba(var(--oats));
+	
 }
 
 .band:last-child {
 	margin-bottom: -10px;
+}
+
+.band.subText:last-child {
+	background-color: rgb(var(--bark));
 }
 
 .band h1 {
@@ -353,6 +359,7 @@ header {
 	text-align: center;
 	max-height: unset;
 	height: unset;
+	text-shadow: 0px 0px 2px rgb(var(--ocean));
 }
 
 .band h1+span {
