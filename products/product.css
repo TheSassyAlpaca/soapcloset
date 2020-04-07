@@ -85,7 +85,7 @@
 	font-size: calc(var(--thumb) * 1);
 	line-height: var(--thumb);
 	height: var(--thumb);
-	width: var(--thumb);
+	//width: var(--thumb);
 	vertical-align: top;
 	text-align: center;
 }
