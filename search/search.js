@@ -11,17 +11,17 @@ function getKeywords(q) {
 	console.log(q);
 	window['pros']=[];
 	$(function() {
-		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
+		pKey="1Z14hYfA6TiRhZ1zwZ3vehgOwQ2pfDL4A5wn1PPVFmhE";
 		$(function() {
-			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/4/public/values?alt=json-in-script&callback=?",
+			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/1/public/values?alt=json-in-script&callback=?",
 			function (data) {
 				$.each(data.feed.entry, function(i,entry) {
 					product=JSON.parse(entry.gsx$data.$t);
 					pros.push(product);
 					for(j=0;j<q.length;j++) {
 						pc=product.category.toLowerCase();
-						ps=product.subcategory.toLowerCase();
-						pl=product.lessercategory.toLowerCase();
+						ps=product.subcategory.join(' ');
+						ps=ps.toLowerCase();
 						pn=product.name.toLowerCase();
 						pk=product.keywords.join(' ');
 						pk=pk.toLowerCase();
@@ -32,7 +32,7 @@ function getKeywords(q) {
 							if(!$('#content #products').length) {
 								$('#content').append('<div id="products" class="category"><h1>Products</h1></div>');
 							}
-							$('#products').append('<a href="/products/'+product.id.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" target="_self">'+listing(product,i)+'</a><hr>');
+							$('#products').append('<a href="/products/'+product.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'/'+product.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'/'+product.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'/" target="_self">'+listing(product,i)+'</a><hr>');
 							//i?
 						}
 					}
@@ -45,6 +45,6 @@ function getKeywords(q) {
 }
 
 function listing(p,i) {
-	l='<div id="'+p.id.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3><span class="categories">'+p.category+'>'+p.subcategory+'>'+p.lessercategory+'</span><br><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span><br><span class="ingredients">Ingredients: '+p.ingredients+'</span></div></div>';
+	l='<div id="'+p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'/'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'/'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+i+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3><span class="categories">'+p.category+'>'+p.subcategory+'></span><br><span class="keywords">'+p.keywords.join(", ")+'</span><br><span class="description">'+p.description+'</span><br><span class="ingredients">Ingredients: '+p.ingredients+'</span></div></div>';
 	return l
 }
