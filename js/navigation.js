@@ -118,7 +118,7 @@ function buildSearch() {
 			searchThis($(this).parent().find('input').val());
         }
 	})
-	$('.back input').focus();
+	$('.searchBar input').focus();
 	$('.back').click(function(e) {
 		e.stopPropagation();
 		$('#search').removeClass('open');
