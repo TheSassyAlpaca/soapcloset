@@ -351,6 +351,8 @@ header {
 	max-width: 800px;
 	margin: auto;
 	text-align: center;
+	max-height: unset;
+	height: unset;
 }
 
 .band h1+span {
