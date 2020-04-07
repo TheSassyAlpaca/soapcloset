@@ -337,8 +337,27 @@ header {
 	font-family: var(--soapCloset);
 }
 
+.band.subText {
+	height: auto;
+	padding: 40px 20px;
+}
+
 .band:last-child {
 	margin-bottom: -10px;
+}
+
+.band h1 {
+	max-width: 800px;
+	margin: auto;
+	text-align: center;
+}
+
+.band h1+span {
+	max-width: 800px;
+	margin: auto;
+	text-align: center;
+	display: block;
+	font-family: var(--econ);
 }
 
 .band a {
