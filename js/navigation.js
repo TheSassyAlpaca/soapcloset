@@ -102,6 +102,7 @@ function buildSearch() {
 	$('#search').click(function(e) {
 		e.stopPropagation();
 		$(this).toggleClass('open');
+		$('#searchInput').focus();
 	})
 	$('.searchBar').click(function(e) {
 		e.stopPropagation();
@@ -122,7 +123,6 @@ function buildSearch() {
 		e.stopPropagation();
 		$('#search').removeClass('open');
 	})
-	$('#searchInput').focus();
 }
 
 function submitForm(f,q,a) {
