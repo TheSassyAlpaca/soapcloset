@@ -10,8 +10,9 @@ function getProduct() {
 	getP=window.location.href.substring(44,window.location.href.lastIndexOf("/"));
 	console.log(getP);
 	getURLParts=window.location.href.split("/");
-	c=''
-	n=''
+	c='';
+	u='';
+	n='';
 	for(g=0;g<getURLParts.length;g++) {
 		if(getURLParts[g]=="products") {
 			c=getURLParts[g+1];
