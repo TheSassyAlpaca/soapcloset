@@ -28,7 +28,16 @@ function getKeywords(q) {
 						pd=product.description.toLowerCase();
 						pi=product.ingredients.join(' ');
 						pi=pi.toLowerCase();
-						if(pc.indexOf(q[j].toLowerCase())!=-1||ps.indexOf(q[j].toLowerCase())!=-1||pn.indexOf(q[j].toLowerCase())!=-1||pk.indexOf(q[j].toLowerCase())!=-1||pd.indexOf(q[j].toLowerCase())!=-1||pi.indexOf(q[j].toLowerCase())!=-1) {
+						po=[];
+						for(y=0;y<product.options.length;y++) {
+							for(z=0;z<product.options[y].options.length;z++) {
+								po.push(product.options[y].options[z].name);
+								po.push(product.options[y].options[z].properties);
+							}
+						}
+						po=po.join(' ');
+						po=po.toLowerCase();
+						if(pc.indexOf(q[j].toLowerCase())!=-1||ps.indexOf(q[j].toLowerCase())!=-1||pn.indexOf(q[j].toLowerCase())!=-1||pk.indexOf(q[j].toLowerCase())!=-1||pd.indexOf(q[j].toLowerCase())!=-1||pi.indexOf(q[j].toLowerCase())!=-1||po.indexOf(q[j].toLowerCase())!=-1) {
 							if(!$('#content #products').length) {
 								$('#content').append('<div id="products" class="category"><h1>Products</h1></div>');
 							}
