@@ -349,7 +349,7 @@ header {
 }
 
 .band.subText:last-child {
-	background-color: rgb(var(--bark));
+	background-color: rgb(var(--ocean));
 }
 
 .band h1 {
