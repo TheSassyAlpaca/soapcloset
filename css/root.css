@@ -330,11 +330,15 @@ header {
 }
 
 .band {
-	margin: -10px;
+	margin: 0px -10px;
 	height: calc(100vh - var(--thumb));
 	background-size: cover;
 	background-position: center center;
 	font-family: var(--soapCloset);
+}
+
+.band:last-child {
+	margin-bottom: -10px;
 }
 
 .band a {
