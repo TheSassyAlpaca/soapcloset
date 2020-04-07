@@ -32,6 +32,7 @@
 	width: var(--thumb);
 	margin: 5px;
 	display: inline-block;
+	background-position: center center;
 	background-size: cover;
 	box-shadow: 0px 0px 1px 1px rgb(var(--oats)), 0px 0px 5px 1px rgb(var(--ocean));
 }
