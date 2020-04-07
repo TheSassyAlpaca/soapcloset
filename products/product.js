@@ -1,4 +1,4 @@
-tempFolder="/test";
+tempFolder="";
 safe=5;
 p={};
 
@@ -15,7 +15,8 @@ function getProduct() {
 	for(g=0;g<getURLParts.length;g++) {
 		if(getURLParts[g]=="products") {
 			c=getURLParts[g+1];
-			n=getURLParts[g+2];
+			u=getURLParts[g+2];
+			n=getURLParts[g+3];
 		}
 	}
 	console.log(c,n);
@@ -33,7 +34,7 @@ function getProduct() {
 						p=product;
 					}
 					*/
-					if(product.category.replace(/[\s&'!-#()]/g,'').toLowerCase()==c&&product.name.replace(/[\s&'!-#()]/g,'').toLowerCase()==n) {
+					if(product.category.replace(/[\s&'!-#()]/g,'').toLowerCase()==c&&product.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()==u&&product.name.replace(/[\s&'!-#()]/g,'').toLowerCase()==n) {
 						p=product;
 					}
 				});
