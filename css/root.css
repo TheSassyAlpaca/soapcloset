@@ -342,7 +342,6 @@ header {
 	padding: 40px 20px;
 	background-color: rgb(var(--sage));
 	color: rgba(var(--oats));
-	
 }
 
 .band:last-child {
@@ -360,6 +359,7 @@ header {
 	max-height: unset;
 	height: unset;
 	text-shadow: 0px 0px 2px rgb(var(--ocean));
+	font-weight: unset;
 }
 
 .band h1+span {
