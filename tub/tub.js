@@ -1,17 +1,5 @@
 $(function() {
-	$('#content').append('<div id="items" class="region"><h1>Shopping Tub</h1><div class="content"></div></div>');
-	$('#content').append('<hr>');
-	$('#content').append('<div id="coupon" class="region"><h1>Coupon Code</h1><div class="content"></div></div>');
-	$('#content').append('<hr>');
-	$('#content').append('<div id="profession" class="region"><h1>Profession (Optional)</h1><div class="content"></div></div>');
-	$('#content').append('<hr>');
-	$('#content').append('<div id="fulfillment" class="region"><h1>Fulfillment</h1><div class="content"></div></div>');
-	$('#content').append('<hr>');
-	$('#content').append('<div id="contact" class="region"><h1>Contact</h1><div class="content"></div></div>');
-	$('#content').append('<hr>');
-	$('#content').append('<div id="totals" class="region"><h1>Estimated Total</h1><div class="content"></div></div>');
-	$('#content').append('<hr>');
-	downloadProducts();
+	buildPage();
 })
 
 professionList=[
@@ -41,12 +29,28 @@ pickupList=[
 
 order={};
 
+function buildPage() {
+	$('#content').append('<div id="items" class="region"><h1>Shopping Tub</h1><div class="content"></div></div>');
+	$('#content').append('<hr>');
+	$('#content').append('<div id="coupon" class="region"><h1>Coupon Code</h1><div class="content"></div></div>');
+	$('#content').append('<hr>');
+	$('#content').append('<div id="profession" class="region"><h1>Profession (Optional)</h1><div class="content"></div></div>');
+	$('#content').append('<hr>');
+	$('#content').append('<div id="fulfillment" class="region"><h1>Fulfillment</h1><div class="content"></div></div>');
+	$('#content').append('<hr>');
+	$('#content').append('<div id="contact" class="region"><h1>Contact</h1><div class="content"></div></div>');
+	$('#content').append('<hr>');
+	$('#content').append('<div id="totals" class="region"><h1>Estimated Total</h1><div class="content"></div></div>');
+	$('#content').append('<hr>');
+	downloadProducts();
+}
+
 function downloadProducts() {
 	window['products']=[];
 	$(function() {
-		pKey="1qu4IlBEElSjAsX0E6ZetEQxL16BuMdjrb-l3EoU21iU";
+		pKey="1Z14hYfA6TiRhZ1zwZ3vehgOwQ2pfDL4A5wn1PPVFmhE";
 		$(function() {
-			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/4/public/values?alt=json-in-script&callback=?",
+			$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/1/public/values?alt=json-in-script&callback=?",
 			function (data) {
 				$.each(data.feed.entry, function(i,entry) {
 					p=JSON.parse(entry.gsx$data.$t);
@@ -54,8 +58,8 @@ function downloadProducts() {
 				});
 				//get items from cookies
 				$('#items .content').append(showTub());
-				$('.listing button').click(function(e) {
-					e.stopPropagation();
+				$('.buy button').click(function(e) {
+					//e.stopPropagation();
 					p=products[$(this).parents('.listing').attr('data')];
 					a=0;
 					i=$(this).parent().find('input');
@@ -81,10 +85,12 @@ function downloadProducts() {
 						$(this).parents('.listing').find('.listingRight span').text('$'+(i.val()*p.price));
 						$(this).parents('.listing').find('.listingRight').attr('data-source',i.val()*p.price);
 					} else {
-						$(this).parents('.listing').remove();
+						$(this).parents('.buy').find('.addToCart').css('display','block');
 					}
-					changeCookie('cart',p.id.replace(/[\s&'!-#()]/g,'').toLowerCase(),a);
-					userAlert(a+' '+p.name+' are now in your cart.');
+					id=$(this).parents('.buy').attr('id');
+					console.log($(this).parents('.buy').attr('id'));
+					changeCookie('cart',id,a);
+					userAlert(a+' '+p.name+' - '+$(this).parents('.buy').attr('data-source')+' are now in your cart.');
 					total();
 				})
 				$('.listingLeft, .listingMid h3').click(function(e) {
@@ -238,6 +244,16 @@ function buildOrder() {
 	userAlert('Order Submitted! Check your email for confirmation and status!');
 	submitForm('https://docs.google.com/forms/d/e/1FAIpQLSdCEcSCvTvPhQZriFjsO5w7b_NukS_SRw8XFCUzjk2bTpZ33A/formResponse?usp=pp_url&entry.148047722=',['entry.1353804064'],[encodeURIComponent(JSON.stringify(order)),order.email]);
 	emptyTub();
+	/*
+	$('#items .content').empty();
+	$('#coupon input').val('');
+	$('#profession input').val('');
+	$('#fulfillment input').val('');
+	$('#contact input').val('');
+	total();
+	*/
+	$('#content').empty();
+	buildPage();
 }
 
 function total() {
@@ -283,6 +299,7 @@ function dataList(l) {
 
 function showTub() {
 	c=document.cookie;
+	console.log(c);
 	cooks=c.split('; ');
 	cart={};
 	list='';
@@ -291,11 +308,25 @@ function showTub() {
 		if(cookie[0]=='cart') {
 			cart=JSON.parse(cookie[1]);
 			for(k in cart) {
-				console.log(cart[k]);
+				console.log(cart);
 				for(j=0;j<products.length;j++) {
-					if(products[j].id.replace(/[\s&'!-#()]/g,'').toLowerCase()==k&&cart[k]>0) {
-						p=products[j];
-						list=list+'<div id="'+p.id.replace(/[\s&'!-#()]/g,'').toLowerCase()+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3></div><div class="listingRight" data-source="'+(cart[k]*p.price)+'"><span>$'+(cart[k]*p.price)+'</span><div class="buy"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+p.qty+'><button>&#x25B2;</button></div></div></div></div>';
+					//fix here?
+					//id=products[j].id.replace(/[\s&'!-#()]/g,'').toLowerCase();
+					id=products[j].category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+products[j].subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+products[j].name.replace(/[\s&'!-#()]/g,'').toLowerCase();
+					console.log([id,k]);
+					if(k.indexOf(id)!=-1) {
+						for(os=0;os<products[j].options.length;os++) {
+							console.log(products[j].options[os]);
+							for(o=0;o<products[j].options[os].options.length;o++) {
+								console.log(products[j].options[os].options[o]);
+								io=id+'|'+products[j].options[os].options[o].name.replace(/[\s&'!-#()]/g,'').toLowerCase();
+								console.log([io,k]);
+								if(io==k&&cart[k]>0) {
+									p=products[j];
+									list=list+'<div id="'+io+'" class="listing" data="'+j+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+' - '+products[j].options[os].options[o].name+'</h3></div><div class="listingRight" data-source="'+(cart[k]*p.price)+'"><span>$'+(cart[k]*p.price)+'</span><div id="'+io+'" class="buy" data-source="'+products[j].options[os].options[o].name+'"><button class="addToCart">Add To Cart</button><div><button class="down">&#x25BC;</button><input type="text" value="'+cart[k]+'" min=0 max='+products[j].options[os].options[o].qty+'><button>&#x25B2;</button></div></div></div></div>';
+								}
+							}
+						}
 					}
 				}
 			}
