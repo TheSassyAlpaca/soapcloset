@@ -136,7 +136,7 @@ function downloadProducts() {
 				$('.listingLeft, .listingMid h3').click(function(e) {
 					e.stopPropagation();
 					p=products[$(this).parents('.listing').attr('data')];
-					window.location.href=tempFolder+"/products/"+p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+"/"+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
+					window.location.href=tempFolder+"/products/"+p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+"/"+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+"/"+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
 				})
 				//show qty
 				$('.buy input').each(function() {
