@@ -1,7 +1,29 @@
 #content.blogIt {
-	
+	padding: calc(var(--thumb) + 10px) 20px 20px 20px;
 }
 
 .blogBanner {
-	
+	height: 40vh;
+	margin: 0px -20px;
+	background-size: cover;
+	background-position: center center;
+}
+
+.blogIt h1 {
+	height: unset;
+	max-height: unset;
+	line-height: 100%;
+	margin: 10px auto;
+}
+
+.blogIt h2 {
+	height: unset;
+	max-height: unset;
+	line-height: 100%;
+	margin: 10px auto;
+	font-size: calc((var(--thumb) * .75) * .8);
+}
+
+.blogIt div {
+	text-align: justify;
 }
