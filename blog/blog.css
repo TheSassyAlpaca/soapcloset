@@ -26,4 +26,18 @@
 
 .blogIt div {
 	text-align: justify;
+	margin-bottom: 10px;
+}
+
+.blogIt a {
+	font-weight: 700;
+	color: rgb(var(--bark));
+}
+
+.blogIt a:visited {
+	color: rgb(var(--bark));
+}
+
+.blogIt a:hover {
+	color: rgb(var(--bark));
 }
