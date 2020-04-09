@@ -68,9 +68,11 @@ h1, h2 {
 
 div.notice {
 	padding: 0px 0px 10px 0px;
-	text-align: center;
+	text-align: center !important;
 	font-size: 18px;
     color: white;
+	margin-bottom: unset !important;
+	font-weight: initial !important;
 }
 
 a.notice {
