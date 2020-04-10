@@ -7,7 +7,7 @@ $(function() {
 		socialMediaShares=[
 			{icon:'facebook.png',href:'https://www.facebook.com/sharer/sharer.php?u='+encodeURI($(location).attr("href"))},
 			{icon:'twitter.png',href:'https://twitter.com/intent/tweet?text='+encodeURI($(location).attr("href"))},
-			{icon:'linkedin.png',href:'https://www.linkedin.com/shareArticle?mini=true&url='+encodeURI($(location).attr("href"))+'&title='+encodeURI(p.name)+'&summary='+encodeURI(p.description)+'&source=The Sassy Alpaca'},
+			{icon:'linkedin.png',href:'https://www.linkedin.com/shareArticle?mini=true&url='+encodeURI($(location).attr("href"))+'&title='+encodeURI($("meta[property='og:title']").attr("content"))+'&summary='+encodeURI($("meta[property='og:description']").attr("content"))+'&source=The Sassy Alpaca'},
 			{icon:'pinterest.png',href:'https://pinterest.com/pin/create/button/?url='+encodeURI($(location).attr("href"))+'&media='+encodeURI($("meta[property='og:image']").attr("content"))+'&description='+encodeURI($("meta[property='og:description']").attr("content"))}
 		];
 		console.log(socialMediaShares);
