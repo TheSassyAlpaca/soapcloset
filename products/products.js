@@ -94,13 +94,13 @@ function downloadProducts() {
 						$(this).parent().find('input').next().addClass('greyedOut');
 					}
 				})
-				//goToHash();
+				goToHash();
 			});
 		});
 	})
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
 	hash=$(location).attr('hash');
 	$(hash).parents('.category, .subcategory, .lessercategory').addClass('expand');
 	$(hash).addClass('expand');
