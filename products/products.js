@@ -101,7 +101,12 @@ function downloadProducts() {
 }
 
 $(document).ready(function () {
-	goToHash();
+	hash=$(location).attr('hash');
+	$(hash).parents('.category, .subcategory, .lessercategory').addClass('expand');
+	$(hash).addClass('expand');
+	$('html, body').animate({
+        scrollTop: $(hash).offset().top - 60
+    }, 'slow');
 })
 
 function listing(p,i,s) {
