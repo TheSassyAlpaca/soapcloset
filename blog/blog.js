@@ -1,6 +1,6 @@
 $(function() {
 	$('#content').addClass('blogIt');
-	$('#content.blogIt .blogBanner[0]').append('<div id="shareTool"></div>');
+	$('#content.blogIt').append('<div id="shareTool"></div>');
 	$('#shareTool').click(function() {
 		console.log('clicky');
 		//test and update the objects as needed...
