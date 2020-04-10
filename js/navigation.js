@@ -98,6 +98,7 @@ function buildSocialMedia() {
 }
 
 function buildSearch() {
+	$('.searchBar').remove();
 	$('#search').append('<div class="searchBar"></div>');
 	$('#search').click(function(e) {
 		e.stopPropagation();
