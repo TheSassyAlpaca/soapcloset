@@ -341,7 +341,7 @@ header {
 
 .band.subText {
 	height: auto;
-	padding: 40px 20px;
+	padding: 20px 20px 40px 20px;
 	background-color: rgb(var(--sage));
 	color: rgba(var(--oats));
 }
@@ -564,6 +564,48 @@ footer .searchBar {
 .greyedOut {
 	background-color: grey;
 }
+
+#shareTool {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	height: calc(var(--thumb) * .5);
+	width: calc(var(--thumb) * .5);
+	background-image: url(/images/share.png);
+	background-size: 100% 100%;
+	background-position: center center;
+	filter: invert(1);
+}
+
+#shareModul {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 1000;
+	top: 0px;
+	left: 0px;
+}
+
+#shareContainer {
+	min-width: var(--thumb);
+	max-width: calc(var(--thumb) * 4);
+	min-height: var(--thumb);
+	margin: calc(50vh - (var(--thumb) / 2)) auto;
+}
+
+#shareContainer a {
+	display: inline-block;
+}
+
+#shareContainer a div {
+	height: var(--thumb);
+	width: var(--thumb);
+	background-size: 80% 80%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
 
 @media only screen and (min-width:361px) {
 	.subscribe {
