@@ -100,15 +100,6 @@ function downloadProducts() {
 	})
 }
 
-$(document).ready(function() {
-	hash=$(location).attr('hash');
-	$(hash).parents('.category, .subcategory, .lessercategory').addClass('expand');
-	$(hash).addClass('expand');
-	$([document.documentElement, document.body]).animate({
-        scrollTop: $(hash).offset().top - 60
-    }, 'slow');
-})
-
 function listing(p,i,s) {
 	l='<div id="'+p.category.replace(/[\s&'!-#()]/g,'')+s.replace(/[\s&'!-#()]/g,'')+p.name.replace(/[\s&'!-#()]/g,'')+'" class="listing" data="'+i+'"><div class="listingLeft"><div style="background-image:url('+p.images[0]+')"></div></div><div class="listingMid"><h3>'+p.name+'</h3><span class="keywords">'+p.keywords.join(", ")+'</span>'+checkInventory(p.qty,p.name)+'<br><span class="description">'+p.description+'</span></div><div class="listingRight"><span>$'+p.price+'</span>'+bulkRates(p)+'<div class="buy"></div></div></div><hr>';
 	return l
