@@ -104,7 +104,7 @@ $(document).ready(function () {
 	hash=$(location).attr('hash');
 	$(hash).parents('.category, .subcategory, .lessercategory').addClass('expand');
 	$(hash).addClass('expand');
-	$('html, body').animate({
+	$([document.documentElement, document.body]).animate({
         scrollTop: $(hash).offset().top - 60
     }, 'slow');
 })
