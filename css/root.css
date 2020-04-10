@@ -383,6 +383,11 @@ header {
 	text-shadow: 0px 0px 5px rgb(var(--ocean)), 0px 0px 10px rgb(var(--sage));
 }
 
+.band.subText a {
+	font-weight: 700;
+	text-decoration: underline;
+}
+
 .band .container {
 	height: 100%;
 	width: 80vw;
