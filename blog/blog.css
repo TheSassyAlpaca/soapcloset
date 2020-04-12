@@ -2,11 +2,25 @@
 	padding: calc(var(--thumb) + 10px) 20px 20px 20px;
 }
 
-.blogBanner {
+.blogBanner:nth-child(1), .notice+.blogBanner {
 	height: 40vh;
 	margin: 0px -20px !important;
 	width: 100vw !important;
 	max-width: 100vw !important;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+}
+
+.blogBanner:nth-child(1) {
+	margin-top: -10px;
+}
+
+.blogBanner {
+	height: 40vh;
+	margin: 0px -20px !important;
+	width: 100vw !important;
+	//max-width: 100vw !important;
 	background-size: cover;
 	background-position: center center;
 	position: relative;
@@ -34,6 +48,7 @@
 	margin: auto;
 	margin-bottom: 10px;
 	max-width: 800px;
+	line-height: 120%;
 }
 
 .blogIt a {
