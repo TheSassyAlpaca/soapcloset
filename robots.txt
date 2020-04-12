@@ -2,6 +2,10 @@
 User-agent: Googlebot
 Disallow: /test/
 
+# Group 3
+User-agent: Twitterbot
+Disallow: /test/
+
 # Group 2
 User-agent: *
 Allow: /
