@@ -18,7 +18,7 @@
 
 .blogBanner {
 	height: 40vh;
-	margin: 0px auto !important;
+	margin: 0px -20px !important;
 	width: 100vw !important;
 	//max-width: 100vw !important;
 	background-size: cover;
@@ -67,5 +67,6 @@
 @media screen and (orientation:landscape) {
 	.blogBanner {
 		height: 60vh;
+		margin: 0px auto !important;
 	}
 }
