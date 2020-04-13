@@ -43,6 +43,15 @@
 	max-width: 800px;
 }
 
+.blogIt h3 {
+	height: unset;
+	max-height: unset;
+	line-height: 100%;
+	margin: 10px auto;
+	font-size: calc((var(--thumb) * .75) * .65);
+	max-width: 800px;
+}
+
 .blogIt div {
 	text-align: justify;
 	margin: auto;
