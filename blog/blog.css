@@ -78,4 +78,8 @@
 		height: 60vh;
 		margin: 0px auto !important;
 	}
+	
+	.blogBanner:nth-child(1), .notice+.blogBanner {
+		height: 60vh;
+	}
 }
