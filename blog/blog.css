@@ -73,6 +73,22 @@
 	color: rgb(var(--bark));
 }
 
+.blogThumb {
+	
+}
+
+.blogSnippet {
+	
+}
+
+.blogSnippet h1 {
+	
+}
+
+.blogSnippet span {
+	
+}
+
 @media screen and (orientation:landscape) {
 	.blogBanner {
 		height: 60vh;
