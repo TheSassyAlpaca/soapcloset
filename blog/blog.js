@@ -14,7 +14,7 @@ $(function() {
 						blog=JSON.parse(entry.gsx$data.$t);
 						blogs.push(blog);
 						if(blog.url.length>10) {
-							$('#content').append('<a href="'+blog.url+'" target="_self"><div class="blogThumb"><div class="blogSnippet"><h1>'+blog.title+'</h1><span>'+blog.snippet+'</span></div></div></a>');
+							$('#content').append('<a href="'+blog.url+'" target="_self"><div class="blogThumb" style="background-image:url('+blog.images[0]+');"><div class="blogSnippet"><h1>'+blog.title+'</h1><span>'+blog.snippet+'</span></div></div></a>');
 						}
 					});
 					//
