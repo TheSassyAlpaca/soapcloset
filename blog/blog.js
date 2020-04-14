@@ -3,6 +3,7 @@ blogs=[];
 $(function() {
 	$('#content').addClass('blogIt');
 	console.log($(location).attr('href'));
+	console.log($(location).attr('href').substring(0,$(location).attr('href').indexOf("?")-1));
 	if($(location).attr('href')=="https://www.thesassyalpaca.com/blog/"||$(location).attr('href').substring(0,$(location).attr('href').indexOf("?")-1)=="https://www.thesassyalpaca.com/blog/") {
 		console.log("Yes");
 		$(function() {
