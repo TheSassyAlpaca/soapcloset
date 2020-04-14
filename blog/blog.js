@@ -1,5 +1,9 @@
 $(function() {
 	$('#content').addClass('blogIt');
+	console.log($(location));
+	if($(location)=="https://www.thesassyalpaca.com/blog/") {
+		
+	}
 	$('#content.blogIt').children('.blogBanner').first().append('<div id="shareTool"></div>');
 	$('#shareTool').click(function() {
 		console.log('clicky');
