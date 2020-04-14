@@ -2,10 +2,7 @@ blogs=[];
 
 $(function() {
 	$('#content').addClass('blogIt');
-	console.log($(location).attr('href'));
-	console.log($(location).attr('href').substring(0,$(location).attr('href').indexOf("?")));
 	if($(location).attr('href')=="https://www.thesassyalpaca.com/blog/"||$(location).attr('href').substring(0,$(location).attr('href').indexOf("?"))=="https://www.thesassyalpaca.com/blog/") {
-		console.log("Yes");
 		$(function() {
 			pKey="1Z14hYfA6TiRhZ1zwZ3vehgOwQ2pfDL4A5wn1PPVFmhE";
 			$(function() {
