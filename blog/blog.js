@@ -1,8 +1,24 @@
 $(function() {
 	$('#content').addClass('blogIt');
-	console.log($(location));
-	if($(location)=="https://www.thesassyalpaca.com/blog/") {
-		
+	console.log($(location).attr('href'));
+	if($(location).attr('href')=="https://www.thesassyalpaca.com/blog/") {
+		console.log("Yes");
+		$(function() {
+			pKey="1Z14hYfA6TiRhZ1zwZ3vehgOwQ2pfDL4A5wn1PPVFmhE";
+			$(function() {
+				$.getJSON("https://spreadsheets.google.com/feeds/list/" + pKey + "/15/public/values?alt=json-in-script&callback=?",
+				function (data) {
+					$.each(data.feed.entry, function(i,entry) {
+						blog=JSON.parse(entry.gsx$data.$t);
+						blogs.push(blog);
+						if(blog.url.length>10) {
+							$('#content').append('<a href="'+blog.url+'" target="_self"><div class="blogThumb"><div class="blogSnippet"><h1>'+blog.title+'</h1><span>'+blog.snippet+'</span></div></div></a>');
+						}
+					});
+					//
+				});
+			});
+		});
 	}
 	$('#content.blogIt').children('.blogBanner').first().append('<div id="shareTool"></div>');
 	$('#shareTool').click(function() {
