@@ -1,3 +1,5 @@
+blogs=[];
+
 $(function() {
 	$('#content').addClass('blogIt');
 	console.log($(location).attr('href'));
