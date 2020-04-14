@@ -74,15 +74,27 @@
 }
 
 .blogThumb {
-	
+	width: calc(100vw - 40px);
+	max-width: 400px;
+	margin: 10px auto;
+	height: calc(var(--thumb) * 3);
+	overflow: hidden;
+	background-position: center center;
+	background-size: cover;
+	position: relative;
 }
 
 .blogSnippet {
-	
+	height: calc(var(--thumb) * .5);
+	position: absolute;
+	bottom: 0px;
+	margin: 0px;
 }
 
 .blogSnippet h1 {
-	
+	line-height: calc(var(--thumb) * .5);
+	font-size: calc(var(--thumb) * .5);
+	margin: 0px;
 }
 
 .blogSnippet span {
