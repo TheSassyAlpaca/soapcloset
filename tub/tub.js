@@ -202,7 +202,7 @@ function downloadProducts() {
 function cents(x) {
 	cents=x;
 	console.log(cents);
-	if(x.toString.indexOf(".")!=-1) {
+	if(x.toString().indexOf(".")!=-1) {
 		console.log(cents);
 		cents=Number(x).toFixed(2);
 		console.log(cents);
