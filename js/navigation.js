@@ -1,4 +1,4 @@
-notice={start:0,end:1586952000000,text:"Site under construction. If you have any questions, please email Josh@TheSassyAlpaca.com",link:"mailto:jos@thesassyalpaca.com",color:"rgb(var(--bark))",target:"_blank"};
+notice={start:0,end:1588305600000,text:"Site under construction. If you have any questions, please email Josh@TheSassyAlpaca.com",link:"mailto:jos@thesassyalpaca.com",color:"rgb(var(--bark))",target:"_blank"};
 
 $(function() {
 	//now=new date();
