@@ -202,7 +202,9 @@ function downloadProducts() {
 function cents(x) {
 	cents=x;
 	console.log(cents);
-	if(!Number.isInteger(x)) {
+	if(Number.isInteger(x)) {
+		console.log(cents);
+	} else {
 		console.log(cents);
 		cents=Number(x).toFixed(2);
 		console.log(cents);
