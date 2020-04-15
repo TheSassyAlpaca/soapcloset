@@ -200,14 +200,14 @@ function downloadProducts() {
 }
 
 function cents(x) {
-	cents=x;
-	console.log(cents);
+	c=x;
+	console.log(c);
 	if(x.toString().indexOf(".")!=-1) {
-		console.log(cents);
-		cents=Number(x).toFixed(2);
-		console.log(cents);
+		console.log(c);
+		c=Number(x).toFixed(2);
+		console.log(c);
 	}
-	return cents
+	return c
 }
 
 function checkCompletion() {
