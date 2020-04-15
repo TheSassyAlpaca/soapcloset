@@ -157,7 +157,7 @@
 	font-size: calc(var(--thumb) * 0.33);
 }
 
-#fulfillment .content>input:first-child, #contact .content>input:first-child {
+#fulfillment .content>input, #contact .content>input:first-child {
 	margin-bottom: 10px;
 }
 
