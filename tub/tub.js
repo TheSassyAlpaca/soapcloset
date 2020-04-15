@@ -204,7 +204,7 @@ function cents(x) {
 	console.log(cents);
 	if(!Number.isInteger(x)) {
 		console.log(cents);
-		cents=x.toFixed(2);
+		cents=Number(x).toFixed(2);
 		console.log(cents);
 	}
 	return cents
