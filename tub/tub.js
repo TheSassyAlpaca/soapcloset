@@ -202,7 +202,9 @@ function downloadProducts() {
 function cents(x) {
 	cents=x;
 	if(x.indexOf(".")!=-1) {
+		console.log(cents);
 		cents=x.toFixed(2);
+		console.log(cents);
 	}
 	return cents
 }
