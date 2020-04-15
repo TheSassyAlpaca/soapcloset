@@ -206,7 +206,7 @@ function cents(x) {
 		console.log(c);
 		//c=Number(x).toFixed(2);
 		//console.log(c);
-		cSplit=x.split(".");
+		cSplit=x.toString().split(".");
 		c=cSplit[0]+"<sup>"+cSplit[1]+"</sup>";
 	}
 	return c
