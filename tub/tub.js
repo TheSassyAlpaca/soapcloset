@@ -201,6 +201,7 @@ function downloadProducts() {
 
 function cents(x) {
 	cents=x;
+	console.log(cents);
 	if(x.indexOf(".")!=-1) {
 		console.log(cents);
 		cents=x.toFixed(2);
