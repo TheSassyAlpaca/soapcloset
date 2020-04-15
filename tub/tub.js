@@ -204,8 +204,10 @@ function cents(x) {
 	console.log(c);
 	if(x.toString().indexOf(".")!=-1) {
 		console.log(c);
-		c=Number(x).toFixed(2);
-		console.log(c);
+		//c=Number(x).toFixed(2);
+		//console.log(c);
+		cSplit=x.split(".");
+		c=cSplit[0]+"<sup>"+cSplit[1]+"</sup>";
 	}
 	return c
 }
