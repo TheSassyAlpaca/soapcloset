@@ -82,7 +82,7 @@ function downloadProducts() {
 					}
 					if(i.val()!=0) {
 						$(this).parents('.buy').find('.addToCart').css('display','none');
-						$(this).parents('.listing').find('.listingRight span').text('$'+(i.val()*p.price));
+						$(this).parents('.listing').find('.listingRight span').text('$'+cents(i.val()*p.price));
 						$(this).parents('.listing').find('.listingRight').attr('data-source',i.val()*p.price);
 					} else {
 						$(this).parents('.buy').find('.addToCart').css('display','block');
@@ -197,6 +197,14 @@ function downloadProducts() {
 			});
 		});
 	})
+}
+
+function cents(x) {
+	cents=x;
+	if(x.indexOf(".")!=-1) {
+		cents=x.toFixed(2);
+	}
+	return cents
 }
 
 function checkCompletion() {
