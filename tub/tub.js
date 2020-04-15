@@ -82,7 +82,7 @@ function downloadProducts() {
 					}
 					if(i.val()!=0) {
 						$(this).parents('.buy').find('.addToCart').css('display','none');
-						$(this).parents('.listing').find('.listingRight span').text('$'+cents(i.val()*p.price));
+						$(this).parents('.listing').find('.listingRight span').html('$'+cents(i.val()*p.price));
 						$(this).parents('.listing').find('.listingRight').attr('data-source',(i.val()*p.price));
 					} else {
 						$(this).parents('.buy').find('.addToCart').css('display','block');
@@ -204,8 +204,7 @@ function cents(x) {
 	console.log(c);
 	if(x.toString().indexOf(".")!=-1) {
 		console.log(c);
-		//c=Number(x).toFixed(2);
-		//console.log(c);
+
 		cSplit=x.toString().split(".");
 		change=cSplit[1];
 		if(cSplit[1].length===1) {
