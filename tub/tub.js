@@ -207,7 +207,11 @@ function cents(x) {
 		//c=Number(x).toFixed(2);
 		//console.log(c);
 		cSplit=x.toString().split(".");
-		c=cSplit[0]+"<sup>"+cSplit[1]+"</sup>";
+		change=cSplit[1];
+		if(cSplit[1].length===1) {
+			change=cSplit[1]+"0";
+		}
+		c=cSplit[0]+"<sup>"+change.substring(0,2)+"</sup>";
 	}
 	return c
 }
