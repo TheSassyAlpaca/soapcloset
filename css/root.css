@@ -51,6 +51,10 @@ h1, h2 {
 	text-shadow: 0px 0px 2px rgb(var(--oats));
 }
 
+sup {
+	font-size: 50%;
+}
+
 .expand, .reveal {
 	max-height: 9999px !important;
 }
