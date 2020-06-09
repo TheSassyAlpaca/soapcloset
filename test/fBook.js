@@ -21,14 +21,12 @@ fBJunk=`<script>
 			 fjs.parentNode.insertBefore(js, fjs);
 		   }(document, 'script', 'facebook-jssdk'));
 		</script>`
-fBL=`<div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="" scope="public_profile,email" onlogin="checkLoginState();"></div>
-	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-	</fb:login-button>`;
+fBL=`<div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="" scope="public_profile,email" onlogin="checkLoginState();"></div>`;
 
 $(function() {
 	console.log("fBook loaded!");
-	$('#content').prepend(fBL);
 	$('body').prepend(fBJunk);
+	$('#content').prepend(fBL);
 })
 
 function checkLoginState() {
@@ -41,6 +39,9 @@ function checkLoginState() {
 			$('#fBLogout').click(FB.logout());
 		} else {
 			console.log(response.status);
+			if(response.status=='unknown') {
+				checkLoginState();
+			}
 		}
 	});
 }
