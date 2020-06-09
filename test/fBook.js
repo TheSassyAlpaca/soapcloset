@@ -15,4 +15,9 @@ $(function() {
 	console.log("fBook loaded!");
 	//$('body').prepend(fBScript);
 	//$('#content').append(fLogButton);
+	FB.getLoginStatus(function(response) {
+		console.log(response);
+		//statusChangeCallback(response);
+	});
+	
 })
