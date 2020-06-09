@@ -3,4 +3,8 @@ fLogButton='<div class="fb-login-button" data-size="large" data-button-type="log
 $(function() {
 	console.log("fBook loaded!");
 	$('#content').append(fLogButton);
+	FB.getLoginStatus(function(response) {
+		console.log(response);
+		//statusChangeCallback(response);
+	});
 })
