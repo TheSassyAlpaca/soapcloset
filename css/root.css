@@ -358,6 +358,10 @@ header {
 	margin-bottom: -10px;
 }
 
+.band.subText:nth-child(even) {
+	background-color: rgb(var(--bark));
+} 
+
 .band.subText:last-child {
 	background-color: rgb(var(--ocean));
 }
