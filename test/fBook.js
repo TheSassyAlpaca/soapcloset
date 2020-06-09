@@ -1,3 +1,6 @@
+fLogButton='<div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>';
+
 $(function() {
 	console.log("fBook loaded!");
+	$('#content').append(fLogButton);
 })
