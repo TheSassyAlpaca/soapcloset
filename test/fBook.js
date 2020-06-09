@@ -13,7 +13,7 @@ fLogButton='<div class="fb-login-button" data-size="large" data-button-type="log
 */
 $(function() {
 	console.log("fBook loaded!");
-	$('body').prepend(fBScript);
+	//$('body').prepend(fBScript);
 	$('#content').append(fLogButton);
 	FB.getLoginStatus(function(response) {
 		console.log(response);
