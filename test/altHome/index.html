@@ -54,9 +54,14 @@
 </script>
 	</head>
 	<body>
-	
 		<div id="fb-root"></div>
-		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=584847252330296&autoLogAppEvents=1"></script>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=584847252330296&autoLogAppEvents=1">
+		FB.getLoginStatus(function(response) {
+		console.log(response);
+		//statusChangeCallback(response);
+	});
+		</script>
+		
 		<header>
 			<div id="blt">
 				<div id="menuGlyph">
