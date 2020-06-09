@@ -25,8 +25,8 @@ fBL=`<div class="fb-login-button" data-size="large" data-button-type="login_with
 
 $(function() {
 	console.log("fBook loaded!");
-	$('#content').prepend(fBL);
 	$('body').prepend(fBJunk);
+	$('#content').prepend(fBL);
 })
 
 
