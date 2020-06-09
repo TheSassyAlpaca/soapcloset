@@ -1,3 +1,5 @@
+buyMax="off";
+
 $(function() {
 	buildPage();
 })
@@ -75,7 +77,7 @@ function downloadProducts() {
 						i.val(1);
 						a=1;
 					}
-					if(i.val()>=Number(i.attr('max'))) {
+					if(i.val()>=Number(i.attr('max'))&buyMax=="on") {
 						i.val(Number(i.attr('max')));
 						a=i.val();
 						i.next().addClass('greyedOut');
@@ -102,7 +104,7 @@ function downloadProducts() {
 					if($(this).val()!=0) {
 						$(this).parent().parent().children('.addToCart').css('display','none');
 					}
-					if($(this).val()>=Number($(this).attr('max'))) {
+					if($(this).val()>=Number($(this).attr('max'))&buyMax=="on") {
 						$(this).parent().find('input').next().addClass('greyedOut');
 					}
 				})
