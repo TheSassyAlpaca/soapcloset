@@ -1,6 +1,7 @@
 tempFolder="";
 safe=5;
 p={};
+buyMax="off";
 
 $(function() {
 	getProduct();
@@ -88,7 +89,7 @@ function getProduct() {
 						i.val(1);
 						a=1;
 					}
-					if(i.val()>=Number(i.attr('max'))) {
+					if(i.val()>=Number(i.attr('max'))&buyMax=="on") {
 						i.val(Number(i.attr('max')));
 						a=i.val();
 						i.next().addClass('greyedOut');
@@ -107,7 +108,7 @@ function getProduct() {
 					if($(this).val()!=0) {
 						$(this).parent().parent().children('.addToCart').css('display','none');
 					}
-					if($(this).val()>=Number($(this).attr('max'))) {
+					if($(this).val()>=Number($(this).attr('max'))&buyMax=="on") {
 						$(this).parent().find('input').next().addClass('greyedOut');
 					}
 				})
