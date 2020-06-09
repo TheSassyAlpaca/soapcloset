@@ -358,7 +358,7 @@ header {
 	margin-bottom: -10px;
 }
 
-.band.subText:nth-child(even) {
+.band.subText:nth-child(4n) {
 	background-color: rgb(var(--bark));
 } 
 
