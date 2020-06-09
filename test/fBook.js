@@ -1,4 +1,4 @@
-fLogButton='<div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>';
+//fLogButton='<div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>';
 /*fBScript=`<script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -14,9 +14,5 @@ fLogButton='<div class="fb-login-button" data-size="large" data-button-type="log
 $(function() {
 	console.log("fBook loaded!");
 	//$('body').prepend(fBScript);
-	$('#content').append(fLogButton);
-	FB.getLoginStatus(function(response) {
-		console.log(response);
-		//statusChangeCallback(response);
-	});
+	//$('#content').append(fLogButton);
 })
