@@ -8,9 +8,7 @@ fBJunk=`<script>
 			});
 			  
 			FB.AppEvents.logPageView();   
-			FB.getLoginStatus(function(response) {
-				console.log(response);
-			});
+			
 		  };
 
 		  (function(d, s, id){
@@ -20,6 +18,10 @@ fBJunk=`<script>
 			 js.src = "https://connect.facebook.net/en_US/sdk.js";
 			 fjs.parentNode.insertBefore(js, fjs);
 		   }(document, 'script', 'facebook-jssdk'));
+		   
+		   FB.getLoginStatus(function(response) {
+				console.log(response);
+			});
 		</script>`
 fBL=`<div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="" scope="public_profile,email" onlogin="checkLoginState();"></div>`;
 
@@ -27,7 +29,6 @@ $(function() {
 	console.log("fBook loaded!");
 	$('body').prepend(fBJunk);
 	$('#content').prepend(fBL);
-	checkLoginState();
 })
 
 function checkLoginState() {
