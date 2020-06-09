@@ -27,6 +27,7 @@ $(function() {
 	console.log("fBook loaded!");
 	$('body').prepend(fBJunk);
 	$('#content').prepend(fBL);
+	checkLoginState();
 })
 
 function checkLoginState() {
