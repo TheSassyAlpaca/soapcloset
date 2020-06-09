@@ -259,7 +259,6 @@ function buildOrder() {
 	console.log(order);
 	console.log(document.cookie);
 	sendEvent('User','Order',JSON.stringify(order));
-	userAlert('Order Submitted! Check your email for confirmation and status!');
 	submitForm('https://docs.google.com/forms/d/e/1FAIpQLSdCEcSCvTvPhQZriFjsO5w7b_NukS_SRw8XFCUzjk2bTpZ33A/formResponse?usp=pp_url&entry.148047722=',['entry.1353804064'],[encodeURIComponent(JSON.stringify(order)),order.email]);
 	emptyTub();
 	/*
@@ -272,6 +271,7 @@ function buildOrder() {
 	*/
 	$('#content').empty();
 	buildPage();
+	userAlert('Order Submitted! Check your email for confirmation and status!');
 }
 
 function total() {
