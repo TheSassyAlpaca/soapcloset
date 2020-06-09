@@ -10,6 +10,9 @@ fBJunk=`<script>
 			FB.AppEvents.logPageView();   
 			FB.getLoginStatus(function(response) {
 				console.log(response);
+				if(response.status=='unknown') {
+					checkLoginState();
+				}
 			});
 		  };
 
