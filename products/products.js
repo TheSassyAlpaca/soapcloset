@@ -1,5 +1,5 @@
 tempFolder="";
-safe=5;
+safe=6;
 
 $(function() {
 	downloadProducts();
