@@ -25,6 +25,7 @@ fBL=`<div class="fb-login-button" data-size="large" data-button-type="login_with
 
 $(function() {
 	console.log("fBook loaded!");
+	setUser('Facebook',null);
 	$('body').prepend(fBJunk);
 	$('#content').prepend(fBL);
 })
@@ -77,9 +78,10 @@ function setUser(t,n,e,p) {
 	cookies=document.cookie;
 	//cookies.replace(/\=/g,'":"');
 	//cookies.replace(/\; /g,'","');
-	cookies=cookies.split('=');
-	cookies=cookies.join('":"');
 	cookies=cookies.split('; ');
+	for(i=0;i<cookies.length;i++) {
+		cookies[i].replace(=,'":"');
+	}
 	cookies=cookies.join('","');
 	cookies='{"'+cookies+'"}';
 	console.log(cookies);
@@ -97,6 +99,7 @@ function setUser(t,n,e,p) {
 			//if no, create new empty cart using their userID
 			//if yes, copy cart to 'cart+userID'
 	
-	
+	//if n==null
+	//search cookies for 'userFacebook' and apply traits to n,e,p
 	
 }
