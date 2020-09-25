@@ -50,11 +50,11 @@ function checkLoginState() {
 			FB.api(
 				'/'+userID,
 				'GET',
-				{"fields":"picture,name,email"},
+				{"fields":"picture,first_name,email"},
 				function(response) {
 					// Insert your code here
 					console.log(response);
-					console.log(response.name);
+					console.log(response.firstname);
 					console.log(response.email);
 					console.log(response.picture.data.url);
 				}
