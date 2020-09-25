@@ -52,6 +52,17 @@ function checkLoginState() {
 			//this should get me the profile pic and prove that I can get first name and email address
 			//may need to add accessToken
 			
+			FB.api(
+				'/'+userID,
+				'GET',
+				{"fields":"picture,name,email"},
+				function(response) {
+					// Insert your code here
+					console.log(response);
+				}
+			);
+			
+			
 			document.cookie='login'+userType+'='+userID+'|'+accessToken+'|'+userEmail+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
 			console.log(document.cookie);
 
