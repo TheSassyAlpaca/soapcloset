@@ -89,7 +89,7 @@ function setUser(t,n,e,p) {
 		}
 		cookies=cookies.join('","');
 		cookies='{"'+cookies+'"}';
-		JSON.parse(cookies);
+		cookies=JSON.parse(cookies);
 		if(cookies['user'+t]==n+"|"+e+"|"+p) {
 			console.log("yes");
 		} else {
