@@ -47,11 +47,6 @@ function checkLoginState() {
 			userType='Facebook';
 			accessToken=response.authResponse.accessToken;
 			userEmail='unlisted';
-			$.getJSON('https://graph.facebook.com/'+userID+'/picture?type=square',function (response) {console.log(response)});
-			$.getJSON('https://graph.facebook.com/'+userID+'/?fields=picture&access_token='+accessToken,function (response) {console.log(response)});
-			//this should get me the profile pic and prove that I can get first name and email address
-			//may need to add accessToken
-			
 			FB.api(
 				'/'+userID,
 				'GET',
@@ -59,6 +54,9 @@ function checkLoginState() {
 				function(response) {
 					// Insert your code here
 					console.log(response);
+					console.log(response.name);
+					console.log(response.email);
+					console.log(response.picture.data.url);
 				}
 			);
 			
