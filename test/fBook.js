@@ -55,6 +55,7 @@ function storeUser(response) {
 	userType='Facebook';
 	accessToken=response.authResponse.accessToken;
 	userEmail='unlisted';
+	console.log(response);
 	FB.api(
 		'/'+userID,
 		'GET',
@@ -73,10 +74,13 @@ function storeUser(response) {
 }
 
 function setUser() {
+	/*
 	cookies=document.cookie;
 	cookies.replace(/=/g,'":"');
 	cookies.replace(/,/g,'","');
 	cookies='{"'+cookies+'"}';
 	JSON.parse(cookies);
 	console.log(cookies);
+	*/
+	
 }
