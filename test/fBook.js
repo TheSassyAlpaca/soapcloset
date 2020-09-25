@@ -79,9 +79,10 @@ function setUser(t,n,e,p) {
 	//cookies.replace(/\=/g,'":"');
 	//cookies.replace(/\; /g,'","');
 	cookies=cookies.split('; ');
+	console.log(cookies);
 	for(i=0;i<cookies.length;i++) {
 		console.log(cookies[i]);
-		cookies[i].replace('=','":"');
+		cookies[i]=cookies[i].replace('=','":"');
 	}
 	cookies=cookies.join('","');
 	cookies='{"'+cookies+'"}';
