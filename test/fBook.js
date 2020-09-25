@@ -45,10 +45,13 @@ function checkLoginState() {
 			console.log(expire);
 			userID=response.authResponse.userID;
 			userType='Facebook';
-			console.log('https://graph.facebook.com/'+response.authResponse.userID+'/picture?type=square');
-			$.getJSON('https://graph.facebook.com/'+response.authResponse.userID+'/picture?type=square',function (data) {console.log(data)});
-			document.cookie='login='+userID+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
-			document.cookie='loginType='+userType+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
+			accessToken=response.authResponse.accessToken;
+			userEmail='unlisted';
+			$.getJSON('https://graph.facebook.com/'+userID+'/picture?type=square',function (response) {console.log(response)});
+			//this should get me the profile pic and prove that I can get first name and email address
+			//may need to add accessToken
+			
+			document.cookie='login'+userType+'='+userID+'|'+accessToken+'|'+userEmail+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
 			console.log(document.cookie);
 
 			$('#fBLogout').click(FB.logout());
