@@ -72,14 +72,14 @@ function checkLoginState() {
 }
 
 function setUser(n,e,p) {
-	/*
+	
 	cookies=document.cookie;
 	cookies.replace(/=/g,'":"');
 	cookies.replace(/,/g,'","');
 	cookies='{"'+cookies+'"}';
 	JSON.parse(cookies);
 	console.log(cookies);
-	*/
+	
 	//if user header does not exist - create
 	//change user portrait url, change user first name
 	//add email to subscription field - run check on subscription - if found, hide subscription/thank user
