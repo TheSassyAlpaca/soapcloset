@@ -74,25 +74,33 @@ function checkLoginState() {
 }
 
 function setUser(t,n,e,p) {
-	
-	cookies=document.cookie;
-	cookies=cookies.split('; ');
-	for(i=0;i<cookies.length;i++) {
-		cookies[i]=cookies[i].replace('=','":"');
-	}
-	cookies=cookies.join('","');
-	cookies='{"'+cookies+'"}';
-	JSON.parse(cookies);
-	
-	if(cookies.['user'+t]==n+"|"+e+"|"+p) {
-		console.log("yes")
-	} else {
-		cookies.['user'+t];
-	}
-	
 	//if user header exists, delete
 	//empty input field for subscription
 	//--other items to undo in preparation for new user
+	
+	//if n==null
+	//search cookies for 'userFacebook' and apply traits to n,e,p
+	if(n==null) {
+		cookies=document.cookie;
+		cookies=cookies.split('; ');
+		for(i=0;i<cookies.length;i++) {
+			cookies[i]=cookies[i].replace('=','":"');
+		}
+		cookies=cookies.join('","');
+		cookies='{"'+cookies+'"}';
+		JSON.parse(cookies);
+		if(cookies['user'+t]==n+"|"+e+"|"+p) {
+			console.log("yes")
+		} else {
+			user=cookies['user'+t].split("|");
+			n=user[0];
+			e=user[1];
+			p=user[2];
+			console.log(user);
+		}
+	}
+	
+	
 	//if n!=null
 	//create user header - set user portrait url, user first name
 	//add email to subscription field - run check on subscription - if found, hide subscription/thank user
