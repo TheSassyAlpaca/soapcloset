@@ -77,13 +77,20 @@ function setUser(n,e,p) {
 	cookies.replace(/=/g,'":"');
 	cookies.replace(/,/g,'","');
 	cookies='{"'+cookies+'"}';
+	console.log(cookies);
 	JSON.parse(cookies);
 	console.log(cookies);
 	
-	//if user header does not exist - create
-	//change user portrait url, change user first name
+	//if user header exists, delete
+	//empty input field for subscription
+	//--other items to undo in preparation for new user
+	//if n!=null
+	//create user header - set user portrait url, user first name
 	//add email to subscription field - run check on subscription - if found, hide subscription/thank user
-	
+	//check for 'cart+userID' and adopt cart
+		//if no 'cart+userID' exists and 'cart' is occupied, ask if user would like to claim this cart
+			//if no, create new empty cart using their userID
+			//if yes, copy cart to 'cart+userID'
 	
 	
 	
