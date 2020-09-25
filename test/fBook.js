@@ -58,10 +58,11 @@ function checkLoginState() {
 					userEmail=response.email;
 					document.cookie='login'+userType+'='+userID+'|'+accessToken+'|'+userEmail+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
 					console.log(document.cookie);//
-					setUser(response.first_name,response.email,response.picture.data.url);
+					setUser('Facebook',response.first_name,response.email,response.picture.data.url);
 				}
 			);
 			$('#fBLogout').click(FB.logout());
+			//delete user data in cookie
 		} else {
 			console.log(response.status);
 			if(response.status=='unknown') {
@@ -71,12 +72,12 @@ function checkLoginState() {
 	});
 }
 
-function setUser(n,e,p) {
+function setUser(t,n,e,p) {
 	
 	cookies=document.cookie;
-	cookies.replace(/=/g,'":"');
-	cookies.replace(/,/g,'","');
-	cookies='{"'+cookies+'"}';
+	cookies.replace(/=/g,"':'");
+	cookies.replace(/,/g,"','");
+	cookies="{'"+cookies+"'}";
 	console.log(cookies);
 	JSON.parse(cookies);
 	console.log(cookies);
