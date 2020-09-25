@@ -85,6 +85,7 @@ function setUser(t,n,e,p) {
 		cookies=cookies.split('; ');
 		for(i=0;i<cookies.length;i++) {
 			cookies[i]=cookies[i].replace('=','":"');
+			console.log(cookies[i]);
 		}
 		cookies=cookies.join('","');
 		cookies='{"'+cookies+'"}';
