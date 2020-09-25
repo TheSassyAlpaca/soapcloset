@@ -75,9 +75,9 @@ function checkLoginState() {
 function setUser(t,n,e,p) {
 	
 	cookies=document.cookie;
-	cookies.replace(/=/g,"':'");
-	cookies.replace(/,/g,"','");
-	cookies="{'"+cookies+"'}";
+	cookies.replace(/=/g,'":"');
+	cookies.replace(/,/g,'","');
+	cookies='{"'+cookies+'"}';
 	console.log(cookies);
 	JSON.parse(cookies);
 	console.log(cookies);
