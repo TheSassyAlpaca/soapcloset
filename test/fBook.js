@@ -91,11 +91,11 @@ function setUser(t,n,e,p) {
 		cookies='{"'+cookies+'"}';
 		cookies=JSON.parse(cookies);
 		console.log(cookies);
-		if(cookies['user'+t]==n+"|"+e+"|"+p) {
+		if(cookies['login'+t]==n+"|"+e+"|"+p) {
 			console.log("yes");
 		} else {
-			console.log(cookies['user'+t]);
-			user=cookies['user'+t];
+			console.log(cookies['login'+t]);
+			user=cookies['login'+t];
 			user=user.split("|");
 			n=user[0];
 			e=user[1];
