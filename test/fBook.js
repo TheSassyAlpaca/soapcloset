@@ -54,7 +54,7 @@ function checkLoginState() {
 				function(response) {
 					// Insert your code here
 					console.log(response);
-					console.log(response.firstname);
+					console.log(response.first_name);
 					console.log(response.email);
 					console.log(response.picture.data.url);
 					userEmail=response.email;
