@@ -46,6 +46,7 @@ function checkLoginState() {
 			userID=response.authResponse.userID;
 			userType='Facebook';
 			console.log('https://graph.facebook.com/'+response.authResponse.userID+'/picture?type=square');
+			$.getJSON('https://graph.facebook.com/'+response.authResponse.userID+'/picture?type=square',function (data) {console.log(data)});
 			document.cookie='login='+userID+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
 			document.cookie='loginType='+userType+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
 			console.log(document.cookie);
