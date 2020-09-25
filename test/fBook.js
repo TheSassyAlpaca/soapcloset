@@ -57,10 +57,9 @@ function checkLoginState() {
 					console.log(response.firstname);
 					console.log(response.email);
 					console.log(response.picture.data.url);
+					userEmail=response.email;
 				}
 			);
-			
-			
 			document.cookie='login'+userType+'='+userID+'|'+accessToken+'|'+userEmail+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
 			console.log(document.cookie);
 
