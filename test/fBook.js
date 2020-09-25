@@ -76,19 +76,19 @@ function checkLoginState() {
 function setUser(t,n,e,p) {
 	
 	cookies=document.cookie;
-	//cookies.replace(/\=/g,'":"');
-	//cookies.replace(/\; /g,'","');
 	cookies=cookies.split('; ');
-	console.log(cookies);
 	for(i=0;i<cookies.length;i++) {
-		console.log(cookies[i]);
 		cookies[i]=cookies[i].replace('=','":"');
 	}
 	cookies=cookies.join('","');
 	cookies='{"'+cookies+'"}';
-	console.log(cookies);
 	JSON.parse(cookies);
-	console.log(cookies);
+	
+	if(cookies.['user'+t]==n+"|"+e+"|"+p) {
+		console.log("yes")
+	} else {
+		cookies.['user'+t];
+	}
 	
 	//if user header exists, delete
 	//empty input field for subscription
