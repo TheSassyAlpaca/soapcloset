@@ -37,6 +37,18 @@ function checkLoginState() {
 			console.log(response);
 			console.log("connected");
 			$('#content').prepend('<button id="fBLogout">Logout</button>');
+			//update facebookHomegrownCookie...
+			
+			
+			//expire=now.toGMTString();
+			expire=response.authResponse.data_access_expiration_time;
+			console.log(expire);
+			userID=response.authResponse.userID;
+			userType='Facebook';
+			document.cookie='login='+userID+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
+			document.cookie='loginType='+userType+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
+			console.log(document.cookie);
+
 			$('#fBLogout').click(FB.logout());
 		} else {
 			console.log(response.status);
