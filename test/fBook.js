@@ -90,6 +90,7 @@ function setUser(t,n,e,p) {
 		cookies=cookies.join('","');
 		cookies='{"'+cookies+'"}';
 		cookies=JSON.parse(cookies);
+		console.log(cookies);
 		if(cookies['user'+t]==n+"|"+e+"|"+p) {
 			console.log("yes");
 		} else {
