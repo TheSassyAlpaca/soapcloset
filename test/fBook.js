@@ -91,8 +91,9 @@ function setUser(t,n,e,p) {
 		cookies='{"'+cookies+'"}';
 		JSON.parse(cookies);
 		if(cookies['user'+t]==n+"|"+e+"|"+p) {
-			console.log("yes")
+			console.log("yes");
 		} else {
+			console.log(cookies['user'+t]);
 			user=cookies['user'+t];
 			user=user.split("|");
 			n=user[0];
