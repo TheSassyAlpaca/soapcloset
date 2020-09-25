@@ -92,7 +92,8 @@ function setUser(t,n,e,p) {
 		if(cookies['user'+t]==n+"|"+e+"|"+p) {
 			console.log("yes")
 		} else {
-			user=cookies['user'+t].split("|");
+			user=cookies['user'+t];
+			user=user.split("|");
 			n=user[0];
 			e=user[1];
 			p=user[2];
