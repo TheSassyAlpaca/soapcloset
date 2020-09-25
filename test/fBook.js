@@ -45,6 +45,7 @@ function checkLoginState() {
 			console.log(expire);
 			userID=response.authResponse.userID;
 			userType='Facebook';
+			console.log('https://graph.facebook.com/'+response.authResponse.userID+'/picture?type=square');
 			document.cookie='login='+userID+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
 			document.cookie='loginType='+userType+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
 			console.log(document.cookie);
