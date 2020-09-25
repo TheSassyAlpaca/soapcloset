@@ -37,29 +37,30 @@ function checkLoginState() {
 			console.log("connected");
 			$('#content').prepend('<button id="fBLogout">Logout</button>');
 			//find a better home for the logout button - try the menu
+			//hide login option
+			
 			
 			expire=response.authResponse.data_access_expiration_time;
 			userID=response.authResponse.userID;
 			userType='Facebook';
 			accessToken=response.authResponse.accessToken;
 			userEmail='unlisted';
+			console.log(response);
 			FB.api(
 				'/'+userID,
 				'GET',
 				{"fields":"picture,first_name,email"},
 				function(response) {
-					// Insert your code here
-					console.log(response);
-					console.log(response.first_name);
-					console.log(response.email);
-					console.log(response.picture.data.url);
+					console.log(response);//
+					console.log(response.first_name);//
+					console.log(response.email);//
+					console.log(response.picture.data.url);//
 					userEmail=response.email;
 					document.cookie='login'+userType+'='+userID+'|'+accessToken+'|'+userEmail+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
-					console.log(document.cookie);
+					console.log(document.cookie);//
+					setUser(response.first_name,response.email,response.picture.data.url);
 				}
 			);
-			
-
 			$('#fBLogout').click(FB.logout());
 		} else {
 			console.log(response.status);
@@ -68,4 +69,22 @@ function checkLoginState() {
 			}
 		}
 	});
+}
+
+function setUser(n,e,p) {
+	/*
+	cookies=document.cookie;
+	cookies.replace(/=/g,'":"');
+	cookies.replace(/,/g,'","');
+	cookies='{"'+cookies+'"}';
+	JSON.parse(cookies);
+	console.log(cookies);
+	*/
+	//if user header does not exist - create
+	//change user portrait url, change user first name
+	//add email to subscription field - run check on subscription - if found, hide subscription/thank user
+	
+	
+	
+	
 }
