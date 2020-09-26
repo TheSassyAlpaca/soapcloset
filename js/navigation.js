@@ -225,6 +225,7 @@ function changeCookie(c,p,a) {
 	expire=now.toGMTString();
 	console.log(expire);
 	document.cookie=cartName+'='+JSON.stringify(cart)+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
+	console.log(cartName);
 	countCart();
 }
 
