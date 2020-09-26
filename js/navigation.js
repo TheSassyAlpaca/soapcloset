@@ -1,13 +1,10 @@
 notice={start:0,end:1588305600000,text:"Site under construction. If you have any questions, please email Josh@TheSassyAlpaca.com",link:"mailto:jos@thesassyalpaca.com",color:"rgb(var(--bark))",target:"_blank"};
+cartName='cart';
 
 $(function() {
-	//now=new date();
 	now=$.now();
-	console.log(now);
-	//console.log(now.toDateString());
 	if(notice.start<now&&notice.end>now) {
 		n='<div class="notice">'+notice.text+'</div>';
-		//$(n).insertBefore('header');
 		$('#content').prepend(n);
 		$('#content').prepend('<a href="'+notice.link+'" target="'+notice.target+'" class="notice" style="background-color: '+notice.color+'">'+n+'</a>');
 	}
@@ -37,6 +34,35 @@ $(function() {
 	})
 })
 
+function checkCart(id) {
+	c=document.cookie;
+	cooks=c.split('; ');
+	genCart='';
+	userCart='';
+	for(i=0;i<cooks.length;i++) {
+		cSplit=cooks[i].split("=");
+		if(cSplit[0]=='cart') {
+			genCart=cSplit[1];
+			console.log(genCart);
+		}
+		if(cSplit[0]=='cart'+id) {
+			userCart=cSplit[1];
+			console.log(userCart);
+		}
+	}
+	cartName='cart'+id;
+	if(userCart==''&&genCart!='') {
+		document.cookie=cartName+"="+genCart;
+	}
+	countCart();
+}
+
+function buildFacebook() {
+	$('#bltBody').children('.bltMenu').prepend('<div id="userBox"><img src=""><span></span></div>');
+	$('#bltBody').children('.bltMenu').append('<button id="fBLO" style="display:none;" onclick="logOutOfFacebook();">Log Out?</button>');
+	$('#bltBody').children('.bltMenu').append('<button id="fBLI" style="display:none;" onclick="logIntoFacebook();">Log In?</button>');
+}
+
 function countCart() {
 	c=document.cookie;
 	cooks=c.split('; ');
@@ -45,7 +71,7 @@ function countCart() {
 	//name=p.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
-		if(cookie[0]=='cart') {
+		if(cookie[0]==cartName) {
 			cart=JSON.parse(cookie[1]);
 			for(k in cart) {
 				console.log(cart[k]);
@@ -164,7 +190,7 @@ function getValue(p) {
 	id=p.id.replace(/[\s&'!-#()]/g,'').toLowerCase();
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
-		if(cookie[0]=='cart') {
+		if(cookie[0]==cartName) {
 			cart=JSON.parse(cookie[1]);
 			if(id in cart) {
 				q=cart[id];
@@ -187,7 +213,7 @@ function changeCookie(c,p,a) {
 	found=0;
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
-		if(cookie[0]=='cart') {
+		if(cookie[0]==cartName) {
 			cart=JSON.parse(cookie[1]);
 		}
 	}
@@ -198,7 +224,7 @@ function changeCookie(c,p,a) {
 	now.setTime(expireTime);
 	expire=now.toGMTString();
 	console.log(expire);
-	document.cookie='cart='+JSON.stringify(cart)+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
+	document.cookie=cartName+'='+JSON.stringify(cart)+';expires='+expire+';path=/;domain=.thesassyalpaca.com';
 	countCart();
 }
 
