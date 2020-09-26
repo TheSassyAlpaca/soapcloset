@@ -1,6 +1,24 @@
 cart='cart';
 //update in productNEW.js
 //update in tubNEW.js
+//update cart={}; with window[cart]={};
+/*
+	if(cookie[0]=='cart') {
+		cart=JSON.parse(cookie[1]);
+		for(k in cart) {
+			console.log(cart[k]);
+			q=q+Number(cart[k]);
+		}
+	}
+	//should become
+	if(cookie[0]==window[cart]) {
+		window[cart]=JSON.parse(cookie[1]);
+		for(k in cart) {
+			console.log(window[cart][k]);
+			q=q+Number(window[cart][k]);
+		}
+	}
+*/
 
 function checkCart(id) {
 	//get cookies and see if 'cart + id' exists.
@@ -11,7 +29,7 @@ function checkCart(id) {
 	for(i=0;i<cooks.length;i++) {
 		cooks[i].replace('=','":"');
 	}
-	cookies=cooks.join('","');
+	cookies=cooks;
 	console.log(cookies);
 	console.log(cookies.cart);
 	console.log(cookies['cart'+id]);
