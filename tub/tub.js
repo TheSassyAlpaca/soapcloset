@@ -91,7 +91,7 @@ function downloadProducts() {
 					}
 					id=$(this).parents('.buy').attr('id');
 					console.log($(this).parents('.buy').attr('id'));
-					changeCookie('cart',id,a);
+					changeCookie(cartName,id,a);
 					userAlert(a+' '+p.name+' - '+$(this).parents('.buy').attr('data-source')+' are now in your cart.');
 					total();
 				})
@@ -251,7 +251,7 @@ function buildOrder() {
 	cart={};
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
-		if(cookie[0]=='cart') {
+		if(cookie[0]==cartName) {
 			cart=JSON.parse(cookie[1]);
 			order.cart=cart;
 		}
@@ -324,7 +324,7 @@ function showTub() {
 	list='';
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
-		if(cookie[0]=='cart') {
+		if(cookie[0]==cartName) {
 			cart=JSON.parse(cookie[1]);
 			for(k in cart) {
 				console.log(cart);
@@ -361,6 +361,6 @@ function emptyTub() {
 	now.setTime(expireTime);
 	expire=now.toGMTString();
 	console.log(expire);
-	document.cookie='cart={};expires='+expire+';path=/;domain=.thesassyalpaca.com';
+	document.cookie=cartName+'={};expires='+expire+';path=/;domain=.thesassyalpaca.com';
 	countCart();
 }
