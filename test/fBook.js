@@ -45,7 +45,10 @@ function checkCart(id) {
 		console.log(cart);
 		if(cart=='cart'&&cookies.cart!==undefined) {
 			cart='cart'+id;
-			window[cart]=cookies.cart;
+			oldCart=cookies.cart;
+			oldCart=oldCart.split(/[\{\}]+/);
+			console.log(oldCart);
+			window[cart]=oldCart;
 			console.log(cart);
 			console.log(window[cart]);
 		}
