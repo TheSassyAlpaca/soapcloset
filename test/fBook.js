@@ -15,10 +15,19 @@ function buildFacebook() {
 		border: 5px solid rgba(var(--ocean),.6);
 		box-shadow: 0px 0px 10px 0px rgba(var(--oats),.3);
 	}
-	#userBox span {
+	#userBox img + span {
 		vertical-align: top;
 		line-height: 25px;
 		display: inline-block;
+		text-indent: 0px;
+		padding-left: 10px;
+	}
+	#userBox span > span {
+		vertical-align: top;
+		line-height: 25px;
+		display: inline-block;
+		text-indent: 0px;
+		padding-left: 10px;
 	}
 	</style>`
 	$('body').append(thisCSS);
