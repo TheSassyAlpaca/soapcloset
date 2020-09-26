@@ -65,13 +65,16 @@
 				FB.login(function(response) {
 					if (response.status==="connected") {
 						console.log('Welcome!  Fetching your information.... ');
-						FB.api('/me', function(response) {
+						FB.api(
 							'/me',
 							{"fields":"picture,first_name,email"},
 							function(response) {
 								console.log(response);//
+								$('#userBox').attr('data-value',response.id);
+								$('#userBox').children('img').attr('src',response.picture.data.url);
+								$('#userBox').children('span').text('Hello, '+response.name);
 							}
-						});
+						);
 					} else {
 						console.log('User cancelled login or did not fully authorize.');
 					}
@@ -120,7 +123,6 @@
 				js.src = "https://connect.facebook.net/en_US/sdk.js";
 				fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
-			//<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true" data-width="" data-scope="public_profile,email" data-onlogin="checkLoginState();"></div>
 		</script>
 		<div id="status">
 		</div>
