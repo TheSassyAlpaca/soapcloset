@@ -9,7 +9,7 @@ function checkCart(id) {
 	c=document.cookie;
 	cooks=c.split('; ');
 	for(i=0;i<cooks.length;i++) {
-		cooks.replace('=','":"');
+		cooks[i].replace('=','":"');
 	}
 	cookies=cooks.join('","');
 	console.log(cookies);
