@@ -25,7 +25,7 @@ fBJunk=`<script>
 		
 		<div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=584847252330296&autoLogAppEvents=1" nonce="kCulCyLB"></script>`
-fBL=`<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="true" data-width="" scope="public_profile,email" onlogin="checkLoginState();"></div>`;
+fBL=`<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="true" data-width="" scope="public_profile,email"></div>`;
 
 //<div id="fb-root"></div>
 //<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=584847252330296&autoLogAppEvents=1" nonce="kCulCyLB"></script>
@@ -41,7 +41,7 @@ fBL=`<div class="fb-login-button" data-size="large" data-button-type="continue_w
 $(function() {
 	console.log("fBook loaded!");
 	setUser('Facebook',null);
-	$('#content').prepend('<button id="fBLogout">Logout</button>');
+	//$('#content').prepend('<button id="fBLogout">Logout</button>');
 	$('#content').prepend(fBL);
 	$('body').prepend(fBJunk);
 })
@@ -78,7 +78,7 @@ function checkLoginState() {
 					setUser('Facebook',response.first_name,response.email,response.picture.data.url);
 				}
 			);
-			$('#fBLogout').click(FB.logout());
+			//$('#fBLogout').click(FB.logout());
 			//delete user data in cookie
 		} else {
 			console.log(response.status);
