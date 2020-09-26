@@ -42,6 +42,7 @@ function checkCart(id) {
 	console.log(cookies['cart'+id]);//check - undefined
 	if(cookies['cart'+id]===undefined) {
 		//or equals something that is non-sense
+		console.log(cart);
 		if(cart=='cart'&&cookies.cart!==undefined) {
 			cart='cart'+id;
 			window[cart]=cookies.cart;
