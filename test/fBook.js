@@ -30,6 +30,7 @@ function checkCart(id) {
 		cooks[i].replace('=','":"');
 	}
 	cooked=cooks.join(",");
+	console.log(cooked);
 	cookies=JSON.parse('{"'+cooked+'"}');
 	console.log(cookies);
 	console.log(cookies.cart);
