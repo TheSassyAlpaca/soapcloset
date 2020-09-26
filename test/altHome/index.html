@@ -96,6 +96,7 @@
 					{"fields":"picture,first_name,email"},
 					function(response) {
 						console.log(response);//
+						$('#userBox').css('display','unset');
 						$('#userBox').attr('data-value',response.id);
 						$('#userBox').children('img').attr('src',response.picture.data.url);
 						$('#userBox').children('span').html('Hello,<br><span>'+response.first_name+'</span>');
