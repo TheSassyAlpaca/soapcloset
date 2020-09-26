@@ -1,3 +1,20 @@
+cart='cart';
+//update in productNEW.js
+//update in tubNEW.js
+
+function checkCart(id) {
+	//get cookies and see if 'cart + id' exists.
+		//if yes, update cart to that cart
+		//if no, save current cart to that cart name - update cart variable
+	c=document.cookie;
+	cooks=c.split('; ');
+	for(i=0;i<cooks.length;i++) {
+		cooks.replace('=','":"');
+	}
+	cookies=cooks.join('","');
+	console.log(cookies);
+}
+
 function buildFacebook() {
 	$('#bltBody').children('.bltMenu').prepend('<div id="userBox"><img src=""><span></span></div>');
 	$('#bltBody').children('.bltMenu').append('<button id="fBLI" style="display:none;" onclick="logIntoFacebook();">Log In?</button>');
@@ -41,6 +58,9 @@ function buildFacebook() {
 	
 	.bltMenu {
 		position: relative;
+	}
+	.subscribe input {
+		font-size: 110%;
 	}
 	</style>`
 	$('body').append(thisCSS);
