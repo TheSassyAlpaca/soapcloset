@@ -75,9 +75,14 @@
 			function logOutOfFacebook() {
 				FB.logout(function(response) {
 					console.log(response);
-					$('#userBox').attr('data-value','');
-					$('#userBox').children('img').attr('src','');
-					$('#userBox').children('span').html('Hello');
+					if(response.status !== 'unknown') {
+						$('#userBox').css('display','none');
+						$('#userBox').attr('data-value','');
+						$('#userBox').children('img').attr('src','');
+						$('#userBox').children('span').html('Hello');
+						$('#fBLO').css('display','none');
+						$('#fBLI').css('display','unset');	
+					}
 				})
 			}
 			
