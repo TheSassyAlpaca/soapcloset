@@ -31,6 +31,7 @@ function checkCart(id) {
 		cooks[i]=cSplit[0]+'":"'+cSplit.splice(1);
 	}
 	cooked=cooks.join('","');
+	cooked.replace(/'"{'/g,'{');
 	console.log(cooked);
 	cookies=JSON.parse('{"'+cooked+'"}');
 	console.log(cookies);//check
