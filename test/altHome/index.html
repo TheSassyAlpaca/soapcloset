@@ -65,16 +65,7 @@
 				FB.login(function(response) {
 					if (response.status==="connected") {
 						console.log('Welcome!  Fetching your information.... ');
-						FB.api(
-							'/me',
-							{"fields":"picture,first_name,email"},
-							function(response) {
-								console.log(response);//
-								$('#userBox').attr('data-value',response.id);
-								$('#userBox').children('img').attr('src',response.picture.data.url);
-								$('#userBox').children('span').html('Hello,<br>'+response.first_name);
-							}
-						);
+						setUser();
 					} else {
 						console.log('User cancelled login or did not fully authorize.');
 					}
@@ -89,7 +80,20 @@
 					$('#userBox').children('span').html('Hello');
 				})
 			}
-				
+			
+			setUser() {
+				FB.api(
+					'/me',
+					{"fields":"picture,first_name,email"},
+					function(response) {
+						console.log(response);//
+						$('#userBox').attr('data-value',response.id);
+						$('#userBox').children('img').attr('src',response.picture.data.url);
+						$('#userBox').children('span').html('Hello,<br>'+response.first_name);
+					}
+				);
+			}
+			
 			window.fbAsyncInit = function() {
 				FB.init({
 					appId      : '584847252330296',
@@ -103,16 +107,7 @@
 				FB.getLoginStatus(function(response) {
 					console.log(response);
 					if(response.status=="connected") {
-						FB.api(
-							'/me',
-							{"fields":"picture,first_name,email"},
-							function(response) {
-								console.log(response);//
-								$('#userBox').attr('data-value',response.id);
-								$('#userBox').children('img').attr('src',response.picture.data.url);
-								$('#userBox').children('span').text('Hello, '+response.name);
-							}
-						);
+						setUser();
 					} else {
 						
 					}
