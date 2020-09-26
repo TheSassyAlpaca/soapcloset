@@ -33,7 +33,7 @@ function checkCart(id) {
 	cooked=cooks.join('","');
 	cooked.replace(/"{|/g,'{');
 	console.log(cooked);
-	cookies=JSON.parse('{"'+cooked+'"}');
+	cookies=JSON.parse('\{"'+cooked+'"}');
 	console.log(cookies);//check
 	console.log(cookies.cart);//check
 	console.log(cookies['cart'+id]);//check - undefined
