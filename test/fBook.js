@@ -20,8 +20,23 @@ fBJunk=`<script>
 			 js.src = "https://connect.facebook.net/en_US/sdk.js";
 			 fjs.parentNode.insertBefore(js, fjs);
 		   }(document, 'script', 'facebook-jssdk'));
-		</script>`
-fBL=`<div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="" scope="public_profile,email" onlogin="checkLoginState();"></div>`;
+		</script>
+		
+		
+		<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=584847252330296&autoLogAppEvents=1" nonce="kCulCyLB"></script>`
+fBL=`<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true" data-width="" scope="public_profile,email" onlogin="checkLoginState();"></div>`;
+
+//<div id="fb-root"></div>
+//<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=584847252330296&autoLogAppEvents=1" nonce="kCulCyLB"></script>
+
+//<div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="" scope="public_profile,email" onlogin="checkLoginState();"></div>
+//backup
+//<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true" data-width="" scope="public_profile,email" onlogin="checkLoginState();"></div>
+//data-button-type
+//data-auto-logout-link
+//data-use-continue-as
+
 
 $(function() {
 	console.log("fBook loaded!");
