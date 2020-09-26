@@ -103,6 +103,7 @@
 						$('#userBox').children('span').html('Hello,<br><span>'+response.first_name+'</span>');
 						$('footer .subscribe input.searchInput').val(response.email);
 						sendEvent('User','Login',response.first_name,);
+						checkCart(response.id);
 					}
 				)
 				$('#fBLI').css('display','none');
