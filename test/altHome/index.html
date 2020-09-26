@@ -86,7 +86,13 @@
 				FB.getLoginStatus(function(response) {
 					console.log(response);
 					if(response.status=="connected") {
-						
+						FB.api(
+							'/me',
+							{"fields":"picture,first_name,email"},
+							function(response) {
+								console.log(response);//
+							}
+						);
 					} else {
 						
 					}
