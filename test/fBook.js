@@ -33,13 +33,16 @@ function checkCart(id) {
 	cooked=cooks.join('","');
 	console.log(cooked);
 	cookies=JSON.parse('{"'+cooked+'"}');
-	console.log(cookies);
-	console.log(cookies.cart);
-	console.log(cookies['cart'+id]);
+	console.log(cookies);//check
+	console.log(cookies.cart);//check
+	console.log(cookies['cart'+id]);//check - undefined
 	if(cookies['cart'+id]===undefined) {
 		//or equals something that is non-sense
 		if(cart=='cart'&&cookies.cart!==undefined) {
-			currentCart=cookies.cart
+			cart='cart'+id;
+			window[cart]=cookies.cart;
+			console.log(cart);
+			console.log(window[cart]);
 		}
 	}
 }
