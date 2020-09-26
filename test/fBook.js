@@ -29,6 +29,22 @@ function buildFacebook() {
 		text-indent: 0px;
 		padding-left: 10px;
 	}
+	#fBLI, #fBLO {
+		height: calc(var(--thumb) * .5);
+		width: calc(100% - 20px);
+		font-family: var(--econ);
+		padding: 3px;
+		vertical-align: top;
+		font-size: 20px;
+		position: absolute;
+		bottom: 0px;
+		left: 10px;
+	}
+	
+	
+	.bltMenu {
+		position: relative;
+	}
 	</style>`
 	$('body').append(thisCSS);
 }
