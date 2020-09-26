@@ -28,7 +28,7 @@ function checkCart(id) {
 	cooks=c.split('; ');
 	for(i=0;i<cooks.length;i++) {
 		cSplit=cooks[i].split("=");
-		cooks[i]=cSplit[0]+'":"'+cSplit.splice(0,1);
+		cooks[i]=cSplit[0]+'":"'+cSplit.splice(1);
 	}
 	cooked=cooks.join('","');
 	console.log(cooked);
