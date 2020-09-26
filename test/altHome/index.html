@@ -66,12 +66,22 @@
 					if (response.status==="connected") {
 						console.log('Welcome!  Fetching your information.... ');
 						FB.api('/me', function(response) {
-							console.log('Good to see you, ' + response.name + '.');
+							'/me',
+							{"fields":"picture,first_name,email"},
+							function(response) {
+								console.log(response);//
+							}
 						});
 					} else {
 						console.log('User cancelled login or did not fully authorize.');
 					}
 				},{scope: 'public_profile,email'});
+			}
+			
+			function logOutOfFacebook() {
+				FB.logout(function(response) {
+					console.log(response);
+				})
 			}
 				
 			window.fbAsyncInit = function() {
@@ -81,7 +91,8 @@
 					xfbml      : true,
 					version    : 'v7.0'
 				});
-
+				buildFacebook();
+				//append the navigation.js
 				FB.AppEvents.logPageView();   
 				FB.getLoginStatus(function(response) {
 					console.log(response);
@@ -108,8 +119,6 @@
 			}(document, 'script', 'facebook-jssdk'));
 			//<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true" data-width="" data-scope="public_profile,email" data-onlogin="checkLoginState();"></div>
 		</script>
-			<button style="display:none;" onclick="logIntoFacebook();">Log In?</button>
-
 		<div id="status">
 		</div>
 		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
