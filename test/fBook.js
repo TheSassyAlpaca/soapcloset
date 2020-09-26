@@ -1,7 +1,7 @@
 function buildFacebook() {
 	$('#bltBody').children('.bltMenu').prepend('<div id="userBox"><img src=""><span></span></div>');
-	$('#bltBody').children('.bltMenu').append('<button style="display:none;" onclick="logIntoFacebook();">Log In?</button>');
-	$('#bltBody').children('.bltMenu').append('<button style="display:none;" onclick="logOutOfFacebook();">Log Out?</button>');
+	$('#bltBody').children('.bltMenu').append('<button id="fBLI" style="display:none;" onclick="logIntoFacebook();">Log In?</button>');
+	$('#bltBody').children('.bltMenu').append('<button id="fBLO" style="display:none;" onclick="logOutOfFacebook();">Log Out?</button>');
 
 	//add to css
 	thisCSS=`<style>
@@ -11,6 +11,7 @@ function buildFacebook() {
 	#userBox img {
 		vertical-align: top;
 		border-radius: 50%;
+		height: 40px;
 		border: 5px solid rgba(var(--ocean),.6);
 		box-shadow: 0px 0px 10px 0px rgba(var(--oats),.3);
 	}
