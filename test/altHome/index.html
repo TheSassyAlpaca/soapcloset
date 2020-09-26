@@ -75,7 +75,7 @@
 			function logOutOfFacebook() {
 				FB.logout(function(response) {
 					console.log(response);
-					if(response.status !== 'unknown') {
+					if(response.status !== 'connected') {
 						unsetUser();
 					}
 				})
