@@ -29,7 +29,8 @@ function checkCart(id) {
 	for(i=0;i<cooks.length;i++) {
 		cooks[i].replace('=','":"');
 	}
-	cookies=JSON.parse('{"'+cooks.join(",")+'"}');
+	cooked=cooks.join(",");
+	cookies=JSON.parse('{"'+cooked+'"}');
 	console.log(cookies);
 	console.log(cookies.cart);
 	console.log(cookies['cart'+id]);
