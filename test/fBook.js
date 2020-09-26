@@ -25,7 +25,7 @@ fBJunk=`<script>
 		
 		<div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=584847252330296&autoLogAppEvents=1" nonce="kCulCyLB"></script>`
-fBL=`<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="true" data-width="" scope="public_profile,email"></div>`;
+fBL=`<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="true" data-width="" data-scope="public_profile,email" data-onlogin="checkLoginState();"></div>`;
 
 //<div id="fb-root"></div>
 //<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=584847252330296&autoLogAppEvents=1" nonce="kCulCyLB"></script>
