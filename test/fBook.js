@@ -26,8 +26,9 @@ fBL=`<div class="fb-login-button" data-size="large" data-button-type="login_with
 $(function() {
 	console.log("fBook loaded!");
 	setUser('Facebook',null);
-	$('body').prepend(fBJunk);
+	$('#content').prepend('<button id="fBLogout">Logout</button>');
 	$('#content').prepend(fBL);
+	$('body').prepend(fBJunk);
 })
 
 function checkLoginState() {
@@ -36,7 +37,7 @@ function checkLoginState() {
 		console.log(response);
 		if(response.status=='connected') {
 			console.log("connected");
-			$('#content').prepend('<button id="fBLogout">Logout</button>');
+			
 			//find a better home for the logout button - try the menu
 			//hide login option
 			
