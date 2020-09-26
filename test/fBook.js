@@ -27,9 +27,10 @@ function checkCart(id) {
 	c=document.cookie;
 	cooks=c.split('; ');
 	for(i=0;i<cooks.length;i++) {
-		cooks[i].replace('=','":"');
+		cooks[i].split("=");
+		cooks[i]=cooks[i][0]+'":"'cooks[i].splice(0,1);
 	}
-	cooked=cooks.join(",");
+	cooked=cooks.join('","');
 	console.log(cooked);
 	cookies=JSON.parse('{"'+cooked+'"}');
 	console.log(cookies);
