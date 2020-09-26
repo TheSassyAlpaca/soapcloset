@@ -13,6 +13,14 @@ function checkCart(id) {
 	}
 	cookies=cooks.join('","');
 	console.log(cookies);
+	console.log(cookies.cart);
+	console.log(cookies['cart'+id]);
+	if(cookies['cart'+id]===undefined) {
+		//or equals something that is non-sense
+		if(cart=='cart'&&cookies.cart!==undefined) {
+			currentCart=cookies.cart
+		}
+	}
 }
 
 function buildFacebook() {
