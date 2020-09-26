@@ -26,10 +26,27 @@ function checkCart(id) {
 		//if no, save current cart to that cart name - update cart variable
 	c=document.cookie;
 	cooks=c.split('; ');
+	genCart='';
+	userCart='';
 	for(i=0;i<cooks.length;i++) {
 		cSplit=cooks[i].split("=");
-		cooks[i]=cSplit[0]+'":"'+cSplit.splice(1);
+		if(cSplit[0]=='cart') {
+			genCart=cSplit[0];
+			console.log(genCart);
+		}
+		if(cSplit[0]=='cart'+id) {
+			userCart=cSplit[0];
+			console.log(userCart);
+		}
+		//cooks[i]=cSplit[0]+'":"'+cSplit.splice(1);
 	}
+	cart='cart'+id;
+	if(userCart==''&&genCart!='') {
+		userCart=genCart;
+		//do thing that sets cart as cookie.
+	}
+	
+	/*
 	cooked=cooks.join('","');
 	c1=cooked.split('"{');
 	cooked=c1.join('{');
@@ -40,19 +57,21 @@ function checkCart(id) {
 	console.log(cookies);//check
 	console.log(cookies.cart);//check
 	console.log(cookies['cart'+id]);//check - undefined
+	
 	if(cookies['cart'+id]===undefined) {
 		//or equals something that is non-sense
 		console.log(cart);
 		if(cart=='cart'&&cookies.cart!==undefined) {
 			cart='cart'+id;
-			oldCart=cookies.cart;
-			oldCart=oldCart.split(/[\{\}]+/);
+			//oldCart=cookies.cart;
+			//oldCart=oldCart.split(/[\{\}]+/);
 			console.log(oldCart);
 			window[cart]=oldCart;
 			console.log(cart);
 			console.log(window[cart]);
 		}
 	}
+	*/
 }
 
 function buildFacebook() {
