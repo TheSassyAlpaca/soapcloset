@@ -63,7 +63,7 @@
 			
 			function logIntoFacebook() {
 				FB.login(function(response) {
-					if (response.authResponse) {
+					if (response.status==="connected") {
 						console.log('Welcome!  Fetching your information.... ');
 						FB.api('/me', function(response) {
 							console.log('Good to see you, ' + response.name + '.');
@@ -71,7 +71,7 @@
 					} else {
 						console.log('User cancelled login or did not fully authorize.');
 					}
-				});
+				},{scope: 'public_profile,email'});
 			}
 				
 			window.fbAsyncInit = function() {
@@ -85,6 +85,11 @@
 				FB.AppEvents.logPageView();   
 				FB.getLoginStatus(function(response) {
 					console.log(response);
+					if(response.status=="connected") {
+						
+					} else {
+						
+					}
 				});
 			};
 
@@ -97,7 +102,7 @@
 			}(document, 'script', 'facebook-jssdk'));
 			//<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true" data-width="" data-scope="public_profile,email" data-onlogin="checkLoginState();"></div>
 		</script>
-			<button onclick="logIntoFacebook();"></button>
+			<button style="display:none;" onclick="logIntoFacebook();">Log In?</button>
 
 		<div id="status">
 		</div>
