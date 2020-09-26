@@ -89,7 +89,7 @@
 						console.log(response);//
 						$('#userBox').attr('data-value',response.id);
 						$('#userBox').children('img').attr('src',response.picture.data.url);
-						$('#userBox').children('span').html('Hello,<br>'+response.first_name);
+						$('#userBox').children('span').html('Hello,<br><span>'+response.first_name+'</span>');
 					}
 				)
 				$('#fBLI').css('display','none');
