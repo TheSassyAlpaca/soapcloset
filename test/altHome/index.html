@@ -100,10 +100,11 @@
 						$('#userBox').attr('data-value',response.id);
 						$('#userBox').children('img').attr('src',response.picture.data.url);
 						$('#userBox').children('span').html('Hello,<br><span>'+response.first_name+'</span>');
+						$('footer .subscribe input.searchInput').val(response.email);
 					}
 				)
 				$('#fBLI').css('display','none');
-				$('#fBLO').css('display','unset');			
+				$('#fBLO').css('display','unset');
 			}
 			
 			window.fbAsyncInit = function() {
