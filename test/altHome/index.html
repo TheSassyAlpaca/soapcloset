@@ -72,7 +72,7 @@
 								console.log(response);//
 								$('#userBox').attr('data-value',response.id);
 								$('#userBox').children('img').attr('src',response.picture.data.url);
-								$('#userBox').children('span').text('Hello, '+response.name);
+								$('#userBox').children('span').html('Hello,<br>'+response.first_name);
 							}
 						);
 					} else {
