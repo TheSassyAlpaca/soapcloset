@@ -21,13 +21,10 @@ function buildFacebook() {
 		display: inline-block;
 		text-indent: 0px;
 		padding-left: 10px;
+		font-size: 20px;
 	}
 	#userBox span > span {
-		vertical-align: top;
-		line-height: 25px;
-		display: inline-block;
-		text-indent: 0px;
-		padding-left: 10px;
+		font-size: 150%;
 	}
 	#fBLI, #fBLO {
 		height: calc(var(--thumb) * .5);
