@@ -84,6 +84,9 @@
 			function logOutOfFacebook() {
 				FB.logout(function(response) {
 					console.log(response);
+					$('#userBox').attr('data-value','');
+					$('#userBox').children('img').attr('src','');
+					$('#userBox').children('span').html('Hello');
 				})
 			}
 				
