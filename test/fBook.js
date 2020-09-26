@@ -1,4 +1,4 @@
-cart='cart';
+cartName='cart';
 //update in productNEW.js
 //update in tubNEW.js
 //update cart={}; with window[cart]={};
@@ -31,19 +31,20 @@ function checkCart(id) {
 	for(i=0;i<cooks.length;i++) {
 		cSplit=cooks[i].split("=");
 		if(cSplit[0]=='cart') {
-			genCart=cSplit[0];
+			genCart=cSplit[1];
 			console.log(genCart);
 		}
 		if(cSplit[0]=='cart'+id) {
-			userCart=cSplit[0];
+			userCart=cSplit[1];
 			console.log(userCart);
 		}
 		//cooks[i]=cSplit[0]+'":"'+cSplit.splice(1);
 	}
-	cart='cart'+id;
+	cartName='cart'+id;
 	if(userCart==''&&genCart!='') {
 		userCart=genCart;
 		//do thing that sets cart as cookie.
+		document.cookie=cartName+"="+userCart;
 	}
 	
 	/*
