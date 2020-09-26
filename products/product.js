@@ -101,7 +101,7 @@ function getProduct() {
 					}
 					id=$(this).parents('.buy').attr('id');
 					console.log($(this).parents('.buy').attr('id'));
-					changeCookie('cart',id,a);
+					changeCookie(cartName,id,a);
 					userAlert(a+' '+p.name+' - '+$(this).parents('.buy').attr('data-source')+' are now in your cart.');
 				})
 				$('.buy input').each(function() {
@@ -149,7 +149,7 @@ function options(o) {
 		console.log(id);
 		for(j=0;j<cooks.length;j++) {
 			cookie=cooks[j].split('=');
-			if(cookie[0]=='cart') {
+			if(cookie[0]==cartName) {
 				cart=JSON.parse(cookie[1]);
 				if(id in cart) {
 					v=cart[id];
@@ -175,7 +175,7 @@ function getOptionValue(o) {
 	id=p.category.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.subcategory[0].replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+p.name.replace(/[\s&'!-#()]/g,'').toLowerCase()+'|'+o.name.replace(/[\s&'!-#()]/g,'').toLowerCase();
 	for(i=0;i<cooks.length;i++) {
 		cookie=cooks[i].split('=');
-		if(cookie[0]=='cart') {
+		if(cookie[0]==cartName) {
 			cart=JSON.parse(cookie[1]);
 			if(id in cart) {
 				q=cart[id];
