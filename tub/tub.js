@@ -362,6 +362,6 @@ function emptyTub() {
 	now.setTime(expireTime);
 	expire=now.toGMTString();
 	console.log(expire);
-	document.cookie=cartName+'={};expires='+expire+';path=/;domain=.thesassyalpaca.com';
+	document.cookie='cart526393421421288={};expires='+expire+';path=/;domain=.thesassyalpaca.com';
 	countCart();
 }
