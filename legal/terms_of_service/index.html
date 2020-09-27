@@ -35,8 +35,93 @@
 		<link href='/legal/legal.css' rel='stylesheet' type='text/css'/>
 	</head>
 	<body>
-		<div id="fb-root"></div>
-		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=584847252330296&autoLogAppEvents=1"></script>
+		<script>
+			function checkLoginState() {
+				FB.getLoginStatus(function(response) {
+					console.log(response);
+				});
+			}
+			
+			function logIntoFacebook() {
+				FB.login(function(response) {
+					if (response.status==="connected") {
+						console.log('Welcome!  Fetching your information.... ');
+						setUser();
+					} else {
+						console.log('User cancelled login or did not fully authorize.');
+					}
+				},{scope: 'public_profile,email'});
+			}
+			
+			function logOutOfFacebook() {
+				FB.logout(function(response) {
+					console.log(response);
+					if(response.status !== 'connected') {
+						unsetUser();
+					}
+				})
+			}
+			
+			function unsetUser() {
+				$('#userBox').css('display','none');
+				$('#userBox').attr('data-value','');
+				$('#userBox').children('img').attr('src','');
+				$('#userBox').children('span').html('Hello');
+				$('#fBLO').css('display','none');
+				$('#fBLI').css('display','unset');
+				$('footer .subscribe input.searchInput').val('');
+			}
+			
+			function setUser() {
+				FB.api(
+					'/me',
+					{"fields":"picture,first_name,email"},
+					function(response) {
+						console.log(response);//
+						$('#userBox').css('display','unset');
+						$('#userBox').attr('data-value',response.id);
+						$('#userBox').children('img').attr('src',response.picture.data.url);
+						$('#userBox').children('span').html('Hello,<br><span>'+response.first_name+'</span>');
+						$('footer .subscribe input.searchInput').val(response.email);
+						sendEvent('User','Login',response.first_name,);
+						checkCart(response.id);
+					}
+				)
+				$('#fBLI').css('display','none');
+				$('#fBLO').css('display','unset');
+			}
+			
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId      : '584847252330296',
+					cookie     : true,
+					xfbml      : true,
+					version    : 'v7.0'
+				});
+				buildFacebook();
+				//append the navigation.js
+				FB.AppEvents.logPageView();   
+				FB.getLoginStatus(function(response) {
+					console.log(response);
+					if(response.status=="connected") {
+						setUser();
+					} else {
+						unsetUser();
+					}
+				});
+			};
+
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "https://connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<div id="status">
+		</div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 		<header>
 			<div id="blt">
 				<div id="menuGlyph">
