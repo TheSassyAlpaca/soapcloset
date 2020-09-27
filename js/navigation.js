@@ -55,6 +55,8 @@ function checkCart(id) {
 		document.cookie=cartName+"="+genCart;
 	}
 	countCart();
+	console.log(window.location.href);
+	console.log(window.location.href.indexOf('www.thesassyalpaca.com/tub/'));
 	if(window.location.href.indexOf('www.thesassyalpaca.com/tub/')>-1) {
 		showTub();
 	}
