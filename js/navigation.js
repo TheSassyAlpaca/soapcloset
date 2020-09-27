@@ -58,7 +58,9 @@ function checkCart(id) {
 	console.log(window.location.href);
 	console.log(window.location.href.indexOf('www.thesassyalpaca.com/tub/'));
 	if(window.location.href.indexOf('www.thesassyalpaca.com/tub/')>-1) {
-		downloadProducts();
+		$('#content').empty();
+		buildPage();
+		$('#items .content').append(showTub());
 	}
 }
 
