@@ -357,7 +357,7 @@ function showTub() {
 function emptyTub() {
 	now = new Date();
 	time = now.getTime();
-	expireTime = time + (1000*60*60*24*30);
+	expireTime = time + (1000*60*60*24*30) - 10000;
 	now.setTime(expireTime);
 	expire=now.toGMTString();
 	console.log(expire);
