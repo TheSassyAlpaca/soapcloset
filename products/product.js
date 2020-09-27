@@ -45,7 +45,7 @@ function getProduct() {
 				getIngredients();
 				$('#content').append('<div id="title"><h1>'+p.name+'</h1><span>'+listKeywords(p.keywords)+'</span></div>');
 				$('#content').append('<div id="slideshow"><div id="shareTool"></div><div id="slideHolder" style="background-image:url('+p.images[0]+')"></div></div>');
-				$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'</div>');
+				//$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'</div>');
 				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+p.price+'</div><div><div>'+p.unit+'</div><div class="bulk">'+p.bulk.join(', ')+'</div></div></div></div>');
 				//Redo
 				//$('#content').append(checkInventory(p.qty,p.name));
