@@ -5,19 +5,7 @@ buyMax="off";
 
 $(function() {
 	getProduct();
-	emptyTub();
 })
-
-function emptyTub() {
-	now = new Date();
-	time = now.getTime();
-	expireTime = time + (1000*60*60*24*30*0) - 10000;
-	now.setTime(expireTime);
-	expire=now.toGMTString();
-	console.log(expire);
-	document.cookie='cart526393421421288={};expires='+expire+';path=/;domain=.thesassyalpaca.com';
-	countCart();
-}
 
 function getProduct() {
 	getP=window.location.href.substring(44,window.location.href.lastIndexOf("/"));
