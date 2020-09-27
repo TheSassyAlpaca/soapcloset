@@ -5,7 +5,7 @@ buyMax="off";
 
 $(function() {
 	getProduct();
-	emptyTub()
+	emptyTub();
 })
 
 function emptyTub() {
