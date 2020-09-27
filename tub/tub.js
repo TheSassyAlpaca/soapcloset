@@ -1,9 +1,7 @@
 buyMax="off";
 
 $(function() {
-	emptyTub();
 	buildPage();
-	
 })
 
 professionList=[
@@ -202,6 +200,7 @@ function downloadProducts() {
 			});
 		});
 	})
+	emptyTub();
 }
 
 function cents(x) {
