@@ -1,6 +1,7 @@
 buyMax="off";
 
 $(function() {
+	emptyTub();
 	buildPage();
 })
 
