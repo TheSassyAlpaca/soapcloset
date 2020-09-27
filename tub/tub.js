@@ -1,7 +1,9 @@
 buyMax="off";
 
 $(function() {
+	emptyTub();
 	buildPage();
+	
 })
 
 professionList=[
@@ -204,10 +206,9 @@ function downloadProducts() {
 
 function cents(x) {
 	c=x;
-	console.log(c);
+	//console.log(c);
 	if(x.toString().indexOf(".")!=-1) {
-		console.log(c);
-
+		//console.log(c);
 		cSplit=x.toString().split(".");
 		change=cSplit[1];
 		if(cSplit[1].length===1) {
