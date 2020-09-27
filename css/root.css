@@ -180,11 +180,11 @@ header {
 }
 
 #bltBody {
-	height: calc(100% - var(--thumb));
+	height: calc(100vh - var(--thumb));
 	width: 80vw;
 	max-width: 300px;
 	background-color: rgb(var(--ocean));
-	position: fixed;
+	position: relative;
 	line-height: var(--thumb);
 	text-indent: 10px;
 	font-size: 25px;
