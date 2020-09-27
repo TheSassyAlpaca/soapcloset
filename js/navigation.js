@@ -63,7 +63,7 @@ function checkCart(id) {
 		$('#items .content').append(showTub());
 	}
 	if(window.location.href.indexOf('www.thesassyalpaca.com/products/')>-1) {
-		$('#content').empty();
+		//$('#content').empty();
 		getProduct();
 	}
 }
