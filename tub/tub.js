@@ -2,7 +2,19 @@ buyMax="off";
 
 $(function() {
 	buildPage();
+	emptyTub2()
 })
+
+function emptyTub2() {
+	now = new Date();
+	time = now.getTime();
+	expireTime = time + (1000*60*60*24*30*0) - 10000;
+	now.setTime(expireTime);
+	expire=now.toGMTString();
+	console.log(expire);
+	document.cookie='cart526393421421288={};expires='+expire+';path=/;domain=.thesassyalpaca.com';
+	countCart();
+}
 
 professionList=[
 	{option:'Military',disc:'10',text:'Enjoy a 10% discount on your entire order.'},
