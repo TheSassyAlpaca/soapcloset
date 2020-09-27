@@ -43,14 +43,40 @@ function getProduct() {
 				console.log(p);
 				window['ingredientList']=[];
 				getIngredients();
-				$('#content').append('<div id="title"><h1>'+p.name+'</h1><span>'+listKeywords(p.keywords)+'</span></div>');
-				$('#content').append('<div id="slideshow"><div id="shareTool"></div><div id="slideHolder" style="background-image:url('+p.images[0]+')"></div></div>');
-				//$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'</div>');
-				$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+p.price+'</div><div><div>'+p.unit+'</div><div class="bulk">'+p.bulk.join(', ')+'</div></div></div></div>');
+				if($('#title').length<1) {
+					$('#content').append('<div id="title"><h1>'+p.name+'</h1><span>'+listKeywords(p.keywords)+'</span></div>');
+				}
+				if($('#slideshow').length<1) {
+					$('#content').append('<div id="slideshow"><div id="shareTool"></div><div id="slideHolder" style="background-image:url('+p.images[0]+')"></div></div>');
+				}
+				if($('#slideThumb').length<1) {
+					$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'</div>');
+				}
+				if($('#pricing').length<1) {
+					$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+p.price+'</div><div><div>'+p.unit+'</div><div class="bulk">'+p.bulk.join(', ')+'</div></div></div></div>');
+				}
 				//Redo
 				//$('#content').append(checkInventory(p.qty,p.name));
-				$('#content').append('<div id="description">'+p.description+'</div>');
-				$('#content').append('<div id="ingredients"><b>Ingredients:</b> '+ingredients(p.ingredients)+'</div>');
+				if($('#description').length<1) {
+					$('#content').append('<div id="description">'+p.description+'</div>');
+				}
+				if($('#ingredients').length<1) {
+					$('#content').append('<div id="ingredients"><b>Ingredients:</b> '+ingredients(p.ingredients)+'</div>');
+				}
+				$('#content').children('#options').remove();
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				//THIS IS WHERE THE NEW SCENT OPTIONS NEED TO BE ENTERED
 				console.log(p.options);
 				$('#content').append('<div id="options"></div>');
@@ -68,11 +94,6 @@ function getProduct() {
 						}
 					}
 				})
-				
-				
-				
-				
-				
 				$('.buy button').click(function(e) {
 					//e.stopPropagation();
 					a=0;
