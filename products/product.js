@@ -68,8 +68,8 @@ function getProduct() {
 					})
 					$('#favIt, #wishIt').click(function() {
 						console.log('Clicked fav tool');
-						console.log($(this).id());
-						thisClass=$(this).id();
+						console.log($(this).attr('id'));
+						thisClass=$(this).attr('id');
 						if($(this).hasClass(thisClass)) {
 							$(this).removeClass(thisClass);
 							//remove like
