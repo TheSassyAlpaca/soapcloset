@@ -69,7 +69,28 @@ function getProduct() {
 					$('#favIt, #wishIt').click(function() {
 						console.log('Clicked fav tool');
 						console.log(this.id());
+						class=this.id();
+						if(this.hasClass(class)) {
+							this.removeClass(class);
+							//remove like
+						} else {
+							this.addClass(class);
+							//add like
+							//userID+"|"+product
+						}
 					})
+				}
+				if(cartName!=='cart') {
+					userID=cartName.substring(4);
+					$('#favIt,#wishIt').attr('data-value',userID);
+					console.log(userID);
+					start=window.location.hostname.length;
+					extra="/products/";
+					start=start+extra.length;
+					productName=window.location.pathname.substring(start);
+					console.log(start);
+					//fetch fav list using userID + "|" + p
+					
 				}
 				if($('#slideThumb').length<1) {
 					$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'</div>');
@@ -142,24 +163,6 @@ function getProduct() {
 						}
 					})
 				}
-				
-				
-				
-				//this should probably be moved to Navigation.js
-				
-				if(cartName!=='cart') {
-					userID=cartName.substring(4);
-					$('#favIt,#wishIt').attr('data-value',userID);
-					console.log(userID);
-					start=window.location.hostname.length;
-					extra="/products/";
-					start=start+extra.length;
-					productName=window.location.pathname.substring(start);
-					console.log(productName);
-					//fetch fav list using userID + "|" + p
-					
-				}
-				
 			})
 		});
 	});
