@@ -47,7 +47,7 @@ function getProduct() {
 					$('#content').append('<div id="title"><h1>'+p.name+'</h1><span>'+listKeywords(p.keywords)+'</span></div>');
 				}
 				if($('#slideshow').length<1) {
-					$('#content').append('<div id="slideshow"><div id="shareTool"></div><div id="favTool"><div id="favIt"><img src="/images/favStar.png"></div><div id="wishIt"><img src="/images/favHeart.png"></div></div><div id="slideHolder" style="background-image:url('+p.images[0]+')"></div></div>');
+					$('#content').append('<div id="slideshow"><div id="shareTool"></div><div id="favTool"><div id="favIt"><img src="/images/favStar.png"></div><div id="wishIt"><img src="/images/favHeart.png" style="height: 126%,width: 126%,margin-top: -9%,margin-right: -13%,margin-bottom: -17%,margin-left: -13%;"></div></div><div id="slideHolder" style="background-image:url('+p.images[0]+')"></div></div>');
 					$('#shareTool').click(function() {
 						console.log('clicky');
 						//test and update the objects as needed...
