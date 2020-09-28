@@ -82,14 +82,12 @@ function getProduct() {
 				}
 				if(cartName!=='cart') {
 					userID=cartName.substring(4);
-					$('#favIt,#wishIt').attr('data-value',userID);
 					console.log(userID);
 					extra="/products/";
 					start=extra.length;
-					//path=window.location.pathname;
 					productName=window.location.pathname.substring(start);
-					productName=productName.replace(/\//g,"|");
 					console.log(productName);
+					$('#favIt,#wishIt').attr('data-value',userID+"|"+productName);
 					//fetch fav list using userID + "|" + p
 					
 				}
