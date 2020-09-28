@@ -66,9 +66,9 @@ function getProduct() {
 							$('#shareModul').remove();
 						})
 					})
-					$('#favIt, #wishIt').click(function() {
+					$('#favIt, #wishIt').click(function(this) {
 						console.log('Clicked fav tool');
-						
+						console.log(this);
 					})
 				}
 				if($('#slideThumb').length<1) {
