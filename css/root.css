@@ -617,11 +617,18 @@ footer .searchBar {
 }
 
 #favTool {
-	
+	position: absolute;
+	top: 5px;
+	right: 35px;
+	height: calc(var(--thumb) * .5);
+	width: calc(calc(calc(var(--thumb) * .5) * 2) + 10px);
 }
 
 #favIt, #wishIt {
-	
+	display: inline-block;
+	margin-right: 5px;
+	height: calc(var(--thumb) * .5);
+	width: calc(var(--thumb) * .5);
 }
 
 .favIt {
