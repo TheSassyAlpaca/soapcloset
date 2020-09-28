@@ -88,6 +88,7 @@ function getProduct() {
 					start=extra.length;
 					//path=window.location.pathname;
 					productName=window.location.pathname.substring(start);
+					productName=productName.replace(/\//g,"|");
 					console.log(productName);
 					//fetch fav list using userID + "|" + p
 					
