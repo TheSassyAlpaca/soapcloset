@@ -2,6 +2,7 @@ tempFolder="";
 safe=5;
 p={};
 buyMax="off";
+
 $(function() {
 	getProduct();
 })
@@ -67,13 +68,13 @@ function getProduct() {
 					})
 					$('#favIt, #wishIt').click(function() {
 						console.log('Clicked fav tool');
-						console.log(this.id());
-						class=this.id();
-						if(this.hasClass(class)) {
-							this.removeClass(class);
+						console.log($(this).id());
+						class=$(this).id();
+						if($(this).hasClass(class)) {
+							$(this).removeClass(class);
 							//remove like
 						} else {
-							this.addClass(class);
+							$(this).addClass(class);
 							//add like
 							//userID+"|"+product
 						}
