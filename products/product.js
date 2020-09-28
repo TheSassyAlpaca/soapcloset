@@ -48,9 +48,34 @@ function getProduct() {
 				}
 				if($('#slideshow').length<1) {
 					$('#content').append('<div id="slideshow"><div id="shareTool"></div><div id="favTool"><div id="favIt"><img src="/images/favStar.png"></div><div id="wishIt"><img src="/images/favHeart.png"></div></div><div id="slideHolder" style="background-image:url('+p.images[0]+')"></div></div>');
+					$('#shareTool').click(function() {
+						console.log('clicky');
+						//test and update the objects as needed...
+						socialMediaShares=[
+							{icon:'facebook.png',href:'https://www.facebook.com/sharer/sharer.php?u='+encodeURI($(location).attr("href"))},
+							{icon:'twitter.png',href:'https://twitter.com/intent/tweet?text='+encodeURI($(location).attr("href"))},
+							{icon:'linkedin.png',href:'https://www.linkedin.com/shareArticle?mini=true&url='+encodeURI($(location).attr("href"))+'&title='+encodeURI(p.name)+'&summary='+encodeURI(p.description)+'&source=The Sassy Alpaca'},
+							{icon:'pinterest.png',href:'https://pinterest.com/pin/create/button/?url='+encodeURI($(location).attr("href"))+'&media='+encodeURI($("meta[property='og:image']").attr("content"))+'&description='+encodeURI($("meta[property='og:description']").attr("content"))}
+						];
+						console.log(socialMediaShares);
+						$('body').append('<div id="shareModul"><div id="shareContainer"></div></div>');
+						for(s=0;s<socialMediaShares.length;s++) {
+							$('#shareContainer').append('<a href="'+socialMediaShares[s].href+'" target="_blank"><div style="background-image: url(/images/'+socialMediaShares[s].icon+')"></div></a>');
+						}
+						$('#shareModul').click(function() {
+							$('#shareModul').remove();
+						})
+					})
+					$('#favIt, #wishIt').click(function() {
+						console.log('Clicked fav tool');
+						
+					})
 				}
 				if($('#slideThumb').length<1) {
 					$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'</div>');
+					$('.slide').click(function() {
+						$('#slideHolder').css('background-image',$(this).css('background-image'));
+					})
 				}
 				if($('#pricing').length<1) {
 					$('#content').append('<div id="pricing"><div class="priceBox"><div>$'+p.price+'</div><div><div>'+p.unit+'</div><div class="bulk">'+p.bulk.join(', ')+'</div></div></div></div>');
@@ -62,96 +87,66 @@ function getProduct() {
 				}
 				if($('#ingredients').length<1) {
 					$('#content').append('<div id="ingredients"><b>Ingredients:</b> '+ingredients(p.ingredients)+'</div>');
+					$('.ingredient').on('hover click',function() {
+						console.log($(this).attr('data-source'));
+						for(i=0;i<ingredientList.length;i++) {
+							if(ingredientList[i].name==$(this).attr('data-source')) {
+								console.log(ingredientList[i].desc);
+							}
+						}
+					})
 				}
 				$('#content').children('#options').remove();
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				//THIS IS WHERE THE NEW SCENT OPTIONS NEED TO BE ENTERED
 				console.log(p.options);
 				$('#content').append('<div id="options"></div>');
 				for(o=0;o<p.options.length;o++) {
 					$('#options').append('<h2>'+p.options[o].option+'</h2><div class="optionsContainer">'+options(p.options[o])+'</div>');
-				}
-				$('.slide').click(function() {
-					$('#slideHolder').css('background-image',$(this).css('background-image'));
-				})
-				$('.ingredient').on('hover click',function() {
-					console.log($(this).attr('data-source'));
-					for(i=0;i<ingredientList.length;i++) {
-						if(ingredientList[i].name==$(this).attr('data-source')) {
-							console.log(ingredientList[i].desc);
-						}
-					}
-				})
-				$('.buy button').click(function(e) {
-					//e.stopPropagation();
-					a=0;
-					i=$(this).parent().find('input');
-					$(this).parent().find('input').next().removeClass('greyedOut');
-					if(!$(this).hasClass('addToCart')) {
-						if($(this).hasClass('down')) {
-							i.val(Number(Number(i.val())-1));
+					$('.buy button').click(function(e) {
+						//e.stopPropagation();
+						a=0;
+						i=$(this).parent().find('input');
+						$(this).parent().find('input').next().removeClass('greyedOut');
+						if(!$(this).hasClass('addToCart')) {
+							if($(this).hasClass('down')) {
+								i.val(Number(Number(i.val())-1));
+							} else {
+								i.val(Number(Number(i.val())+1));
+							}
+							a=i.val();
 						} else {
-							i.val(Number(Number(i.val())+1));
+							i.val(1);
+							a=1;
 						}
-						a=i.val();
-					} else {
-						i.val(1);
-						a=1;
-					}
-					if(i.val()>=Number(i.attr('max'))&buyMax=="on") {
-						i.val(Number(i.attr('max')));
-						a=i.val();
-						i.next().addClass('greyedOut');
-					}
-					if(i.val()!=0) {
-						$(this).parents('.buy').find('.addToCart').css('display','none');
-					} else {
-						$(this).parents('.buy').find('.addToCart').css('display','block');
-					}
-					id=$(this).parents('.buy').attr('id');
-					console.log($(this).parents('.buy').attr('id'));
-					changeCookie(cartName,id,a);
-					userAlert(a+' '+p.name+' - '+$(this).parents('.buy').attr('data-source')+' are now in your cart.');
-				})
-				$('.buy input').each(function() {
-					if($(this).val()!=0) {
-						$(this).parent().parent().children('.addToCart').css('display','none');
-					}
-					if($(this).val()>=Number($(this).attr('max'))&buyMax=="on") {
-						$(this).parent().find('input').next().addClass('greyedOut');
-					}
-				})
-				//this should probably be moved to Navigation.js
-				$('#shareTool').click(function() {
-					console.log('clicky');
-					//test and update the objects as needed...
-					socialMediaShares=[
-						{icon:'facebook.png',href:'https://www.facebook.com/sharer/sharer.php?u='+encodeURI($(location).attr("href"))},
-						{icon:'twitter.png',href:'https://twitter.com/intent/tweet?text='+encodeURI($(location).attr("href"))},
-						{icon:'linkedin.png',href:'https://www.linkedin.com/shareArticle?mini=true&url='+encodeURI($(location).attr("href"))+'&title='+encodeURI(p.name)+'&summary='+encodeURI(p.description)+'&source=The Sassy Alpaca'},
-						{icon:'pinterest.png',href:'https://pinterest.com/pin/create/button/?url='+encodeURI($(location).attr("href"))+'&media='+encodeURI($("meta[property='og:image']").attr("content"))+'&description='+encodeURI($("meta[property='og:description']").attr("content"))}
-					];
-					console.log(socialMediaShares);
-					$('body').append('<div id="shareModul"><div id="shareContainer"></div></div>');
-					for(s=0;s<socialMediaShares.length;s++) {
-						$('#shareContainer').append('<a href="'+socialMediaShares[s].href+'" target="_blank"><div style="background-image: url(/images/'+socialMediaShares[s].icon+')"></div></a>');
-					}
-					$('#shareModul').click(function() {
-						$('#shareModul').remove();
+						if(i.val()>=Number(i.attr('max'))&buyMax=="on") {
+							i.val(Number(i.attr('max')));
+							a=i.val();
+							i.next().addClass('greyedOut');
+						}
+						if(i.val()!=0) {
+							$(this).parents('.buy').find('.addToCart').css('display','none');
+						} else {
+							$(this).parents('.buy').find('.addToCart').css('display','block');
+						}
+						id=$(this).parents('.buy').attr('id');
+						console.log($(this).parents('.buy').attr('id'));
+						changeCookie(cartName,id,a);
+						userAlert(a+' '+p.name+' - '+$(this).parents('.buy').attr('data-source')+' are now in your cart.');
 					})
-				})
+					$('.buy input').each(function() {
+						if($(this).val()!=0) {
+							$(this).parent().parent().children('.addToCart').css('display','none');
+						}
+						if($(this).val()>=Number($(this).attr('max'))&buyMax=="on") {
+							$(this).parent().find('input').next().addClass('greyedOut');
+						}
+					})
+				}
+				
+				
+				
+				//this should probably be moved to Navigation.js
+				
 				if(cartName!=='cart') {
 					userID=cartName.substring(4);
 					$('#favIt,#wishIt').attr('data-value',userID);
@@ -164,10 +159,7 @@ function getProduct() {
 					//fetch fav list using userID + "|" + p
 					
 				}
-				$('#favIt, #wishIt').click(function() {
-					console.log('Clicked fav tool');
-					
-				})
+				
 			})
 		});
 	});
