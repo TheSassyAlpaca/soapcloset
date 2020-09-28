@@ -87,7 +87,7 @@ function getProduct() {
 						console.log(c);
 						//submitForm(f,q,a);
 						sendEvent('User',p,a.join(","));
-						userAlert('You like this item!');
+						userAlert('This feature is not yet implemented. :(');
 					})
 				}
 				if(cartName!=='cart') {
