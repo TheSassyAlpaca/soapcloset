@@ -47,7 +47,7 @@ function getProduct() {
 					$('#content').append('<div id="title"><h1>'+p.name+'</h1><span>'+listKeywords(p.keywords)+'</span></div>');
 				}
 				if($('#slideshow').length<1) {
-					$('#content').append('<div id="slideshow"><div id="shareTool"></div><div id="favTool"><div id="favIt"><img src=""></div><div id="wishIt"><img src=""></div></div><div id="slideHolder" style="background-image:url('+p.images[0]+')"></div></div>');
+					$('#content').append('<div id="slideshow"><div id="shareTool"></div><div id="favTool"><div id="favIt"><img src="/images/favStar.png"></div><div id="wishIt"><img src="/images/favHeart.png"></div></div><div id="slideHolder" style="background-image:url('+p.images[0]+')"></div></div>');
 				}
 				if($('#slideThumb').length<1) {
 					$('#slideshow').append('<div id="slideThumb">'+slides(p.images)+'</div>');
