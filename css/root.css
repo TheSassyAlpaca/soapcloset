@@ -584,7 +584,7 @@ footer .searchBar {
 	background-image: url(/images/share.png);
 	background-size: 100% 100%;
 	background-position: center center;
-	filter: invert(1);
+	filter: invert(1) drop-shadow(2px 4px 6px black);
 }
 
 #shareModul {
@@ -631,6 +631,7 @@ footer .searchBar {
 	width: calc(var(--thumb) * .5);
 	overflow: hidden;
 	background-repeat: no-repeat;
+	filter: drop-shadow(2px 4px 6px black);
 }
 
 .favIt {
@@ -644,7 +645,7 @@ footer .searchBar {
 #favTool img {
 	height: 100%;
 	width: 100%;
-	filter: invert(1);
+	filter: invert(1) drop-shadow(2px 4px 6px black);
 }
 
 #userBox {
