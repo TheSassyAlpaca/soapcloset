@@ -640,7 +640,9 @@ footer .searchBar {
 }
 
 #favTool img {
-	
+	height: 100%;
+	width: 100%;
+	filter: invert(1);
 }
 
 #userBox {
