@@ -633,11 +633,11 @@ footer .searchBar {
 }
 
 .favIt {
-	background-image=url("/images/favStarOrange.png");
+	background-image:url("/images/favStarOrange.png");
 }
 
 .wishIt {
-	background-image=url("/images/favHeartRed.png");
+	background-image:url("/images/favHeartRed.png");
 }
 
 #favTool img {
