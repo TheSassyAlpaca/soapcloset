@@ -68,7 +68,7 @@ function getProduct() {
 					})
 					$('#favIt, #wishIt').click(function() {
 						console.log('Clicked fav tool');
-						console.log(this);
+						console.log(this); 
 					})
 				}
 				if($('#slideThumb').length<1) {
