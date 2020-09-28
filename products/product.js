@@ -156,7 +156,7 @@ function getProduct() {
 					userID=cartName.substring(4);
 					$('#favIt,#wishIt').attr('data-value',userID);
 					console.log(userID);
-					productName=window.location.pathname.substring((window.location.hostname.length)+("/products/".length));
+					productName=window.location.pathname.substring(window.location.hostname.length+"/products/".length);
 					console.log(productName);
 					//fetch fav list using userID + "|" + p
 					
