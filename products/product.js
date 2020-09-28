@@ -69,12 +69,12 @@ function getProduct() {
 					$('#favIt, #wishIt').click(function() {
 						console.log('Clicked fav tool');
 						console.log($(this).id());
-						class=$(this).id();
-						if($(this).hasClass(class)) {
-							$(this).removeClass(class);
+						thisClass=$(this).id();
+						if($(this).hasClass(thisClass)) {
+							$(this).removeClass(thisClass);
 							//remove like
 						} else {
-							$(this).addClass(class);
+							$(this).addClass(thisClass);
 							//add like
 							//userID+"|"+product
 						}
