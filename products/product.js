@@ -2,7 +2,6 @@ tempFolder="";
 safe=5;
 p={};
 buyMax="off";
-
 $(function() {
 	getProduct();
 })
