@@ -66,7 +66,7 @@ function getProduct() {
 							$('#shareModul').remove();
 						})
 					})
-					$('#favIt, #wishIt').click(function(this) {
+					$('#favIt, #wishIt').click(function() {
 						console.log('Clicked fav tool');
 						console.log(this);
 					})
