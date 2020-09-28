@@ -78,6 +78,16 @@ function getProduct() {
 							//add like
 							//userID+"|"+product
 						}
+						p=$(this).parent().attr('data-value');
+						c=$(this).attr('class');
+						f="";//form - full url including first entry
+						q=[];//array of subsequent queries sans '='
+						a=[p,c];//list of query responses
+						console.log(p);
+						console.log(c);
+						//submitForm(f,q,a);
+						sendEvent('User',p,a.join(","));
+						userAlert('You like this item!');
 					})
 				}
 				if(cartName!=='cart') {
