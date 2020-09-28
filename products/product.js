@@ -78,7 +78,7 @@ function getProduct() {
 							//add like
 							//userID+"|"+product
 						}
-						p=$(this).parent().attr('data-value');
+						p=$(this).attr('data-value');
 						c=$(this).attr('class');
 						f="";//form - full url including first entry
 						q=[];//array of subsequent queries sans '='
