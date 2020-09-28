@@ -629,7 +629,6 @@ footer .searchBar {
 	margin-right: 5px;
 	height: calc(var(--thumb) * .5);
 	width: calc(var(--thumb) * .5);
-	overflow: hidden;
 	background-repeat: no-repeat;
 	filter: drop-shadow(2px 4px 6px black);
 }
