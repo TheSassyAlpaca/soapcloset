@@ -630,6 +630,7 @@ footer .searchBar {
 	height: calc(var(--thumb) * .5);
 	width: calc(var(--thumb) * .5);
 	overflow: hidden;
+	background-repeat: no-repeat;
 }
 
 .favIt {
